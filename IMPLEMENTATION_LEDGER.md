@@ -221,6 +221,17 @@
 
 ---
 
+## Sprint 13A — External Positioning Brief
+
+| Field | Value |
+|-------|-------|
+| **Status** | Complete |
+| **Deliverable** | `POSITIONING_BRIEF.md` |
+| **Summary** | External positioning control layer; governs all outbound category communication. No code or route changes. |
+| **Next** | Sprint 13B — LinkedIn + X launch copy |
+
+---
+
 ## Related Documents
 
 | Document | Role |
@@ -230,6 +241,7 @@
 | `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (PUB-REL-001 ratified) |
 | `PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
 | `LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
+| `POSITIONING_BRIEF.md` | External positioning control layer (Sprint 13A) |
 
 ---
 
