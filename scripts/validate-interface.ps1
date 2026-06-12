@@ -31,7 +31,12 @@ $externalViolations = @()
 foreach ($h in $htmlFiles) {
   $content = Get-Content -Raw -Encoding UTF8 -Path $h.FullName
   if ($content -match '<script[^>]+src\s*=\s*["'']https?://') { $externalViolations += "$($h.Name): external <script src>" }
-  if ($content -match '<link[^>]+href\s*=\s*["'']https?://') { $externalViolations += "$($h.Name): external <link href>" }
+  # Only resource-loading links count as dependencies; rel="canonical" is governed metadata.
+  foreach ($linkTag in [regex]::Matches($content, '<link[^>]+>')) {
+    if ($linkTag.Value -match 'href\s*=\s*["'']https?://' -and $linkTag.Value -notmatch 'rel\s*=\s*["'']canonical') {
+      $externalViolations += "$($h.Name): external <link href>"
+    }
+  }
 }
 if ($css -match '@import\s+url\(\s*["'']?https?://') { $externalViolations += 'main.css: external @import' }
 if ($css -match 'fonts\.googleapis|fonts\.gstatic|use\.typekit|cdn\.') { $externalViolations += 'main.css: external font/CDN reference' }

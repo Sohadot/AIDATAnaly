@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidence Confidence (E0–E4) — Confidence Is Not Score | AIDAtanaly</title>
+  <meta name="description" content="Evidence Confidence qualifies every ATI output from E0 to E4. It is never part of the score: E0 vectors are Unscorable, E1 is provisional, E2 is indicative, and E3/E4 never imply guaranteed causality.">
+  <link rel="canonical" href="https://aidatanaly.com/evidence-confidence/">
+  <!-- Pre-launch: removed at the first public indexed release per ROUTE_MAP.md §15 -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Route ID: AIDA-ATI-003
+  Path: /evidence-confidence/
+  Page Class: Standard Page
+  Route Status: Required Launch
+  Primary Governed Document: ATI_STANDARD.md (v1.1)
+  Secondary Governed Documents: SCANNER_MODEL.md, TFO_ONTOLOGY.md, INTERFACE_GOVERNANCE.md
+  Machine-Readable Future Mapping: /data/ati-standard.json (evidence_confidence), /data/scanner-model.json
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <header class="layout-header">
+        <p class="layout-section__kicker">Standard — governed by ATI Standard v1.1</p>
+        <h1>Evidence Confidence</h1>
+        <p class="layout-prose">Every output of the <a href="/aida-transition-index/">AIDA Transition
+          Index</a> carries a second, separate reading: how much evidence stands behind it.
+          That reading is Evidence Confidence, expressed on a five-level scale from E0 to E4.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Governing Rule</h2>
+        <blockquote class="doctrine-statement">
+          Evidence Confidence is <strong>not part of the ATI score</strong>.
+        </blockquote>
+        <p>Evidence Confidence is reported separately from the score, displayed separately from the
+          score, and never included in the score mathematically. There is no evidence weight inside
+          the scoring formula. A score answers <em>how healthy is the movement?</em> Evidence
+          Confidence answers a different question: <em>how strongly should that answer be
+          believed?</em></p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why This Standard Exists</h2>
+        <p>Diagnostic systems lose integrity in one of two ways: they refuse to say anything until
+          data is perfect, or they present guesses with the same certainty as measurements. Evidence
+          Confidence is the mechanism that avoids both. It lets ATI score what can honestly be scored,
+          while making the strength of the underlying evidence permanently visible next to every
+          number — never blended into it.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>The Five Levels</h2>
+        <table>
+          <thead>
+            <tr><th scope="col">Level</th><th scope="col">Name</th><th scope="col">Meaning</th><th scope="col">Output treatment</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span></span></td>
+              <td>Absent Evidence</td>
+              <td>No meaningful evidence available.</td>
+              <td><strong>Unscorable.</strong> No numeric score is issued.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-evidence"><span class="badge-evidence__code">E1</span></span></td>
+              <td>Self-Reported Evidence</td>
+              <td>Based mainly on user answers or internal belief.</td>
+              <td>Score allowed, described in <strong>provisional</strong> language.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-evidence"><span class="badge-evidence__code">E2</span></span></td>
+              <td>Observable Evidence</td>
+              <td>Based on visible metrics, behavior, or reported funnel data.</td>
+              <td>Score allowed, described in <strong>indicative</strong> language.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-evidence"><span class="badge-evidence__code">E3</span></span></td>
+              <td>Multi-Source Evidence</td>
+              <td>Based on multiple signals across channels or systems.</td>
+              <td>Stronger confidence language allowed; <strong>no guaranteed causality</strong>.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-evidence"><span class="badge-evidence__code">E4</span></span></td>
+              <td>Validated Evidence</td>
+              <td>Based on tracked, repeated, and verifiable data patterns.</td>
+              <td>Strongest confidence language allowed; <strong>no guaranteed causality</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Assignment logic, in one line: no evidence is E0, belief alone is E1, one observable
+          source is E2, multiple connected sources are E3, and validated repeated data is E4.
+          Confidence is assigned per vector, not once per scan.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>The E0 Rule: Unscorable Means Unscored</h2>
+        <p>When a vector has no meaningful evidence, ATI does not estimate, does not average, and
+          does not display a zero. Zero is a score; absence of evidence is not. The vector renders
+          as an explicit Unscorable state:</p>
+        <div class="evidence-unscorable">
+          <span class="evidence-unscorable__label">T4: Unscorable</span>
+          <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Absent Evidence</span>
+          <p class="evidence-unscorable__note">No numeric score is issued for this vector.
+            <a href="/failure-modes/measurement-gap/">Measurement Gap</a> limits the confidence of this diagnosis.</p>
+        </div>
+        <p>Prohibited rendering: <code>T4: 22 / E0 Absent Evidence</code>. A number next to E0 is a
+          false measurement.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>The Partial Profile Rule</h2>
+        <p>The E0 rule extends to the composite score. If one or more vectors are E0, the
+          <a href="/scanner/">scanner</a> must not issue a clean composite ATI score. It issues a
+          Partial Profile instead:</p>
+        <pre><code>ATI Profile: Partial
+Scorable vectors: T1, T2, T3
+Unscorable vector: T4 / E0 Absent Evidence</code></pre>
+        <p>Averaging three measured vectors with one unmeasured vector would manufacture a composite
+          number that no evidence supports. The Partial Profile keeps the output honest while still
+          delivering full diagnostic value for the vectors that can be scored.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Language Discipline by Level</h2>
+        <ul>
+          <li><strong>E0</strong> — no numeric score; the vector is named Unscorable and the
+            measurement gap is stated.</li>
+          <li><strong>E1</strong> — results use provisional language: "this diagnosis is based on
+            self-reported evidence and should be treated as provisional."</li>
+          <li><strong>E2</strong> — results use indicative language: "observable evidence indicates
+            weak movement on this vector."</li>
+          <li><strong>E3 and E4</strong> — results may use stronger confidence language;
+            language implying guaranteed causality or promised outcomes remains prohibited at
+            every level, including E4.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>How It Appears in the Interface</h2>
+        <p>The separation is visual, not only textual. Scores use the diagnostic class scale;
+          Evidence Confidence always renders as a neutral badge adjacent to — never inside — the
+          score visual:</p>
+        <div class="score-panel score-panel--unstable">
+          <span class="score-panel__value">58</span>
+          <span class="score-panel__bar"><span class="score-panel__bar-fill" style="width: 58%"></span></span>
+          <span class="badge-diagnostic badge-diagnostic--unstable">Transition Unstable</span>
+          <span class="badge-evidence"><span class="badge-evidence__code">E2</span> Observable Evidence</span>
+        </div>
+        <p class="utility-muted">The colored panel is the score. The gray badge is the confidence.
+          They never merge.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to Measurement Gap</h2>
+        <p>Low Evidence Confidence is frequently the surface symptom of
+          <a href="/failure-modes/measurement-gap/">Measurement Gap</a>
+          (<span class="stable-id-chip">tfo.constraint.measurement_gap</span>) — the diagnostic
+          constraint in the <a href="/transition-failure-ontology/">Transition Failure Ontology</a>
+          that applies when an organization cannot measure its own movement clearly. Measurement Gap
+          does not reduce any ATI score. It reduces the confidence with which scores may be
+          interpreted, which is exactly what this scale records.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>What This Standard Does Not Claim</h2>
+        <ul>
+          <li>High confidence does not mean a high score, and a high score does not mean high
+            confidence. The two readings are independent by design.</li>
+          <li>E4 does not certify business success; it certifies that the evidence behind the
+            diagnosis is tracked, repeated, and verifiable.</li>
+          <li>No confidence level converts a diagnosis into a promise. Unsupported certainty and
+            revenue promises are prohibited at every level.</li>
+        </ul>
+      </section>
+
+      <nav class="reference-links" aria-label="Governed references">
+        <p class="reference-links__heading">Related reference pages</p>
+        <ul class="reference-links__list">
+          <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+          <li><a href="/failure-modes/measurement-gap/">Measurement Gap</a><span class="reference-links__route">/failure-modes/measurement-gap/</span></li>
+          <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+          <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+          <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+          <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+        </ul>
+      </nav>
+
+    </main>
+
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com — a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

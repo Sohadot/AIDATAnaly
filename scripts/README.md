@@ -58,6 +58,31 @@ surfaces, Unscorable State is non-numeric, Transition Axis is responsive,
 preview page is noindex and readable without JavaScript, and motion tokens
 stay within the governed 200–600ms range.
 
+## validate-pages.ps1 (built in Sprint 3)
+
+Validates every implemented public route page against `PAGE_BLUEPRINTS.md` §27
+(quality gate) and `ROUTE_MAP.md` §15/§18.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
+```
+
+Auto-discovers implemented routes (an `index.html` under a Required Launch
+route) and checks per page: exactly one `<h1>`, unique title, unique meta
+description, canonical URL matching the route, pre-launch `noindex`, the
+governed stylesheet, zero `<script>` tags, all internal links inside the
+launch route set, and prohibited claim language (unqualified "industry
+standard", guarantee phrasing, revenue promises). It also enforces
+blueprint-required internal links per route and the page-specific governed
+statements (Evidence Confidence separation statement, the ten intervention
+layers, the homepage primary message).
+
+Note: `preview/` is internal, carries `noindex, nofollow`, is not a
+`ROUTE_MAP.md` route, and must never be included in `sitemap.xml` (sitemap
+generation reads only the 41-route launch list).
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:

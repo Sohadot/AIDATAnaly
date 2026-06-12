@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intervention Layers — The Ten Approved Corrective Classes | AIDAtanaly</title>
+  <meta name="description" content="AIDAtanaly recommends corrections through exactly ten approved intervention layers, from Audience to Sales-Assist. Channel and Measurement Governance are contextual subcases, not standalone layers.">
+  <link rel="canonical" href="https://aidatanaly.com/intervention-layers/">
+  <!-- Pre-launch: removed at the first public indexed release per ROUTE_MAP.md §15 -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Route ID: AIDA-ATI-004
+  Path: /intervention-layers/
+  Page Class: Standard Page
+  Route Status: Required Launch
+  Primary Governed Document: ATI_STANDARD.md (v1.1)
+  Secondary Governed Documents: TFO_ONTOLOGY.md, SCANNER_MODEL.md, INTERFACE_GOVERNANCE.md
+  Machine-Readable Future Mapping: /data/intervention-layers.json
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <header class="layout-header">
+        <p class="layout-section__kicker">Standard — governed by ATI Standard v1.1 and TFO Ontology v1.0</p>
+        <h1>Intervention Layers</h1>
+        <p class="layout-prose">When the <a href="/aida-transition-index/">AIDA Transition Index</a>
+          finds weak movement and the <a href="/transition-failure-ontology/">Transition Failure
+          Ontology</a> names the failure, the system answers one final question: <em>where should
+          correction be applied?</em> The answer is always one or more of ten approved intervention
+          layers.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Definition</h2>
+        <p>An intervention layer is a governed class of corrective action. It names the part of the
+          funnel system where a correction belongs — the audience, the message, the offer, the proof,
+          the path — without prescribing a specific tactic. Every failure mode in the ontology maps to
+          its relevant layers, and every <a href="/scanner/">scanner</a> recommendation is expressed
+          in these terms.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why This Standard Exists</h2>
+        <p>Unbounded recommendations degrade trust. If a diagnostic tool may suggest anything, its
+          suggestions drift toward generic marketing advice. A closed registry keeps every
+          recommendation traceable: from a scored vector, through a named failure mode, to a
+          defined layer of correction. It also keeps recommendations honest at low evidence levels —
+          a class-level recommendation does not pretend to more precision than the
+          <a href="/evidence-confidence/">evidence</a> supports.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>The Ten Approved Layers</h2>
+        <p>Version 1.0 of the registry contains exactly ten layers. No custom layer may be introduced
+          without an ontology update.</p>
+        <table>
+          <thead>
+            <tr><th scope="col">Layer</th><th scope="col">Purpose</th><th scope="col">Scanner use</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="intervention-tag">Audience Intervention</span></td><td>Adjust who is being reached</td><td>Reach, segmentation, fit</td></tr>
+            <tr><td><span class="intervention-tag">Message Intervention</span></td><td>Clarify what is being communicated</td><td>Clarity, positioning, promise</td></tr>
+            <tr><td><span class="intervention-tag">Offer Intervention</span></td><td>Improve value, packaging, or proposition</td><td>Value, packaging, proposition</td></tr>
+            <tr><td><span class="intervention-tag">Proof Intervention</span></td><td>Add evidence, authority, trust, or credibility signals</td><td>Trust, authority, review, credibility</td></tr>
+            <tr><td><span class="intervention-tag">UX Intervention</span></td><td>Reduce path complexity or interface friction</td><td>Path, friction, interface, flow</td></tr>
+            <tr><td><span class="intervention-tag">Pricing Intervention</span></td><td>Improve pricing clarity, framing, or risk perception</td><td>Price framing, clarity, risk</td></tr>
+            <tr><td><span class="intervention-tag">Timing Intervention</span></td><td>Improve when prompts, offers, or follow-ups occur</td><td>Follow-up, urgency, sequence</td></tr>
+            <tr><td><span class="intervention-tag">Attribution Intervention</span></td><td>Repair measurement visibility</td><td>Measurement visibility</td></tr>
+            <tr><td><span class="intervention-tag">Lifecycle Intervention</span></td><td>Extend value after first action</td><td>Retention, onboarding, loyalty</td></tr>
+            <tr><td><span class="intervention-tag">Sales-Assist Intervention</span></td><td>Add human or automated assistance at high-friction points</td><td>Help at high-friction points</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="layout-section">
+        <h2>Contextual Subcases, Not Standalone Layers</h2>
+        <p>Two commonly proposed layers are deliberately <strong>not</strong> standalone in v1.0:</p>
+        <ul>
+          <li><strong>Channel Intervention</strong> is governed under Audience Intervention or
+            Message Intervention, depending on context. Changing a channel is either a change in who
+            is reached or a change in how the message is delivered.</li>
+          <li><strong>Measurement Governance</strong> is governed under Attribution Intervention, and
+            may relate to Lifecycle Intervention when retention visibility is affected. It is the
+            standard correction context for
+            <a href="/failure-modes/measurement-gap/">Measurement Gap</a>
+            (<span class="stable-id-chip">tfo.constraint.measurement_gap</span>) and
+            <a href="/failure-modes/loyalty-blindness/">Loyalty Blindness</a>.</li>
+        </ul>
+        <p>Treating these as independent layers would fragment the registry and create overlapping
+          recommendations. The mapping keeps them addressable without expanding the layer count.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How the Scanner Uses Layers</h2>
+        <p>Scanner v1 recommends layers, not tactics. A typical output reads: "T3 appears Transition
+          Constrained. The strongest signal points to Process Friction. Recommended intervention
+          layers: UX Intervention, Timing Intervention." Interventions remain class-level
+          recommendations unless sufficient evidence supports specific tactical advice — a rule
+          inherited directly from the ATI Standard and explained on the
+          <a href="/methodology/">methodology</a> page.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>What This Standard Does Not Claim</h2>
+        <ul>
+          <li>A layer recommendation identifies where correction belongs; it does not promise that
+            any specific change will produce a specific result.</li>
+          <li>Layers are not a maturity model and not a ranking; no layer is inherently more
+            important than another.</li>
+          <li>The registry does not claim to cover disciplines outside funnel movement, such as
+            product strategy or finance.</li>
+        </ul>
+      </section>
+
+      <nav class="reference-links" aria-label="Governed references">
+        <p class="reference-links__heading">Related reference pages</p>
+        <ul class="reference-links__list">
+          <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+          <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+          <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+          <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+          <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+          <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+        </ul>
+      </nav>
+
+    </main>
+
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com — a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

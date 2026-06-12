@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIDA Transition Index (ATI) — The Transition Health Standard | AIDAtanaly</title>
+  <meta name="description" content="The AIDA Transition Index scores movement quality across four funnel transitions, T1 to T4, using seven weighted dimensions and a separate Evidence Confidence qualifier.">
+  <link rel="canonical" href="https://aidatanaly.com/aida-transition-index/">
+  <!-- Pre-launch: removed at the first public indexed release per ROUTE_MAP.md §15 -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Route ID: AIDA-ATI-001
+  Path: /aida-transition-index/
+  Page Class: Standard Page
+  Route Status: Required Launch
+  Primary Governed Document: ATI_STANDARD.md (v1.1)
+  Secondary Governed Documents: SCANNER_MODEL.md, TFO_ONTOLOGY.md, INTERFACE_GOVERNANCE.md
+  Machine-Readable Future Mapping: /data/ati-standard.json, /data/ati-vectors.json
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/" aria-current="page">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+
+    <main id="main">
+
+      <header class="layout-header">
+        <p class="layout-section__kicker">Standard — governed by ATI Standard v1.1</p>
+        <h1>The AIDA Transition Index</h1>
+        <p class="layout-prose">The AIDA Transition Index (ATI) is the governed standard that
+          <a href="/aida-transition-analytics/">AIDA Transition Analytics</a> uses to score the health of
+          movement between funnel states. It does not score stages. It scores the four transitions
+          that connect them.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Definition</h2>
+        <p>ATI is a measurement standard with one unit of measurement: the <strong>transition</strong>.
+          A transition is the movement of a prospect from one funnel state to the next — from being
+          noticed to becoming interested, from being interested to wanting, from wanting to acting,
+          and from acting to staying.</p>
+        <blockquote class="doctrine-statement">
+          Stages are states. <strong>Value lives in transitions.</strong>
+        </blockquote>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why This Standard Exists</h2>
+        <p>Most funnel reporting counts what happens inside stages: impressions, sessions, leads,
+          orders. Those numbers describe states. They do not explain why prospects fail to move
+          from one state to the next, how fast that movement happens, or how much of it survives
+          friction. ATI exists to make that movement measurable, comparable over time, and
+          diagnosable when it weakens.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>The Four Transition Vectors</h2>
+        <p>ATI measures exactly four vectors. Their names are fixed by the standard.</p>
+
+        <ol class="transition-axis" aria-label="The four ATI transition vectors across five funnel states">
+          <li class="transition-axis__state">Attention</li>
+          <li class="transition-axis__vector"><span class="transition-axis__vector-label">T1</span></li>
+          <li class="transition-axis__state">Interest</li>
+          <li class="transition-axis__vector"><span class="transition-axis__vector-label">T2</span></li>
+          <li class="transition-axis__state">Desire</li>
+          <li class="transition-axis__vector"><span class="transition-axis__vector-label">T3</span></li>
+          <li class="transition-axis__state">Action</li>
+          <li class="transition-axis__vector"><span class="transition-axis__vector-label">T4</span></li>
+          <li class="transition-axis__state">Loyalty</li>
+        </ol>
+        <p class="utility-visually-hidden">Text alternative: four transition vectors connect five
+          funnel states in order: T1 from Attention to Interest, T2 from Interest to Desire, T3 from
+          Desire to Action, T4 from Action to Loyalty.</p>
+
+        <div class="layout-grid">
+          <article class="vector-card">
+            <p class="vector-card__direction">
+              <span class="vector-card__state">Attention</span>
+              <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="vector-card__state">Interest</span>
+            </p>
+            <h3 class="vector-card__title">T1 — Signal Conversion</h3>
+            <p class="vector-card__question">Did visibility become curiosity?</p>
+            <p class="vector-card__meta">
+              <span class="stable-id-chip">ati.vector.t1</span>
+            </p>
+            <p><a href="/vectors/attention-to-interest/">Read the T1 vector reference</a></p>
+          </article>
+          <article class="vector-card">
+            <p class="vector-card__direction">
+              <span class="vector-card__state">Interest</span>
+              <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="vector-card__state">Desire</span>
+            </p>
+            <h3 class="vector-card__title">T2 — Intent Formation</h3>
+            <p class="vector-card__question">Did curiosity become preference?</p>
+            <p class="vector-card__meta">
+              <span class="stable-id-chip">ati.vector.t2</span>
+            </p>
+            <p><a href="/vectors/interest-to-desire/">Read the T2 vector reference</a></p>
+          </article>
+          <article class="vector-card">
+            <p class="vector-card__direction">
+              <span class="vector-card__state">Desire</span>
+              <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="vector-card__state">Action</span>
+            </p>
+            <h3 class="vector-card__title">T3 — Conversion Friction</h3>
+            <p class="vector-card__question">Did intent become action?</p>
+            <p class="vector-card__meta">
+              <span class="stable-id-chip">ati.vector.t3</span>
+            </p>
+            <p><a href="/vectors/desire-to-action/">Read the T3 vector reference</a></p>
+          </article>
+          <article class="vector-card">
+            <p class="vector-card__direction">
+              <span class="vector-card__state">Action</span>
+              <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+              <span class="vector-card__state">Loyalty</span>
+            </p>
+            <h3 class="vector-card__title">T4 — Retention Extension</h3>
+            <p class="vector-card__question">Did conversion become continuity?</p>
+            <p class="vector-card__meta">
+              <span class="stable-id-chip">ati.vector.t4</span>
+            </p>
+            <p><a href="/vectors/action-to-loyalty/">Read the T4 vector reference</a></p>
+          </article>
+        </div>
+
+        <p>Preference and intent are sub-signals inside T2, not separate transition vectors.
+          T4 extends AIDA beyond Action because action without continuity is incomplete movement
+          intelligence.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How It Works: Seven Scoring Dimensions</h2>
+        <p>Each vector is scored from 0 to 100 across seven weighted dimensions.</p>
+        <table>
+          <thead>
+            <tr><th scope="col">Dimension</th><th scope="col">Name</th><th scope="col">Weight</th><th scope="col">What it measures</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="stable-id-chip">D1</span></td><td>Signal Quality</td><td>17%</td><td>Strength and meaning of the signal</td></tr>
+            <tr><td><span class="stable-id-chip">D2</span></td><td>Movement Probability</td><td>23%</td><td>Likelihood of transition</td></tr>
+            <tr><td><span class="stable-id-chip">D3</span></td><td>Transition Velocity</td><td>11%</td><td>Speed and efficiency of movement</td></tr>
+            <tr><td><span class="stable-id-chip">D4</span></td><td>Friction Resilience</td><td>17%</td><td>Ability to withstand obstacles</td></tr>
+            <tr><td><span class="stable-id-chip">D5</span></td><td>Drop-Off Resilience</td><td>12%</td><td>Resistance to abandonment</td></tr>
+            <tr><td><span class="stable-id-chip">D6</span></td><td>Commercial Consequence</td><td>10%</td><td>Business value of the movement</td></tr>
+            <tr><td><span class="stable-id-chip">D7</span></td><td>Intervention Clarity</td><td>10%</td><td>Clarity of corrective action</td></tr>
+          </tbody>
+        </table>
+        <pre><code>Vector Score = (D1 x 0.17) + (D2 x 0.23) + (D3 x 0.11) + (D4 x 0.17)
+             + (D5 x 0.12) + (D6 x 0.10) + (D7 x 0.10)
+
+Composite ATI = (T1 + T2 + T3 + T4) / 4</code></pre>
+        <p>The four vectors carry equal weight by default. Any non-default weighting must be
+          explicitly declared in the output.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Diagnostic Classes</h2>
+        <p>Every scored vector falls into one of five fixed diagnostic classes.</p>
+        <table>
+          <thead>
+            <tr><th scope="col">Class</th><th scope="col">Range</th><th scope="col">Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-diagnostic badge-diagnostic--strong">Transition Strong</span></td>
+              <td><span class="utility-mono">85&#8211;100</span></td>
+              <td>Movement is healthy, clear, measurable, and commercially useful.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-diagnostic badge-diagnostic--functional">Transition Functional</span></td>
+              <td><span class="utility-mono">70&#8211;84</span></td>
+              <td>Movement exists and is generally healthy, with visible optimization gaps.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-diagnostic badge-diagnostic--unstable">Transition Unstable</span></td>
+              <td><span class="utility-mono">55&#8211;69</span></td>
+              <td>Movement occurs inconsistently or depends on weak, fragmented signals.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-diagnostic badge-diagnostic--constrained">Transition Constrained</span></td>
+              <td><span class="utility-mono">40&#8211;54</span></td>
+              <td>Movement is weak, delayed, or structurally blocked.</td>
+            </tr>
+            <tr>
+              <td><span class="badge-diagnostic badge-diagnostic--critical">Transition Critical</span></td>
+              <td><span class="utility-mono">0&#8211;39</span></td>
+              <td>Movement is failing, unmeasured, or commercially ineffective.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="layout-section">
+        <h2>Evidence Confidence Is Reported Separately</h2>
+        <p>Every ATI output carries an <a href="/evidence-confidence/">Evidence Confidence</a> level
+          from E0 to E4. Evidence Confidence is not part of the ATI score. It qualifies how strongly
+          the score should be interpreted, and it never changes the score mathematically.</p>
+        <p>Two consequences follow directly from the standard:</p>
+        <ul>
+          <li>If a vector has <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Absent Evidence</span>,
+            no numeric score is issued for that vector. It is reported as Unscorable.</li>
+          <li>If one or more vectors are E0, no clean composite ATI score is issued. The output is a
+            <strong>Partial Profile</strong> instead.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>What ATI Does Not Measure</h2>
+        <ul>
+          <li>It does not measure stage volume. Counting visitors or orders is state reporting, not transition measurement.</li>
+          <li>It does not measure brand sentiment or creative taste.</li>
+          <li>It does not predict revenue, and it does not claim exact causality.</li>
+          <li>It does not replace analytics platforms; it interprets movement evidence they produce.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to the Failure Ontology</h2>
+        <p>When a vector scores poorly, ATI answers <em>how weak</em> the movement is. The
+          <a href="/transition-failure-ontology/">Transition Failure Ontology</a> answers <em>why</em>:
+          it classifies the weakness into one of 21 governed failure modes, each with a stable ID
+          such as <span class="stable-id-chip">tfo.t2.value_ambiguity</span>, plus one cross-vector
+          diagnostic constraint, <span class="stable-id-chip">tfo.constraint.measurement_gap</span>.
+          Recommended corrections are expressed through the ten approved
+          <a href="/intervention-layers/">intervention layers</a>.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to the Scanner</h2>
+        <p>The <a href="/scanner/">Transition Scanner</a> is the public diagnostic instrument of this
+          standard. Scanner v1 is rules-governed: it maps structured answers onto the seven dimensions,
+          produces a T1&#8211;T4 profile, assigns Evidence Confidence per vector, and names likely failure
+          modes using ontology terms only. The full method is described on the
+          <a href="/methodology/">methodology</a> page.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Output Examples</h2>
+        <p>Correct output, fully scorable:</p>
+        <pre><code>Composite ATI: 64 — Transition Unstable
+T1: 72 / E2 Observable Evidence
+T2: 46 / E1 Self-Reported Evidence (provisional)
+T3: 58 / E2 Observable Evidence
+T4: 80 / E3 Multi-Source Evidence</code></pre>
+        <p>Correct output when T4 evidence is absent:</p>
+        <pre><code>ATI Profile: Partial
+Scorable vectors: T1, T2, T3
+Unscorable vector: T4 / E0 Absent Evidence</code></pre>
+        <p>Prohibited output: issuing a composite number such as <code>ATI Score: 61.5</code> while
+          any vector is E0, or hiding an unmeasured vector inside a false zero.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Public Claim Limits</h2>
+        <p>AIDAtanaly introduces the AIDA Transition Index as a governed standard. It is not described
+          as an adopted industry standard, because adoption evidence does not yet exist. ATI outputs
+          never promise revenue outcomes, and stronger evidence levels strengthen confidence language
+          only — they never imply guaranteed causality. The full claim policy lives on the
+          <a href="/governance/">governance</a> page.</p>
+      </section>
+
+      <nav class="reference-links" aria-label="Governed references">
+        <p class="reference-links__heading">Related reference pages</p>
+        <ul class="reference-links__list">
+          <li><a href="/aida-transition-analytics/">AIDA Transition Analytics</a><span class="reference-links__route">/aida-transition-analytics/</span></li>
+          <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+          <li><a href="/intervention-layers/">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+          <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+          <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+          <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+          <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+        </ul>
+      </nav>
+
+    </main>
+
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com — a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>
