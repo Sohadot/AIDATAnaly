@@ -168,6 +168,20 @@ if ($js -match 'partial_profile_rule' -or ($js -match 'Partial Profile' -and $js
   Pass "scanner.js implements Partial Profile rule from governed data"
 } else { Fail "scanner.js missing Partial Profile rule from data" }
 
+# --- Transition health on scanner axis (Patch 12B) --------------------------------
+if ($html -match 'transition-axis__vector--reference' -and
+    $html -notmatch 'transition-axis__vector--strong' -and
+    $html -notmatch 'transition-axis__vector--critical') {
+  Pass "Scanner static axis uses reference modifiers only (no false diagnostic claim)"
+} else { Fail "Scanner static axis must use --reference only, not diagnostic health modifiers" }
+
+if ($js -match 'transition-axis__vector--reference' -and
+    $js -match 'classList\.remove\("transition-axis__vector--reference"\)' -and
+    $js -match 'transition-axis__vector--unscorable' -and
+    $js -match 'transition-axis__vector--"\s*\+\s*classModifier') {
+  Pass "scanner.js swaps reference for diagnostic health modifiers after scoring"
+} else { Fail "scanner.js missing governed reference-to-diagnostic axis update" }
+
 # --- Summary ------------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="

@@ -27,65 +27,121 @@
       </blockquote>
     </section>
 
-    <!-- Transition Axis -->
+    <!-- Transition Axis — health visual language (Sprint 12B) -->
     <section class="layout-section">
-      <p class="layout-section__kicker">Component — Transition Axis (Patch 12A)</p>
-      <p>Five quiet state nodes, four emphasized vector connections. On narrow viewports the axis stays
-        <strong>vertical</strong> — Attention, then T1, then Interest, and so on. Horizontal layout
-        activates at 64rem only. Health modifiers shown: T1 functional, T2 unstable, T3 constrained,
-        T4 unscorable.</p>
+      <p class="layout-section__kicker">Component — Transition Health Visual Language (Patch 12B)</p>
+      <p>Line continuity carries transition health — not color alone. Reference axes teach movement without
+        claiming a score. Diagnostic modifiers appear only when a transition has been measured.</p>
 
-      <ol class="transition-axis" aria-label="AIDA transition axis with per-vector health">
+      <h4>Reference Axis (non-diagnostic)</h4>
+      <ol class="transition-axis" aria-label="Reference transition axis">
         <li class="transition-axis__state">Attention</li>
-        <li class="transition-axis__vector transition-axis__vector--functional">
-          <span class="transition-axis__vector-label">
-            <span class="transition-axis__vector-code">T1</span>
-            <span class="transition-axis__vector-name">Signal Conversion</span>
-          </span>
-        </li>
+        <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label"><span class="transition-axis__vector-code">T1</span><span class="transition-axis__vector-name">Signal Conversion</span></span></li>
         <li class="transition-axis__state">Interest</li>
-        <li class="transition-axis__vector transition-axis__vector--unstable">
-          <span class="transition-axis__vector-label">
-            <span class="transition-axis__vector-code">T2</span>
-            <span class="transition-axis__vector-name">Intent Formation</span>
-          </span>
-        </li>
+        <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label"><span class="transition-axis__vector-code">T2</span><span class="transition-axis__vector-name">Intent Formation</span></span></li>
         <li class="transition-axis__state">Desire</li>
-        <li class="transition-axis__vector transition-axis__vector--constrained">
-          <span class="transition-axis__vector-label">
-            <span class="transition-axis__vector-code">T3</span>
-            <span class="transition-axis__vector-name">Conversion Friction</span>
-          </span>
-        </li>
+        <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label"><span class="transition-axis__vector-code">T3</span><span class="transition-axis__vector-name">Conversion Friction</span></span></li>
         <li class="transition-axis__state">Action</li>
-        <li class="transition-axis__vector transition-axis__vector--unscorable">
-          <span class="transition-axis__vector-label">
-            <span class="transition-axis__vector-code">T4</span>
-            <span class="transition-axis__vector-name">Retention Extension</span>
-          </span>
-        </li>
+        <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label"><span class="transition-axis__vector-code">T4</span><span class="transition-axis__vector-name">Retention Extension</span></span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Strong Axis</h4>
+      <ol class="transition-axis" aria-label="Strong transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--strong"><span class="transition-axis__vector-label">T1 Strong</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--strong"><span class="transition-axis__vector-label">T2 Strong</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--strong"><span class="transition-axis__vector-label">T3 Strong</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--strong"><span class="transition-axis__vector-label">T4 Strong</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Functional Axis</h4>
+      <ol class="transition-axis" aria-label="Functional transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--functional"><span class="transition-axis__vector-label">T1 Functional</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--functional"><span class="transition-axis__vector-label">T2 Functional</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--functional"><span class="transition-axis__vector-label">T3 Functional</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--functional"><span class="transition-axis__vector-label">T4 Functional</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Unstable Axis</h4>
+      <ol class="transition-axis" aria-label="Unstable transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable"><span class="transition-axis__vector-label">T1 Unstable</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable"><span class="transition-axis__vector-label">T2 Unstable</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable"><span class="transition-axis__vector-label">T3 Unstable</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable"><span class="transition-axis__vector-label">T4 Unstable</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Constrained Axis</h4>
+      <ol class="transition-axis" aria-label="Constrained transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--constrained"><span class="transition-axis__vector-label">T1 Constrained</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--constrained"><span class="transition-axis__vector-label">T2 Constrained</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--constrained"><span class="transition-axis__vector-label">T3 Constrained</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--constrained"><span class="transition-axis__vector-label">T4 Constrained</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Critical Axis</h4>
+      <ol class="transition-axis" aria-label="Critical transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--critical"><span class="transition-axis__vector-label">T1 Critical</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--critical"><span class="transition-axis__vector-label">T2 Critical</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--critical"><span class="transition-axis__vector-label">T3 Critical</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--critical"><span class="transition-axis__vector-label">T4 Critical</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Unscorable Axis</h4>
+      <ol class="transition-axis" aria-label="Unscorable transition axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable"><span class="transition-axis__vector-label">T1 Unscorable</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable"><span class="transition-axis__vector-label">T2 Unscorable</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable"><span class="transition-axis__vector-label">T3 Unscorable</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable"><span class="transition-axis__vector-label">T4 Unscorable</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <h4>Mixed Diagnostic Axis (scanner-style result)</h4>
+      <ol class="transition-axis" aria-label="Mixed diagnostic transition health axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--functional"><span class="transition-axis__vector-label">T1 Functional</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable"><span class="transition-axis__vector-label">T2 Unstable</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--critical"><span class="transition-axis__vector-label">T3 Critical</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable"><span class="transition-axis__vector-label">T4 Unscorable</span></li>
         <li class="transition-axis__state">Loyalty</li>
       </ol>
 
       <p class="utility-visually-hidden">
-        Text alternative: the funnel moves from Attention through Interest, Desire, and Action to Loyalty.
-        T1 Signal Conversion is Transition Functional. T2 Intent Formation is Transition Unstable.
-        T3 Conversion Friction is Transition Constrained. T4 Retention Extension is Unscorable due to
-        E0 Absent Evidence.
+        Reference axis uses calm blue non-diagnostic flow. Strong through Critical axes show progressively
+        broken line continuity. Unscorable uses neutral gray with no diagnostic color. Mixed axis combines
+        Functional, Unstable, Critical, and Unscorable vectors as in a scanner result profile.
       </p>
-
-      <p>Default (neutral flow) variant:</p>
-      <ol class="transition-axis" aria-label="AIDA transition axis, neutral">
-        <li class="transition-axis__state">Attention</li>
-        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T1</span></li>
-        <li class="transition-axis__state">Interest</li>
-        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T2</span></li>
-        <li class="transition-axis__state">Desire</li>
-        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T3</span></li>
-        <li class="transition-axis__state">Action</li>
-        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T4</span></li>
-        <li class="transition-axis__state">Loyalty</li>
-      </ol>
     </section>
 
     <!-- Vector Card -->

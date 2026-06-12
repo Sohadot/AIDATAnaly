@@ -308,8 +308,12 @@ th {
        </li>
        ... states and vectors alternating ...
      </ol>
-   Health modifiers on __vector: --strong --functional --unstable
-   --constrained --critical --unscorable.
+   Health modifiers on __vector:
+     --reference  (non-diagnostic educational flow)
+     --strong --functional --unstable --constrained --critical --unscorable
+     (diagnostic only when a score exists)
+   Meaning is encoded by line continuity, dash pattern, opacity, and label
+   treatment — not color alone.
    A text alternative must accompany the axis (see .utility-visually-hidden).
    ========================================================================== */
 
@@ -356,7 +360,8 @@ th {
   min-width: 0;
 }
 
-/* The flow line itself (vertical in the mobile-first column layout). */
+/* The flow line itself (vertical in the mobile-first column layout).
+   Default = reference grammar: calm blue, teaches movement, no diagnostic claim. */
 .transition-axis__vector::before {
   content: "";
   position: absolute;
@@ -365,14 +370,15 @@ th {
   bottom: 0.7rem;
   width: var(--axis-line-weight);
   transform: translateX(-50%);
+  opacity: 0.88;
   background: repeating-linear-gradient(
     to bottom,
     var(--transition-flow) 0,
-    var(--transition-flow) 10px,
-    transparent 10px,
-    transparent 16px
+    var(--transition-flow) 12px,
+    transparent 12px,
+    transparent 18px
   );
-  background-size: 100% 32px;
+  background-size: 100% 30px;
   animation: transition-flow-vertical 2.8s linear infinite;
 }
 
@@ -383,6 +389,7 @@ th {
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+  opacity: 0.88;
   border-left: 0.45rem solid transparent;
   border-right: 0.45rem solid transparent;
   border-top: 0.7rem solid var(--transition-flow);
@@ -429,79 +436,192 @@ th {
   content: "— ";
 }
 
-/* Health modifiers: flow color reflects diagnostic class honestly.
-   This is a permitted diagnostic-scale usage (score surface). */
-.transition-axis__vector--strong::before,
-.transition-axis__vector--strong::after { border-top-color: var(--diag-strong-ink); }
+/* --- Transition health visual language (Sprint 12B) -----------------------
+   Reference = educational, non-diagnostic.
+   Diagnostic modifiers = scored transition health only.
+   Weaker movement = more discontinuity (dash gaps), lower opacity, lighter weight.
+   Color supports the pattern; continuity carries the meaning. */
+
+.transition-axis__vector--reference::before,
+.transition-axis__vector--reference::after {
+  opacity: 0.88;
+}
+
+.transition-axis__vector--reference .transition-axis__vector-label {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--transition-flow);
+  color: var(--transition-flow-deep);
+  font-weight: 700;
+  box-shadow: none;
+}
+
+/* Strong: near-continuous, clear movement */
 .transition-axis__vector--strong::before {
+  opacity: 1;
+  width: calc(var(--axis-line-weight) + 1px);
+  animation: none;
   background: repeating-linear-gradient(to bottom,
-    var(--diag-strong-ink) 0, var(--diag-strong-ink) 10px,
-    transparent 10px, transparent 16px);
+    var(--diag-strong-ink) 0, var(--diag-strong-ink) 22px,
+    transparent 22px, transparent 24px);
+  background-size: 100% 24px;
 }
 
-.transition-axis__vector--functional::after { border-top-color: var(--diag-functional-ink); }
+.transition-axis__vector--strong::after {
+  opacity: 1;
+  border-top-color: var(--diag-strong-ink);
+}
+
+.transition-axis__vector--strong .transition-axis__vector-label {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--diag-strong-ink);
+  color: var(--diag-strong-ink);
+  font-weight: 700;
+  background: var(--diag-strong-tint);
+}
+
+/* Functional: stable with very light break */
 .transition-axis__vector--functional::before {
+  opacity: 0.96;
+  animation: transition-flow-vertical 3.2s linear infinite;
   background: repeating-linear-gradient(to bottom,
-    var(--diag-functional-ink) 0, var(--diag-functional-ink) 10px,
-    transparent 10px, transparent 16px);
+    var(--diag-functional-ink) 0, var(--diag-functional-ink) 16px,
+    transparent 16px, transparent 20px);
+  background-size: 100% 36px;
 }
 
-.transition-axis__vector--unstable::after { border-top-color: var(--diag-unstable-ink); }
+.transition-axis__vector--functional::after {
+  opacity: 0.96;
+  border-top-color: var(--diag-functional-ink);
+}
+
+.transition-axis__vector--functional .transition-axis__vector-label {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--diag-functional-ink);
+  color: var(--diag-functional-ink);
+  font-weight: 700;
+}
+
+/* Unstable: medium irregular gaps */
 .transition-axis__vector--unstable::before {
+  opacity: 0.86;
+  animation: transition-flow-vertical 2.4s linear infinite;
   background: repeating-linear-gradient(to bottom,
-    var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 8px,
-    transparent 8px, transparent 18px);
+    var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 10px,
+    transparent 10px, transparent 22px);
+  background-size: 100% 32px;
 }
 
-.transition-axis__vector--constrained::after { border-top-color: var(--diag-constrained-ink); }
+.transition-axis__vector--unstable::after {
+  opacity: 0.86;
+  border-top-color: var(--diag-unstable-ink);
+}
+
+.transition-axis__vector--unstable .transition-axis__vector-label {
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--diag-unstable-ink);
+  color: var(--diag-unstable-ink);
+  font-weight: 700;
+}
+
+/* Constrained: clear gaps, movement under pressure */
 .transition-axis__vector--constrained::before {
+  opacity: 0.76;
+  animation: none;
   background: repeating-linear-gradient(to bottom,
     var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
-    transparent 6px, transparent 20px);
+    transparent 6px, transparent 18px);
+  background-size: 100% 24px;
 }
 
-.transition-axis__vector--critical::after { border-top-color: var(--diag-critical-ink); }
+.transition-axis__vector--constrained::after {
+  opacity: 0.76;
+  border-top-color: var(--diag-constrained-ink);
+}
+
+.transition-axis__vector--constrained .transition-axis__vector-label {
+  border-width: 1px;
+  border-style: dashed;
+  border-color: var(--diag-constrained-ink);
+  color: var(--diag-constrained-ink);
+  font-weight: 600;
+}
+
+/* Critical: near-broken continuity */
 .transition-axis__vector--critical::before {
+  opacity: 0.62;
+  width: calc(var(--axis-line-weight) - 1px);
+  animation: none;
   background: repeating-linear-gradient(to bottom,
-    var(--diag-critical-ink) 0, var(--diag-critical-ink) 4px,
-    transparent 4px, transparent 24px);
+    var(--diag-critical-ink) 0, var(--diag-critical-ink) 3px,
+    transparent 3px, transparent 22px);
+  background-size: 100% 25px;
 }
 
-/* Unscorable vector: measurement-gap treatment. No flow claim is made. */
+.transition-axis__vector--critical::after {
+  opacity: 0.62;
+  border-top-width: 0.55rem;
+  border-top-color: var(--diag-critical-ink);
+}
+
+.transition-axis__vector--critical .transition-axis__vector-label {
+  border-width: 1px;
+  border-style: dotted;
+  border-color: var(--diag-critical-ink);
+  color: var(--diag-critical-ink);
+  font-weight: 600;
+  opacity: 0.92;
+}
+
+/* Unscorable: neutral measurement gap — no diagnostic color, no score claim */
 .transition-axis__vector--unscorable::before {
-  background: repeating-linear-gradient(to bottom,
-    var(--line-strong) 0, var(--line-strong) 3px,
-    transparent 3px, transparent 12px);
+  opacity: 0.5;
+  width: calc(var(--axis-line-weight) - 1px);
   animation: none;
+  background: repeating-linear-gradient(to bottom,
+    var(--line-strong) 0, var(--line-strong) 2px,
+    transparent 2px, transparent 14px);
+  background-size: 100% 16px;
 }
 
 .transition-axis__vector--unscorable::after {
+  opacity: 0.5;
   border-top-color: var(--line-strong);
 }
 
 .transition-axis__vector--unscorable .transition-axis__vector-label {
+  border-width: 1px;
   border-style: dashed;
   border-color: var(--line-strong);
   color: var(--ink-secondary);
+  font-weight: 500;
+  background: var(--surface-sunken);
+  box-shadow: none;
 }
 
-/* Vector page: the measured segment carries full flow weight; others recede. */
+/* Vector page: highlight measured segment; recede others only when --current exists */
 .transition-axis__vector--current .transition-axis__vector-label {
   background: var(--transition-flow-tint);
   border-width: 2px;
   font-weight: 700;
 }
 
-.transition-axis__vector:not(.transition-axis__vector--current)::before {
+.transition-axis:has(.transition-axis__vector--current)
+  .transition-axis__vector:not(.transition-axis__vector--current)::before {
   opacity: 0.35;
   animation: none;
 }
 
-.transition-axis__vector:not(.transition-axis__vector--current)::after {
+.transition-axis:has(.transition-axis__vector--current)
+  .transition-axis__vector:not(.transition-axis__vector--current)::after {
   opacity: 0.35;
 }
 
-.transition-axis__vector:not(.transition-axis__vector--current) .transition-axis__vector-label {
+.transition-axis:has(.transition-axis__vector--current)
+  .transition-axis__vector:not(.transition-axis__vector--current) .transition-axis__vector-label {
   border-color: var(--line-strong);
   color: var(--ink-secondary);
   font-weight: 500;
@@ -556,14 +676,15 @@ th {
     width: auto;
     height: var(--axis-line-weight-wide);
     transform: translateY(-50%);
+    opacity: 0.88;
     background: repeating-linear-gradient(
       to right,
       var(--transition-flow) 0,
-      var(--transition-flow) 10px,
-      transparent 10px,
-      transparent 16px
+      var(--transition-flow) 12px,
+      transparent 12px,
+      transparent 18px
     );
-    background-size: 32px 100%;
+    background-size: 30px 100%;
     animation: transition-flow-horizontal 2.8s linear infinite;
   }
 
@@ -573,6 +694,7 @@ th {
     bottom: auto;
     top: 50%;
     transform: translateY(-50%);
+    opacity: 0.88;
     border-top: 0.45rem solid transparent;
     border-bottom: 0.45rem solid transparent;
     border-left: 0.7rem solid var(--transition-flow);
@@ -580,47 +702,74 @@ th {
   }
 
   .transition-axis__vector--strong::before {
+    height: calc(var(--axis-line-weight-wide) + 1px);
     background: repeating-linear-gradient(to right,
-      var(--diag-strong-ink) 0, var(--diag-strong-ink) 10px,
-      transparent 10px, transparent 16px);
+      var(--diag-strong-ink) 0, var(--diag-strong-ink) 22px,
+      transparent 22px, transparent 24px);
+    background-size: 24px 100%;
   }
-  .transition-axis__vector--strong::after { border-left-color: var(--diag-strong-ink); border-top-color: transparent; }
+  .transition-axis__vector--strong::after {
+    border-left-color: var(--diag-strong-ink);
+    border-top-color: transparent;
+  }
 
   .transition-axis__vector--functional::before {
     background: repeating-linear-gradient(to right,
-      var(--diag-functional-ink) 0, var(--diag-functional-ink) 10px,
-      transparent 10px, transparent 16px);
+      var(--diag-functional-ink) 0, var(--diag-functional-ink) 16px,
+      transparent 16px, transparent 20px);
+    background-size: 36px 100%;
   }
-  .transition-axis__vector--functional::after { border-left-color: var(--diag-functional-ink); border-top-color: transparent; }
+  .transition-axis__vector--functional::after {
+    border-left-color: var(--diag-functional-ink);
+    border-top-color: transparent;
+  }
 
   .transition-axis__vector--unstable::before {
     background: repeating-linear-gradient(to right,
-      var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 8px,
-      transparent 8px, transparent 18px);
+      var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 10px,
+      transparent 10px, transparent 22px);
+    background-size: 32px 100%;
   }
-  .transition-axis__vector--unstable::after { border-left-color: var(--diag-unstable-ink); border-top-color: transparent; }
+  .transition-axis__vector--unstable::after {
+    border-left-color: var(--diag-unstable-ink);
+    border-top-color: transparent;
+  }
 
   .transition-axis__vector--constrained::before {
     background: repeating-linear-gradient(to right,
       var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
-      transparent 6px, transparent 20px);
+      transparent 6px, transparent 18px);
+    background-size: 24px 100%;
   }
-  .transition-axis__vector--constrained::after { border-left-color: var(--diag-constrained-ink); border-top-color: transparent; }
+  .transition-axis__vector--constrained::after {
+    border-left-color: var(--diag-constrained-ink);
+    border-top-color: transparent;
+  }
 
   .transition-axis__vector--critical::before {
+    height: calc(var(--axis-line-weight-wide) - 1px);
     background: repeating-linear-gradient(to right,
-      var(--diag-critical-ink) 0, var(--diag-critical-ink) 4px,
-      transparent 4px, transparent 24px);
+      var(--diag-critical-ink) 0, var(--diag-critical-ink) 3px,
+      transparent 3px, transparent 22px);
+    background-size: 25px 100%;
   }
-  .transition-axis__vector--critical::after { border-left-color: var(--diag-critical-ink); border-top-color: transparent; }
+  .transition-axis__vector--critical::after {
+    border-left-color: var(--diag-critical-ink);
+    border-top-color: transparent;
+  }
 
   .transition-axis__vector--unscorable::before {
+    height: calc(var(--axis-line-weight-wide) - 1px);
     background: repeating-linear-gradient(to right,
-      var(--line-strong) 0, var(--line-strong) 3px,
-      transparent 3px, transparent 12px);
+      var(--line-strong) 0, var(--line-strong) 2px,
+      transparent 2px, transparent 14px);
+    background-size: 16px 100%;
     animation: none;
   }
-  .transition-axis__vector--unscorable::after { border-left-color: var(--line-strong); border-top-color: transparent; }
+  .transition-axis__vector--unscorable::after {
+    border-left-color: var(--line-strong);
+    border-top-color: transparent;
+  }
 }
 
 /* Wide desktop: single-line transition labels when space allows. */

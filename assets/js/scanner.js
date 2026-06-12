@@ -653,10 +653,12 @@
     result.vectorResults.forEach(function (vr, idx) {
       var node = nodes[idx];
       if (!node) return;
-      node.className = "transition-axis__vector";
+      node.className = "transition-axis__vector transition-axis__vector--reference";
       if (vr.evidence.unscorable) {
+        node.classList.remove("transition-axis__vector--reference");
         node.classList.add("transition-axis__vector--unscorable");
       } else if (vr.diagnostic) {
+        node.classList.remove("transition-axis__vector--reference");
         node.classList.add(
           "transition-axis__vector--" + classModifier(vr.diagnostic.name)
         );

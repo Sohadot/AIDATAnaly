@@ -175,14 +175,68 @@ if (Test-Path $previewPath) {
   } else { Fail "E0/Unscorable rendering incorrect in preview" }
 } else { Fail "preview/index.html missing" }
 
-# --- 12. Motion durations within governed range ----------------------------------
+# --- 12. Transition health visual language (Patch 12B) --------------------------
+$healthModifiers = @(
+  'transition-axis__vector--reference',
+  'transition-axis__vector--strong',
+  'transition-axis__vector--functional',
+  'transition-axis__vector--unstable',
+  'transition-axis__vector--constrained',
+  'transition-axis__vector--critical',
+  'transition-axis__vector--unscorable'
+)
+$missingHealth = $healthModifiers | Where-Object { $css -notmatch [regex]::Escape(".${_}") }
+if (-not $missingHealth) {
+  Pass "All transition health modifiers defined (reference + five diagnostic + unscorable)"
+} else {
+  foreach ($m in $missingHealth) { Fail "Transition health modifier missing: $m" }
+}
+
+$axisSection = ($sections | Where-Object { $_ -match '^\s*TRANSITION AXIS' } | Select-Object -First 1)
+if ($axisSection) {
+  if ($axisSection -match '\.transition-axis__vector--unscorable::before[\s\S]{0,400}--line-strong' -and
+      $axisSection -notmatch '\.transition-axis__vector--unscorable::before[\s\S]{0,400}--diag-') {
+    Pass "Unscorable vector line uses neutral tones only (no diagnostic scale on line)"
+  } else { Fail "Unscorable vector line must use neutral tones, not diagnostic scale" }
+
+  if ($axisSection -notmatch '--evidence-') {
+    Pass "Transition health line rules do not reference Evidence Confidence variables"
+  } else { Fail "Transition health line rules reference Evidence Confidence variables" }
+
+  if ($axisSection -match 'border-style:\s*(dashed|dotted)' -and
+      $axisSection -match '\.transition-axis__vector--(?:unstable|constrained|critical)[\s\S]{0,300}opacity:') {
+    Pass "Health meaning uses continuity patterns, opacity, and label treatment (not color alone)"
+  } else { Fail "Transition health visual language must not rely on color alone" }
+} else { Fail "TRANSITION AXIS section marker not found for Patch 12B checks" }
+
+if (Test-Path $previewPath) {
+  if (-not $preview) { $preview = Get-Content -Raw -Encoding UTF8 -Path $previewPath }
+  $previewAxisDemos = @(
+    'Reference Axis',
+    'Strong Axis',
+    'Functional Axis',
+    'Unstable Axis',
+    'Constrained Axis',
+    'Critical Axis',
+    'Unscorable Axis',
+    'Mixed Diagnostic Axis'
+  )
+  $missingDemos = $previewAxisDemos | Where-Object { $preview -notmatch [regex]::Escape($_) }
+  if (-not $missingDemos) {
+    Pass "Preview renders all transition health axis demonstrations"
+  } else {
+    foreach ($d in $missingDemos) { Fail "Preview missing axis demo: $d" }
+  }
+}
+
+# --- 13. Motion durations within governed range ----------------------------------
 $durations = [regex]::Matches($css, '--motion-(?:fast|base|slow):\s*(\d+)ms') | ForEach-Object { [int]$_.Groups[1].Value }
 $outOfRange = $durations | Where-Object { $_ -lt 200 -or $_ -gt 600 }
 if ($durations.Count -gt 0 -and -not $outOfRange) {
   Pass "Interface motion tokens within governed 200-600ms range"
 } else { Fail "Motion duration tokens out of governed range: $($outOfRange -join ', ')" }
 
-# --- 13. scanner.js implements governed v1 logic ---------------------------------
+# --- 14. scanner.js implements governed v1 logic ---------------------------------
 if ($js -match '/data/scanner-model\.json' -and
     $js -match '/data/tfo-failure-modes\.json' -and
     $js -match 'Unscorable' -and
