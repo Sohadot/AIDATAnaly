@@ -20,9 +20,13 @@ First public indexed reference release activation completed in governed order:
 5. `dist/` rebuilt (`scripts/build-dist.ps1`)
 6. Final indexed release gate passed (`quality-gate.ps1 -IndexedRelease`)
 7. Activation committed and pushed
-8. `dist/` deployed to `gh-pages` branch (`scripts/deploy-dist.ps1`)
+8. `dist/` published via **GitHub Actions Pages artifact** (`.github/workflows/pages.yml` on `main`; PUB-REL-002)
 
 Repository governance artifacts (`*.md`, `governance/decisions/`, `scripts/`, `preview/`) were **not** deployed as website routes.
+
+**Main-only GitHub Actions deployment verified.**  
+**gh-pages branch retired.**  
+**Deployment source is now main-only via GitHub Actions Pages artifact.**
 
 ---
 
@@ -84,11 +88,16 @@ Sitemap: https://aidatanaly.com/sitemap.xml
 | Item | Value |
 |------|-------|
 | Deployment package | `dist/` (PUB-REL-001) |
-| Deploy target | `gh-pages` branch on `origin` |
-| Deploy method | `scripts/deploy-dist.ps1` (generated from `dist/` only) |
+| Deploy target | **GitHub Actions Pages artifact** from `main` (PUB-REL-002) |
+| Deploy method | `.github/workflows/pages.yml` — `quality-gate.ps1 -IndexedRelease` → upload `dist/` → `deploy-pages` |
+| Legacy `gh-pages` branch | **Retired and deleted** |
 | Repository root deployed | **No** (prohibited) |
 
-**gh-pages branch contents verified:** 41 route trees, `assets/`, `data/`, `sitemap.xml`, `robots.txt`, `/governance/index.html` only — no `scripts/`, `preview/`, `*.md`, or `governance/decisions/`.
+**Pages artifact contents verified:** 41 route trees, `assets/`, `data/`, `sitemap.xml`, `robots.txt`, `/governance/index.html` only — no `scripts/`, `preview/`, `*.md`, or `governance/decisions/`.
+
+**Main-only GitHub Actions deployment verified.**  
+**gh-pages branch retired.**  
+**Deployment source is now main-only via GitHub Actions Pages artifact.**
 
 ---
 
@@ -107,18 +116,19 @@ Sitemap: https://aidatanaly.com/sitemap.xml
 
 ### 6.2 Live domain checks (`https://aidatanaly.com/`)
 
-Live HTTPS checks from the build environment did not complete successfully at release time:
+Verified 2026-06-12 after PUB-REL-002 GitHub Actions deployment (`b8e2a2a`):
 
-- `https://aidatanaly.com/*` — TLS trust / certificate validation failure from this environment
-- `http://aidatanaly.com/robots.txt` — HTTP 404
+| URL | Result |
+|-----|--------|
+| `/` | 200 — Sprint 12E hero live |
+| `/robots.txt` | 200 — `Allow: /` + active `Sitemap:` |
+| `/sitemap.xml` | 200 — 41 URLs |
+| `/scanner/` | 200 |
+| `/data/scanner-model.json` | 200 |
+| `/governance/decisions/` | 404 (expected) |
+| `*.md` at site root | 404 (expected) |
 
-**Operator follow-up required:**
-
-1. Enable GitHub Pages for repository `Sohadot/AIDATAnaly` with source branch **`gh-pages`** (root).
-2. Confirm custom domain `aidatanaly.com` DNS + GitHub Pages custom domain + TLS provisioning.
-3. Re-run live URL checklist from Section 7 after DNS/Pages propagation.
-
-Until live domain serves the `gh-pages` deployment, the release package and indexation posture are **activated in source and deployed to `gh-pages`**, but public URL verification remains pending.
+Deploy GitHub Pages workflow on `main` commit `b8e2a2a`: **success**. Legacy `gh-pages` branch deleted after verification.
 
 ---
 
@@ -163,7 +173,7 @@ No gate failures. No forbidden deployment files in `dist/`.
 | `scripts/quality-gate.ps1 -IndexedRelease` | Final indexed release gate with `Public Noindex: 0` |
 | `scripts/validate-pages.ps1 -IndexedRelease` | Indexed posture validation |
 | `scripts/validate-dist.ps1 -IndexedRelease` | Indexed `dist/` validation |
-| `scripts/deploy-dist.ps1` | Deploy `dist/` only to `gh-pages` |
+| `scripts/deploy-dist.ps1` | Local preflight only (build + validate; no branch push) |
 | Privacy page prose | Removed stale pre-launch `noindex` statement |
 
 ---
@@ -173,13 +183,18 @@ No gate failures. No forbidden deployment files in `dist/`.
 ```text
 Source Release Activation: PASS
 Final Indexed Release Gate: PASS
-dist/ Deployment to gh-pages: PASS
-Live Domain Verification: PENDING (DNS / GitHub Pages / TLS)
+GitHub Actions Pages Deploy: PASS
+Live Domain Verification: PASS (2026-06-12)
 Forbidden Deployment Files: 0
 Indexation Posture (source + dist): ACTIVE
+gh-pages branch: RETIRED
 ```
 
-**Decision:** AIDAtanaly first public indexed reference release is **activated in repository source and deployed to `gh-pages` from governed `dist/`**. Live public URL confirmation at `aidatanaly.com` remains pending GitHub Pages and custom domain configuration.
+**Decision:** AIDAtanaly first public indexed reference release is **activated in repository source and published from governed `dist/` via GitHub Actions on `main`**. Live public URL confirmed at `aidatanaly.com`.
+
+**Main-only GitHub Actions deployment verified.**  
+**gh-pages branch retired.**  
+**Deployment source is now main-only via GitHub Actions Pages artifact.**
 
 Rollback procedure remains available per `PUBLIC_RELEASE_PLAN.md` Section 17 if live verification reveals a blocking issue.
 

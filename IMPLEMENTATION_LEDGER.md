@@ -187,9 +187,13 @@
 | Sitemap URLs | 41 |
 | Forbidden Deployment Files | 0 |
 | Latest activation commit | `f2afbc4` |
-| gh-pages deploy | Retired (PUB-REL-002) |
+| gh-pages deploy | **Retired** (branch deleted) |
 | GitHub Actions Pages | `.github/workflows/pages.yml` on `main` |
-| Live URL verification | Pending DNS/Pages / Actions cutover |
+| Live URL verification | **Verified** (2026-06-12) |
+
+**Main-only GitHub Actions deployment verified.**  
+**gh-pages branch retired.**  
+**Deployment source is now main-only via GitHub Actions Pages artifact.**
 
 ---
 
@@ -197,10 +201,11 @@
 
 | Field | Value |
 |-------|-------|
-| **Status** | Complete (operator: switch Pages source to GitHub Actions) |
+| **Status** | Complete — verified live |
 | **Decision** | PUB-REL-002 — `DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md` |
+| **Commits** | `b8e2a2a` (workflow), verification recorded after `gh-pages` deletion |
 | **Summary** | Retire `gh-pages` branch deploy; `main` + GitHub Actions artifact from `dist/` only. |
-| **Workflow** | `.github/workflows/pages.yml` |
+| **Workflow** | `.github/workflows/pages.yml` — Deploy GitHub Pages **success** on `b8e2a2a` |
 | **Scripts** | `validate-deploy.ps1`; `deploy-dist.ps1` → local preflight only |
 
 ---
