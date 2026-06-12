@@ -55,8 +55,12 @@ WebGL/3D/canvas, no animation libraries, `prefers-reduced-motion` support,
 all 20 governed component classes defined, Evidence Confidence styling never
 uses diagnostic scale variables, diagnostic colors confined to diagnostic
 surfaces, Unscorable State is non-numeric, Transition Axis is responsive,
-preview page is noindex and readable without JavaScript, and motion tokens
+preview page is noindex and readable without JavaScript, motion tokens
 stay within the governed 200–600ms range.
+
+Sprint 12A–12D additions: transition axis responsive grammar (64rem breakpoint),
+transition health visual language, Failure Lens stylesheet separation
+(`failure-lens.css`), and scanner `Transition Health Map` classes in `main.css`.
 
 ## validate-pages.ps1 (built in Sprint 3)
 
@@ -128,6 +132,12 @@ local `scanner.js` only (no external JS or analytics); fetches all four `/data/*
 files; no `evidence_confidence_weight`; Partial Profile and Unscorable logic; TFO IDs
 confined to registry; canonical route links in output; separate score and evidence
 components; prohibited claim phrases; no dynamic indexable result routes.
+
+Sprint 12D additions: `Transition Health Map` in scanner results; per-vector health
+modifiers (`scanner-result-map__vector--*`); Partial Profile gating for Composite ATI;
+weakest/strongest movement blocks; primary failure mode with canonical routes; intervention
+layers; Evidence Confidence summary kept separate from the map; no Failure Lens in scanner
+output; result-map CSS classes in `main.css`.
 
 Sprint 6 page checks in `validate-pages.ps1`: `/scanner/` route, blueprint structure,
 Partial Profile documentation, governed script tag, reference links, 35/41 route milestone.

@@ -1259,6 +1259,310 @@ th {
   display: none;
 }
 
+/* === SECTION: SCANNER RESULT MAP ==========================================
+   Sprint 12D — Transition Health Map in scanner results.
+   Movement quality only; separate from Failure Lens and Evidence badges.
+   ========================================================================== */
+
+.scanner-result-map {
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+}
+
+.scanner-result-map > h3 {
+  margin-top: 0;
+}
+
+.scanner-result-map__axis {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.scanner-result-map__state {
+  font-size: var(--axis-state-size);
+  font-weight: 500;
+  color: var(--state-ink);
+  background: var(--state-surface);
+  border: 1px solid var(--state-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  text-align: center;
+  align-self: center;
+  min-width: 7rem;
+}
+
+.scanner-result-map__vector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4) var(--space-2);
+  min-height: 3.75rem;
+  min-width: 0;
+}
+
+.scanner-result-map__vector::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0.65rem;
+  width: var(--axis-line-weight);
+  transform: translateX(-50%);
+  opacity: 0.88;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--transition-flow) 0,
+    var(--transition-flow) 12px,
+    transparent 12px,
+    transparent 18px
+  );
+  background-size: 100% 30px;
+}
+
+.scanner-result-map__vector::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  opacity: 0.88;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.65rem solid var(--transition-flow);
+}
+
+.scanner-result-map__label {
+  position: relative;
+  z-index: 1;
+  background: var(--surface-page);
+  border: 2px solid var(--transition-flow);
+  color: var(--transition-flow-deep);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  text-align: center;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.scanner-result-map__summary {
+  margin: 0;
+}
+
+.scanner-result-map__vector--focus .scanner-result-map__label {
+  box-shadow: 0 0 0 2px var(--transition-flow-tint);
+  background: var(--transition-flow-tint);
+}
+
+.scanner-result-map__vector--strong::before {
+  opacity: 1;
+  width: calc(var(--axis-line-weight) + 1px);
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-strong-ink) 0, var(--diag-strong-ink) 22px,
+    transparent 22px, transparent 24px);
+}
+
+.scanner-result-map__vector--strong::after { border-top-color: var(--diag-strong-ink); opacity: 1; }
+.scanner-result-map__vector--strong .scanner-result-map__label {
+  border-color: var(--diag-strong-ink);
+  color: var(--diag-strong-ink);
+  background: var(--diag-strong-tint);
+}
+
+.scanner-result-map__vector--functional::before {
+  opacity: 0.96;
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-functional-ink) 0, var(--diag-functional-ink) 16px,
+    transparent 16px, transparent 20px);
+}
+
+.scanner-result-map__vector--functional::after { border-top-color: var(--diag-functional-ink); opacity: 0.96; }
+.scanner-result-map__vector--functional .scanner-result-map__label {
+  border-color: var(--diag-functional-ink);
+  color: var(--diag-functional-ink);
+}
+
+.scanner-result-map__vector--unstable::before {
+  opacity: 0.86;
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 10px,
+    transparent 10px, transparent 22px);
+}
+
+.scanner-result-map__vector--unstable::after { border-top-color: var(--diag-unstable-ink); opacity: 0.86; }
+.scanner-result-map__vector--unstable .scanner-result-map__label {
+  border-style: dashed;
+  border-color: var(--diag-unstable-ink);
+  color: var(--diag-unstable-ink);
+}
+
+.scanner-result-map__vector--constrained::before {
+  opacity: 0.76;
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
+    transparent 6px, transparent 18px);
+}
+
+.scanner-result-map__vector--constrained::after { border-top-color: var(--diag-constrained-ink); opacity: 0.76; }
+.scanner-result-map__vector--constrained .scanner-result-map__label {
+  border-style: dashed;
+  border-color: var(--diag-constrained-ink);
+  color: var(--diag-constrained-ink);
+}
+
+.scanner-result-map__vector--critical::before {
+  opacity: 0.62;
+  width: calc(var(--axis-line-weight) - 1px);
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-critical-ink) 0, var(--diag-critical-ink) 3px,
+    transparent 3px, transparent 22px);
+}
+
+.scanner-result-map__vector--critical::after { border-top-color: var(--diag-critical-ink); opacity: 0.62; }
+.scanner-result-map__vector--critical .scanner-result-map__label {
+  border-style: dotted;
+  border-color: var(--diag-critical-ink);
+  color: var(--diag-critical-ink);
+}
+
+.scanner-result-map__vector--unscorable::before {
+  opacity: 0.5;
+  background: repeating-linear-gradient(to bottom,
+    var(--line-strong) 0, var(--line-strong) 2px,
+    transparent 2px, transparent 14px);
+}
+
+.scanner-result-map__vector--unscorable::after { border-top-color: var(--line-strong); opacity: 0.5; }
+.scanner-result-map__vector--unscorable .scanner-result-map__label {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  color: var(--ink-secondary);
+  background: var(--surface-sunken);
+  font-weight: 500;
+}
+
+.scanner-result-map__focus {
+  padding: var(--space-4);
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  max-width: 44rem;
+}
+
+.scanner-result-map__focus--weakest {
+  border-left: 3px solid var(--diag-constrained-ink);
+}
+
+.scanner-result-map__focus--strongest {
+  border-left: 3px solid var(--diag-strong-ink);
+}
+
+@media (min-width: 64rem) {
+  .scanner-result-map__axis {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .scanner-result-map__state {
+    min-width: 0;
+    flex: 0 1 auto;
+    max-width: 5.5rem;
+    font-size: 0.75rem;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .scanner-result-map__vector {
+    flex: 1 1 0;
+    min-height: 0;
+    padding: var(--space-2) var(--space-1);
+  }
+
+  .scanner-result-map__vector::before {
+    left: 0;
+    right: 0.65rem;
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    height: var(--axis-line-weight-wide);
+    transform: translateY(-50%);
+    background: repeating-linear-gradient(to right,
+      var(--transition-flow) 0, var(--transition-flow) 12px,
+      transparent 12px, transparent 18px);
+    background-size: 30px 100%;
+  }
+
+  .scanner-result-map__vector::after {
+    left: auto;
+    right: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 0.4rem solid transparent;
+    border-bottom: 0.4rem solid transparent;
+    border-left: 0.65rem solid var(--transition-flow);
+    border-right: 0;
+  }
+
+  .scanner-result-map__label {
+    font-size: 0.7rem;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .scanner-result-map__vector--strong::before {
+    height: calc(var(--axis-line-weight-wide) + 1px);
+    background: repeating-linear-gradient(to right,
+      var(--diag-strong-ink) 0, var(--diag-strong-ink) 22px,
+      transparent 22px, transparent 24px);
+  }
+  .scanner-result-map__vector--strong::after { border-left-color: var(--diag-strong-ink); border-top-color: transparent; }
+
+  .scanner-result-map__vector--functional::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-functional-ink) 0, var(--diag-functional-ink) 16px,
+      transparent 16px, transparent 20px);
+  }
+  .scanner-result-map__vector--functional::after { border-left-color: var(--diag-functional-ink); border-top-color: transparent; }
+
+  .scanner-result-map__vector--unstable::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 10px,
+      transparent 10px, transparent 22px);
+  }
+  .scanner-result-map__vector--unstable::after { border-left-color: var(--diag-unstable-ink); border-top-color: transparent; }
+
+  .scanner-result-map__vector--constrained::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
+      transparent 6px, transparent 18px);
+  }
+  .scanner-result-map__vector--constrained::after { border-left-color: var(--diag-constrained-ink); border-top-color: transparent; }
+
+  .scanner-result-map__vector--critical::before {
+    height: calc(var(--axis-line-weight-wide) - 1px);
+    background: repeating-linear-gradient(to right,
+      var(--diag-critical-ink) 0, var(--diag-critical-ink) 3px,
+      transparent 3px, transparent 22px);
+  }
+  .scanner-result-map__vector--critical::after { border-left-color: var(--diag-critical-ink); border-top-color: transparent; }
+
+  .scanner-result-map__vector--unscorable::before {
+    height: calc(var(--axis-line-weight-wide) - 1px);
+    background: repeating-linear-gradient(to right,
+      var(--line-strong) 0, var(--line-strong) 2px,
+      transparent 2px, transparent 14px);
+  }
+  .scanner-result-map__vector--unscorable::after { border-left-color: var(--line-strong); border-top-color: transparent; }
+}
+
 .scanner-results {
   display: grid;
   gap: var(--space-5);
@@ -1328,6 +1632,10 @@ th {
   }
 
   .transition-axis__vector::before {
+    animation: none !important;
+  }
+
+  .scanner-result-map__vector::before {
     animation: none !important;
   }
 }

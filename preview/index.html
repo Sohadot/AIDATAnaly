@@ -299,6 +299,27 @@
         uses the diagnostic color scale.</p>
     </section>
 
+    <!-- Scanner Transition Health Map -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Transition Health Map (Patch 12D)</p>
+      <p>Scanner result visualization only. Uses <code>scanner-result-map</code> classes in
+        <code>main.css</code> — not Failure Lens.</p>
+      <div class="scanner-result-map" aria-label="Sample Transition Health Map">
+        <h3>Transition Health Map</h3>
+        <ol class="scanner-result-map__axis" aria-label="Sample movement quality">
+          <li class="scanner-result-map__state">Attention</li>
+          <li class="scanner-result-map__vector scanner-result-map__vector--functional"><span class="scanner-result-map__label">T1 Functional</span></li>
+          <li class="scanner-result-map__state">Interest</li>
+          <li class="scanner-result-map__vector scanner-result-map__vector--constrained scanner-result-map__vector--focus"><span class="scanner-result-map__label">T2 Constrained</span></li>
+          <li class="scanner-result-map__state">Desire</li>
+          <li class="scanner-result-map__vector scanner-result-map__vector--critical"><span class="scanner-result-map__label">T3 Critical</span></li>
+          <li class="scanner-result-map__state">Action</li>
+          <li class="scanner-result-map__vector scanner-result-map__vector--unstable"><span class="scanner-result-map__label">T4 Unstable</span></li>
+          <li class="scanner-result-map__state">Loyalty</li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ATI Score Panel (preliminary) + separation demonstration -->
     <section class="layout-section">
       <p class="layout-section__kicker">Component — ATI Score Panel (preliminary base) with separate Evidence badge</p>

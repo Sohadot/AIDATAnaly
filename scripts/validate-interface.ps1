@@ -113,7 +113,7 @@ if ($evidenceSection) {
 } else { Fail "EVIDENCE section marker not found in main.css" }
 
 # --- 8. Diagnostic variables stay on diagnostic surfaces ------------------------
-$diagAllowedSections = @('TOKENS', 'DIAGNOSTIC', 'TRANSITION AXIS')
+$diagAllowedSections = @('TOKENS', 'DIAGNOSTIC', 'TRANSITION AXIS', 'SCANNER RESULT MAP')
 $diagLeaks = @()
 foreach ($s in $sections) {
   if ($s -match '^\s*([A-Z ]+?)\s*=') {
@@ -121,7 +121,7 @@ foreach ($s in $sections) {
     if (($s -match '--diag-') -and ($diagAllowedSections -notcontains $name)) { $diagLeaks += $name }
   }
 }
-if (-not $diagLeaks) { Pass "Diagnostic scale colors appear only in TOKENS, DIAGNOSTIC, and TRANSITION AXIS sections" }
+if (-not $diagLeaks) { Pass "Diagnostic scale colors appear only in TOKENS, DIAGNOSTIC, TRANSITION AXIS, and SCANNER RESULT MAP sections" }
 else { foreach ($l in $diagLeaks) { Fail "Diagnostic scale leaked into section: $l" } }
 
 # --- 9. Unscorable state: explicit, non-numeric --------------------------------
@@ -236,7 +236,21 @@ if ($durations.Count -gt 0 -and -not $outOfRange) {
   Pass "Interface motion tokens within governed 200-600ms range"
 } else { Fail "Motion duration tokens out of governed range: $($outOfRange -join ', ')" }
 
-# --- 14. scanner.js implements governed v1 logic ---------------------------------
+# --- 14. Scanner result map classes (Patch 12D) ---------------------------------
+$mapClasses = @(
+  '.scanner-result-map',
+  '.scanner-result-map__axis',
+  '.scanner-result-map__vector--unscorable',
+  '.scanner-result-map__focus'
+)
+$missingMap = $mapClasses | Where-Object { $css -notmatch [regex]::Escape($_) }
+if (-not $missingMap) {
+  Pass "Scanner Transition Health Map classes defined in main.css"
+} else {
+  foreach ($m in $missingMap) { Fail "Scanner result map class missing: $m" }
+}
+
+# --- 15. scanner.js implements governed v1 logic ---------------------------------
 if ($js -match '/data/scanner-model\.json' -and
     $js -match '/data/tfo-failure-modes\.json' -and
     $js -match 'Unscorable' -and

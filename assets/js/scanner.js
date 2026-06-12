@@ -484,6 +484,122 @@
     return html;
   }
 
+  function healthModifierForVector(vr) {
+    if (vr.evidence.unscorable) return "unscorable";
+    if (!vr.diagnostic) return "functional";
+    return classModifier(vr.diagnostic.name);
+  }
+
+  function healthLabelForVector(vr) {
+    if (vr.evidence.unscorable) return vr.code + " Unscorable";
+    var shortName = (vr.diagnostic.name || "").replace(/^Transition\s+/i, "");
+    return vr.code + " " + shortName;
+  }
+
+  function primaryFailureMode(result) {
+    if (result.weakest && result.weakest.failureModes && result.weakest.failureModes.primary) {
+      return result.weakest.failureModes.primary;
+    }
+    return result.failureModes.length ? result.failureModes[0] : null;
+  }
+
+  function renderTransitionHealthMap(result) {
+    var html =
+      '<div class="scanner-result-map" aria-label="Transition Health Map">';
+    html += "<h3>Transition Health Map</h3>";
+    html +=
+      '<ol class="scanner-result-map__axis" aria-label="Movement quality across T1 through T4">';
+
+    var segments = [
+      { type: "state", label: "Attention" },
+      { type: "vector", vr: result.vectorResults[0] },
+      { type: "state", label: "Interest" },
+      { type: "vector", vr: result.vectorResults[1] },
+      { type: "state", label: "Desire" },
+      { type: "vector", vr: result.vectorResults[2] },
+      { type: "state", label: "Action" },
+      { type: "vector", vr: result.vectorResults[3] },
+      { type: "state", label: "Loyalty" },
+    ];
+
+    var summaryParts = [];
+
+    segments.forEach(function (seg) {
+      if (seg.type === "state") {
+        html +=
+          '<li class="scanner-result-map__state">' +
+          escapeHtml(seg.label) +
+          "</li>";
+        return;
+      }
+
+      var vr = seg.vr;
+      if (!vr) return;
+      var mod = healthModifierForVector(vr);
+      var classes =
+        "scanner-result-map__vector scanner-result-map__vector--" + mod;
+      if (result.weakest && result.weakest.code === vr.code) {
+        classes += " scanner-result-map__vector--focus";
+      }
+      html += '<li class="' + classes + '">';
+      html +=
+        '<span class="scanner-result-map__label">' +
+        escapeHtml(healthLabelForVector(vr)) +
+        "</span></li>";
+      summaryParts.push(healthLabelForVector(vr));
+    });
+
+    html += "</ol>";
+    html +=
+      '<p class="scanner-result-map__summary utility-visually-hidden">Transition health map: ' +
+      escapeHtml(summaryParts.join("; ")) +
+      ".</p>";
+    html += "</div>";
+    return html;
+  }
+
+  function renderMovementFocus(title, vr, kind) {
+    if (!vr) return "";
+    var html = "<h3>" + escapeHtml(title) + "</h3>";
+    html += '<div class="scanner-result-map__focus scanner-result-map__focus--' + kind + '">';
+    html +=
+      "<p><strong>" +
+      escapeHtml(vr.code) +
+      "</strong> — " +
+      escapeHtml(vr.transition);
+    if (vr.evidence.unscorable) {
+      html += " — Unscorable / E0 Absent Evidence";
+    } else {
+      html +=
+        " — " +
+        escapeHtml(vr.diagnostic.name) +
+        " (Score " +
+        vr.score +
+        ")";
+    }
+    if (vr.route) {
+      html +=
+        ' (<a href="' + escapeHtml(vr.route) + '">vector profile</a>)';
+    }
+    html += "</p>";
+    if (
+      vr.failureModes &&
+      vr.failureModes.primary &&
+      kind === "weakest"
+    ) {
+      html +=
+        '<p>Likely failure: <a href="' +
+        escapeHtml(vr.failureModes.primary.canonical_route) +
+        '">' +
+        escapeHtml(vr.failureModes.primary.name) +
+        '</a> <span class="stable-id-chip">' +
+        escapeHtml(vr.failureModes.primary.id) +
+        "</span></p>";
+    }
+    html += "</div>";
+    return html;
+  }
+
   function renderResults(result) {
     var routes = state.scanner.canonical_routes;
     var html = "";
@@ -536,65 +652,36 @@
         '">ATI Standard</a>)</p>';
     }
 
-    html += "<h3>Evidence Confidence Summary</h3>";
-    html += "<p>" + evidenceBadge(result.baselineEvidence.code, result.baselineEvidence.name, result.baselineEvidence.code === "E0") + "</p>";
-    html +=
-      '<p class="utility-muted">Evidence Confidence qualifies how strongly this result should be interpreted. It is not part of the ATI score. See <a href="' +
-      routes.evidence_confidence +
-      '">Evidence Confidence</a>.</p>';
+    html += renderTransitionHealthMap(result);
 
-    ["T1", "T2", "T3", "T4"].forEach(function (code, idx) {
-      var vr = result.vectorResults[idx];
-      if (!vr) return;
-      html += "<h3>" + code + " Result</h3>";
-      html += renderVectorResult(vr);
-    });
+    html += renderMovementFocus("Weakest Movement", result.weakest, "weakest");
+    html += renderMovementFocus("Strongest Movement", result.strongest, "strongest");
 
-    if (result.weakest) {
-      html += "<h3>Weakest Vector</h3>";
+    html += "<h3>Primary Failure Mode</h3>";
+    var primaryFm = primaryFailureMode(result);
+    if (primaryFm) {
       html +=
-        "<p>" +
-        escapeHtml(result.weakest.code) +
-        " — " +
-        escapeHtml(result.weakest.transition) +
-        (result.weakest.evidence.unscorable
-          ? " (Unscorable / E0)"
-          : " — Score " + result.weakest.score) +
-        (result.weakest.route
-          ? ' (<a href="' + escapeHtml(result.weakest.route) + '">vector page</a>)'
-          : "") +
-        "</p>";
-    }
-
-    if (result.strongest) {
-      html += "<h3>Strongest Vector</h3>";
-      html +=
-        "<p>" +
-        escapeHtml(result.strongest.code) +
-        " — " +
-        escapeHtml(result.strongest.transition) +
-        " — Score " +
-        result.strongest.score +
-        (result.strongest.route
-          ? ' (<a href="' + escapeHtml(result.strongest.route) + '">vector page</a>)'
-          : "") +
-        "</p>";
-    }
-
-    html += "<h3>Likely Failure Modes</h3>";
-    if (result.failureModes.length) {
-      html += "<ul>";
-      result.failureModes.forEach(function (fm) {
-        html +=
-          "<li><a href=\"" +
-          escapeHtml(fm.canonical_route) +
-          '">' +
-          escapeHtml(fm.name) +
-          '</a> <span class="stable-id-chip">' +
-          escapeHtml(fm.id) +
-          "</span></li>";
-      });
-      html += "</ul>";
+        "<p><a href=\"" +
+        escapeHtml(primaryFm.canonical_route) +
+        '"><strong>' +
+        escapeHtml(primaryFm.name) +
+        '</strong></a> <span class="stable-id-chip">' +
+        escapeHtml(primaryFm.id) +
+        "</span></p>";
+      if (result.failureModes.length > 1) {
+        html += "<p>Related patterns:</p><ul>";
+        result.failureModes.slice(1, 4).forEach(function (fm) {
+          html +=
+            "<li><a href=\"" +
+            escapeHtml(fm.canonical_route) +
+            '">' +
+            escapeHtml(fm.name) +
+            '</a> <span class="stable-id-chip">' +
+            escapeHtml(fm.id) +
+            "</span></li>";
+        });
+        html += "</ul>";
+      }
     } else {
       html += "<p>No dominant failure mode pattern detected at the current signal strength.</p>";
     }
@@ -610,10 +697,17 @@
       html +=
         '<p>See <a href="' +
         routes.intervention_layers +
-        '">Intervention Layers</a> for the governed registry.</p>';
+        '">Intervention Layers</a> for the governed registry.</p>";
     } else {
       html += "<p>No intervention layer recommendation at this signal level.</p>";
     }
+
+    html += "<h3>Evidence Confidence Summary</h3>";
+    html += "<p>" + evidenceBadge(result.baselineEvidence.code, result.baselineEvidence.name, result.baselineEvidence.code === "E0") + "</p>";
+    html +=
+      '<p class="utility-muted">Evidence Confidence qualifies how strongly this result should be interpreted. It is not part of the ATI score. See <a href="' +
+      routes.evidence_confidence +
+      '">Evidence Confidence</a>.</p>';
 
     html += "<h3>Reference Links</h3>";
     html += '<nav class="reference-links" aria-label="Scanner reference links"><ul class="reference-links__list">';

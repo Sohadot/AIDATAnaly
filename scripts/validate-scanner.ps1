@@ -182,6 +182,78 @@ if ($js -match 'transition-axis__vector--reference' -and
   Pass "scanner.js swaps reference for diagnostic health modifiers after scoring"
 } else { Fail "scanner.js missing governed reference-to-diagnostic axis update" }
 
+# --- Scanner result map (Patch 12D) -----------------------------------------------
+$cssPath = Join-Path $root 'assets/css/main.css'
+$css = Get-Content -Raw -Encoding UTF8 -Path $cssPath
+
+if ($js -match 'renderTransitionHealthMap' -and $js -match 'scanner-result-map') {
+  Pass "scanner.js renders Transition Health Map component"
+} else { Fail "scanner.js missing Transition Health Map rendering" }
+
+if ($js -match 'function healthModifierForVector' -and
+    $js -match 'return "unscorable"' -and
+    $js -match 'scanner-result-map__vector--" \+ mod') {
+  Pass "scanner.js assigns health modifiers to each vector in the result map"
+} else { Fail "scanner.js missing per-vector health modifier assignment in result map" }
+
+if ($js -match 'ATI Profile: Partial' -and $js -match 'renderTransitionHealthMap\(result\)') {
+  Pass "Partial Profile renders Transition Health Map"
+} else { Fail "Partial Profile must render Transition Health Map" }
+
+if ($js -match 'result\.partial' -and $js -match 'else if \(result\.composite\)') {
+  Pass "Partial Profile branch prevents Composite ATI when any vector is E0"
+} else { Fail "Partial Profile must gate Composite ATI behind full-profile branch" }
+
+if ($js -match 'Composite ATI:' -and $js -match 'result\.composite') {
+  Pass "Full Profile allows Composite ATI output"
+} else { Fail "Full Profile composite rendering missing" }
+
+if ($js -match 'Weakest Movement' -and $js -match 'Strongest Movement' -and $js -match 'scanner-result-map__focus') {
+  Pass "scanner result highlights weakest and strongest movement"
+} else { Fail "scanner result missing weakest/strongest movement sections" }
+
+if ($js -match 'Primary Failure Mode' -and $js -match 'primaryFailureMode' -and $js -match 'canonical_route') {
+  Pass "scanner result surfaces primary failure mode with canonical route"
+} else { Fail "scanner result missing primary failure mode block" }
+
+if ($js -match 'Recommended Intervention Layers' -and $js -match 'intervention-tag') {
+  Pass "scanner result renders recommended intervention layers"
+} else { Fail "scanner result missing intervention layer output" }
+
+if ($js -match 'Evidence Confidence Summary' -and $js -match 'Reference Links') {
+  Pass "scanner result keeps Evidence Confidence summary separate from the health map"
+} else { Fail "scanner result missing Evidence Confidence summary" }
+
+if ($js -notmatch 'class="failure-lens"') {
+  Pass "scanner result does not embed Failure Lens component"
+} else { Fail "scanner result must not embed Failure Lens in Sprint 12D" }
+
+$mapClasses = @(
+  '.scanner-result-map',
+  '.scanner-result-map__axis',
+  '.scanner-result-map__state',
+  '.scanner-result-map__vector',
+  '.scanner-result-map__vector--strong',
+  '.scanner-result-map__vector--functional',
+  '.scanner-result-map__vector--unstable',
+  '.scanner-result-map__vector--constrained',
+  '.scanner-result-map__vector--critical',
+  '.scanner-result-map__vector--unscorable',
+  '.scanner-result-map__label',
+  '.scanner-result-map__summary',
+  '.scanner-result-map__focus'
+)
+$missingMapClasses = $mapClasses | Where-Object { $css -notmatch [regex]::Escape($_) }
+if (-not $missingMapClasses) {
+  Pass "Scanner result map CSS classes defined in main.css"
+} else {
+  foreach ($m in $missingMapClasses) { Fail "Scanner result map class missing in main.css: $m" }
+}
+
+if ($css -match 'SCANNER RESULT MAP' -and $css -notmatch '\.scanner-result-map[\s\S]{0,2500}--evidence-') {
+  Pass "Scanner result map styling does not use Evidence Confidence variables"
+} else { Fail "Scanner result map must not reference evidence color tokens" }
+
 # --- Summary ------------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="
