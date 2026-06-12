@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,6 +7,7 @@
   <meta name="description" content="Measurement Gap occurs when the system cannot confidently assess a transition because the required evidence is missing, fragmented, inaccessible, or not tr...">
   <link rel="canonical" href="https://aidatanaly.com/failure-modes/measurement-gap/">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/failure-lens.css">
   <!--
   Path: /failure-modes/measurement-gap/
   Page Class: Diagnostic Constraint Page
@@ -41,6 +42,34 @@
           <dt>Canonical Route</dt><dd><span class="utility-mono">/failure-modes/measurement-gap/</span></dd>
         </dl>
       </article>
+
+      <aside class="failure-lens failure-lens--constraint" aria-label="Measurement Gap scope on the transition axis">
+        <p class="failure-lens__kicker">Diagnostic constraint scope</p>
+        <ol class="failure-lens__axis transition-axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T1</span>
+        </li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T2</span>
+        </li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T3</span>
+        </li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T4</span>
+        </li>
+        <li class="transition-axis__state">Loyalty</li>
+        </ol>
+      <p class="failure-lens__callout">
+        <span class="failure-lens__label">Measurement Gap</span>
+        <span class="failure-lens__note">Limits confidence across all measured transitions. Not a normal failure mode.</span>
+      </p>
+        <p class="utility-visually-hidden">Measurement Gap is a diagnostic constraint that limits evidence confidence across transitions.</p>
+      </aside>
 
       <section class="layout-section">
         <h2>Definition</h2>

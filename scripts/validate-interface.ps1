@@ -246,6 +246,59 @@ if ($js -match '/data/scanner-model\.json' -and
   Pass "scanner.js implements governed Transition Scanner v1 from /data/ registry"
 } else { Fail "scanner.js missing governed scanner v1 implementation" }
 
+# --- 15. Failure Lens component (Patch 12C) -------------------------------------
+$lensCssPath = Join-Path $root 'assets/css/failure-lens.css'
+if ((Test-Path $lensCssPath) -and (Get-Item $lensCssPath).Length -gt 200) {
+  Pass "assets/css/failure-lens.css exists and is substantive"
+} else { Fail "assets/css/failure-lens.css missing or empty" }
+
+$lensCss = if (Test-Path $lensCssPath) { Get-Content -Raw -Encoding UTF8 -Path $lensCssPath } else { '' }
+if ($lensCss -notmatch '@import\s+url\(\s*["'']?https?://' -and $lensCss -notmatch 'https?://') {
+  Pass "failure-lens.css has no external imports or URLs"
+} else { Fail "failure-lens.css references external resources" }
+
+if ($lensCss -notmatch '--evidence-' -and $lensCss -notmatch 'badge-evidence' -and $lensCss -notmatch 'score-panel') {
+  Pass "failure-lens.css excludes evidence colors and scoring surfaces"
+} else { Fail "failure-lens.css must not define evidence or scoring styling" }
+
+if ($lensCss -notmatch 'webgl|getContext\(|<canvas|linear-gradient\([^v]') {
+  Pass "failure-lens.css avoids prohibited rendering and decorative gradients"
+} else { Fail "failure-lens.css contains prohibited visual patterns" }
+
+if ($lensCss -match '\.failure-lens' -and $lensCss -match 'var\(--') {
+  Pass "failure-lens.css uses governed tokens from main.css"
+} else { Fail "failure-lens.css must use main.css design tokens" }
+
+$lensPages = Get-ChildItem -Path $root -Recurse -Filter 'index.html' -File |
+  Where-Object {
+    $_.FullName -match '\\(vectors|failure-modes)\\' -or $_.FullName -match '\\preview\\'
+  }
+$lensLinkFailures = @()
+foreach ($lp in $lensPages) {
+  $pc = Get-Content -Raw -Encoding UTF8 -Path $lp.FullName
+  if ($pc -match 'class="failure-lens"' -and $pc -notmatch 'failure-lens\.css') {
+    $lensLinkFailures += $lp.FullName.Substring($root.Length).TrimStart('\')
+  }
+}
+if (-not $lensLinkFailures) {
+  Pass "All pages using .failure-lens link failure-lens.css"
+} else {
+  foreach ($f in $lensLinkFailures) { Fail "Page uses .failure-lens but omits failure-lens.css: $f" }
+}
+
+$homePath = Join-Path $root 'index.html'
+$homeHtml = Get-Content -Raw -Encoding UTF8 -Path $homePath
+if ($homeHtml -notmatch 'failure-lens\.css' -and $homeHtml -notmatch 'class="failure-lens"') {
+  Pass "Homepage does not load unused failure-lens.css"
+} else { Fail "Homepage must not link failure-lens.css without using the component" }
+
+if (Test-Path $previewPath) {
+  if (-not $preview) { $preview = Get-Content -Raw -Encoding UTF8 -Path $previewPath }
+  if ($preview -match 'class="failure-lens"' -and $preview -match 'failure-lens\.css') {
+    Pass "Preview demonstrates Failure Lens with dedicated stylesheet"
+  } else { Fail "Preview missing Failure Lens demo or stylesheet link" }
+}
+
 # --- Summary ----------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="

@@ -1,0 +1,124 @@
+/* ==========================================================================
+   AIDAtanaly.com — failure-lens.css
+   Sprint 12C — Failure Lens diagnostic positioning component.
+
+   Uses tokens from main.css only. No new palette, no evidence colors,
+   no scoring logic, no external imports, no decorative animation.
+   ========================================================================== */
+
+.failure-lens {
+  margin: var(--space-6) 0;
+  padding: var(--space-5);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+}
+
+.failure-lens__kicker {
+  margin: 0 0 var(--space-4);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.failure-lens .transition-axis {
+  margin: 0;
+}
+
+/* Focus segment: where movement fails or is measured (reference grammar only). */
+.failure-lens .transition-axis__vector.failure-lens__vector--focus {
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.failure-lens .transition-axis__vector.failure-lens__vector--focus::before {
+  opacity: 1;
+  width: calc(var(--axis-line-weight) + 2px);
+}
+
+.failure-lens .transition-axis__vector.failure-lens__vector--focus::after {
+  opacity: 1;
+}
+
+.failure-lens .transition-axis__vector.failure-lens__vector--focus .transition-axis__vector-label {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--transition-flow-deep);
+  background: var(--transition-flow-tint);
+  color: var(--transition-flow-deep);
+  font-weight: 700;
+}
+
+/* Non-focus segments recede — failure is loss of continuity on the focus gap. */
+.failure-lens .transition-axis__vector:not(.failure-lens__vector--focus)::before,
+.failure-lens .transition-axis__vector:not(.failure-lens__vector--focus)::after {
+  opacity: 0.35;
+  animation: none;
+}
+
+.failure-lens .transition-axis__vector:not(.failure-lens__vector--focus) .transition-axis__vector-label {
+  border-color: var(--line-strong);
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+
+.failure-lens__callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+}
+
+.failure-lens__marker {
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--transition-flow-deep);
+}
+
+.failure-lens__label {
+  margin-top: var(--space-1);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.failure-lens__note {
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
+  max-width: 28rem;
+}
+
+/* Diagnostic constraint: no single vector focus. */
+.failure-lens--constraint .transition-axis__vector::before,
+.failure-lens--constraint .transition-axis__vector::after {
+  opacity: 0.45;
+  animation: none;
+}
+
+.failure-lens--constraint .transition-axis__vector .transition-axis__vector-label {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+
+.failure-lens--constraint .failure-lens__callout {
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 64rem) {
+  .failure-lens .transition-axis__vector.failure-lens__vector--focus::before {
+    height: calc(var(--axis-line-weight-wide) + 2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .failure-lens .transition-axis__vector::before {
+    animation: none !important;
+  }
+}

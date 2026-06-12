@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,6 +7,7 @@
   <meta name="description" content="Signal Decay occurs when initial attention weakens before it can become sustained interest. The prospect notices the offer, but the signal loses strength t...">
   <link rel="canonical" href="https://aidatanaly.com/failure-modes/signal-decay/">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/failure-lens.css">
   <!--
   Path: /failure-modes/signal-decay/
   Page Class: Failure Mode Page
@@ -42,6 +43,34 @@
           <dt>Diagnostic Class</dt><dd>Signal Conversion Failure</dd>
         </dl>
       </article>
+
+      <aside class="failure-lens" aria-label="Failure position on the transition axis">
+        <p class="failure-lens__kicker">Where this failure sits</p>
+        <ol class="failure-lens__axis transition-axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--reference failure-lens__vector--focus">
+          <span class="transition-axis__vector-label">T1 Signal Conversion</span>
+          <p class="failure-lens__callout">
+            <span class="failure-lens__marker" aria-hidden="true">&#8593;</span>
+            <span class="failure-lens__label">Signal Decay</span>
+          </p>
+        </li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T2</span>
+        </li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T3</span>
+        </li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T4</span>
+        </li>
+        <li class="transition-axis__state">Loyalty</li>
+        </ol>
+        <p class="utility-visually-hidden">Signal Decay blocks movement on T1 Signal Conversion.</p>
+      </aside>
 
       <section class="layout-section">
         <h2>Definition</h2>

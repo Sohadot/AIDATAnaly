@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>AIDAtanaly — Internal Component Preview (Sprint 2)</title>
   <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/failure-lens.css">
 </head>
 <body>
   <a class="utility-skip-link" href="#main">Skip to content</a>
@@ -142,6 +143,79 @@
         broken line continuity. Unscorable uses neutral gray with no diagnostic color. Mixed axis combines
         Functional, Unstable, Critical, and Unscorable vectors as in a scanner result profile.
       </p>
+    </section>
+
+    <!-- Failure Lens -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Failure Lens (Patch 12C)</p>
+      <p>Positions a failure mode or measured vector on the axis. Uses <code>--reference</code> grammar only
+        (no scored health). Styles live in <code>failure-lens.css</code>, linked only where this component appears.</p>
+
+      <h4>Failure mode — Comparison Stall (T2)</h4>
+      <aside class="failure-lens" aria-label="Comparison Stall position on the transition axis">
+        <p class="failure-lens__kicker">Where this failure sits</p>
+        <ol class="failure-lens__axis transition-axis">
+          <li class="transition-axis__state">Attention</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T1</span></li>
+          <li class="transition-axis__state">Interest</li>
+          <li class="transition-axis__vector transition-axis__vector--reference failure-lens__vector--focus">
+            <span class="transition-axis__vector-label">T2 Intent Formation</span>
+            <p class="failure-lens__callout">
+              <span class="failure-lens__marker" aria-hidden="true">&#8593;</span>
+              <span class="failure-lens__label">Comparison Stall</span>
+            </p>
+          </li>
+          <li class="transition-axis__state">Desire</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T3</span></li>
+          <li class="transition-axis__state">Action</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T4</span></li>
+          <li class="transition-axis__state">Loyalty</li>
+        </ol>
+        <p class="utility-visually-hidden">Comparison Stall blocks movement from Interest to Desire on T2.</p>
+      </aside>
+
+      <h4>Failure mode — Process Friction (T3)</h4>
+      <aside class="failure-lens" aria-label="Process Friction position on the transition axis">
+        <p class="failure-lens__kicker">Where this failure sits</p>
+        <ol class="failure-lens__axis transition-axis">
+          <li class="transition-axis__state">Attention</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T1</span></li>
+          <li class="transition-axis__state">Interest</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T2</span></li>
+          <li class="transition-axis__state">Desire</li>
+          <li class="transition-axis__vector transition-axis__vector--reference failure-lens__vector--focus">
+            <span class="transition-axis__vector-label">T3 Conversion Friction</span>
+            <p class="failure-lens__callout">
+              <span class="failure-lens__marker" aria-hidden="true">&#8593;</span>
+              <span class="failure-lens__label">Process Friction</span>
+            </p>
+          </li>
+          <li class="transition-axis__state">Action</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T4</span></li>
+          <li class="transition-axis__state">Loyalty</li>
+        </ol>
+        <p class="utility-visually-hidden">Process Friction blocks movement from Desire to Action on T3.</p>
+      </aside>
+
+      <h4>Diagnostic constraint — Measurement Gap</h4>
+      <aside class="failure-lens failure-lens--constraint" aria-label="Measurement Gap scope">
+        <p class="failure-lens__kicker">Diagnostic constraint scope</p>
+        <ol class="failure-lens__axis transition-axis">
+          <li class="transition-axis__state">Attention</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T1</span></li>
+          <li class="transition-axis__state">Interest</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T2</span></li>
+          <li class="transition-axis__state">Desire</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T3</span></li>
+          <li class="transition-axis__state">Action</li>
+          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T4</span></li>
+          <li class="transition-axis__state">Loyalty</li>
+        </ol>
+        <p class="failure-lens__callout">
+          <span class="failure-lens__label">Measurement Gap</span>
+          <span class="failure-lens__note">Limits confidence across all measured transitions. Not a normal failure mode.</span>
+        </p>
+      </aside>
     </section>
 
     <!-- Vector Card -->

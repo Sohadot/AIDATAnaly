@@ -8,6 +8,7 @@
   <link rel="canonical" href="https://aidatanaly.com/vectors/attention-to-interest/">
   <!-- Pre-launch: removed at the first public indexed release per ROUTE_MAP.md §15 -->
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/failure-lens.css">
   <!--
   Route ID: AIDA-VEC-001
   Path: /vectors/attention-to-interest/
@@ -48,21 +49,33 @@
       <section class="layout-section">
         <h2>Transition Name</h2>
         <p><strong>T1 — Signal Conversion</strong></p>
-        <ol class="transition-axis" aria-label="T1 position on the four-vector axis">
-          <li class="transition-axis__state">Attention</li>
-          <li class="transition-axis__vector transition-axis__vector--reference transition-axis__vector--current">
-            <span class="transition-axis__vector-label">T1 Signal Conversion</span>
-          </li>
-          <li class="transition-axis__state">Interest</li>
-          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T2</span></li>
-          <li class="transition-axis__state">Desire</li>
-          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T3</span></li>
-          <li class="transition-axis__state">Action</li>
-          <li class="transition-axis__vector transition-axis__vector--reference"><span class="transition-axis__vector-label">T4</span></li>
-          <li class="transition-axis__state">Loyalty</li>
+              <aside class="failure-lens" aria-label="Measured transition on the AIDA axis">
+        <p class="failure-lens__kicker">Where movement is measured</p>
+        <ol class="failure-lens__axis transition-axis">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--reference failure-lens__vector--focus">
+          <span class="transition-axis__vector-label">T1 Signal Conversion</span>
+          <p class="failure-lens__callout">
+            <span class="failure-lens__marker" aria-hidden="true">&#8593;</span>
+            <span class="failure-lens__label">Signal Conversion</span>
+          </p>
+        </li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T2</span>
+        </li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T3</span>
+        </li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--reference">
+          <span class="transition-axis__vector-label">T4</span>
+        </li>
+        <li class="transition-axis__state">Loyalty</li>
         </ol>
-        <p class="utility-visually-hidden">Text alternative: this page defines T1 Signal Conversion,
-          the transition from Attention to Interest, highlighted on the four-vector axis.</p>
+        <p class="utility-visually-hidden">This page measures T1 Signal Conversion, the transition highlighted on the axis.</p>
+      </aside>
       </section>
 
       <section class="layout-section">

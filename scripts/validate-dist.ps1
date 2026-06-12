@@ -68,6 +68,7 @@ $requiredTop = @(
   'sitemap.xml',
   'robots.txt',
   'assets/css/main.css',
+  'assets/css/failure-lens.css',
   'assets/js/scanner.js',
   'data/ati-standard.json',
   'data/ati-vectors.json',
