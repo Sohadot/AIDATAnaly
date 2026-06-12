@@ -161,6 +161,19 @@
 
 ---
 
+## Sprint 11 — Public Indexed Reference Release (Phase 2)
+
+| Field | Value |
+|-------|-------|
+| **Status** | Phase 2 ACTIVATED (live domain verification pending) |
+| **Commit** | `f2afbc4` (activation), report follows |
+| **Date** | 2026-06-12 |
+| **Summary** | Indexation activated on 41 routes; robots Allow + Sitemap; final gate PASS; `dist/` deployed to `gh-pages`. |
+| **Validators** | `quality-gate.ps1 -IndexedRelease` — all checks PASS, Public Noindex 0 |
+| **Notes** | `PUBLIC_RELEASE_REPORT.md` records deployment; custom domain/Pages propagation pending operator verification. |
+
+---
+
 ## Current Build State
 
 | Metric | Value |
@@ -168,36 +181,14 @@
 | Required Launch Routes | 41/41 |
 | Quality Gate | PASS |
 | Private Preview | PASS |
-| Indexation Posture | NON-INDEXED |
-| Sitemap URLs | 41 (pre-launch; robots blocks crawl) |
-| Broken Links | 0 |
-| Orphan Pages | 0 |
-| Latest commit | `f3eb494` |
-| Release Package (dist/) | PASS |
+| Release Package | PASS |
+| Indexation Posture | **ACTIVE** |
+| Public Noindex | 0 |
+| Sitemap URLs | 41 |
 | Forbidden Deployment Files | 0 |
-
----
-
-## Sprint 11 — Public Indexed Reference Release (Phase 1)
-
-| Field | Value |
-|-------|-------|
-| **Status** | Phase 1 PASS |
-| **Commit** | `f3eb494` |
-| **Date** | 2026-06-12 |
-| **Summary** | PUB-REL-001 ratified; `build-dist.ps1`, `validate-dist.ps1`, `quality-gate.ps1 -ReleasePackage`. |
-| **Validators** | Release Package PASS; dist 41/41 routes; forbidden files 0 |
-| **Notes** | Indexation not activated. Phase 2: Section 7 activation, final gate, deploy, `PUBLIC_RELEASE_REPORT.md`. |
-
----
-
-## Phase 2 (Not Started)
-
-- Remove `noindex` from 41 routes (source + rebuild `dist/`)
-- Activate robots Allow and `Sitemap:`
-- Final release gate (indexed posture)
-- Deploy `dist/` to hosting
-- `PUBLIC_RELEASE_REPORT.md`
+| Latest activation commit | `f2afbc4` |
+| gh-pages deploy | Complete |
+| Live URL verification | Pending DNS/Pages |
 
 ---
 
@@ -208,7 +199,7 @@
 | `governance/decisions/` | Governing ratification decisions |
 | `PRIVATE_PREVIEW_REPORT.md` | Private preview validation report |
 | `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (PUB-REL-001 ratified) |
-| `PUBLIC_RELEASE_REPORT.md` | Post-release record (to be created after Sprint 11) |
+| `PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
 
 ---
 
