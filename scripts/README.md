@@ -181,28 +181,57 @@ Sprint 8 checks in `validate-pages.ps1`:
 - all canonical URLs and `noindex` meta tags valid
 - minimum internal reference graph (up link to `/`, hub linking)
 
-Full validation loop after Sprint 8:
+## quality-gate.ps1 (built in Sprint 9)
+
+Single governed pre-release gate for **private preview readiness** — not public
+indexed release. Runs every validator in order, regenerates `sitemap.xml`, and
+re-validates pages after sitemap generation.
+
+Run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/generate-sitemap.ps1
-powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
-powershell -ExecutionPolicy Bypass -File scripts/validate-interface.ps1
-powershell -ExecutionPolicy Bypass -File scripts/validate-scanner.ps1
-powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1
 ```
 
-Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:
+Execution order:
 
-- JSON parse and schema checks for `/data/*.json`.
-- D1–D7 weight total = 100% and vector weight total = 100%.
-- TFO ID coverage against `TFO_ONTOLOGY.md` (21 failure modes + 1 constraint).
-- Route existence and canonical URL checks against `ROUTE_MAP.md`.
-- Internal link resolution (no broken links, no orphans, no deferred routes linked as live).
-- One `<h1>`, unique title, unique meta description per page.
-- Prohibited claim phrase scan (no guarantees, no industry-standard claims).
-- No `evidence_confidence_weight` anywhere.
-- E0 / Partial Profile rule compliance in scanner outputs.
-- Sitemap route count check (= 41 at launch).
-- No WebGL/3D and no external JS dependencies unless governed.
+1. `validate-data.ps1`
+2. `validate-interface.ps1`
+3. `validate-scanner.ps1`
+4. `validate-pages.ps1`
+5. `generate-sitemap.ps1`
+6. `validate-pages.ps1` (post-sitemap confirmation)
 
-Failures block public indexed release.
+The gate confirms (via the validators above):
+
+- JSON parses; D1–D7 and T1–T4 weights = 100%; TFO IDs complete; 10 intervention layers only
+- Scanner uses the `/data/` layer; Partial Profile and Unscorable rules enforced
+- 41/41 Required Launch routes implemented
+- `sitemap.xml` = exactly 41 URLs; no preview/data/assets/scripts/decisions in sitemap
+- No broken internal links; no orphan pages; canonical URLs valid
+- One `<h1>`, unique title/meta per page; no unsupported claim language
+- No external JS; no WebGL/3D/canvas
+- **Indexation posture remains NON-INDEXED**: all pages keep `noindex`; `robots.txt`
+  keeps `Disallow: /`; no active `Sitemap:` directive
+
+Sprint 9 does **not** remove `noindex`, enable `Sitemap:` in `robots.txt`, change
+`Disallow: /`, add analytics, add routes, or add buyer-facing pages. Public indexing
+remains governed by `PUBLIC_RELEASE_PLAN.md` (Sprint 10+).
+
+Example passing report:
+
+```text
+Quality Gate: PASS
+Data: PASS
+Interface: PASS
+Scanner: PASS
+Pages: PASS
+Sitemap: PASS
+Indexation posture: NON-INDEXED
+Required Launch Routes: 41/41
+Broken Links: 0
+Orphan Pages: 0
+```
+
+Exit code is non-zero on any failure; failures block private preview promotion and
+public indexed release.
