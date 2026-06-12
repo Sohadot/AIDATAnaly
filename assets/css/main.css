@@ -1,0 +1,980 @@
+/* ==========================================================================
+   AIDAtanaly.com — main.css
+   Governed by: INTERFACE_GOVERNANCE.md v1.0 (Flow Made Visible)
+   Sprint: 2 — Interface Foundation (IMPL-PLAN-001)
+
+   Governing principle:
+     States are rendered as stable positions.
+     Transitions are rendered as visible movement.
+     States are quiet. Transitions carry the weight.
+
+   Constraints enforced here:
+   - No external dependencies. System font stacks only (self-contained).
+   - Diagnostic scale colors are used ONLY for diagnostic classes and score
+     surfaces. Evidence Confidence uses neutral metadata tones ONLY.
+   - E0 renders as an explicit Unscorable state, never as a numeric score.
+   - All semantic motion has a static equivalent under prefers-reduced-motion.
+   ========================================================================== */
+
+/* === SECTION: TOKENS ===================================================== */
+
+:root {
+  /* Surfaces and ink — quiet reference-paper register, not SaaS dark */
+  --surface-page: #faf9f6;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f1efe9;
+  --ink-primary: #1f1b16;
+  --ink-secondary: #57514a;
+  --ink-faint: #8a847b;
+  --line-soft: #ddd8cf;
+  --line-strong: #b8b2a7;
+
+  /* State color: calm, neutral, recessive (stages are quiet) */
+  --state-surface: #f1eee8;
+  --state-border: #d4cec3;
+  --state-ink: #4a443b;
+
+  /* Transition color: the most saturated, energetic color in the system.
+     Reserved for vector connections, movement, flow emphasis, and links. */
+  --transition-flow: #0f4ac8;
+  --transition-flow-deep: #0b3795;
+  --transition-flow-tint: #e7edfb;
+
+  /* Diagnostic class scale — fixed five-step ordinal scale (ATI Standard §12).
+     These variables must never appear in Evidence Confidence styling. */
+  --diag-strong-ink: #1a6e3c;
+  --diag-strong-tint: #e3f2e8;
+  --diag-functional-ink: #4f7320;
+  --diag-functional-tint: #edf3df;
+  --diag-unstable-ink: #86610b;
+  --diag-unstable-tint: #f7efd2;
+  --diag-constrained-ink: #9c4a08;
+  --diag-constrained-tint: #fbe9d7;
+  --diag-critical-ink: #a11d2e;
+  --diag-critical-tint: #f9e1e4;
+
+  /* Evidence Confidence: neutral metadata tones ONLY (E0–E4).
+     Visual enforcement of ATI Governance Rules 7 and 8. */
+  --evidence-ink: #44403a;
+  --evidence-surface: #eceae6;
+  --evidence-border: #c9c4bc;
+
+  /* Typography — self-contained system stacks, no external fonts */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, "Liberation Mono", monospace;
+
+  /* Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --measure-prose: 70ch;
+  --axis-line-weight: 4px;
+
+  /* Motion (INTERFACE_GOVERNANCE §5.2: 200–600ms, flow easing) */
+  --motion-fast: 200ms;
+  --motion-base: 350ms;
+  --motion-slow: 600ms;
+  --motion-ease: cubic-bezier(0.45, 0.05, 0.35, 0.95);
+}
+
+/* === SECTION: BASE ======================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--ink-primary);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink-primary);
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--measure-prose);
+}
+
+ul,
+ol {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.4em;
+  max-width: var(--measure-prose);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+/* Links carry the transition color: links are movement between pages. */
+a {
+  color: var(--transition-flow);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color var(--motion-fast) var(--motion-ease);
+}
+
+a:hover {
+  color: var(--transition-flow-deep);
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--transition-flow);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface-sunken);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: var(--space-5);
+}
+
+th,
+td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 2px solid var(--line-strong);
+}
+
+/* === SECTION: LAYOUT ====================================================== */
+
+.layout-page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.layout-section {
+  margin-bottom: var(--space-8);
+}
+
+.layout-section__kicker {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.layout-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+.layout-prose {
+  max-width: var(--measure-prose);
+}
+
+.layout-header {
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+/* === SECTION: DOCTRINE ====================================================
+   Component: Doctrine Statement
+   "Stages are states. Value lives in transitions." Display type, used sparingly.
+   ========================================================================== */
+
+.doctrine-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--ink-primary);
+  max-width: 28ch;
+  margin: var(--space-6) 0;
+  padding-left: var(--space-5);
+  border-left: var(--axis-line-weight) solid var(--transition-flow);
+}
+
+.doctrine-statement em,
+.doctrine-statement strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--transition-flow-deep);
+}
+
+/* === SECTION: TRANSITION AXIS =============================================
+   Component: Transition Axis — the canonical motif.
+   Five quiet state nodes, four emphasized vector connections.
+   Markup contract:
+     <ol class="transition-axis">
+       <li class="transition-axis__state">Attention</li>
+       <li class="transition-axis__vector" data-vector="t1">
+         <span class="transition-axis__vector-label">T1 Signal Conversion</span>
+       </li>
+       ... states and vectors alternating ...
+     </ol>
+   Health modifiers on __vector: --strong --functional --unstable
+   --constrained --critical --unscorable.
+   A text alternative must accompany the axis (see .utility-visually-hidden).
+   ========================================================================== */
+
+.transition-axis {
+  list-style: none;
+  margin: var(--space-6) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* States are quiet: calm, bounded, recessive positions. */
+.transition-axis__state {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--state-ink);
+  background: var(--state-surface);
+  border: 1px solid var(--state-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* Vectors carry the weight: directional, saturated, visually energized. */
+.transition-axis__vector {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: var(--space-4) var(--space-2);
+  min-height: 3.5rem;
+}
+
+/* The flow line itself (vertical in the mobile-first column layout). */
+.transition-axis__vector::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0.7rem;
+  width: var(--axis-line-weight);
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--transition-flow) 0,
+    var(--transition-flow) 10px,
+    transparent 10px,
+    transparent 16px
+  );
+  background-size: 100% 32px;
+  animation: transition-flow-vertical 2.8s linear infinite;
+}
+
+/* Arrowhead: static, always present. Direction never depends on motion. */
+.transition-axis__vector::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  border-left: 0.45rem solid transparent;
+  border-right: 0.45rem solid transparent;
+  border-top: 0.7rem solid var(--transition-flow);
+}
+
+.transition-axis__vector-label {
+  position: relative;
+  z-index: 1;
+  background: var(--surface-page);
+  border: 1px solid var(--transition-flow);
+  color: var(--transition-flow-deep);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  white-space: nowrap;
+}
+
+.transition-axis__vector-label a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Health modifiers: flow color reflects diagnostic class honestly.
+   This is a permitted diagnostic-scale usage (score surface). */
+.transition-axis__vector--strong::before,
+.transition-axis__vector--strong::after { border-top-color: var(--diag-strong-ink); }
+.transition-axis__vector--strong::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-strong-ink) 0, var(--diag-strong-ink) 10px,
+    transparent 10px, transparent 16px);
+}
+
+.transition-axis__vector--functional::after { border-top-color: var(--diag-functional-ink); }
+.transition-axis__vector--functional::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-functional-ink) 0, var(--diag-functional-ink) 10px,
+    transparent 10px, transparent 16px);
+}
+
+.transition-axis__vector--unstable::after { border-top-color: var(--diag-unstable-ink); }
+.transition-axis__vector--unstable::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 8px,
+    transparent 8px, transparent 18px);
+}
+
+.transition-axis__vector--constrained::after { border-top-color: var(--diag-constrained-ink); }
+.transition-axis__vector--constrained::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
+    transparent 6px, transparent 20px);
+}
+
+.transition-axis__vector--critical::after { border-top-color: var(--diag-critical-ink); }
+.transition-axis__vector--critical::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--diag-critical-ink) 0, var(--diag-critical-ink) 4px,
+    transparent 4px, transparent 24px);
+}
+
+/* Unscorable vector: measurement-gap treatment. No flow claim is made. */
+.transition-axis__vector--unscorable::before {
+  background: repeating-linear-gradient(to bottom,
+    var(--line-strong) 0, var(--line-strong) 3px,
+    transparent 3px, transparent 12px);
+  animation: none;
+}
+
+.transition-axis__vector--unscorable::after {
+  border-top-color: var(--line-strong);
+}
+
+.transition-axis__vector--unscorable .transition-axis__vector-label {
+  border-style: dashed;
+  border-color: var(--line-strong);
+  color: var(--ink-secondary);
+}
+
+/* Horizontal axis on wider viewports (desktop grammar). */
+@media (min-width: 48rem) {
+  .transition-axis {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .transition-axis__vector {
+    padding: var(--space-2) var(--space-1);
+    min-height: 0;
+    min-width: 6rem;
+  }
+
+  .transition-axis__vector::before {
+    left: 0;
+    right: 0.7rem;
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    height: var(--axis-line-weight);
+    transform: translateY(-50%);
+    background: repeating-linear-gradient(
+      to right,
+      var(--transition-flow) 0,
+      var(--transition-flow) 10px,
+      transparent 10px,
+      transparent 16px
+    );
+    background-size: 32px 100%;
+    animation: transition-flow-horizontal 2.8s linear infinite;
+  }
+
+  .transition-axis__vector::after {
+    left: auto;
+    right: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 0.45rem solid transparent;
+    border-bottom: 0.45rem solid transparent;
+    border-left: 0.7rem solid var(--transition-flow);
+    border-right: 0;
+  }
+
+  .transition-axis__vector--strong::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-strong-ink) 0, var(--diag-strong-ink) 10px,
+      transparent 10px, transparent 16px);
+  }
+  .transition-axis__vector--strong::after { border-left-color: var(--diag-strong-ink); border-top-color: transparent; }
+
+  .transition-axis__vector--functional::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-functional-ink) 0, var(--diag-functional-ink) 10px,
+      transparent 10px, transparent 16px);
+  }
+  .transition-axis__vector--functional::after { border-left-color: var(--diag-functional-ink); border-top-color: transparent; }
+
+  .transition-axis__vector--unstable::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-unstable-ink) 0, var(--diag-unstable-ink) 8px,
+      transparent 8px, transparent 18px);
+  }
+  .transition-axis__vector--unstable::after { border-left-color: var(--diag-unstable-ink); border-top-color: transparent; }
+
+  .transition-axis__vector--constrained::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-constrained-ink) 0, var(--diag-constrained-ink) 6px,
+      transparent 6px, transparent 20px);
+  }
+  .transition-axis__vector--constrained::after { border-left-color: var(--diag-constrained-ink); border-top-color: transparent; }
+
+  .transition-axis__vector--critical::before {
+    background: repeating-linear-gradient(to right,
+      var(--diag-critical-ink) 0, var(--diag-critical-ink) 4px,
+      transparent 4px, transparent 24px);
+  }
+  .transition-axis__vector--critical::after { border-left-color: var(--diag-critical-ink); border-top-color: transparent; }
+
+  .transition-axis__vector--unscorable::before {
+    background: repeating-linear-gradient(to right,
+      var(--line-strong) 0, var(--line-strong) 3px,
+      transparent 3px, transparent 12px);
+    animation: none;
+  }
+  .transition-axis__vector--unscorable::after { border-left-color: var(--line-strong); border-top-color: transparent; }
+}
+
+@keyframes transition-flow-vertical {
+  from { background-position: 0 0; }
+  to { background-position: 0 32px; }
+}
+
+@keyframes transition-flow-horizontal {
+  from { background-position: 0 0; }
+  to { background-position: 32px 0; }
+}
+
+/* === SECTION: VECTOR CARD =================================================
+   Component: Vector Card — one transition with direction, position, health.
+   Always shows from-state, to-state, and vector ID.
+   ========================================================================== */
+
+.vector-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-top: 3px solid var(--transition-flow);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.vector-card__direction {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-size: 0.95rem;
+}
+
+.vector-card__state {
+  font-weight: 600;
+  color: var(--state-ink);
+  background: var(--state-surface);
+  border: 1px solid var(--state-border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+}
+
+.vector-card__arrow {
+  color: var(--transition-flow);
+  font-weight: 700;
+}
+
+.vector-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 var(--space-2);
+}
+
+.vector-card__question {
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.vector-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* Signal registers: strong and weak signals are visually distinct. */
+.vector-signals {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: var(--space-4) 0;
+}
+
+.vector-signals__group {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--surface-raised);
+}
+
+.vector-signals__group--strong {
+  border-left: 4px solid var(--transition-flow);
+}
+
+.vector-signals__group--weak {
+  border-left: 4px dashed var(--line-strong);
+  color: var(--ink-secondary);
+}
+
+.vector-signals__heading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+
+/* === SECTION: DIAGNOSTIC ==================================================
+   Component: Diagnostic Class Badge — fixed five-class scale.
+   Never communicated by color alone: the class name is always rendered.
+   ========================================================================== */
+
+.badge-diagnostic {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.6em;
+  border: 1px solid currentColor;
+}
+
+.badge-diagnostic--strong {
+  color: var(--diag-strong-ink);
+  background: var(--diag-strong-tint);
+}
+
+.badge-diagnostic--functional {
+  color: var(--diag-functional-ink);
+  background: var(--diag-functional-tint);
+}
+
+.badge-diagnostic--unstable {
+  color: var(--diag-unstable-ink);
+  background: var(--diag-unstable-tint);
+}
+
+.badge-diagnostic--constrained {
+  color: var(--diag-constrained-ink);
+  background: var(--diag-constrained-tint);
+}
+
+.badge-diagnostic--critical {
+  color: var(--diag-critical-ink);
+  background: var(--diag-critical-tint);
+}
+
+.badge-diagnostic__range {
+  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Preliminary base: ATI Score Panel (full build deferred per IMPL-PLAN-001;
+   first required by the scanner output page). Score visuals are proportional
+   and always accompanied by a separate Evidence Confidence badge. */
+.score-panel {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.score-panel__value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.score-panel__bar {
+  flex: 1 1 10rem;
+  height: 0.6rem;
+  background: var(--surface-sunken);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Width is set inline as a percentage equal to the score: a 48 must not
+   look like an 85 (Interface Truth Rule). */
+.score-panel__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.score-panel--strong .score-panel__value,
+.score-panel--strong .score-panel__bar-fill { color: var(--diag-strong-ink); background-color: var(--diag-strong-ink); }
+.score-panel--functional .score-panel__value,
+.score-panel--functional .score-panel__bar-fill { color: var(--diag-functional-ink); background-color: var(--diag-functional-ink); }
+.score-panel--unstable .score-panel__value,
+.score-panel--unstable .score-panel__bar-fill { color: var(--diag-unstable-ink); background-color: var(--diag-unstable-ink); }
+.score-panel--constrained .score-panel__value,
+.score-panel--constrained .score-panel__bar-fill { color: var(--diag-constrained-ink); background-color: var(--diag-constrained-ink); }
+.score-panel--critical .score-panel__value,
+.score-panel--critical .score-panel__bar-fill { color: var(--diag-critical-ink); background-color: var(--diag-critical-ink); }
+
+.score-panel__value { background: none; }
+
+/* === SECTION: EVIDENCE ====================================================
+   Component: Evidence Confidence Badge (E0–E4) + Unscorable State.
+   Neutral metadata tones ONLY. Never merged into a score visual, never
+   colored with the diagnostic scale. Confidence qualifies the score;
+   it is not part of the score.
+   ========================================================================== */
+
+.badge-evidence {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--evidence-ink);
+  background: var(--evidence-surface);
+  border: 1px solid var(--evidence-border);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.6em;
+}
+
+.badge-evidence__code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95em;
+}
+
+/* E0 carries the measurement-gap register: dashed, muted, explicit. */
+.badge-evidence--e0 {
+  border-style: dashed;
+  background: transparent;
+  color: var(--ink-secondary);
+}
+
+/* Unscorable State: the only governed rendering of an E0 vector.
+   No numeric display. Measurement-gap treatment. */
+.evidence-unscorable {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  background: transparent;
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  color: var(--ink-secondary);
+}
+
+.evidence-unscorable__label {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.evidence-unscorable__note {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.evidence-unscorable__note a {
+  color: var(--transition-flow);
+}
+
+/* === SECTION: REFERENCE ===================================================
+   Components: Stable ID Chip + Reference Link Cluster.
+   ========================================================================== */
+
+/* Stable ID Chip: tfo.* / ati.* identifiers. Monospace, selectable system
+   artifacts — not prose. */
+.stable-id-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.5em;
+  user-select: all;
+}
+
+/* Reference Link Cluster: governed internal link group on reference pages.
+   Real <a> elements with descriptive anchors (ROUTE_MAP linking rules). */
+.reference-links {
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-5) 0;
+}
+
+.reference-links__heading {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin: 0 0 var(--space-3);
+}
+
+.reference-links__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.reference-links__list li {
+  margin: 0;
+}
+
+.reference-links__route {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--ink-faint);
+  margin-left: var(--space-2);
+}
+
+/* Preliminary base: Failure Mode Dossier Block (full build deferred per
+   IMPL-PLAN-001; first required by failure mode pages in Sprint 5). */
+.dossier-block {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.dossier-block__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.dossier-block__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Measurement Gap is a diagnostic constraint, not a normal failure mode:
+   it is visibly marked with the measurement-gap (dashed) register. */
+.dossier-block--constraint {
+  border-style: dashed;
+  border-color: var(--line-strong);
+}
+
+/* Preliminary base: Intervention Layer Tag (only the ten approved layers). */
+.intervention-tag {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--transition-flow-deep);
+  background: var(--transition-flow-tint);
+  border: 1px solid var(--transition-flow);
+  border-radius: 999px;
+  padding: 0.15em 0.75em;
+}
+
+/* === SECTION: SCANNER =====================================================
+   Preliminary base: Scanner Step Panel (full build in Sprint 6).
+   Accessible, labeled, keyboard-operable form structure.
+   ========================================================================== */
+
+.scanner-panel {
+  background: var(--surface-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  max-width: 44rem;
+}
+
+.scanner-panel__progress {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.scanner-panel__question {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-4);
+}
+
+.scanner-panel fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.scanner-panel legend {
+  padding: 0;
+}
+
+.scanner-option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--motion-ease),
+    background-color var(--motion-fast) var(--motion-ease);
+}
+
+.scanner-option:hover {
+  border-color: var(--transition-flow);
+  background: var(--transition-flow-tint);
+}
+
+.scanner-option input[type="radio"] {
+  accent-color: var(--transition-flow);
+  margin-top: 0.3em;
+}
+
+/* === SECTION: UTILITIES =================================================== */
+
+.utility-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.utility-mono {
+  font-family: var(--font-mono);
+}
+
+.utility-muted {
+  color: var(--ink-secondary);
+}
+
+.utility-skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100%;
+  background: var(--surface-raised);
+  padding: var(--space-2) var(--space-4);
+  z-index: 10;
+}
+
+.utility-skip-link:focus {
+  top: var(--space-2);
+}
+
+/* === SECTION: REDUCED MOTION ==============================================
+   All semantic motion has a static equivalent that preserves meaning:
+   direction remains expressed by arrowheads and dash weight, not animation.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .transition-axis__vector::before {
+    animation: none !important;
+  }
+}

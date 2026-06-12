@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AIDAtanaly — Internal Component Preview (Sprint 2)</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+
+  <main id="main" class="layout-page">
+
+    <header class="layout-header">
+      <p class="layout-section__kicker">Internal preview — not a public page — noindex</p>
+      <h1>Governed Component Foundation</h1>
+      <p class="utility-muted">Sprint 2 — Interface Foundation. Every component below is defined once in
+        <code>assets/css/main.css</code> and reused everywhere. Sample values are illustrative.</p>
+    </header>
+
+    <!-- Doctrine Statement -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Doctrine Statement</p>
+      <blockquote class="doctrine-statement">
+        Stages are states. <strong>Value lives in transitions.</strong>
+      </blockquote>
+    </section>
+
+    <!-- Transition Axis -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Transition Axis</p>
+      <p>Five quiet state nodes, four emphasized vector connections. Health modifiers shown:
+        T1 functional, T2 unstable, T3 constrained, T4 unscorable.</p>
+
+      <ol class="transition-axis" aria-label="AIDA transition axis with per-vector health">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector transition-axis__vector--functional">
+          <span class="transition-axis__vector-label">T1 Signal Conversion</span>
+        </li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector transition-axis__vector--unstable">
+          <span class="transition-axis__vector-label">T2 Intent Formation</span>
+        </li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector transition-axis__vector--constrained">
+          <span class="transition-axis__vector-label">T3 Conversion Friction</span>
+        </li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector transition-axis__vector--unscorable">
+          <span class="transition-axis__vector-label">T4 Retention Extension</span>
+        </li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+
+      <p class="utility-visually-hidden">
+        Text alternative: the funnel moves from Attention through Interest, Desire, and Action to Loyalty.
+        T1 Signal Conversion is Transition Functional. T2 Intent Formation is Transition Unstable.
+        T3 Conversion Friction is Transition Constrained. T4 Retention Extension is Unscorable due to
+        E0 Absent Evidence.
+      </p>
+
+      <p>Default (neutral flow) variant:</p>
+      <ol class="transition-axis" aria-label="AIDA transition axis, neutral">
+        <li class="transition-axis__state">Attention</li>
+        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T1</span></li>
+        <li class="transition-axis__state">Interest</li>
+        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T2</span></li>
+        <li class="transition-axis__state">Desire</li>
+        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T3</span></li>
+        <li class="transition-axis__state">Action</li>
+        <li class="transition-axis__vector"><span class="transition-axis__vector-label">T4</span></li>
+        <li class="transition-axis__state">Loyalty</li>
+      </ol>
+    </section>
+
+    <!-- Vector Card -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Vector Card</p>
+      <div class="layout-grid">
+        <article class="vector-card">
+          <p class="vector-card__direction">
+            <span class="vector-card__state">Interest</span>
+            <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+            <span class="vector-card__state">Desire</span>
+          </p>
+          <h3 class="vector-card__title">T2 — Intent Formation</h3>
+          <p class="vector-card__question">Did curiosity become preference?</p>
+          <p class="vector-card__meta">
+            <span class="stable-id-chip">ati.vector.t2</span>
+            <span class="badge-diagnostic badge-diagnostic--unstable">Transition Unstable
+              <span class="badge-diagnostic__range">55&#8211;69</span></span>
+            <span class="badge-evidence"><span class="badge-evidence__code">E1</span> Self-Reported Evidence</span>
+          </p>
+        </article>
+        <article class="vector-card">
+          <p class="vector-card__direction">
+            <span class="vector-card__state">Action</span>
+            <span class="vector-card__arrow" aria-hidden="true">&#8594;</span>
+            <span class="vector-card__state">Loyalty</span>
+          </p>
+          <h3 class="vector-card__title">T4 — Retention Extension</h3>
+          <p class="vector-card__question">Did conversion become continuity?</p>
+          <p class="vector-card__meta">
+            <span class="stable-id-chip">ati.vector.t4</span>
+            <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Absent Evidence</span>
+          </p>
+        </article>
+      </div>
+
+      <h4>Signal registers</h4>
+      <div class="vector-signals">
+        <div class="vector-signals__group vector-signals__group--strong">
+          <h5 class="vector-signals__heading">Strong signals</h5>
+          <ul>
+            <li>Product comparison</li>
+            <li>Pricing exploration</li>
+            <li>Brand-specific search</li>
+          </ul>
+        </div>
+        <div class="vector-signals__group vector-signals__group--weak">
+          <h5 class="vector-signals__heading">Weak signals</h5>
+          <ul>
+            <li>Passive reading</li>
+            <li>Comparison without preference</li>
+            <li>Weak differentiation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagnostic Class Badges -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Diagnostic Class Badge (fixed five-class scale)</p>
+      <p>
+        <span class="badge-diagnostic badge-diagnostic--strong">Transition Strong <span class="badge-diagnostic__range">85&#8211;100</span></span>
+        <span class="badge-diagnostic badge-diagnostic--functional">Transition Functional <span class="badge-diagnostic__range">70&#8211;84</span></span>
+        <span class="badge-diagnostic badge-diagnostic--unstable">Transition Unstable <span class="badge-diagnostic__range">55&#8211;69</span></span>
+        <span class="badge-diagnostic badge-diagnostic--constrained">Transition Constrained <span class="badge-diagnostic__range">40&#8211;54</span></span>
+        <span class="badge-diagnostic badge-diagnostic--critical">Transition Critical <span class="badge-diagnostic__range">0&#8211;39</span></span>
+      </p>
+    </section>
+
+    <!-- Evidence Confidence Badges -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Evidence Confidence Badge (neutral, separate from score)</p>
+      <p>
+        <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Absent Evidence</span>
+        <span class="badge-evidence"><span class="badge-evidence__code">E1</span> Self-Reported Evidence</span>
+        <span class="badge-evidence"><span class="badge-evidence__code">E2</span> Observable Evidence</span>
+        <span class="badge-evidence"><span class="badge-evidence__code">E3</span> Multi-Source Evidence</span>
+        <span class="badge-evidence"><span class="badge-evidence__code">E4</span> Validated Evidence</span>
+      </p>
+      <p class="utility-muted">Evidence Confidence qualifies the score. It is never part of the score and never
+        uses the diagnostic color scale.</p>
+    </section>
+
+    <!-- ATI Score Panel (preliminary) + separation demonstration -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — ATI Score Panel (preliminary base) with separate Evidence badge</p>
+      <div class="score-panel score-panel--constrained">
+        <span class="score-panel__value">48</span>
+        <span class="score-panel__bar"><span class="score-panel__bar-fill" style="width: 48%"></span></span>
+        <span class="badge-diagnostic badge-diagnostic--constrained">Transition Constrained</span>
+        <span class="badge-evidence"><span class="badge-evidence__code">E2</span> Observable Evidence</span>
+      </div>
+      <p class="utility-muted">The bar fill is proportional to the score: a 48 must not look like an 85.</p>
+    </section>
+
+    <!-- Unscorable State -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Unscorable State (the only governed E0 rendering)</p>
+      <div class="evidence-unscorable">
+        <span class="evidence-unscorable__label">T4: Unscorable</span>
+        <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Absent Evidence</span>
+        <p class="evidence-unscorable__note">No numeric score is issued for this vector.
+          Measurement Gap limits the confidence of this diagnosis.</p>
+      </div>
+    </section>
+
+    <!-- Stable ID Chip -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Stable ID Chip</p>
+      <p>
+        <span class="stable-id-chip">tfo.t2.value_ambiguity</span>
+        <span class="stable-id-chip">ati.dimension.d2</span>
+        <span class="stable-id-chip">tfo.constraint.measurement_gap</span>
+      </p>
+    </section>
+
+    <!-- Reference Link Cluster -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Component — Reference Link Cluster</p>
+      <nav class="reference-links" aria-label="Governed references">
+        <p class="reference-links__heading">Governed references</p>
+        <ul class="reference-links__list">
+          <li><a href="#">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+          <li><a href="#">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+          <li><a href="#">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+          <li><a href="#">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Preliminary bases -->
+    <section class="layout-section">
+      <p class="layout-section__kicker">Preliminary bases (full build deferred per IMPL-PLAN-001)</p>
+
+      <h4>Failure Mode Dossier Block</h4>
+      <article class="dossier-block">
+        <header class="dossier-block__header">
+          <h5 class="dossier-block__name">Value Ambiguity</h5>
+          <span class="stable-id-chip">tfo.t2.value_ambiguity</span>
+          <span class="badge-diagnostic badge-diagnostic--unstable">Intent Formation Failure</span>
+        </header>
+        <p>Prospects understand the offer at a surface level but cannot translate it into a reason to
+          choose, pay, act, or prioritize.</p>
+        <p>
+          <span class="intervention-tag">Message Intervention</span>
+          <span class="intervention-tag">Offer Intervention</span>
+          <span class="intervention-tag">Proof Intervention</span>
+          <span class="intervention-tag">Pricing Intervention</span>
+        </p>
+      </article>
+
+      <h4>Diagnostic constraint variant (Measurement Gap)</h4>
+      <article class="dossier-block dossier-block--constraint">
+        <header class="dossier-block__header">
+          <h5 class="dossier-block__name">Measurement Gap</h5>
+          <span class="stable-id-chip">tfo.constraint.measurement_gap</span>
+          <span class="badge-evidence badge-evidence--e0"><span class="badge-evidence__code">E0</span> Diagnostic Constraint</span>
+        </header>
+        <p>Not a normal failure mode. A constraint that limits the confidence of ATI interpretation.</p>
+      </article>
+
+      <h4>Scanner Step Panel</h4>
+      <form class="scanner-panel">
+        <fieldset>
+          <legend>
+            <p class="scanner-panel__progress">T2 — Interest &#8594; Desire · Question 4 of 8</p>
+            <p class="scanner-panel__question">Is your value proposition clear enough to support desire?</p>
+          </legend>
+          <label class="scanner-option"><input type="radio" name="t2q4" value="0"> 0 — No / Absent / Not tracked</label>
+          <label class="scanner-option"><input type="radio" name="t2q4" value="1"> 1 — Weak</label>
+          <label class="scanner-option"><input type="radio" name="t2q4" value="2"> 2 — Partial</label>
+          <label class="scanner-option"><input type="radio" name="t2q4" value="3"> 3 — Moderate</label>
+          <label class="scanner-option"><input type="radio" name="t2q4" value="4"> 4 — Strong</label>
+        </fieldset>
+      </form>
+    </section>
+
+    <footer class="layout-section utility-muted">
+      <p>AIDAtanaly.com — a Sohadot Sovereign Asset. Internal preview only. This page is fully readable
+        without JavaScript.</p>
+    </footer>
+
+  </main>
+</body>
+</html>

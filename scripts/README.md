@@ -39,6 +39,25 @@ the language.
 
 Exit code is non-zero on any failure; failures block release.
 
+## validate-interface.ps1 (built in Sprint 2)
+
+Validates the interface foundation against `INTERFACE_GOVERNANCE.md` v1.0.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/validate-interface.ps1
+```
+
+Checks (17 total): `assets/css/main.css` exists, scanner.js placeholder exists
+with no premature logic, no external JS/CSS/font/CDN dependencies, no
+WebGL/3D/canvas, no animation libraries, `prefers-reduced-motion` support,
+all 20 governed component classes defined, Evidence Confidence styling never
+uses diagnostic scale variables, diagnostic colors confined to diagnostic
+surfaces, Unscorable State is non-numeric, Transition Axis is responsive,
+preview page is noindex and readable without JavaScript, and motion tokens
+stay within the governed 200–600ms range.
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:
