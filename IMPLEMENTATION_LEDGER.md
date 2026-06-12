@@ -172,30 +172,32 @@
 | Sitemap URLs | 41 (pre-launch; robots blocks crawl) |
 | Broken Links | 0 |
 | Orphan Pages | 0 |
-| Latest commit | `5c31254` |
+| Latest commit | `f3eb494` |
+| Release Package (dist/) | PASS |
+| Forbidden Deployment Files | 0 |
 
 ---
 
-## Next Sprint (In Progress)
+## Sprint 11 — Public Indexed Reference Release (Phase 1)
 
-### Sprint 11 — Public Indexed Reference Release
+| Field | Value |
+|-------|-------|
+| **Status** | Phase 1 PASS |
+| **Commit** | `f3eb494` |
+| **Date** | 2026-06-12 |
+| **Summary** | PUB-REL-001 ratified; `build-dist.ps1`, `validate-dist.ps1`, `quality-gate.ps1 -ReleasePackage`. |
+| **Validators** | Release Package PASS; dist 41/41 routes; forbidden files 0 |
+| **Notes** | Indexation not activated. Phase 2: Section 7 activation, final gate, deploy, `PUBLIC_RELEASE_REPORT.md`. |
 
-**Phase 1 (complete when release package gate passes):** `dist/` build and validation.  
-**Phase 2 (not started):** indexation activation (noindex removal, robots Allow, Sitemap), final release gate, deploy, `PUBLIC_RELEASE_REPORT.md`.
+---
 
-**Governance:** PUB-REL-001 ratified (`DECISION_PUBLIC_RELEASE_PLAN_1_0_INITIAL_RATIFICATION.md`).
+## Phase 2 (Not Started)
 
-**Phase 1 gate:**
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -ReleasePackage
-```
-
-**Explicitly not done until Phase 2:**
-
-- `noindex` removal
-- `robots.txt` Allow / active Sitemap
-- Public deployment of indexed package
+- Remove `noindex` from 41 routes (source + rebuild `dist/`)
+- Activate robots Allow and `Sitemap:`
+- Final release gate (indexed posture)
+- Deploy `dist/` to hosting
+- `PUBLIC_RELEASE_REPORT.md`
 
 ---
 
@@ -205,7 +207,7 @@ powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -ReleasePackag
 |----------|------|
 | `governance/decisions/` | Governing ratification decisions |
 | `PRIVATE_PREVIEW_REPORT.md` | Private preview validation report |
-| `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (draft for ratification) |
+| `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (PUB-REL-001 ratified) |
 | `PUBLIC_RELEASE_REPORT.md` | Post-release record (to be created after Sprint 11) |
 
 ---
