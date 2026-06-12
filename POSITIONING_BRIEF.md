@@ -59,8 +59,9 @@ AIDAtanaly names, standardizes, and publishes the measurement layer that classic
 
 **Use consistently in external copy:**
 
-- Prefer **AIDA Transition Analytics** on first mention in any publication.
+- Prefer **AIDAtanaly — AIDA Transition Analytics** on first mention in any external publication (Sprint 13B Name Binding Rules).
 - Use **AIDAtanaly** as the reference asset / system name, not as a generic analytics verb.
+- Do **not** use AIDAtanaly as a verb in early-stage external messaging.
 - Do not collapse the category into “funnel analytics,” “conversion optimization,” or “AI marketing analytics.”
 
 ---
@@ -277,11 +278,12 @@ Produce **in this order** after this brief is ratified. Do not skip to social co
 
 | Order | Asset | Working title / form | Status |
 |-------|-------|----------------------|--------|
-| **0** | `POSITIONING_BRIEF.md` | Control layer (this document) | **Complete — Sprint 13A** |
-| **1** | LinkedIn launch post | Category introduction + primary hook | Pending — Sprint 13B |
-| **2** | X short thread | Hook → transition layer → link | Pending — Sprint 13B |
-| **3** | Substack article | Reference launch essay | Pending — Sprint 13C |
-| **4** | First reference article | **“AIDA Transition Analytics: Why Stages Are Not Enough”** | Pending — Sprint 13C |
+| **0** | `POSITIONING_BRIEF.md` | Control layer | **Complete — Sprint 13A** |
+| **1** | `EXTERNAL_POSTS_13B.md` | Name–category binding + LinkedIn + X | **Complete — Sprint 13B** |
+| **2** | Reference article | *AIDA Transition Analytics: Why Stages Are Not Enough* | Pending — Sprint 13C |
+| **3** | Mini diagnostic examples | Movement failure recognition | Pending — Sprint 13D |
+| **4** | ATI / TFO authority layer | Depth after name bind | Pending — Sprint 13E |
+| **5** | Substack article | Reference launch essay | Pending — after 13C |
 
 **Article thesis (for item 4):**
 
@@ -295,7 +297,7 @@ Stages describe position. Transitions describe value creation and destruction. F
 |-------|-------|
 | **Deliverable** | `POSITIONING_BRIEF.md` |
 | **Code / interface / routes** | No changes |
-| **Next sprint** | 13B — channel copy (LinkedIn + X) governed by this brief |
+| **Next sprint** | 13C — reference article (*Why Stages Are Not Enough*) |
 
 ---
 

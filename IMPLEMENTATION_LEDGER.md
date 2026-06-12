@@ -228,7 +228,18 @@
 | **Status** | Complete |
 | **Deliverable** | `POSITIONING_BRIEF.md` |
 | **Summary** | External positioning control layer; governs all outbound category communication. No code or route changes. |
-| **Next** | Sprint 13B — LinkedIn + X launch copy |
+| **Next** | Sprint 13B — Name-Category Binding Launch |
+
+---
+
+## Sprint 13B — Name-Category Binding Launch
+
+| Field | Value |
+|-------|-------|
+| **Status** | Complete (draft ready for operator publish) |
+| **Deliverable** | `EXTERNAL_POSTS_13B.md` |
+| **Summary** | Name–category binding rules + LinkedIn + X copy; first mention always **AIDAtanaly — AIDA Transition Analytics**; no verb use; gap-first hook. |
+| **Next** | Sprint 13C — reference article: *Why Stages Are Not Enough* |
 
 ---
 
@@ -242,6 +253,7 @@
 | `PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
 | `LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
 | `POSITIONING_BRIEF.md` | External positioning control layer (Sprint 13A) |
+| `EXTERNAL_POSTS_13B.md` | Name–category binding launch copy (Sprint 13B) |
 
 ---
 
