@@ -274,3 +274,34 @@ Blocking Issues: 0
 
 After Sprint 10, the next phase is `PUBLIC_RELEASE_PLAN.md` (indexed release approval), not
 automatic removal of `noindex`.
+
+## Sprint 11 — release package (built in Sprint 11, phase 1)
+
+PUB-REL-001 ratifies `dist/` as the governed deployment package. Sprint 11 phase 1 builds and
+validates `dist/` **without** indexation activation.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -ReleasePackage
+```
+
+Or manually:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build-dist.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-dist.ps1
+```
+
+`build-dist.ps1`:
+
+- regenerates `sitemap.xml`,
+- writes `dist/` with 41 routes, `assets/`, `data/`, `sitemap.xml`, `robots.txt`,
+- copies `/governance/index.html` only (excludes `governance/decisions/`),
+- excludes `.gitkeep`, `*.md`, `scripts/`, `preview/`, and repository artifacts.
+
+`validate-dist.ps1` confirms forbidden deployment files = 0, 41/41 routes in `dist/`, pre-activation
+`noindex` and `Disallow: /` preserved in the package copy.
+
+**Not performed in phase 1:** removing `noindex`, robots Allow, active `Sitemap:` — these run only
+after the release package gate passes, per `PUBLIC_RELEASE_PLAN.md` Section 7.

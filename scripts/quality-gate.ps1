@@ -6,7 +6,8 @@
 # a single release posture report. Does NOT remove noindex or enable public indexing.
 
 param(
-  [switch]$PrivatePreview
+  [switch]$PrivatePreview,
+  [switch]$ReleasePackage
 )
 
 $ErrorActionPreference = 'Stop'
@@ -561,6 +562,48 @@ if ($PrivatePreview) {
   Write-Host '=== End Private Preview ==='
 
   if (-not $privatePreviewPass) { exit 1 }
+}
+
+$releasePackageOk = $true
+$distOk = $true
+$forbiddenDeploymentFiles = 0
+
+if ($ReleasePackage) {
+  Write-Host ''
+  Write-Host '=== Sprint 11 Release Package Gate (pre-indexation) ==='
+  Write-Host '  INFO  Indexation not activated in this gate; noindex and Disallow root preserved'
+
+  $distBuildOk = Invoke-GovernedStep -Label 'Dist build' -ScriptName 'build-dist.ps1'
+  $distValidateOk = Invoke-GovernedStep -Label 'Dist validation' -ScriptName 'validate-dist.ps1'
+  $distOk = $distBuildOk -and $distValidateOk
+  $releasePackageOk = $overallOk -and $distOk
+
+  if (Test-Path (Join-Path $root 'dist')) {
+    $forbiddenDeploymentFiles = @(
+      Get-ChildItem -Path (Join-Path $root 'dist') -Recurse -File |
+        Where-Object { $_.Extension -eq '.md' -or $_.Name -eq '.gitkeep' }
+    ).Count
+    foreach ($badDir in @('scripts', 'preview', (Join-Path 'governance' 'decisions'))) {
+      if (Test-Path (Join-Path $root (Join-Path 'dist' $badDir))) { $forbiddenDeploymentFiles++ }
+    }
+  } else {
+    $forbiddenDeploymentFiles = -1
+  }
+
+  Write-Host ''
+  Write-Host '=== Release Package Report ==='
+  Write-Host ''
+  Write-Host ("Release Package: {0}" -f (Format-StepResult $releasePackageOk))
+  Write-Host ("Quality Gate: {0}" -f (Format-StepResult $overallOk))
+  Write-Host ("Dist Build: {0}" -f (Format-StepResult $distBuildOk))
+  Write-Host ("Dist Validation: {0}" -f (Format-StepResult $distValidateOk))
+  Write-Host 'Indexation Posture: NON-INDEXED'
+  Write-Host ("Forbidden Deployment Files: {0}" -f $(if ($forbiddenDeploymentFiles -lt 0) { 'n/a' } else { $forbiddenDeploymentFiles }))
+  Write-Host ''
+  Write-Host '  NEXT  After this gate passes, execute Section 7 indexation activation, then final release gate'
+  Write-Host '=== End Release Package ==='
+
+  if (-not $releasePackageOk) { exit 1 }
 }
 
 if (-not $overallOk) { exit 1 }

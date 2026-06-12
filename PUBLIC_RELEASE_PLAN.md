@@ -4,10 +4,10 @@
 **Layer:** 9 — Public Exposure and Indexation Layer  
 **Asset:** AIDAtanaly.com  
 **Governed by:** `FOUNDATION_DOCTRINE.md`, `ASSET_THESIS.md`, `ATI_STANDARD.md`, `TFO_ONTOLOGY.md`, `ROUTE_MAP.md`, `INTERFACE_GOVERNANCE.md`, `SCANNER_MODEL.md`, `PAGE_BLUEPRINTS.md`, and `IMPLEMENTATION_PLAN.md`  
-**Status:** Draft for Ratification  
+**Status:** Ratified  
 **Version:** 1.0  
 **Date:** 2026-06-12  
-**Prepared for:** Sohadot — System Operator
+**Ratified by:** Sohadot — System Operator
 
 ---
 
@@ -79,7 +79,7 @@ The following files must exist and pass validation:
 - `sitemap.xml`
 - `robots.txt`
 
-**Current state (pre-ratification):** Private preview and quality gate pass. Indexation remains **NON-INDEXED** until this plan is ratified and Sprint 11 activation steps complete.
+**Current state:** PUB-REL-001 ratified. Private preview and quality gate pass. Indexation remains **NON-INDEXED** until Sprint 11 release package gate passes and indexation activation steps (Sections 7–9) are deliberately executed.
 
 ---
 
@@ -474,7 +474,7 @@ The decision should explicitly ratify:
 - post-deploy checks,
 - and rollback procedure.
 
-**Pre-ratification rule:** Do not remove `noindex`, change `robots.txt`, or activate public indexation until PUB-REL-001 is ratified.
+**Activation rule:** PUB-REL-001 is ratified. Do not remove `noindex`, change `robots.txt`, or activate public indexation until the release package gate passes and Section 7 activation steps are executed in order.
 
 ---
 
@@ -498,36 +498,21 @@ This plan ensures that exposure is intentional, complete, and reversible.
 
 ---
 
-## 21. Pre-Ratification Operator Decisions
+## 21. Ratified Operator Decisions (PUB-REL-001)
 
-Two decisions must be confirmed before PUB-REL-001 ratification. Until confirmed, Sprint 11 must not proceed.
+The following operator decisions are ratified as part of Public Release Plan v1.0:
 
-### A. Deployment channel: `dist/` package vs `gh-pages` branch
+**A. Deployment package:** `dist/` is the governed release package.
 
-| Option | Description | Exposure boundary |
-|--------|-------------|-------------------|
-| **Recommended: `dist/` build package** | Generate `dist/` from governed public artifacts only; deploy `dist/` contents to hosting (custom domain or Pages artifact upload). | Strongest separation: repository root never becomes the web root. |
-| **Alternative: `gh-pages` branch** | CI builds the same public artifact set into a dedicated branch; GitHub Pages serves that branch only. | Equivalent boundary **if and only if** the branch contains no repository governance files. |
-| **Not permitted** | Publishing the repository root as the website root. | Exposes `*.md`, `scripts/`, `governance/decisions/`, and preview tooling as browsable URLs. |
+**B. gh-pages branch:** Allowed only if generated from `dist/` and contains public website artifacts only.
 
-**Operator note:** Either permitted option must implement Section 5–6 exclusions. A future `scripts/build-dist.ps1` (Sprint 11) should enforce the allowlist.
+**C. Repository root as website root:** Prohibited.
 
-### B. Repository visibility vs public website visibility
+**D. Repository visibility:** Public is acceptable; a public repository does not mean public website exposure.
 
-These are **separate** decisions:
+**E. Website exposure:** Only `dist/` artifacts become `aidatanaly.com` public routes.
 
-| Layer | Question | Recommended posture |
-|-------|----------|---------------------|
-| **Website** | What is publicly served at `aidatanaly.com`? | Only Section 6 deployment package artifacts. Governance is explained via `/governance/` HTML, not root Markdown. |
-| **Repository** | Is the GitHub repository public or private? | Either is compatible with this plan. Public repo allows governance Markdown and decision logs to be read on GitHub without deploying them as website routes. Private repo keeps source private while the site remains public via `dist/` deploy. |
-
-**Critical rule:** Repository visibility does **not** override deployment exposure policy. A public repository must still **not** publish root Markdown or `governance/decisions/` as website routes.
-
-### C. Recommended default (pending operator confirmation)
-
-1. **`dist/`** as the canonical deployment artifact (portable across hosts).
-2. **Public repository** acceptable if decision logs remain GitHub-only artifacts and deployment never uses repo root as web root.
-3. **Indexation activation deferred** until PUB-REL-001 ratifies this plan and Sprint 11 gates pass.
+Implementation: `scripts/build-dist.ps1` builds `dist/`; `scripts/validate-dist.ps1` confirms forbidden deployment files = 0. Indexation activation (noindex removal, robots Allow, active Sitemap) occurs only after the release package gate passes and Section 7 steps are executed deliberately.
 
 ---
 

@@ -176,26 +176,26 @@
 
 ---
 
-## Next Sprint (Not Started)
+## Next Sprint (In Progress)
 
 ### Sprint 11 — Public Indexed Reference Release
 
-**Blocked until:** `PUBLIC_RELEASE_PLAN.md` ratified via PUB-REL-001.
+**Phase 1 (complete when release package gate passes):** `dist/` build and validation.  
+**Phase 2 (not started):** indexation activation (noindex removal, robots Allow, Sitemap), final release gate, deploy, `PUBLIC_RELEASE_REPORT.md`.
 
-**Planned actions (no execution yet):**
+**Governance:** PUB-REL-001 ratified (`DECISION_PUBLIC_RELEASE_PLAN_1_0_INITIAL_RATIFICATION.md`).
 
-- Confirm deployment channel (`dist/` vs `gh-pages`) per plan Section 21.
-- Build deployment package excluding repository governance artifacts.
-- Remove `noindex` from 41 routes after ratification.
-- Activate indexed `robots.txt` and `Sitemap:` directive.
-- Run release-specific quality gate.
-- Deploy and record `PUBLIC_RELEASE_REPORT.md`.
+**Phase 1 gate:**
 
-**Explicitly not done in Sprints 0–10:**
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -ReleasePackage
+```
+
+**Explicitly not done until Phase 2:**
 
 - `noindex` removal
 - `robots.txt` Allow / active Sitemap
-- Public exposure of root Markdown or `governance/decisions/` as website routes
+- Public deployment of indexed package
 
 ---
 
