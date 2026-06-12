@@ -12,7 +12,34 @@ Governed by: `IMPLEMENTATION_PLAN.md` (IMPL-PLAN-001).
 - Deferred and Early Expansion routes are excluded until implemented and governed.
 - The sitemap must never list a route that does not exist or a non-public artifact.
 
-## Validation scripts (built in Sprint 9)
+## validate-data.ps1 (built in Sprint 1)
+
+Validates the `/data/*.json` registry against the ratified governance documents.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
+```
+
+Checks (25 total): JSON parse, D1–D7 weights = 100%, T1–T4 weights = 100%,
+21 failure modes + measurement_gap constraint, exact `tfo.*` ID match against
+`TFO_ONTOLOGY.md`, canonical routes against the 41-route launch set in
+`ROUTE_MAP.md`, exactly 10 intervention layers (Channel Intervention and
+Measurement Governance as contextual mappings only), Partial Profile rule
+presence in `ati-standard.json` and `scanner-model.json`, no
+`evidence_confidence_weight` anywhere, Evidence Confidence flagged as
+non-score-component, diagnostic thresholds consistency, and full failure-mode
+coverage across T1–T4.
+
+Implementation note: the validator is PowerShell (`.ps1`) rather than Node
+(`.mjs`) because Node.js is not installed on the build machine. A Node port
+can be added when a CI runtime is chosen; the check list is the contract, not
+the language.
+
+Exit code is non-zero on any failure; failures block release.
+
+## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:
 

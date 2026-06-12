@@ -1,0 +1,749 @@
+{
+  "id": "tfo.failure_modes",
+  "asset": "AIDAtanaly.com",
+  "version": "1.0",
+  "source_document": "TFO_ONTOLOGY.md",
+  "governance_decisions": [
+    "governance/decisions/DECISION_TFO_ONTOLOGY_1_0_INITIAL_RATIFICATION.md"
+  ],
+  "counts": {
+    "failure_modes": 21,
+    "diagnostic_constraints": 1
+  },
+  "failure_modes": [
+    {
+      "id": "tfo.t1.attention_noise",
+      "name": "Attention Noise",
+      "primary_vector": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "diagnostic_class": "Signal Conversion Failure",
+      "canonical_route": "/failure-modes/attention-noise/",
+      "definition": "Attention Noise occurs when a brand, offer, page, or campaign receives visibility but that visibility does not produce meaningful engagement. The audience sees something, but the exposure does not become qualified curiosity.",
+      "core_diagnostic_question": "Is the funnel counting visibility as progress without evidence of interest?",
+      "symptoms": [
+        "High impressions with low qualified engagement",
+        "Large reach but weak click-through quality",
+        "Social visibility without site continuation",
+        "Paid exposure that does not produce repeat interaction",
+        "Traffic spikes with no downstream movement",
+        "High awareness metrics with low intent signal"
+      ],
+      "detection_signals": [
+        "High impressions paired with low qualified clicks",
+        "Low scroll depth after traffic arrival",
+        "Low repeat visit rate",
+        "Weak search follow-up",
+        "Weak content continuation",
+        "Low time-on-page from campaign traffic",
+        "High bounce from broad campaigns"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d5"],
+      "intervention_layers": ["intervention.audience", "intervention.message", "intervention.attribution"],
+      "contextual_intervention_notes": [
+        "Channel Intervention is governed under Audience or Message context"
+      ],
+      "related_failure_modes": [
+        "tfo.t1.vanity_reach",
+        "tfo.t1.audience_mismatch",
+        "tfo.t1.signal_decay",
+        "tfo.t1.message_blur"
+      ]
+    },
+    {
+      "id": "tfo.t1.vanity_reach",
+      "name": "Vanity Reach",
+      "primary_vector": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "diagnostic_class": "Signal Conversion Failure",
+      "canonical_route": "/failure-modes/vanity-reach/",
+      "definition": "Vanity Reach occurs when the funnel produces large audience volume that looks impressive but does not create meaningful transition probability. The metric looks strong, but the movement is weak.",
+      "core_diagnostic_question": "Is reach being treated as value before it proves transition quality?",
+      "symptoms": [
+        "High campaign reach with weak downstream engagement",
+        "Broad targeting that inflates awareness metrics",
+        "Impressions used as proof of traction without interest evidence",
+        "Large audiences that do not return, click, compare, subscribe, or inquire",
+        "Marketing reports emphasizing volume over movement"
+      ],
+      "detection_signals": [
+        "High reach-to-engagement gap",
+        "Weak engagement-to-return behavior",
+        "Low qualified session rate",
+        "Weak assisted movement into T2",
+        "No correlation between reach growth and preference or action signals"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.audience", "intervention.message", "intervention.attribution"],
+      "related_failure_modes": [
+        "tfo.t1.attention_noise",
+        "tfo.t1.audience_mismatch",
+        "tfo.t2.passive_engagement"
+      ]
+    },
+    {
+      "id": "tfo.t1.audience_mismatch",
+      "name": "Audience Mismatch",
+      "primary_vector": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "diagnostic_class": "Signal Conversion Failure",
+      "canonical_route": "/failure-modes/audience-mismatch/",
+      "definition": "Audience Mismatch occurs when the funnel attracts people who are not aligned with the offer, market, need, buying capacity, timing, or intent profile required for meaningful movement. The audience may be real, but it is structurally wrong for the transition.",
+      "core_diagnostic_question": "Is the funnel reaching people who are unlikely to become interested for the right reasons?",
+      "symptoms": [
+        "Engagement from irrelevant segments",
+        "High traffic but weak qualification",
+        "Campaigns attracting curiosity without buyer fit",
+        "Content pulling educational or entertainment traffic instead of market-intent traffic",
+        "Leads that do not match the buyer profile"
+      ],
+      "detection_signals": [
+        "Poor fit between traffic source and offer",
+        "Weak lead qualification",
+        "High bounce from misaligned channels",
+        "Low conversion from high-volume segments",
+        "Search intent mismatch",
+        "Geographic, demographic, or firmographic misalignment"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d6", "ati.dimension.d7"],
+      "scoring_impact_notes": ["D7 impact applies if segmentation data is weak"],
+      "intervention_layers": ["intervention.audience", "intervention.message", "intervention.offer"],
+      "related_failure_modes": [
+        "tfo.t1.attention_noise",
+        "tfo.t1.vanity_reach",
+        "tfo.t2.value_ambiguity"
+      ]
+    },
+    {
+      "id": "tfo.t1.signal_decay",
+      "name": "Signal Decay",
+      "primary_vector": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "diagnostic_class": "Signal Conversion Failure",
+      "canonical_route": "/failure-modes/signal-decay/",
+      "definition": "Signal Decay occurs when initial attention weakens before it can become sustained interest. The prospect notices the offer, but the signal loses strength too quickly to create meaningful engagement.",
+      "core_diagnostic_question": "Does attention weaken before curiosity has time to form?",
+      "symptoms": [
+        "Initial clicks without continuation",
+        "Short-lived campaign response",
+        "Strong first exposure but weak repeat engagement",
+        "Users begin interacting but quickly abandon the page or sequence",
+        "Early curiosity does not survive the first content or landing experience"
+      ],
+      "detection_signals": [
+        "High initial click rate with weak scroll depth",
+        "Low content continuation after landing",
+        "Low repeat visit after first exposure",
+        "High first-page exit",
+        "Weak retargeting engagement after initial contact",
+        "Sharp engagement decline within early journey steps"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d3", "ati.dimension.d5"],
+      "intervention_layers": ["intervention.message", "intervention.ux", "intervention.timing", "intervention.offer"],
+      "related_failure_modes": [
+        "tfo.t1.message_blur",
+        "tfo.t2.passive_engagement",
+        "tfo.t3.process_friction"
+      ]
+    },
+    {
+      "id": "tfo.t1.message_blur",
+      "name": "Message Blur",
+      "primary_vector": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "diagnostic_class": "Signal Conversion Failure",
+      "canonical_route": "/failure-modes/message-blur/",
+      "definition": "Message Blur occurs when the audience sees the asset but does not clearly understand what it is, why it matters, who it is for, or what problem it addresses. The message creates exposure but not interpretive clarity.",
+      "core_diagnostic_question": "Does the audience understand why the offer deserves interest?",
+      "symptoms": [
+        "Users arrive but do not continue",
+        "Page or campaign explains features but not relevance",
+        "High confusion in user feedback",
+        "Weak headline-to-content continuity",
+        "Visitors do not understand the next step",
+        "Offer appears generic or indistinct"
+      ],
+      "detection_signals": [
+        "Low scroll beyond hero section",
+        "High bounce on landing pages",
+        "Weak click-through to explanatory pages",
+        "Low engagement with value proposition sections",
+        "Repeated support or sales questions about basic positioning",
+        "Heatmap or session data showing hesitation near core message areas"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d4", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.message", "intervention.offer", "intervention.ux", "intervention.proof"],
+      "related_failure_modes": [
+        "tfo.t1.attention_noise",
+        "tfo.t1.signal_decay",
+        "tfo.t2.value_ambiguity"
+      ]
+    },
+    {
+      "id": "tfo.t2.passive_engagement",
+      "name": "Passive Engagement",
+      "primary_vector": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "diagnostic_class": "Intent Formation Failure",
+      "canonical_route": "/failure-modes/passive-engagement/",
+      "definition": "Passive Engagement occurs when users consume content or interact with the brand without moving toward preference, intent, or commercial motivation. The audience appears interested, but the interest remains passive.",
+      "core_diagnostic_question": "Is engagement being mistaken for desire?",
+      "symptoms": [
+        "Users read or watch but do not compare, inquire, save, subscribe, request, or return with deeper intent",
+        "High content engagement with weak offer engagement",
+        "Educational traffic that does not move toward product or service relevance",
+        "Long sessions without commercial next steps"
+      ],
+      "detection_signals": [
+        "High page views with low product exploration",
+        "High content consumption but weak pricing or demo page visits",
+        "Low return visits with deeper intent",
+        "Weak lead conversion from engaged users",
+        "Low transition from educational pages to offer pages"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.offer", "intervention.message", "intervention.proof", "intervention.timing"],
+      "related_failure_modes": [
+        "tfo.t2.value_ambiguity",
+        "tfo.t2.comparison_stall",
+        "tfo.t2.intent_evaporation"
+      ]
+    },
+    {
+      "id": "tfo.t2.comparison_stall",
+      "name": "Comparison Stall",
+      "primary_vector": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "diagnostic_class": "Intent Formation Failure",
+      "canonical_route": "/failure-modes/comparison-stall/",
+      "definition": "Comparison Stall occurs when prospects remain trapped in evaluation without forming preference. They compare options, read reviews, revisit pages, or inspect features, but the comparison does not resolve into choice.",
+      "core_diagnostic_question": "Is evaluation failing to become preference?",
+      "symptoms": [
+        "Repeated product or pricing visits without action",
+        "Long comparison cycles",
+        "High competitor comparison search",
+        "Users return multiple times but do not choose",
+        "Sales conversations stall around alternatives"
+      ],
+      "detection_signals": [
+        "Repeated visits to comparison pages",
+        "High engagement with feature tables but weak CTA movement",
+        "Search patterns including competitor names",
+        "Long delay between product interest and action",
+        "High assisted but low direct conversion"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d3", "ati.dimension.d5", "ati.dimension.d7"],
+      "scoring_impact_notes": ["D7 impact applies when competitor context is unclear"],
+      "intervention_layers": ["intervention.proof", "intervention.offer", "intervention.message", "intervention.sales_assist"],
+      "related_failure_modes": [
+        "tfo.t2.preference_dilution",
+        "tfo.t2.value_ambiguity",
+        "tfo.t3.decision_delay"
+      ]
+    },
+    {
+      "id": "tfo.t2.preference_dilution",
+      "name": "Preference Dilution",
+      "primary_vector": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "diagnostic_class": "Intent Formation Failure",
+      "canonical_route": "/failure-modes/preference-dilution/",
+      "definition": "Preference Dilution occurs when multiple alternatives weaken the prospect's ability to form a clear preference for the offer. Interest exists, but the offer does not become the preferred choice.",
+      "core_diagnostic_question": "Is the prospect interested but not sufficiently biased toward this offer?",
+      "symptoms": [
+        "Users compare but do not favor the brand",
+        "Weak differentiation",
+        "Generic positioning",
+        "High engagement with alternatives",
+        "No clear reason to choose",
+        "Sales or support questions show uncertainty about advantage"
+      ],
+      "detection_signals": [
+        "Competitor comparison searches",
+        "Low conversion from comparison pages",
+        "Weak interaction with differentiator sections",
+        "High engagement with proof content but weak next-step action",
+        "Repeated evaluation without preference signal"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.message", "intervention.proof", "intervention.offer", "intervention.sales_assist"],
+      "related_failure_modes": [
+        "tfo.t2.comparison_stall",
+        "tfo.t2.value_ambiguity",
+        "tfo.t3.trust_deficit"
+      ]
+    },
+    {
+      "id": "tfo.t2.intent_evaporation",
+      "name": "Intent Evaporation",
+      "primary_vector": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "diagnostic_class": "Intent Formation Failure",
+      "canonical_route": "/failure-modes/intent-evaporation/",
+      "definition": "Intent Evaporation occurs when early commercial motivation appears but fades before it can become strong desire or action. The prospect begins moving toward intent, but the motivation does not persist.",
+      "core_diagnostic_question": "Does early intent disappear before it becomes durable desire?",
+      "symptoms": [
+        "Users visit high-intent pages once and do not return",
+        "Demo or pricing interest appears but no follow-up occurs",
+        "Retargeting fails after initial intent",
+        "Leads express interest but disengage quickly",
+        "Product curiosity does not survive delay"
+      ],
+      "detection_signals": [
+        "Single-session pricing visits",
+        "Abandoned demo flows",
+        "No return after high-intent page visit",
+        "Decline in email engagement after initial inquiry",
+        "No continuation after quote or product exploration"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d3", "ati.dimension.d5"],
+      "intervention_layers": ["intervention.timing", "intervention.offer", "intervention.sales_assist", "intervention.lifecycle"],
+      "related_failure_modes": [
+        "tfo.t1.signal_decay",
+        "tfo.t3.decision_delay",
+        "tfo.t2.passive_engagement"
+      ]
+    },
+    {
+      "id": "tfo.t2.value_ambiguity",
+      "name": "Value Ambiguity",
+      "primary_vector": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "diagnostic_class": "Intent Formation Failure",
+      "canonical_route": "/failure-modes/value-ambiguity/",
+      "definition": "Value Ambiguity occurs when prospects understand the offer at a surface level but cannot clearly translate it into a reason to choose, pay, act, or prioritize. Interest exists, but value is not decisive.",
+      "core_diagnostic_question": "Does the prospect understand why this offer is worth choosing now?",
+      "symptoms": [
+        "Users understand the category but not the unique value",
+        "High engagement with explanation pages but weak intent signals",
+        "Prospects ask why this or why now",
+        "Offer appears useful but not urgent",
+        "Benefits are described but not made commercially compelling"
+      ],
+      "detection_signals": [
+        "Low movement from educational pages to conversion pages",
+        "Weak engagement with offer or pricing sections",
+        "Repeated visits without intent",
+        "High comparison behavior",
+        "Low response to value proposition CTAs"
+      ],
+      "scoring_impact": ["ati.dimension.d1", "ati.dimension.d2", "ati.dimension.d6", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.message", "intervention.offer", "intervention.proof", "intervention.pricing"],
+      "related_failure_modes": [
+        "tfo.t1.message_blur",
+        "tfo.t2.preference_dilution",
+        "tfo.t2.passive_engagement"
+      ]
+    },
+    {
+      "id": "tfo.t3.process_friction",
+      "name": "Process Friction",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/process-friction/",
+      "definition": "Process Friction occurs when the required path to act is too long, confusing, slow, broken, or cognitively heavy. The prospect may want to act, but the process weakens or prevents completion.",
+      "core_diagnostic_question": "Is the action path harder than the prospect's motivation can withstand?",
+      "symptoms": [
+        "Form abandonment",
+        "Checkout abandonment",
+        "Long or confusing signup flows",
+        "Unclear CTA sequence",
+        "Too many required fields",
+        "Technical errors",
+        "Users revisit action pages without completing"
+      ],
+      "detection_signals": [
+        "High abandonment on forms or checkout",
+        "Session recordings showing hesitation",
+        "Drop-off at required fields",
+        "High exit on action pages",
+        "Repeated action-page visits without completion",
+        "Support questions about how to proceed"
+      ],
+      "scoring_impact": ["ati.dimension.d4", "ati.dimension.d5", "ati.dimension.d3"],
+      "intervention_layers": ["intervention.ux", "intervention.timing", "intervention.sales_assist"],
+      "related_failure_modes": [
+        "tfo.t3.complexity_wall",
+        "tfo.t3.decision_delay",
+        "tfo.t3.trust_deficit"
+      ]
+    },
+    {
+      "id": "tfo.t3.trust_deficit",
+      "name": "Trust Deficit",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/trust-deficit/",
+      "definition": "Trust Deficit occurs when the prospect wants the offer but does not trust the seller, product, process, proof, payment, claim, or next step enough to act. Desire exists, but trust is insufficient.",
+      "core_diagnostic_question": "Is lack of trust blocking action after desire forms?",
+      "symptoms": [
+        "Users return to proof, reviews, security, or guarantee sections",
+        "Prospects hesitate near payment or contact",
+        "High exit near purchase or signup",
+        "Sales questions focus on legitimacy, risk, or reliability",
+        "Conversion improves when proof is added"
+      ],
+      "detection_signals": [
+        "Repeated proof-page visits",
+        "Abandonment near payment",
+        "High interaction with trust elements but low action",
+        "Low conversion for new visitors compared to returning users",
+        "Surveys or support tickets mentioning doubt"
+      ],
+      "scoring_impact": ["ati.dimension.d4", "ati.dimension.d5", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.proof", "intervention.ux", "intervention.sales_assist", "intervention.pricing"],
+      "contextual_intervention_notes": [
+        "Pricing Intervention applies where risk perception is pricing-related"
+      ],
+      "related_failure_modes": [
+        "tfo.t3.objection_residue",
+        "tfo.t3.price_shock",
+        "tfo.t2.preference_dilution"
+      ]
+    },
+    {
+      "id": "tfo.t3.price_shock",
+      "name": "Price Shock",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/price-shock/",
+      "definition": "Price Shock occurs when desire weakens or collapses when cost becomes explicit. The problem is not necessarily that the offer is too expensive; the problem is that value, timing, trust, or framing does not support the price at the moment of decision.",
+      "core_diagnostic_question": "Does price exposure break movement from desire to action?",
+      "symptoms": [
+        "High exit from pricing pages",
+        "Cart abandonment after price reveal",
+        "Prospects request discounts immediately",
+        "Sales conversations stall at cost",
+        "Users compare cheaper alternatives",
+        "Strong product interest but weak payment completion"
+      ],
+      "detection_signals": [
+        "Pricing-page exit spikes",
+        "Checkout abandonment after total cost display",
+        "Low conversion from pricing visitors",
+        "Coupon-seeking behavior",
+        "Repeated pricing visits without action",
+        "Objections mentioning cost, risk, or unclear value"
+      ],
+      "scoring_impact": ["ati.dimension.d4", "ati.dimension.d5", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.pricing", "intervention.offer", "intervention.proof", "intervention.sales_assist"],
+      "related_failure_modes": [
+        "tfo.t2.value_ambiguity",
+        "tfo.t3.trust_deficit",
+        "tfo.t3.decision_delay"
+      ]
+    },
+    {
+      "id": "tfo.t3.decision_delay",
+      "name": "Decision Delay",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/decision-delay/",
+      "definition": "Decision Delay occurs when intent exists but urgency is insufficient to produce timely action. The prospect may still want the offer, but the decision remains deferred.",
+      "core_diagnostic_question": "Is intent present but not urgent enough to become action?",
+      "symptoms": [
+        "Repeated visits without conversion",
+        "Long delay between high-intent behavior and action",
+        "Users save, compare, or inquire but do not commit",
+        "Sales opportunities remain open without progress",
+        "Prospects say later or not now"
+      ],
+      "detection_signals": [
+        "High returning visitor rate with low conversion",
+        "Multiple pricing visits over time",
+        "Long sales cycle without movement",
+        "Abandoned carts that remain unresolved",
+        "Follow-up engagement without commitment"
+      ],
+      "scoring_impact": ["ati.dimension.d3", "ati.dimension.d5", "ati.dimension.d2"],
+      "intervention_layers": ["intervention.timing", "intervention.offer", "intervention.sales_assist", "intervention.message"],
+      "related_failure_modes": [
+        "tfo.t2.intent_evaporation",
+        "tfo.t3.price_shock",
+        "tfo.t3.objection_residue"
+      ]
+    },
+    {
+      "id": "tfo.t3.complexity_wall",
+      "name": "Complexity Wall",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/complexity-wall/",
+      "definition": "Complexity Wall occurs when the prospect cannot complete action because the decision, process, product, pricing, configuration, or implementation appears too complex. The prospect may want the outcome but cannot easily cross the action threshold.",
+      "core_diagnostic_question": "Is complexity preventing intent from becoming action?",
+      "symptoms": [
+        "Users hesitate around configuration or plan selection",
+        "Prospects request explanation before buying",
+        "Forms or product choices feel overwhelming",
+        "High abandonment in multi-step workflows",
+        "Sales conversations stall around implementation or setup",
+        "Users fail to understand what to choose"
+      ],
+      "detection_signals": [
+        "Exit from configuration pages",
+        "High support or sales questions about complexity",
+        "Low completion of multi-step flows",
+        "Strong interest in guides but weak action",
+        "Long time spent before abandonment",
+        "Click patterns showing indecision"
+      ],
+      "scoring_impact": ["ati.dimension.d4", "ati.dimension.d5", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.ux", "intervention.message", "intervention.sales_assist", "intervention.offer"],
+      "related_failure_modes": [
+        "tfo.t3.process_friction",
+        "tfo.t3.decision_delay",
+        "tfo.t2.value_ambiguity"
+      ]
+    },
+    {
+      "id": "tfo.t3.objection_residue",
+      "name": "Objection Residue",
+      "primary_vector": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "diagnostic_class": "Conversion Friction Failure",
+      "canonical_route": "/failure-modes/objection-residue/",
+      "definition": "Objection Residue occurs when unresolved doubts remain after desire forms and continue blocking action. The prospect may be convinced enough to want the offer, but not enough to proceed.",
+      "core_diagnostic_question": "Are unresolved doubts preventing action after desire has already formed?",
+      "symptoms": [
+        "Prospects ask repeated questions before action",
+        "Users revisit FAQ, reviews, guarantees, or support pages",
+        "Sales conversations circle around the same doubts",
+        "Intent exists but commitment does not occur",
+        "Trust or risk concerns remain unresolved"
+      ],
+      "detection_signals": [
+        "High interaction with FAQ or objection-handling content",
+        "Repeated visits to proof pages",
+        "Support or sales tickets with recurring objections",
+        "Long delay after quote or demo",
+        "Abandonment after reviewing terms or guarantees"
+      ],
+      "scoring_impact": ["ati.dimension.d4", "ati.dimension.d5", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.proof", "intervention.message", "intervention.sales_assist", "intervention.ux"],
+      "related_failure_modes": [
+        "tfo.t3.trust_deficit",
+        "tfo.t3.price_shock",
+        "tfo.t3.decision_delay"
+      ]
+    },
+    {
+      "id": "tfo.t4.one_transaction_funnel",
+      "name": "One-Transaction Funnel",
+      "primary_vector": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "diagnostic_class": "Retention Extension Failure",
+      "canonical_route": "/failure-modes/one-transaction-funnel/",
+      "definition": "One-Transaction Funnel occurs when the system successfully creates a first action but fails to generate repeat value or continued relationship. The funnel converts once but does not extend value.",
+      "core_diagnostic_question": "Does the funnel create transactions without continuity?",
+      "symptoms": [
+        "First purchase or signup occurs, but repeat behavior is weak",
+        "No post-purchase engagement strategy",
+        "One-time customers do not return",
+        "Lifecycle messaging is absent or generic",
+        "Revenue depends heavily on new acquisition"
+      ],
+      "detection_signals": [
+        "Low repeat purchase rate",
+        "Low second-session activation",
+        "Weak post-action engagement",
+        "High acquisition dependence",
+        "Low customer lifetime value",
+        "No structured retention measurement"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d5", "ati.dimension.d6"],
+      "intervention_layers": ["intervention.lifecycle", "intervention.timing", "intervention.offer", "intervention.proof"],
+      "related_failure_modes": [
+        "tfo.t4.silent_churn",
+        "tfo.t4.loyalty_blindness",
+        "tfo.t4.lifecycle_disconnect"
+      ]
+    },
+    {
+      "id": "tfo.t4.silent_churn",
+      "name": "Silent Churn",
+      "primary_vector": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "diagnostic_class": "Retention Extension Failure",
+      "canonical_route": "/failure-modes/silent-churn/",
+      "definition": "Silent Churn occurs when customers leave, stop using, stop buying, or disengage without visible complaint or explicit cancellation signal. The relationship fades without a clear alarm.",
+      "core_diagnostic_question": "Are customers leaving without being detected early enough to intervene?",
+      "symptoms": [
+        "Users stop engaging after initial action",
+        "Customers disappear without feedback",
+        "Usage declines quietly",
+        "Repeat purchase does not occur",
+        "Churn is discovered after value has already been lost"
+      ],
+      "detection_signals": [
+        "Declining usage frequency",
+        "No return after first action",
+        "Reduced email or product engagement",
+        "Missed renewal or repeat windows",
+        "No response to lifecycle communication",
+        "Drop in account activity without support ticket"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d3", "ati.dimension.d5", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.lifecycle", "intervention.timing", "intervention.sales_assist", "intervention.offer"],
+      "related_failure_modes": [
+        "tfo.t4.one_transaction_funnel",
+        "tfo.t4.loyalty_blindness",
+        "tfo.t4.lifecycle_disconnect"
+      ]
+    },
+    {
+      "id": "tfo.t4.loyalty_blindness",
+      "name": "Loyalty Blindness",
+      "primary_vector": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "diagnostic_class": "Retention Extension Failure",
+      "canonical_route": "/failure-modes/loyalty-blindness/",
+      "definition": "Loyalty Blindness occurs when the organization measures first action but lacks visibility into whether that action becomes durable value. The business counts conversion but does not govern continuity.",
+      "core_diagnostic_question": "Is the organization measuring action while ignoring loyalty formation?",
+      "symptoms": [
+        "Reports focus on acquisition and first conversion",
+        "Retention is not connected to funnel performance",
+        "Customer lifetime value is missing or poorly integrated",
+        "Repeat behavior is not tracked by source or segment",
+        "Marketing success is declared before retention is known"
+      ],
+      "detection_signals": [
+        "No retention dashboard",
+        "No link between acquisition source and repeat value",
+        "Weak customer lifecycle metrics",
+        "No cohort retention analysis",
+        "No post-action engagement scoring",
+        "No loyalty or advocacy measurement"
+      ],
+      "scoring_impact": ["ati.dimension.d7", "ati.dimension.d6"],
+      "scoring_impact_notes": ["Also weakens Evidence Confidence for T4 outputs"],
+      "intervention_layers": ["intervention.attribution", "intervention.lifecycle"],
+      "contextual_intervention_notes": [
+        "Measurement Governance is governed under Attribution context"
+      ],
+      "related_failure_modes": [
+        "tfo.t4.one_transaction_funnel",
+        "tfo.t4.silent_churn",
+        "tfo.constraint.measurement_gap"
+      ]
+    },
+    {
+      "id": "tfo.t4.advocacy_vacuum",
+      "name": "Advocacy Vacuum",
+      "primary_vector": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "diagnostic_class": "Retention Extension Failure",
+      "canonical_route": "/failure-modes/advocacy-vacuum/",
+      "definition": "Advocacy Vacuum occurs when satisfied or retained customers do not become referrers, reviewers, case-study subjects, community participants, or public trust signals. Continuity exists, but it does not amplify.",
+      "core_diagnostic_question": "Does loyalty exist without becoming market-facing proof?",
+      "symptoms": [
+        "Customers stay but do not refer",
+        "Few reviews despite satisfaction",
+        "Weak case study pipeline",
+        "Low user-generated proof",
+        "No advocacy program",
+        "Positive customer experience remains private"
+      ],
+      "detection_signals": [
+        "High retention but low referral",
+        "Low review rate",
+        "Low social proof creation",
+        "Weak community participation",
+        "Low testimonial capture",
+        "No structured advocacy prompts"
+      ],
+      "scoring_impact": ["ati.dimension.d6", "ati.dimension.d7", "ati.dimension.d2"],
+      "scoring_impact_notes": ["D2 impact applies to loyalty extension movement"],
+      "intervention_layers": ["intervention.lifecycle", "intervention.timing", "intervention.proof", "intervention.offer"],
+      "related_failure_modes": [
+        "tfo.t4.loyalty_blindness",
+        "tfo.t4.lifecycle_disconnect",
+        "tfo.t4.one_transaction_funnel"
+      ]
+    },
+    {
+      "id": "tfo.t4.lifecycle_disconnect",
+      "name": "Lifecycle Disconnect",
+      "primary_vector": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "diagnostic_class": "Retention Extension Failure",
+      "canonical_route": "/failure-modes/lifecycle-disconnect/",
+      "definition": "Lifecycle Disconnect occurs when post-action communication, onboarding, success, education, or re-engagement fails to continue the relationship after the first action. The customer acts, but the system does not guide them into continuity.",
+      "core_diagnostic_question": "Does the relationship lose structure after the first action?",
+      "symptoms": [
+        "No effective onboarding after signup or purchase",
+        "Generic post-purchase messaging",
+        "Customers do not know the next step",
+        "Product activation is weak",
+        "Repeat behavior is not encouraged",
+        "Lifecycle communication is disconnected from customer state"
+      ],
+      "detection_signals": [
+        "Low onboarding completion",
+        "Low product activation",
+        "Weak repeat purchase rate",
+        "Poor email lifecycle engagement",
+        "Drop in engagement after first conversion",
+        "Support tickets showing confusion after purchase or signup"
+      ],
+      "scoring_impact": ["ati.dimension.d2", "ati.dimension.d3", "ati.dimension.d5", "ati.dimension.d7"],
+      "intervention_layers": ["intervention.lifecycle", "intervention.timing", "intervention.ux", "intervention.sales_assist"],
+      "related_failure_modes": [
+        "tfo.t4.silent_churn",
+        "tfo.t4.one_transaction_funnel",
+        "tfo.t4.loyalty_blindness"
+      ]
+    }
+  ],
+  "diagnostic_constraints": [
+    {
+      "id": "tfo.constraint.measurement_gap",
+      "name": "Measurement Gap",
+      "primary_classification": "Diagnostic Constraint",
+      "applies_across": ["ati.vector.t1", "ati.vector.t2", "ati.vector.t3", "ati.vector.t4"],
+      "canonical_route": "/failure-modes/measurement-gap/",
+      "definition": "Measurement Gap occurs when the system cannot confidently assess a transition because the required evidence is missing, fragmented, inaccessible, or not tracked. Measurement Gap is not a normal failure mode. It is a diagnostic constraint that limits the confidence of ATI interpretation.",
+      "core_diagnostic_question": "Is movement weak, or is the organization unable to measure movement clearly?",
+      "symptoms": [
+        "Traffic and sales are measured, but intermediate movement is not",
+        "Engagement is tracked without intent signals",
+        "Retention is not connected to acquisition source",
+        "CRM and analytics data are disconnected",
+        "No evidence exists for a vector",
+        "Scanner responses rely only on belief or guesswork"
+      ],
+      "detection_signals": [
+        "E0 or E1 evidence confidence",
+        "Missing analytics events",
+        "No CRM-stage linkage",
+        "No retention tracking",
+        "No vector-specific signals",
+        "Inconsistent reporting across systems",
+        "Unsupported claims about funnel performance"
+      ],
+      "scoring_impact": [],
+      "scoring_impact_notes": [
+        "Measurement Gap does not directly reduce ATI score. It affects Evidence Confidence.",
+        "If evidence is E0, no numeric score should be issued.",
+        "If evidence is E1, the score must be described as provisional."
+      ],
+      "intervention_layers": ["intervention.attribution", "intervention.lifecycle", "intervention.ux"],
+      "contextual_intervention_notes": [
+        "Measurement Governance is governed under Attribution context",
+        "Lifecycle Intervention applies when retention data is missing",
+        "UX Intervention applies if event capture is tied to interaction design"
+      ],
+      "related_failure_modes": [
+        "tfo.t4.loyalty_blindness",
+        "tfo.t1.attention_noise",
+        "tfo.t2.passive_engagement",
+        "tfo.t3.process_friction"
+      ],
+      "allowed_language": "Measurement Gap limits the confidence of this diagnosis.",
+      "prohibited_language": "No data proves that this transition is broken."
+    }
+  ]
+}

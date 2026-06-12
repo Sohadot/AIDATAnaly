@@ -1,0 +1,207 @@
+{
+  "id": "ati.standard",
+  "name": "AIDA Transition Index Standard",
+  "asset": "AIDAtanaly.com",
+  "version": "1.1",
+  "status": "Ratified",
+  "date": "2026-06-11",
+  "source_document": "ATI_STANDARD.md",
+  "governance_decisions": [
+    "governance/decisions/DECISION_ATI_STANDARD_1_1_EVIDENCE_CONFIDENCE_SEPARATION.md"
+  ],
+  "thesis": "Stages are states. Value lives in transitions.",
+  "unit_of_measurement": "transition",
+  "canonical_routes": {
+    "standard": "/aida-transition-index/",
+    "evidence_confidence": "/evidence-confidence/",
+    "intervention_layers": "/intervention-layers/",
+    "methodology": "/methodology/"
+  },
+  "dimensions": [
+    {
+      "id": "ati.dimension.d1",
+      "code": "D1",
+      "name": "Signal Quality",
+      "weight": 0.17,
+      "direction": "higher_is_better",
+      "meaning": "Strength and meaning of the signal. Measures whether the observed behavior indicates genuine movement or only surface activity."
+    },
+    {
+      "id": "ati.dimension.d2",
+      "code": "D2",
+      "name": "Movement Probability",
+      "weight": 0.23,
+      "direction": "higher_is_better",
+      "meaning": "Likelihood of transition. Estimates the likelihood that a prospect will move from the current state to the next state."
+    },
+    {
+      "id": "ati.dimension.d3",
+      "code": "D3",
+      "name": "Transition Velocity",
+      "weight": 0.11,
+      "direction": "higher_is_better",
+      "meaning": "Speed and efficiency of movement. Velocity must be interpreted by context."
+    },
+    {
+      "id": "ati.dimension.d4",
+      "code": "D4",
+      "name": "Friction Resilience",
+      "weight": 0.17,
+      "direction": "higher_is_better",
+      "meaning": "Ability to withstand obstacles. Measures how well the transition withstands or reduces obstacles that would otherwise prevent movement."
+    },
+    {
+      "id": "ati.dimension.d5",
+      "code": "D5",
+      "name": "Drop-Off Resilience",
+      "weight": 0.12,
+      "direction": "higher_is_better",
+      "meaning": "Resistance to abandonment. Measures how well the transition resists abandonment before the next state is reached."
+    },
+    {
+      "id": "ati.dimension.d6",
+      "code": "D6",
+      "name": "Commercial Consequence",
+      "weight": 0.10,
+      "direction": "higher_is_better",
+      "meaning": "Business value of the movement. ATI does not only measure movement; it measures movement that matters."
+    },
+    {
+      "id": "ati.dimension.d7",
+      "code": "D7",
+      "name": "Intervention Clarity",
+      "weight": 0.10,
+      "direction": "higher_is_better",
+      "meaning": "Clarity of corrective action. Measures whether the cause of weakness is identifiable enough to suggest an action."
+    }
+  ],
+  "vector_score_formula": "Vector Score = (D1 x 0.17) + (D2 x 0.23) + (D3 x 0.11) + (D4 x 0.17) + (D5 x 0.12) + (D6 x 0.10) + (D7 x 0.10)",
+  "vector_weighting": {
+    "model": "equal",
+    "declaration_rule": "Any non-default weighting must be explicitly declared in the output.",
+    "weights": [
+      { "vector_id": "ati.vector.t1", "weight": 0.25 },
+      { "vector_id": "ati.vector.t2", "weight": 0.25 },
+      { "vector_id": "ati.vector.t3", "weight": 0.25 },
+      { "vector_id": "ati.vector.t4", "weight": 0.25 }
+    ]
+  },
+  "composite_formula": "ATI = (T1 + T2 + T3 + T4) / 4",
+  "diagnostic_classes": [
+    {
+      "id": "ati.class.transition_strong",
+      "name": "Transition Strong",
+      "min_score": 85,
+      "max_score": 100,
+      "meaning": "Movement is healthy, clear, measurable, and commercially useful.",
+      "action": "Maintain, monitor, and optimize selectively."
+    },
+    {
+      "id": "ati.class.transition_functional",
+      "name": "Transition Functional",
+      "min_score": 70,
+      "max_score": 84,
+      "meaning": "Movement exists and is generally healthy, but there are visible optimization gaps.",
+      "action": "Identify friction, improve velocity, and strengthen evidence."
+    },
+    {
+      "id": "ati.class.transition_unstable",
+      "name": "Transition Unstable",
+      "min_score": 55,
+      "max_score": 69,
+      "meaning": "Movement occurs inconsistently or depends on weak, fragmented, or unstable signals.",
+      "action": "Classify failure modes and prioritize intervention."
+    },
+    {
+      "id": "ati.class.transition_constrained",
+      "name": "Transition Constrained",
+      "min_score": 40,
+      "max_score": 54,
+      "meaning": "Movement is weak, delayed, or structurally blocked.",
+      "action": "Treat as a strategic funnel problem requiring focused correction."
+    },
+    {
+      "id": "ati.class.transition_critical",
+      "name": "Transition Critical",
+      "min_score": 0,
+      "max_score": 39,
+      "meaning": "Movement is failing, unmeasured, or commercially ineffective.",
+      "action": "Diagnose immediately before scaling traffic, spend, or automation."
+    }
+  ],
+  "evidence_confidence": {
+    "separation_rule": "Evidence Confidence must be reported separately from ATI score. Evidence Confidence must never be mathematically included in ATI score.",
+    "is_score_component": false,
+    "canonical_route": "/evidence-confidence/",
+    "levels": [
+      {
+        "id": "ati.evidence.e0",
+        "code": "E0",
+        "name": "Absent Evidence",
+        "description": "No meaningful evidence available.",
+        "output_treatment": "Numeric score should not be issued.",
+        "language_requirement": "unscorable"
+      },
+      {
+        "id": "ati.evidence.e1",
+        "code": "E1",
+        "name": "Self-Reported Evidence",
+        "description": "Based mainly on user answers or internal belief.",
+        "output_treatment": "Provisional score allowed.",
+        "language_requirement": "provisional"
+      },
+      {
+        "id": "ati.evidence.e2",
+        "code": "E2",
+        "name": "Observable Evidence",
+        "description": "Based on visible metrics, behavior, or reported funnel data.",
+        "output_treatment": "Indicative score allowed.",
+        "language_requirement": "indicative"
+      },
+      {
+        "id": "ati.evidence.e3",
+        "code": "E3",
+        "name": "Multi-Source Evidence",
+        "description": "Based on multiple signals across channels or systems.",
+        "output_treatment": "Strong score allowed.",
+        "language_requirement": "strong_no_guarantee"
+      },
+      {
+        "id": "ati.evidence.e4",
+        "code": "E4",
+        "name": "Validated Evidence",
+        "description": "Based on tracked, repeated, and verifiable data patterns.",
+        "output_treatment": "Validated score allowed.",
+        "language_requirement": "strong_no_guarantee"
+      }
+    ],
+    "e0_rule": {
+      "statement": "If Evidence Confidence is E0, ATI should not issue a numeric score.",
+      "correct_output_example": "T3: Unscorable / E0 Absent Evidence",
+      "incorrect_output_example": "T3: 22 / E0 Absent Evidence"
+    }
+  },
+  "partial_profile_rule": {
+    "ratified_by": "governance/decisions/DECISION_SCANNER_MODEL_1_0_INITIAL_RATIFICATION.md",
+    "statement": "If one or more ATI vectors are assigned E0 Absent Evidence, a clean composite ATI score must not be issued. A partial profile must be issued instead.",
+    "basis": "Operational extension of ATI Standard v1.1 E0 principle.",
+    "correct_output_example": "ATI Profile: Partial / Scorable vectors: T1, T2, T3 / Unscorable vector: T4 / E0 Absent Evidence",
+    "incorrect_output_example": "ATI Score: 61.5 (when any vector is E0)"
+  },
+  "governance_rules_summary": [
+    "ATI must always score transitions, not stages.",
+    "T1-T4 names are fixed.",
+    "Preference and intent remain sub-signals inside T2.",
+    "T4 remains Action to Loyalty and must not be removed.",
+    "Scanner outputs must map to T1-T4.",
+    "Failure modes must map to TFO.",
+    "Evidence Confidence must be reported separately from ATI score.",
+    "Evidence Confidence must never be mathematically included in ATI score.",
+    "E0 outputs must not issue numeric scores.",
+    "E1 outputs must use provisional language.",
+    "E2 outputs must use indicative language.",
+    "E3-E4 outputs may use stronger confidence language but must not imply guaranteed causality.",
+    "Unsupported certainty is prohibited.",
+    "Revenue guarantees are prohibited."
+  ]
+}

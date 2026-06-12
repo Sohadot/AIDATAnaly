@@ -1,0 +1,329 @@
+{
+  "id": "scanner.model",
+  "asset": "AIDAtanaly.com",
+  "scanner_version": "1.0",
+  "status": "Ratified",
+  "date": "2026-06-12",
+  "source_document": "SCANNER_MODEL.md",
+  "governance_decisions": [
+    "governance/decisions/DECISION_SCANNER_MODEL_1_0_INITIAL_RATIFICATION.md"
+  ],
+  "operating_principle": "Scanner v1 is a rules-governed diagnostic engine. It does not require live analytics integrations, does not claim exact causality, and does not claim guaranteed revenue improvement.",
+  "canonical_routes": {
+    "scanner": "/scanner/",
+    "ati_standard": "/aida-transition-index/",
+    "evidence_confidence": "/evidence-confidence/",
+    "intervention_layers": "/intervention-layers/",
+    "tfo_overview": "/transition-failure-ontology/",
+    "methodology": "/methodology/",
+    "measurement_gap": "/failure-modes/measurement-gap/",
+    "free_report": "/reports/ati-snapshot/"
+  },
+  "answer_scale": [
+    { "value": 0, "label": "No / Absent / Not tracked", "score_equivalent": 0 },
+    { "value": 1, "label": "Weak", "score_equivalent": 25 },
+    { "value": 2, "label": "Partial", "score_equivalent": 50 },
+    { "value": 3, "label": "Moderate", "score_equivalent": 75 },
+    { "value": 4, "label": "Strong", "score_equivalent": 100 }
+  ],
+  "answer_scale_rule": "If the answer is unknown because the signal is not measured, this affects Evidence Confidence. It must not be hidden inside a false score.",
+  "dimensions": [
+    { "id": "ati.dimension.d1", "code": "D1", "name": "Signal Quality", "weight": 0.17 },
+    { "id": "ati.dimension.d2", "code": "D2", "name": "Movement Probability", "weight": 0.23 },
+    { "id": "ati.dimension.d3", "code": "D3", "name": "Transition Velocity", "weight": 0.11 },
+    { "id": "ati.dimension.d4", "code": "D4", "name": "Friction Resilience", "weight": 0.17 },
+    { "id": "ati.dimension.d5", "code": "D5", "name": "Drop-Off Resilience", "weight": 0.12 },
+    { "id": "ati.dimension.d6", "code": "D6", "name": "Commercial Consequence", "weight": 0.10 },
+    { "id": "ati.dimension.d7", "code": "D7", "name": "Intervention Clarity", "weight": 0.10 }
+  ],
+  "vector_score_formula": "Vector Score = (D1 x 0.17) + (D2 x 0.23) + (D3 x 0.11) + (D4 x 0.17) + (D5 x 0.12) + (D6 x 0.10) + (D7 x 0.10)",
+  "composite_formula": "ATI = (T1 + T2 + T3 + T4) / 4",
+  "vector_weights": [
+    { "vector_id": "ati.vector.t1", "weight": 0.25 },
+    { "vector_id": "ati.vector.t2", "weight": 0.25 },
+    { "vector_id": "ati.vector.t3", "weight": 0.25 },
+    { "vector_id": "ati.vector.t4", "weight": 0.25 }
+  ],
+  "diagnostic_thresholds": [
+    { "class_id": "ati.class.transition_strong", "name": "Transition Strong", "min_score": 85, "max_score": 100 },
+    { "class_id": "ati.class.transition_functional", "name": "Transition Functional", "min_score": 70, "max_score": 84 },
+    { "class_id": "ati.class.transition_unstable", "name": "Transition Unstable", "min_score": 55, "max_score": 69 },
+    { "class_id": "ati.class.transition_constrained", "name": "Transition Constrained", "min_score": 40, "max_score": 54 },
+    { "class_id": "ati.class.transition_critical", "name": "Transition Critical", "min_score": 0, "max_score": 39 }
+  ],
+  "evidence_confidence_rules": {
+    "separation_rule": "Evidence Confidence is mandatory, is reported separately from ATI score, and never changes the score mathematically.",
+    "is_score_component": false,
+    "assignment_unit": "per_vector",
+    "levels": [
+      {
+        "code": "E0",
+        "name": "Absent Evidence",
+        "scanner_meaning": "Required evidence is missing; no numeric score should be issued.",
+        "assignment_rule": "Assign E0 when the user cannot provide meaningful evidence for the vector.",
+        "output_language": "unscorable",
+        "output_example": "T3: Unscorable / E0 Absent Evidence"
+      },
+      {
+        "code": "E1",
+        "name": "Self-Reported Evidence",
+        "scanner_meaning": "Mainly based on user perception or belief.",
+        "assignment_rule": "Assign E1 when answers are mainly based on judgment, memory, belief, or unverified observation.",
+        "output_language": "provisional",
+        "output_example": "T2 Score: 46 / E1 Self-Reported Evidence"
+      },
+      {
+        "code": "E2",
+        "name": "Observable Evidence",
+        "scanner_meaning": "Based on visible metrics, reports, or observed behavior.",
+        "assignment_rule": "Assign E2 when the user references visible metrics, analytics dashboards, reports, observable behavior, or consistent operational evidence.",
+        "output_language": "indicative",
+        "output_example": "T1 Score: 72 / E2 Observable Evidence"
+      },
+      {
+        "code": "E3",
+        "name": "Multi-Source Evidence",
+        "scanner_meaning": "Based on multiple connected evidence sources.",
+        "assignment_rule": "Assign E3 when multiple evidence sources support the vector, such as analytics plus CRM, ad data plus site behavior, sales data plus lifecycle metrics, or cohort data plus retention data.",
+        "output_language": "strong_no_guarantee"
+      },
+      {
+        "code": "E4",
+        "name": "Validated Evidence",
+        "scanner_meaning": "Based on repeated, tracked, verified data patterns.",
+        "assignment_rule": "Assign E4 only when evidence is tracked, repeated, validated, and stable over time. E4 does not permit guarantee language.",
+        "output_language": "strong_no_guarantee"
+      }
+    ],
+    "evidence_logic": [
+      "no evidence = E0",
+      "user belief only = E1",
+      "one observable source = E2",
+      "multiple connected sources = E3",
+      "validated repeated data = E4"
+    ]
+  },
+  "partial_profile_rule": {
+    "ratified_by": "governance/decisions/DECISION_SCANNER_MODEL_1_0_INITIAL_RATIFICATION.md",
+    "statement": "If one or more vectors are E0 and therefore unscorable, the scanner must not issue a clean full ATI score. It must issue a partial profile instead.",
+    "allowed_output_template": "ATI Profile: Partial / Scorable vectors: {list} / Unscorable vectors: {list} / E0 Absent Evidence",
+    "prohibited_output_example": "ATI Score: 61.5 (when any vector is E0)"
+  },
+  "input_categories": [
+    { "id": "funnel_context", "name": "Funnel Context", "purpose": "Understand the user's business model and funnel type" },
+    { "id": "measurement_availability", "name": "Measurement Availability", "purpose": "Determine Evidence Confidence" },
+    { "id": "t1_signal_inputs", "name": "T1 Signal Inputs", "purpose": "Evaluate Attention → Interest movement" },
+    { "id": "t2_intent_inputs", "name": "T2 Intent Inputs", "purpose": "Evaluate Interest → Desire movement" },
+    { "id": "t3_action_inputs", "name": "T3 Action Inputs", "purpose": "Evaluate Desire → Action movement" },
+    { "id": "t4_loyalty_inputs", "name": "T4 Loyalty Inputs", "purpose": "Evaluate Action → Loyalty movement" }
+  ],
+  "context_questions": [
+    {
+      "id": "ctx.business_model",
+      "question": "What type of business is being assessed?",
+      "purpose": "Adjust interpretation context",
+      "allowed_values": [
+        "ecommerce", "saas", "subscription", "agency", "b2b_service", "marketplace",
+        "lead_generation", "creator_business", "education", "enterprise_sales", "other"
+      ]
+    },
+    { "id": "ctx.primary_goal", "question": "What is the main conversion goal?", "purpose": "Clarify Action definition" },
+    { "id": "ctx.sales_cycle", "question": "Is the decision fast, medium, or long-cycle?", "purpose": "Interpret velocity" },
+    { "id": "ctx.channel_mix", "question": "What are the main acquisition channels?", "purpose": "Interpret T1 and T2 signals" },
+    { "id": "ctx.transaction_type", "question": "Is the model one-time, recurring, subscription, or enterprise?", "purpose": "Interpret T4" },
+    { "id": "ctx.measurement_stack", "question": "What tools are used to measure funnel behavior?", "purpose": "Support Evidence Confidence" }
+  ],
+  "evidence_questions": [
+    { "id": "ev.analytics", "question": "Do you have analytics data for traffic and engagement?", "evidence_impact": "Supports T1/T2 evidence" },
+    { "id": "ev.conversion_tracking", "question": "Do you track conversions or key actions?", "evidence_impact": "Supports T3 evidence" },
+    { "id": "ev.crm_or_leads", "question": "Do you track leads, sales stages, or CRM progression?", "evidence_impact": "Supports T2/T3 evidence" },
+    { "id": "ev.retention", "question": "Do you track repeat purchase, retention, churn, or usage?", "evidence_impact": "Supports T4 evidence" },
+    { "id": "ev.source_linkage", "question": "Can you connect acquisition source to downstream value?", "evidence_impact": "Supports E3/E4" },
+    { "id": "ev.time_window", "question": "Is the data recent, repeated, and stable?", "evidence_impact": "Supports E3/E4" }
+  ],
+  "vector_question_models": [
+    {
+      "vector_id": "ati.vector.t1",
+      "transition": "Attention → Interest",
+      "core_question": "Did visibility become curiosity?",
+      "questions": [
+        { "id": "t1.q1.signal_quality", "question": "Do your impressions, reach, or traffic produce qualified engagement?", "dimension": "ati.dimension.d1", "failure_mode_signals": ["tfo.t1.attention_noise", "tfo.t1.vanity_reach"] },
+        { "id": "t1.q2.audience_fit", "question": "Are the people you reach aligned with your actual offer or buyer profile?", "dimension": "ati.dimension.d1", "failure_mode_signals": ["tfo.t1.audience_mismatch"] },
+        { "id": "t1.q3.movement_probability", "question": "Do users continue beyond first exposure into meaningful content or product exploration?", "dimension": "ati.dimension.d2", "failure_mode_signals": ["tfo.t1.signal_decay", "tfo.t1.message_blur"] },
+        { "id": "t1.q4.velocity", "question": "Does interest form quickly after first exposure?", "dimension": "ati.dimension.d3", "failure_mode_signals": ["tfo.t1.signal_decay"] },
+        { "id": "t1.q5.friction_resilience", "question": "Is the first landing experience clear enough to avoid confusion?", "dimension": "ati.dimension.d4", "failure_mode_signals": ["tfo.t1.message_blur"] },
+        { "id": "t1.q6.dropoff_resilience", "question": "Do users avoid immediate bounce or early abandonment?", "dimension": "ati.dimension.d5", "failure_mode_signals": ["tfo.t1.attention_noise", "tfo.t1.signal_decay"] },
+        { "id": "t1.q7.commercial_consequence", "question": "Does T1 traffic contribute to downstream commercial movement?", "dimension": "ati.dimension.d6", "failure_mode_signals": ["tfo.t1.vanity_reach", "tfo.t1.audience_mismatch"] },
+        { "id": "t1.q8.intervention_clarity", "question": "Can you identify which channel, audience, or message causes weak engagement?", "dimension": "ati.dimension.d7", "failure_mode_signals": ["tfo.constraint.measurement_gap", "tfo.t1.message_blur"] }
+      ],
+      "failure_mode_triggers": [
+        { "id": "tfo.t1.attention_noise", "trigger_pattern": "High visibility, weak qualified engagement" },
+        { "id": "tfo.t1.vanity_reach", "trigger_pattern": "Large reach with little commercial movement" },
+        { "id": "tfo.t1.audience_mismatch", "trigger_pattern": "Wrong traffic or poor buyer fit" },
+        { "id": "tfo.t1.signal_decay", "trigger_pattern": "Initial attention fades before interest forms" },
+        { "id": "tfo.t1.message_blur", "trigger_pattern": "Users do not understand why the offer matters" }
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t2",
+      "transition": "Interest → Desire",
+      "core_question": "Did curiosity become preference?",
+      "questions": [
+        { "id": "t2.q1.signal_quality", "question": "Does engagement show real interest rather than passive consumption?", "dimension": "ati.dimension.d1", "failure_mode_signals": ["tfo.t2.passive_engagement"] },
+        { "id": "t2.q2.preference_signal", "question": "Do users compare, save, revisit, inquire, or show preference-building behavior?", "dimension": "ati.dimension.d2", "failure_mode_signals": ["tfo.t2.comparison_stall", "tfo.t2.preference_dilution"] },
+        { "id": "t2.q3.velocity", "question": "Does interest become intent within a reasonable time for your business model?", "dimension": "ati.dimension.d3", "failure_mode_signals": ["tfo.t2.intent_evaporation"] },
+        { "id": "t2.q4.friction_resilience", "question": "Is your value proposition clear enough to support desire?", "dimension": "ati.dimension.d4", "failure_mode_signals": ["tfo.t2.value_ambiguity"] },
+        { "id": "t2.q5.dropoff_resilience", "question": "Do interested users continue instead of fading away?", "dimension": "ati.dimension.d5", "failure_mode_signals": ["tfo.t2.intent_evaporation"] },
+        { "id": "t2.q6.commercial_consequence", "question": "Does engaged traffic produce qualified leads, sales movement, or high-value actions?", "dimension": "ati.dimension.d6", "failure_mode_signals": ["tfo.t2.passive_engagement", "tfo.t2.preference_dilution"] },
+        { "id": "t2.q7.intervention_clarity", "question": "Can you identify whether weak desire is caused by value, proof, comparison, or timing?", "dimension": "ati.dimension.d7", "failure_mode_signals": ["tfo.t2.value_ambiguity", "tfo.t2.comparison_stall"] },
+        { "id": "t2.q8.intent_depth", "question": "Do users move from learning to wanting?", "dimension": "ati.dimension.d2", "failure_mode_signals": ["tfo.t2.passive_engagement", "tfo.t2.value_ambiguity"] }
+      ],
+      "failure_mode_triggers": [
+        { "id": "tfo.t2.passive_engagement", "trigger_pattern": "Users consume content but do not form commercial intent" },
+        { "id": "tfo.t2.comparison_stall", "trigger_pattern": "Users evaluate repeatedly without choosing" },
+        { "id": "tfo.t2.preference_dilution", "trigger_pattern": "Offer does not become preferred against alternatives" },
+        { "id": "tfo.t2.intent_evaporation", "trigger_pattern": "Early intent fades before action" },
+        { "id": "tfo.t2.value_ambiguity", "trigger_pattern": "Users understand the category but not why this offer matters" }
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t3",
+      "transition": "Desire → Action",
+      "core_question": "Did intent become action?",
+      "questions": [
+        { "id": "t3.q1.signal_quality", "question": "Are high-intent signals clearly visible before action?", "dimension": "ati.dimension.d1", "failure_mode_signals": ["tfo.t3.decision_delay", "tfo.t3.objection_residue"] },
+        { "id": "t3.q2.movement_probability", "question": "Do users who show intent complete the next step?", "dimension": "ati.dimension.d2", "failure_mode_signals": ["tfo.t3.process_friction", "tfo.t3.trust_deficit"] },
+        { "id": "t3.q3.velocity", "question": "Does action happen without excessive delay after intent forms?", "dimension": "ati.dimension.d3", "failure_mode_signals": ["tfo.t3.decision_delay"] },
+        { "id": "t3.q4.friction_resilience", "question": "Is the action path simple, credible, and low-friction?", "dimension": "ati.dimension.d4", "failure_mode_signals": ["tfo.t3.process_friction", "tfo.t3.complexity_wall"] },
+        { "id": "t3.q5.dropoff_resilience", "question": "Do users avoid abandoning forms, carts, demos, bookings, or checkout?", "dimension": "ati.dimension.d5", "failure_mode_signals": ["tfo.t3.process_friction", "tfo.t3.price_shock"] },
+        { "id": "t3.q6.commercial_consequence", "question": "Does completed action create meaningful business value?", "dimension": "ati.dimension.d6", "failure_mode_signals": ["tfo.t3.price_shock", "tfo.t3.trust_deficit"] },
+        { "id": "t3.q7.intervention_clarity", "question": "Can you identify whether action is blocked by trust, price, UX, complexity, or objections?", "dimension": "ati.dimension.d7", "failure_mode_signals": ["tfo.t3.trust_deficit", "tfo.t3.objection_residue"] },
+        { "id": "t3.q8.risk_reversal", "question": "Are risk, proof, guarantee, or credibility concerns handled before action?", "dimension": "ati.dimension.d4", "failure_mode_signals": ["tfo.t3.trust_deficit", "tfo.t3.objection_residue"] }
+      ],
+      "failure_mode_triggers": [
+        { "id": "tfo.t3.process_friction", "trigger_pattern": "Action path is too hard, long, unclear, or broken" },
+        { "id": "tfo.t3.trust_deficit", "trigger_pattern": "Desire exists but trust is insufficient" },
+        { "id": "tfo.t3.price_shock", "trigger_pattern": "Price exposure collapses movement" },
+        { "id": "tfo.t3.decision_delay", "trigger_pattern": "Intent exists but urgency is weak" },
+        { "id": "tfo.t3.complexity_wall", "trigger_pattern": "User cannot cross complexity threshold" },
+        { "id": "tfo.t3.objection_residue", "trigger_pattern": "Unresolved doubts block action" }
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t4",
+      "transition": "Action → Loyalty",
+      "core_question": "Did conversion become continuity?",
+      "questions": [
+        { "id": "t4.q1.signal_quality", "question": "Do post-action behaviors show continuity, not only completion?", "dimension": "ati.dimension.d1", "failure_mode_signals": ["tfo.t4.one_transaction_funnel"] },
+        { "id": "t4.q2.movement_probability", "question": "Do customers return, repeat, continue, activate, or expand?", "dimension": "ati.dimension.d2", "failure_mode_signals": ["tfo.t4.silent_churn", "tfo.t4.lifecycle_disconnect"] },
+        { "id": "t4.q3.velocity", "question": "Does the relationship continue soon enough after first action?", "dimension": "ati.dimension.d3", "failure_mode_signals": ["tfo.t4.lifecycle_disconnect"] },
+        { "id": "t4.q4.friction_resilience", "question": "Is onboarding or post-action experience clear and supportive?", "dimension": "ati.dimension.d4", "failure_mode_signals": ["tfo.t4.lifecycle_disconnect"] },
+        { "id": "t4.q5.dropoff_resilience", "question": "Do customers avoid disappearing after first action?", "dimension": "ati.dimension.d5", "failure_mode_signals": ["tfo.t4.silent_churn", "tfo.t4.one_transaction_funnel"] },
+        { "id": "t4.q6.commercial_consequence", "question": "Does loyalty generate repeat value, lifetime value, referral, or advocacy?", "dimension": "ati.dimension.d6", "failure_mode_signals": ["tfo.t4.advocacy_vacuum", "tfo.t4.loyalty_blindness"] },
+        { "id": "t4.q7.intervention_clarity", "question": "Can you identify what prevents repeat value or loyalty?", "dimension": "ati.dimension.d7", "failure_mode_signals": ["tfo.t4.loyalty_blindness", "tfo.constraint.measurement_gap"] },
+        { "id": "t4.q8.advocacy_signal", "question": "Do satisfied customers produce proof, referral, review, or public trust signals?", "dimension": "ati.dimension.d6", "failure_mode_signals": ["tfo.t4.advocacy_vacuum"] }
+      ],
+      "failure_mode_triggers": [
+        { "id": "tfo.t4.one_transaction_funnel", "trigger_pattern": "First action happens, continuity does not" },
+        { "id": "tfo.t4.silent_churn", "trigger_pattern": "Users disappear without visible alarm" },
+        { "id": "tfo.t4.loyalty_blindness", "trigger_pattern": "First conversion is measured, loyalty is not" },
+        { "id": "tfo.t4.advocacy_vacuum", "trigger_pattern": "Loyalty does not become market-facing proof" },
+        { "id": "tfo.t4.lifecycle_disconnect", "trigger_pattern": "Post-action relationship lacks structure" }
+      ]
+    }
+  ],
+  "failure_mode_assignment": {
+    "method": "pattern_strength",
+    "pattern_strength_levels": [
+      { "min": 0, "max": 24, "assignment": "not_assigned" },
+      { "min": 25, "max": 49, "assignment": "weak_signal" },
+      { "min": 50, "max": 69, "assignment": "possible_failure_mode" },
+      { "min": 70, "max": 84, "assignment": "likely_failure_mode" },
+      { "min": 85, "max": 100, "assignment": "dominant_failure_mode" }
+    ],
+    "output_limits": {
+      "primary_per_weak_vector": 1,
+      "secondary_max": 2,
+      "rule": "Scanner v1 must not output too many failure modes. Over-diagnosis weakens trust."
+    },
+    "constraint_rule": "Measurement Gap (tfo.constraint.measurement_gap) is assigned where evidence is insufficient. It affects Evidence Confidence and does not directly reduce ATI score."
+  },
+  "output_model": {
+    "required_fields": [
+      "composite_ati_status",
+      "t1_vector_result",
+      "t2_vector_result",
+      "t3_vector_result",
+      "t4_vector_result",
+      "weakest_vector",
+      "strongest_vector",
+      "evidence_confidence_per_vector",
+      "primary_failure_mode",
+      "secondary_failure_mode_where_applicable",
+      "recommended_intervention_layer",
+      "reference_links"
+    ],
+    "full_score_condition": "If all vectors are scorable, the scanner may issue a composite ATI score.",
+    "partial_profile_condition": "If one or more vectors are E0, the scanner must issue a partial profile.",
+    "full_output_template": "Composite ATI: {score} — {diagnostic_class} / Composite Evidence Confidence: {confidence_summary}",
+    "partial_output_template": "ATI Profile: Partial / Scorable vectors: {list} / Unscorable vectors: {list} / E0 Absent Evidence",
+    "vector_output_template": "{code} — {transition} / Score: {score} / {evidence_code} {evidence_name} / Class: {diagnostic_class} / Likely Failure Modes: {failure_modes} / Recommended Intervention: {intervention_layers}"
+  },
+  "output_language_rules": {
+    "allowed_examples": [
+      "Your weakest vector is T2 — Interest → Desire. The likely failure mode is Value Ambiguity. This diagnosis is based on E1 Self-Reported Evidence and should be treated as provisional.",
+      "T3 appears Transition Constrained. The strongest signal points to Process Friction and Trust Deficit.",
+      "Measurement Gap limits the confidence of this diagnosis."
+    ],
+    "prohibited_examples": [
+      "Your funnel is broken.",
+      "AI knows exactly why you are losing money.",
+      "Fixing this will increase revenue by 40%.",
+      "No data means your funnel is broken."
+    ]
+  },
+  "reference_link_requirements": [
+    { "output_element": "ati_score", "required_link": "/aida-transition-index/" },
+    { "output_element": "evidence_confidence", "required_link": "/evidence-confidence/" },
+    { "output_element": "tfo_failure_mode", "required_link": "/failure-modes/{slug}/" },
+    { "output_element": "vector_name", "required_link": "/vectors/{vector-route}/" },
+    { "output_element": "intervention_layer", "required_link": "/intervention-layers/" },
+    { "output_element": "measurement_gap", "required_link": "/failure-modes/measurement-gap/" },
+    { "output_element": "method_explanation", "required_link": "/methodology/" }
+  ],
+  "ui_governance": {
+    "governed_by": "INTERFACE_GOVERNANCE.md",
+    "rules": [
+      "show the transition axis",
+      "represent T1-T4 as movement",
+      "show score and Evidence Confidence separately",
+      "show E0 as Unscorable",
+      "do not make weak scores visually healthy",
+      "do not use gamified score effects",
+      "do not use decorative animation",
+      "support reduced motion",
+      "keep results readable without hidden interactions"
+    ]
+  },
+  "monetization_boundary": {
+    "allowed": [
+      "free ATI Snapshot",
+      "paid Transition Diagnostic Brief",
+      "advanced Transition Audit intake",
+      "downloadable structured report",
+      "professional audit request",
+      "future API access",
+      "future licensing path"
+    ],
+    "prohibited": [
+      "fear-based manipulation",
+      "fake urgency",
+      "guaranteed revenue claims",
+      "paid ranking of tools",
+      "generic affiliate banners",
+      "selling unqualified leads",
+      "hiding basic explanation behind payment",
+      "overstating diagnosis to force purchase"
+    ]
+  }
+}

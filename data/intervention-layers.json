@@ -1,0 +1,88 @@
+{
+  "id": "intervention.layers",
+  "asset": "AIDAtanaly.com",
+  "version": "1.0",
+  "source_documents": ["TFO_ONTOLOGY.md", "ATI_STANDARD.md", "SCANNER_MODEL.md"],
+  "governance_decisions": [
+    "governance/decisions/DECISION_TFO_ONTOLOGY_1_0_INITIAL_RATIFICATION.md"
+  ],
+  "canonical_route": "/intervention-layers/",
+  "registry_rule": "No custom intervention layer may be introduced without ontology update. Interventions must remain class-level recommendations unless sufficient evidence supports specific tactical advice.",
+  "layers": [
+    {
+      "id": "intervention.audience",
+      "name": "Audience Intervention",
+      "purpose": "Adjust who is being reached",
+      "scanner_use": "Reach, segmentation, fit"
+    },
+    {
+      "id": "intervention.message",
+      "name": "Message Intervention",
+      "purpose": "Clarify what is being communicated",
+      "scanner_use": "Clarity, positioning, promise"
+    },
+    {
+      "id": "intervention.offer",
+      "name": "Offer Intervention",
+      "purpose": "Improve value, packaging, or proposition",
+      "scanner_use": "Value, packaging, proposition"
+    },
+    {
+      "id": "intervention.proof",
+      "name": "Proof Intervention",
+      "purpose": "Add evidence, authority, trust, or credibility signals",
+      "scanner_use": "Trust, authority, review, credibility"
+    },
+    {
+      "id": "intervention.ux",
+      "name": "UX Intervention",
+      "purpose": "Reduce path complexity or interface friction",
+      "scanner_use": "Path, friction, interface, flow"
+    },
+    {
+      "id": "intervention.pricing",
+      "name": "Pricing Intervention",
+      "purpose": "Improve pricing clarity, framing, or risk perception",
+      "scanner_use": "Price framing, clarity, risk"
+    },
+    {
+      "id": "intervention.timing",
+      "name": "Timing Intervention",
+      "purpose": "Improve when prompts, offers, or follow-ups occur",
+      "scanner_use": "Follow-up, urgency, sequence"
+    },
+    {
+      "id": "intervention.attribution",
+      "name": "Attribution Intervention",
+      "purpose": "Repair measurement visibility",
+      "scanner_use": "Measurement visibility"
+    },
+    {
+      "id": "intervention.lifecycle",
+      "name": "Lifecycle Intervention",
+      "purpose": "Extend value after first action",
+      "scanner_use": "Retention, onboarding, loyalty"
+    },
+    {
+      "id": "intervention.sales_assist",
+      "name": "Sales-Assist Intervention",
+      "purpose": "Add human or automated assistance at high-friction points",
+      "scanner_use": "Human or automated help at high-friction points"
+    }
+  ],
+  "contextual_mappings": [
+    {
+      "label": "Channel Intervention",
+      "is_standalone_layer": false,
+      "parent_layers": ["intervention.audience", "intervention.message"],
+      "rule": "Channel Intervention is governed under Audience Intervention or Message Intervention, depending on context."
+    },
+    {
+      "label": "Measurement Governance",
+      "is_standalone_layer": false,
+      "parent_layers": ["intervention.attribution"],
+      "secondary_relations": ["intervention.lifecycle"],
+      "rule": "Measurement Governance is governed under Attribution Intervention, and may relate to Lifecycle Intervention when retention visibility is affected."
+    }
+  ]
+}

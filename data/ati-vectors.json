@@ -1,0 +1,180 @@
+{
+  "id": "ati.vectors",
+  "asset": "AIDAtanaly.com",
+  "version": "1.1",
+  "source_document": "ATI_STANDARD.md",
+  "vectors": [
+    {
+      "vector_id": "ati.vector.t1",
+      "code": "T1",
+      "from_state": "Attention",
+      "to_state": "Interest",
+      "transition": "Attention → Interest",
+      "transition_name": "Signal Conversion",
+      "core_question": "Did visibility become curiosity?",
+      "definition": "T1 measures whether raw visibility becomes meaningful engagement. It governs the transition from being noticed to becoming interesting.",
+      "canonical_route": "/vectors/attention-to-interest/",
+      "strong_signals": [
+        "qualified click-through",
+        "meaningful scroll depth",
+        "repeat visit after exposure",
+        "search follow-up",
+        "page continuation",
+        "content interaction",
+        "audience-fit engagement",
+        "low bounce from qualified sources",
+        "ad-to-content alignment"
+      ],
+      "weak_signals": [
+        "high impressions with low engagement",
+        "low-quality traffic",
+        "accidental clicks",
+        "irrelevant audience",
+        "short sessions",
+        "high bounce",
+        "social visibility without site interest",
+        "curiosity gap clicks without continuation"
+      ],
+      "failure_mode_ids": [
+        "tfo.t1.attention_noise",
+        "tfo.t1.vanity_reach",
+        "tfo.t1.audience_mismatch",
+        "tfo.t1.signal_decay",
+        "tfo.t1.message_blur"
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t2",
+      "code": "T2",
+      "from_state": "Interest",
+      "to_state": "Desire",
+      "transition": "Interest → Desire",
+      "transition_name": "Intent Formation",
+      "core_question": "Did curiosity become preference?",
+      "definition": "T2 measures whether engagement crystallizes into preference, intent, motivation, or commercial desire. It governs the transition from curiosity to choice pressure.",
+      "sub_signal_rule": "Within ATI, preference and intent are sub-signals inside T2. They are not separate transition vectors.",
+      "canonical_route": "/vectors/interest-to-desire/",
+      "strong_signals": [
+        "product comparison",
+        "pricing exploration",
+        "repeat content consumption",
+        "feature-specific engagement",
+        "brand-specific search",
+        "saved product or wishlist behavior",
+        "demo page exploration",
+        "review consumption",
+        "return visits with deeper intent",
+        "sales or product inquiry behavior"
+      ],
+      "weak_signals": [
+        "passive reading",
+        "non-commercial engagement",
+        "repeat visits without deeper movement",
+        "comparison without preference",
+        "high content consumption with no intent signal",
+        "educational traffic with no offer relevance",
+        "weak differentiation"
+      ],
+      "failure_mode_ids": [
+        "tfo.t2.passive_engagement",
+        "tfo.t2.comparison_stall",
+        "tfo.t2.preference_dilution",
+        "tfo.t2.intent_evaporation",
+        "tfo.t2.value_ambiguity"
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t3",
+      "code": "T3",
+      "from_state": "Desire",
+      "to_state": "Action",
+      "transition": "Desire → Action",
+      "transition_name": "Conversion Friction",
+      "core_question": "Did intent become action?",
+      "definition": "T3 measures whether formed intent becomes completed action. It governs the transition from wanting to doing.",
+      "canonical_route": "/vectors/desire-to-action/",
+      "strong_signals": [
+        "checkout completion",
+        "signup completion",
+        "demo request",
+        "quote request",
+        "contact form completion",
+        "purchase",
+        "subscription",
+        "booking",
+        "sales-qualified movement",
+        "clear next-step behavior"
+      ],
+      "weak_signals": [
+        "cart abandonment",
+        "form abandonment",
+        "repeated pricing visits with no action",
+        "stalled demo intent",
+        "hesitation at payment",
+        "high exit on checkout or contact page",
+        "repeated visits without commitment",
+        "intent signals without conversion"
+      ],
+      "failure_mode_ids": [
+        "tfo.t3.process_friction",
+        "tfo.t3.trust_deficit",
+        "tfo.t3.price_shock",
+        "tfo.t3.decision_delay",
+        "tfo.t3.complexity_wall",
+        "tfo.t3.objection_residue"
+      ]
+    },
+    {
+      "vector_id": "ati.vector.t4",
+      "code": "T4",
+      "from_state": "Action",
+      "to_state": "Loyalty",
+      "transition": "Action → Loyalty",
+      "transition_name": "Retention Extension",
+      "core_question": "Did conversion become continuity?",
+      "definition": "T4 measures whether completed action becomes continuity, repeat value, loyalty, advocacy, or durable customer relationship. It governs the transition from transaction to continuity.",
+      "extension_rule": "AIDAtanaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence. T4 remains Action → Loyalty and must not be removed.",
+      "canonical_route": "/vectors/action-to-loyalty/",
+      "strong_signals": [
+        "repeat purchase",
+        "product activation",
+        "returning customer behavior",
+        "subscription continuation",
+        "referral",
+        "review",
+        "account expansion",
+        "usage depth",
+        "lifecycle email engagement",
+        "low churn risk",
+        "advocacy behavior"
+      ],
+      "weak_signals": [
+        "one-time purchase",
+        "inactive account after signup",
+        "silent churn",
+        "no onboarding completion",
+        "no repeat engagement",
+        "no referral or review behavior",
+        "weak lifecycle communication",
+        "support contact without recovery",
+        "post-purchase abandonment"
+      ],
+      "failure_mode_ids": [
+        "tfo.t4.one_transaction_funnel",
+        "tfo.t4.silent_churn",
+        "tfo.t4.loyalty_blindness",
+        "tfo.t4.advocacy_vacuum",
+        "tfo.t4.lifecycle_disconnect"
+      ]
+    }
+  ],
+  "cross_vector_constraints": [
+    {
+      "id": "tfo.constraint.measurement_gap",
+      "name": "Measurement Gap",
+      "applies_across": ["ati.vector.t1", "ati.vector.t2", "ati.vector.t3", "ati.vector.t4"],
+      "canonical_route": "/failure-modes/measurement-gap/",
+      "note": "Diagnostic constraint, not a transition vector and not a normal failure mode."
+    }
+  ]
+}
