@@ -159,10 +159,15 @@ if ($durations.Count -gt 0 -and -not $outOfRange) {
   Pass "Interface motion tokens within governed 200-600ms range"
 } else { Fail "Motion duration tokens out of governed range: $($outOfRange -join ', ')" }
 
-# --- 13. scanner.js contains no logic and no rule duplication --------------------
-if ($js -match 'PLACEHOLDER' -and $js -notmatch 'addEventListener|fetch\(|querySelector') {
-  Pass "scanner.js is a governed placeholder with no scanner logic"
-} else { Fail "scanner.js contains premature logic" }
+# --- 13. scanner.js implements governed v1 logic ---------------------------------
+if ($js -match '/data/scanner-model\.json' -and
+    $js -match '/data/tfo-failure-modes\.json' -and
+    $js -match 'Unscorable' -and
+    $js -match 'partial' -and
+    $js -notmatch 'https?://' -and
+    $js -notmatch 'evidence_confidence_weight') {
+  Pass "scanner.js implements governed Transition Scanner v1 from /data/ registry"
+} else { Fail "scanner.js missing governed scanner v1 implementation" }
 
 # --- Summary ----------------------------------------------------------------------
 Write-Host ""

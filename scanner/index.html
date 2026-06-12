@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIDAtanaly Transition Scanner - Rules-Governed Diagnostic v1 | AIDAtanaly</title>
+  <meta name="description" content="Scanner v1 is rules-governed. It measures transition health across T1-T4, qualifies evidence separately, classifies likely TFO failure modes, and links diagnosis to governed reference pages.">
+  <link rel="canonical" href="https://aidatanaly.com/scanner/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Route ID: AIDA-SCANNER-001
+  Path: /scanner/
+  Page Class: Scanner Page
+  Route Status: Required Launch
+  Primary Governed Document: SCANNER_MODEL.md (v1.0)
+  Secondary Governed Documents: ATI_STANDARD.md, TFO_ONTOLOGY.md, ROUTE_MAP.md, INTERFACE_GOVERNANCE.md
+  Machine-Readable Mapping: /data/scanner-model.json, /data/ati-standard.json,
+    /data/tfo-failure-modes.json, /data/intervention-layers.json
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/" aria-current="page">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <header class="layout-header">
+        <p class="layout-section__kicker">Scanner v1.0 - rules-governed</p>
+        <h1>AIDAtanaly Transition Scanner</h1>
+        <p class="layout-prose">Scanner v1 is rules-governed. It measures transition health, qualifies
+          evidence, classifies likely failure modes, and links diagnosis to governed reference pages.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>What the Scanner Measures</h2>
+        <p>The scanner evaluates movement quality across the four
+          <a href="/aida-transition-index/">ATI transition vectors</a> (T1-T4) using the seven weighted
+          dimensions defined in the <a href="/aida-transition-index/">ATI Standard</a>. It assigns
+          <a href="/evidence-confidence/">Evidence Confidence</a> per vector, names likely
+          <a href="/transition-failure-ontology/">TFO failure modes</a>, and recommends governed
+          <a href="/intervention-layers/">intervention layers</a>.</p>
+        <p>Scoring rules, question models, thresholds, and failure mode mappings are loaded from
+          <span class="utility-mono">/data/scanner-model.json</span> and the governed data registry.
+          No score logic is hard-coded outside those files.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>What the Scanner Does Not Claim</h2>
+        <p>Scanner v1 is rules-governed. It does not require live analytics integrations and does not
+          claim exact causality.</p>
+        <ul>
+          <li>It does not prove why revenue is falling.</li>
+          <li>It does not promise conversion growth or revenue outcomes.</li>
+          <li>It does not replace measurement systems or CRM data.</li>
+          <li>It is not described as an adopted industry standard.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Evidence Confidence Notice</h2>
+        <p>Evidence Confidence qualifies how strongly a result should be interpreted.</p>
+        <p><strong>Evidence Confidence is not part of the ATI score.</strong> E0 (Absent Evidence)
+          means a vector is <strong>Unscorable</strong> - no numeric vector score is issued. When one or
+          more vectors are E0, Scanner v1 must issue a <strong>Partial Profile</strong> rather than a
+          clean composite ATI score.</p>
+        <p>See <a href="/evidence-confidence/">Evidence Confidence</a> and
+          <a href="/failure-modes/measurement-gap/">Measurement Gap</a> for the governed constraint rules.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Transition Axis</h2>
+        <p>Results update the axis below after diagnosis. Unscorable vectors use the governed
+          Unscorable state; scored vectors use the five-class diagnostic scale.</p>
+        <ol class="transition-axis" id="scanner-axis" aria-label="ATI transition axis for scanner results">
+          <li class="transition-axis__state">Attention</li>
+          <li class="transition-axis__vector" data-vector="t1">
+            <span class="transition-axis__vector-label"><a href="/vectors/attention-to-interest/">T1</a></span>
+          </li>
+          <li class="transition-axis__state">Interest</li>
+          <li class="transition-axis__vector" data-vector="t2">
+            <span class="transition-axis__vector-label"><a href="/vectors/interest-to-desire/">T2</a></span>
+          </li>
+          <li class="transition-axis__state">Desire</li>
+          <li class="transition-axis__vector" data-vector="t3">
+            <span class="transition-axis__vector-label"><a href="/vectors/desire-to-action/">T3</a></span>
+          </li>
+          <li class="transition-axis__state">Action</li>
+          <li class="transition-axis__vector" data-vector="t4">
+            <span class="transition-axis__vector-label"><a href="/vectors/action-to-loyalty/">T4</a></span>
+          </li>
+          <li class="transition-axis__state">Loyalty</li>
+        </ol>
+      </section>
+
+      <div id="scanner-load-error" class="scanner-load-error layout-section" hidden role="alert"></div>
+
+      <div class="scanner-wizard">
+        <p id="scanner-progress" class="scanner-wizard__progress utility-muted">Step 1 of 6</p>
+        <div id="scanner-steps"></div>
+        <nav class="scanner-wizard__nav" aria-label="Scanner navigation">
+          <button type="button" class="scanner-wizard__btn" id="scanner-prev" disabled>Previous step</button>
+          <button type="button" class="scanner-wizard__btn scanner-wizard__btn--primary" id="scanner-next">Next step</button>
+          <button type="button" class="scanner-wizard__btn scanner-wizard__btn--primary" id="scanner-submit" hidden>Generate diagnosis</button>
+        </nav>
+      </div>
+
+      <section class="layout-section" id="scanner-results" hidden aria-live="polite">
+        <h2>Result Preview</h2>
+        <p class="utility-muted">Results are displayed on this page only. They are not published as
+          separate indexable routes. Diagnostic badges and Evidence Confidence badges are always shown
+          separately.</p>
+        <div id="scanner-results-body" class="scanner-results"></div>
+      </section>
+
+      <section class="layout-section">
+        <h2>Methodology Links</h2>
+        <nav class="reference-links" aria-label="Methodology references">
+          <ul class="reference-links__list">
+            <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+            <li><a href="/measurement-grammar/">Measurement Grammar</a><span class="reference-links__route">/measurement-grammar/</span></li>
+            <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+            <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+            <li><a href="/intervention-layers/">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+            <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+            <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="layout-section">
+        <h2>Report Upgrade Path</h2>
+        <p>The free scanner issues a governed on-page diagnosis. A structured
+          <a href="/reports/ati-snapshot/">ATI Snapshot report</a> (when available) adds exportable
+          formatting and audit-ready documentation. Paid diagnostic briefs remain optional and must not
+          overstate what the free scan proves.</p>
+        <p class="utility-muted">No fear-based urgency, no revenue guarantees, and no hidden scoring logic.</p>
+      </section>
+    </main>
+
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+
+  <script src="/assets/js/scanner.js"></script>
+</body>
+</html>

@@ -73,8 +73,19 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     Fail "$label does not link /assets/css/main.css"; $pageOk = $false
   }
 
-  # readable without JavaScript
-  if ($html -match '<script') { Fail "$label contains <script>; reference pages must not require JS"; $pageOk = $false }
+  # readable without JavaScript (scanner page may use local enhancement script only)
+  if ($html -match '<script') {
+    if ($route -eq '/scanner/') {
+      if ($html -match '<script\s+src="/assets/js/scanner\.js"\s*></script>' -and
+          ($html -replace '<script\s+src="/assets/js/scanner\.js"\s*></script>', '') -notmatch '<script') {
+        # governed local scanner script only
+      } else {
+        Fail "$label must use only /assets/js/scanner.js (no inline or external scripts)"; $pageOk = $false
+      }
+    } else {
+      Fail "$label contains <script>; reference pages must not require JS"; $pageOk = $false
+    }
+  }
 
   # internal links resolve to governed launch routes
   $hrefs = [regex]::Matches($html, 'href="(/[^"]*)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
@@ -90,7 +101,7 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     if ($line -match 'industry[ -]standard' -and $line -notmatch '\bnot\b|\bdoes not\b|\bnever\b') {
       Fail "$label line ${lineNo}: unqualified 'industry standard' claim"; $pageOk = $false
     }
-    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit|guarantee sections|guarantees, or|or guarantee sections|terms or guarantees') {
+    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit|guarantee sections|guarantees, or|or guarantee sections|terms or guarantees|risk, proof, guarantee|does not promise') {
       Fail "$label line ${lineNo}: unqualified 'guarantee' language"; $pageOk = $false
     }
     if ($line -match 'increase revenue by|revenue will (grow|increase)|AI knows exactly') {
@@ -393,10 +404,76 @@ if ($pages.ContainsKey($tfoOverviewRoute)) {
   }
 }
 
-if ($pages.Count -ge 34) {
-  Pass "Sprint 5: $($pages.Count)/41 launch routes implemented"
+if ($pages.Count -ge 35) {
+  Pass "Sprint 6: $($pages.Count)/41 launch routes implemented"
+} elseif ($pages.Count -ge 34) {
+  Pass "Sprint 5 baseline: $($pages.Count)/41 launch routes implemented"
 } else {
-  Fail "Sprint 5: expected at least 34 implemented routes, found $($pages.Count)"
+  Fail "Expected at least 34 implemented routes, found $($pages.Count)"
+}
+
+# --- Sprint 6: Scanner page (PAGE_BLUEPRINTS.md §16) --------------------------------
+$scannerRoute = '/scanner/'
+if ($pages.ContainsKey($scannerRoute)) {
+  Pass "Sprint 6: $scannerRoute exists"
+  $sc = $pages[$scannerRoute]
+
+  $scannerHeadings = @(
+    'What the Scanner Measures', 'What the Scanner Does Not Claim',
+    'Evidence Confidence Notice', 'Transition Axis', 'Result Preview',
+    'Methodology Links', 'Report Upgrade Path'
+  )
+  $missingScHeadings = $scannerHeadings | Where-Object { $sc -notmatch "<h2>$_</h2>" }
+  if (-not $missingScHeadings) { Pass "[/scanner/] all blueprint section headings present" }
+  else { foreach ($h in $missingScHeadings) { Fail "[/scanner/] missing heading: $h" } }
+
+  if ($sc -match 'Scanner v1 is rules-governed' -and
+      $sc -match 'does not require live analytics integrations' -and
+      $sc -match 'does not[\s\r\n]+claim exact causality') {
+    Pass "[/scanner/] mandatory scanner disclosure present"
+  } else { Fail "[/scanner/] missing mandatory scanner disclosure" }
+
+  if ($sc -match 'Evidence Confidence qualifies how strongly a result should be interpreted') {
+    Pass "[/scanner/] Evidence Confidence notice present"
+  } else { Fail "[/scanner/] missing Evidence Confidence notice" }
+
+  if ($sc -match 'Partial Profile' -and $sc -match 'Unscorable') {
+    Pass "[/scanner/] documents Partial Profile and Unscorable rules"
+  } else { Fail "[/scanner/] missing Partial Profile or Unscorable documentation" }
+
+  if ($sc -match '<script\s+src="/assets/js/scanner\.js"') {
+    Pass "[/scanner/] links governed local scanner.js"
+  } else { Fail "[/scanner/] missing local scanner.js script tag" }
+
+  if ($sc -notmatch 'google-analytics|googletagmanager|gtag\(') {
+    Pass "[/scanner/] no analytics snippets"
+  } else { Fail "[/scanner/] contains analytics references" }
+
+  $scannerRefs = @('/aida-transition-index/', '/evidence-confidence/', '/intervention-layers/',
+    '/transition-failure-ontology/', '/failure-modes/measurement-gap/', '/vectors/attention-to-interest/')
+  $missingScRefs = $scannerRefs | Where-Object { $sc -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingScRefs) { Pass "[/scanner/] links to governed ATI, TFO, Evidence, Intervention, vectors" }
+  else { foreach ($m in $missingScRefs) { Fail "[/scanner/] missing reference link: $m" } }
+
+  if ($sc -match 'Results are displayed on this page only') {
+    Pass "[/scanner/] states results are not separate indexable routes"
+  } else { Fail "[/scanner/] missing on-page result route disclosure" }
+} else {
+  Fail "Sprint 6: missing $scannerRoute"
+}
+
+$jsPath = Join-Path $root 'assets/js/scanner.js'
+if (Test-Path $jsPath) {
+  $js = Get-Content -Raw -Encoding UTF8 -Path $jsPath
+  if ($js -match '/data/scanner-model\.json') { Pass "Sprint 6: scanner.js reads /data/scanner-model.json" }
+  else { Fail "Sprint 6: scanner.js does not fetch scanner-model.json" }
+  if ($js -notmatch 'evidence_confidence_weight') { Pass "Sprint 6: scanner.js has no evidence_confidence_weight" }
+  else { Fail "Sprint 6: scanner.js references evidence_confidence_weight" }
+  if ($js -match 'Unscorable' -and $js -match 'partial') {
+    Pass "Sprint 6: scanner.js implements Unscorable and Partial Profile logic"
+  } else { Fail "Sprint 6: scanner.js missing Unscorable/Partial Profile logic" }
+} else {
+  Fail "Sprint 6: assets/js/scanner.js missing"
 }
 
 # --- Summary --------------------------------------------------------------------------

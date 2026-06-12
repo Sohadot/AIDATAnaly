@@ -112,6 +112,26 @@ powershell -ExecutionPolicy Bypass -File scripts/generate-tfo-pages.ps1
 
 Regenerate after JSON or ontology changes; then run `validate-pages.ps1`.
 
+## validate-scanner.ps1 (built in Sprint 6)
+
+Validates `/scanner/` and `assets/js/scanner.js` against `SCANNER_MODEL.md` v1.0
+and `PAGE_BLUEPRINTS.md` §16–17.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/validate-scanner.ps1
+```
+
+Checks: scanner page and JS exist; blueprint headings and mandatory disclosures;
+local `scanner.js` only (no external JS or analytics); fetches all four `/data/*.json`
+files; no `evidence_confidence_weight`; Partial Profile and Unscorable logic; TFO IDs
+confined to registry; canonical route links in output; separate score and evidence
+components; prohibited claim phrases; no dynamic indexable result routes.
+
+Sprint 6 page checks in `validate-pages.ps1`: `/scanner/` route, blueprint structure,
+Partial Profile documentation, governed script tag, reference links, 35/41 route milestone.
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:
