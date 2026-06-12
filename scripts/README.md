@@ -321,3 +321,37 @@ powershell -ExecutionPolicy Bypass -File scripts/validate-dist.ps1
 
 **Not performed in phase 1:** removing `noindex`, robots Allow, active `Sitemap:` — these run only
 after the release package gate passes, per `PUBLIC_RELEASE_PLAN.md` Section 7.
+
+## Sprint 12G — main-only deployment (PUB-REL-002)
+
+Ratified in `governance/decisions/DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md`.
+
+| Rule | Value |
+|------|-------|
+| Source branch | `main` only |
+| Deployment branch | **None** (`gh-pages` retired) |
+| Pages source | **GitHub Actions** (not Deploy from a branch) |
+| Public package | `dist/` artifact (gitignored, built on CI) |
+| Workflow | `.github/workflows/pages.yml` |
+
+**Public deploy (authorized path):**
+
+```powershell
+git push origin main
+```
+
+GitHub Actions runs `quality-gate.ps1 -IndexedRelease`, uploads `dist/`, and deploys to Pages.
+
+**Operator setup (once):** GitHub → Settings → Pages → Build and deployment → **Source: GitHub Actions**.
+
+**Local preflight only (does not publish):**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/deploy-dist.ps1
+```
+
+Runs `build-dist.ps1`, `validate-dist.ps1 -IndexedRelease`, and `validate-deploy.ps1`.
+
+**Do not** use `git push origin gh-pages`. After Actions deployment is verified live, optionally delete the legacy branch: `git push origin --delete gh-pages`.
+
+`validate-deploy.ps1` checks: PUB-REL-002 decision exists, `pages.yml` uploads `dist/` via Actions, `deploy-dist.ps1` does not push `gh-pages`.

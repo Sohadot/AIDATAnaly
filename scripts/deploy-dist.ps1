@@ -1,35 +1,30 @@
 # deploy-dist.ps1
-# Sprint 11 Phase 2 — deploy dist/ only to gh-pages (public website branch).
-# Governed by: PUBLIC_RELEASE_PLAN.md (PUB-REL-001).
+# Sprint 12G — local deployment preflight (main-only / GitHub Actions).
+# Governed by: DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md (PUB-REL-002).
+#
+# Public deployment is NOT performed by this script.
+# Push to main to trigger .github/workflows/pages.yml (GitHub Pages artifact).
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$distRoot = Join-Path $root 'dist'
+$scriptsDir = $PSScriptRoot
 
-if (-not (Test-Path $distRoot)) {
-  Write-Error 'dist/ missing. Run scripts/build-dist.ps1 after indexation activation.'
-}
+Write-Host '=== AIDAtanaly Deploy Preflight (main-only) ==='
+Write-Host '  INFO  gh-pages branch deployment is RETIRED (PUB-REL-002).'
+Write-Host '  INFO  Public deploy: push to main → GitHub Actions → Pages artifact from dist/.'
+Write-Host '  INFO  GitHub → Settings → Pages → Source must be GitHub Actions.'
+Write-Host ''
 
-Write-Host '=== AIDAtanaly Dist Deploy (gh-pages) ==='
+& (Join-Path $scriptsDir 'build-dist.ps1')
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-$remote = git -C $root remote get-url origin 2>$null
-if (-not $remote) { Write-Error 'No git remote origin configured' }
+& (Join-Path $scriptsDir 'validate-dist.ps1') -IndexedRelease
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-$stageDir = Join-Path $env:TEMP ('aidatanaly-dist-deploy-' + [guid]::NewGuid().ToString('n'))
-New-Item -ItemType Directory -Path $stageDir -Force | Out-Null
+& (Join-Path $scriptsDir 'validate-deploy.ps1')
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-try {
-  Copy-Item -Path (Join-Path $distRoot '*') -Destination $stageDir -Recurse -Force
-  Push-Location $stageDir
-  git init | Out-Null
-  git add -A
-  git -c user.email='deploy@aidatanaly.com' -c user.name='AIDAtanaly Deploy' commit -m 'Deploy public website from governed dist package' | Out-Null
-  git branch -M gh-pages
-  git push -f $remote HEAD:gh-pages
-  Write-Host "  OK    Deployed dist/ to gh-pages on $remote"
-} finally {
-  Pop-Location
-  if (Test-Path $stageDir) { Remove-Item -Path $stageDir -Recurse -Force -ErrorAction SilentlyContinue }
-}
-
+Write-Host ''
+Write-Host '  OK    Local dist/ package ready for GitHub Actions deployment'
+Write-Host '  NEXT  git push origin main (or run workflow_dispatch on Deploy GitHub Pages)'
 Write-Host '=== Done ==='

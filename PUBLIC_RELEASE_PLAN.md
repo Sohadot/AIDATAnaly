@@ -504,7 +504,9 @@ The following operator decisions are ratified as part of Public Release Plan v1.
 
 **A. Deployment package:** `dist/` is the governed release package.
 
-**B. gh-pages branch:** Allowed only if generated from `dist/` and contains public website artifacts only.
+**B. gh-pages branch:** ~~Allowed only if generated from `dist/`~~ **Superseded by PUB-REL-002.** Public deployment uses **GitHub Actions** from `main`; `dist/` artifact only. The `gh-pages` branch is retired.
+
+**B1. GitHub Actions (PUB-REL-002):** `.github/workflows/pages.yml` on `main` runs `quality-gate.ps1 -IndexedRelease`, uploads `dist/`, and deploys via `actions/deploy-pages`. GitHub Pages source must be **GitHub Actions**, not a branch.
 
 **C. Repository root as website root:** Prohibited.
 

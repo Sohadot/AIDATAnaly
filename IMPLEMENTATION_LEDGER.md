@@ -187,8 +187,21 @@
 | Sitemap URLs | 41 |
 | Forbidden Deployment Files | 0 |
 | Latest activation commit | `f2afbc4` |
-| gh-pages deploy | Complete |
-| Live URL verification | Pending DNS/Pages |
+| gh-pages deploy | Retired (PUB-REL-002) |
+| GitHub Actions Pages | `.github/workflows/pages.yml` on `main` |
+| Live URL verification | Pending DNS/Pages / Actions cutover |
+
+---
+
+## Sprint 12G — Main-Only Deployment Correction
+
+| Field | Value |
+|-------|-------|
+| **Status** | Complete (operator: switch Pages source to GitHub Actions) |
+| **Decision** | PUB-REL-002 — `DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md` |
+| **Summary** | Retire `gh-pages` branch deploy; `main` + GitHub Actions artifact from `dist/` only. |
+| **Workflow** | `.github/workflows/pages.yml` |
+| **Scripts** | `validate-deploy.ps1`; `deploy-dist.ps1` → local preflight only |
 
 ---
 

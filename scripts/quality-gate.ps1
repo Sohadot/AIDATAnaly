@@ -625,7 +625,8 @@ if ($ReleasePackage) {
 
   $distBuildOk = Invoke-GovernedStep -Label 'Dist build' -ScriptName 'build-dist.ps1'
   $distValidateOk = Invoke-GovernedStep -Label 'Dist validation' -ScriptName 'validate-dist.ps1' -IndexedRelease:$IndexedRelease
-  $distOk = $distBuildOk -and $distValidateOk
+  $deployPolicyOk = Invoke-GovernedStep -Label 'Deploy policy (PUB-REL-002)' -ScriptName 'validate-deploy.ps1'
+  $distOk = $distBuildOk -and $distValidateOk -and $deployPolicyOk
   $releasePackageOk = $overallOk -and $distOk
 
   if (Test-Path (Join-Path $root 'dist')) {
