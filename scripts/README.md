@@ -88,6 +88,30 @@ present; hub links to ATI, TFO, Scanner, Evidence Confidence, and
 Intervention Layers; failure-mode links restricted to the vector's own TFO
 entries; T2 sub-signals sentence; T4 continuity sentence.
 
+Sprint 5 TFO checks (when failure mode pages exist): `/transition-failure-ontology/`
+and all 22 failure/constraint dossier routes; stable IDs and canonical URLs
+match `data/tfo-failure-modes.json`; section 14.3 dossier headings on every
+page; parent vector links (all four vectors for Measurement Gap); hub links to
+ATI, TFO, Scanner, Evidence Confidence, and Intervention Layers; Measurement
+Gap constraint classification and mandatory E0 / Partial Profile statements;
+TFO overview ATI/TFO questions and links to all dossier pages; no failure
+mode routes outside the JSON registry; no TFO IDs outside the registry;
+34/41 route implementation milestone.
+
+## generate-tfo-pages.ps1 (built in Sprint 5)
+
+Generates `/transition-failure-ontology/` and all `/failure-modes/*/` dossier
+pages from `data/tfo-failure-modes.json` with AI Instrumentation extracted
+from `TFO_ONTOLOGY.md`.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/generate-tfo-pages.ps1
+```
+
+Regenerate after JSON or ontology changes; then run `validate-pages.ps1`.
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:

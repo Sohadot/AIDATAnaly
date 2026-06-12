@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measurement Gap - TFO Diagnostic Constraint | AIDAtanaly</title>
+  <meta name="description" content="Measurement Gap occurs when the system cannot confidently assess a transition because the required evidence is missing, fragmented, inaccessible, or not tr...">
+  <link rel="canonical" href="https://aidatanaly.com/failure-modes/measurement-gap/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Path: /failure-modes/measurement-gap/
+  Page Class: Diagnostic Constraint Page
+  Route Status: Required Launch
+  Primary Governed Document: TFO_ONTOLOGY.md (v1.0)
+  Machine-Readable Mapping: /data/tfo-failure-modes.json (tfo.constraint.measurement_gap)
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/" aria-current="page">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+    <main id="main">
+      <article class="dossier-block dossier-block--constraint">
+        <header class="layout-header dossier-block__header">
+          <p class="layout-section__kicker">Diagnostic constraint</p>
+          <h1>Measurement Gap</h1>
+        </header>
+        <dl class="layout-prose">
+          <dt>Stable ID</dt><dd><span class="stable-id-chip">tfo.constraint.measurement_gap</span></dd>
+          <dt>Primary Classification</dt><dd>Diagnostic Constraint</dd>
+          <dt>Applies Across</dt><dd>T1, T2, T3, T4 (all transition vectors)</dd>
+          <dt>Canonical Route</dt><dd><span class="utility-mono">/failure-modes/measurement-gap/</span></dd>
+        </dl>
+      </article>
+
+      <section class="layout-section">
+        <h2>Definition</h2>
+        <p>Measurement Gap occurs when the system cannot confidently assess a transition because the required evidence is missing, fragmented, inaccessible, or not tracked. Measurement Gap is not a normal failure mode. It is a diagnostic constraint that limits the confidence of ATI interpretation.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Core Diagnostic Question</h2>
+        <p class="vector-card__question">Is movement weak, or is the organization unable to measure movement clearly?</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why It Matters</h2>
+        <p>Without reliable measurement, ATI cannot distinguish weak movement from unmeasured movement. Measurement Gap is the governed name for that uncertainty; it limits how strongly any other diagnosis should be interpreted.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Symptoms</h2>
+        <ul>
+            <li>Traffic and sales are measured, but intermediate movement is not</li>
+            <li>Engagement is tracked without intent signals</li>
+            <li>Retention is not connected to acquisition source</li>
+            <li>CRM and analytics data are disconnected</li>
+            <li>No evidence exists for a vector</li>
+            <li>Scanner responses rely only on belief or guesswork</li>
+          </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Detection Signals</h2>
+        <ul>
+            <li>E0 or E1 evidence confidence</li>
+            <li>Missing analytics events</li>
+            <li>No CRM-stage linkage</li>
+            <li>No retention tracking</li>
+            <li>No vector-specific signals</li>
+            <li>Inconsistent reporting across systems</li>
+            <li>Unsupported claims about funnel performance</li>
+          </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Scoring Impact</h2>
+        <p>Measurement Gap does not directly reduce ATI score. It affects Evidence Confidence. If evidence is E0, no numeric score should be issued. If evidence is E1, the score must be described as provisional.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Evidence Confidence Considerations</h2>
+                <p><strong>Measurement Gap limits diagnostic confidence. It does not automatically prove that the transition is broken.</strong></p>
+        <p>Measurement Gap affects Evidence Confidence, not the ATI score directly. When evidence is absent (E0), no numeric vector score should be issued. When evidence is self-reported only (E1), scores must use provisional language.</p>
+        <p><strong>If a vector is E0, Scanner v1 must not issue a numeric vector score, and if one or more vectors are E0, Scanner v1 must issue a Partial Profile rather than a clean composite ATI score.</strong></p>
+      </section>
+
+      <section class="layout-section">
+        <h2>AI Instrumentation</h2>
+        <p>AI may assist by:</p>
+        <ul>
+            <li>identifying missing signals,</li>
+            <li>mapping disconnected measurement systems,</li>
+            <li>detecting unsupported claims,</li>
+            <li>suggesting which events or data sources must be captured.</li>
+        </ul>
+        <p class="utility-muted">AI instrumentation supports classification and evidence review within governed scanner rules. It does not replace measurement or issue revenue guarantees.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Intervention Layers</h2>
+                  <span class="intervention-tag">Attribution Intervention</span>
+          <span class="intervention-tag">Lifecycle Intervention</span>
+          <span class="intervention-tag">UX Intervention</span>
+          <ul>
+            <li>Measurement Governance is governed under Attribution context</li>
+            <li>Lifecycle Intervention applies when retention data is missing</li>
+            <li>UX Intervention applies if event capture is tied to interaction design</li>
+          </ul>
+        <p>See <a href="/intervention-layers/">Intervention Layers</a> for the full registry.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Related Failure Modes</h2>
+        <ul>
+          <li><a href="/failure-modes/loyalty-blindness/">Loyalty Blindness</a> <span class="stable-id-chip">tfo.t4.loyalty_blindness</span></li>
+          <li><a href="/failure-modes/attention-noise/">Attention Noise</a> <span class="stable-id-chip">tfo.t1.attention_noise</span></li>
+          <li><a href="/failure-modes/passive-engagement/">Passive Engagement</a> <span class="stable-id-chip">tfo.t2.passive_engagement</span></li>
+          <li><a href="/failure-modes/process-friction/">Process Friction</a> <span class="stable-id-chip">tfo.t3.process_friction</span></li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Scanner Output Language</h2>
+                <p><strong>Allowed:</strong> &ldquo;Measurement Gap limits the confidence of this diagnosis.&rdquo;</p>
+        <p><strong>Allowed:</strong> &ldquo;T4: Unscorable / E0 Absent Evidence.&rdquo;</p>
+        <p><strong>Prohibited:</strong> &ldquo;No data means your funnel is broken.&rdquo;</p>
+        <p><strong>Prohibited:</strong> &ldquo;Fixing measurement guarantees conversion growth.&rdquo;</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Internal Links</h2>
+        <nav class="reference-links" aria-label="Governed references">
+          <ul class="reference-links__list">
+          <li><a href="/vectors/attention-to-interest/">T1 - Attention to Interest (Signal Conversion)</a><span class="reference-links__route">/vectors/attention-to-interest/</span></li>
+          <li><a href="/vectors/interest-to-desire/">T2 - Interest to Desire (Intent Formation)</a><span class="reference-links__route">/vectors/interest-to-desire/</span></li>
+          <li><a href="/vectors/desire-to-action/">T3 - Desire to Action (Conversion Friction)</a><span class="reference-links__route">/vectors/desire-to-action/</span></li>
+          <li><a href="/vectors/action-to-loyalty/">T4 - Action to Loyalty (Retention Extension)</a><span class="reference-links__route">/vectors/action-to-loyalty/</span></li> 
+            <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+            <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+            <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+            <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+            <li><a href="/intervention-layers/">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+            <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+            <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="layout-section">
+        <h2>Version Notes</h2>
+        <p>TFO Ontology v1.0. Stable ID <span class="stable-id-chip">tfo.constraint.measurement_gap</span> is fixed by
+          <span class="utility-mono">TFO_ONTOLOGY.md</span> and mirrored in
+          <span class="utility-mono">/data/tfo-failure-modes.json</span>.</p>
+      </section>
+    </main>
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

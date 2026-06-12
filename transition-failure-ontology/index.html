@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transition Failure Ontology (TFO) - Governed Failure Taxonomy | AIDAtanaly</title>
+  <meta name="description" content="The Transition Failure Ontology classifies how funnel movement fails across T1-T4: 21 governed failure modes, one diagnostic constraint, stable IDs, and canonical routes.">
+  <link rel="canonical" href="https://aidatanaly.com/transition-failure-ontology/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Route ID: AIDA-TFO-001
+  Path: /transition-failure-ontology/
+  Page Class: Ontology Page
+  Route Status: Required Launch
+  Primary Governed Document: TFO_ONTOLOGY.md (v1.0)
+  Machine-Readable Mapping: /data/tfo-failure-modes.json
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/" aria-current="page">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+    <main id="main">
+      <header class="layout-header">
+        <p class="layout-section__kicker">Ontology - TFO v1.0</p>
+        <h1>Transition Failure Ontology</h1>
+        <p class="layout-prose">When the <a href="/aida-transition-index/">AIDA Transition Index</a> finds
+          weak movement, the Transition Failure Ontology names <em>how</em> it fails: with stable IDs,
+          canonical routes, and governed intervention mappings.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Definition</h2>
+        <p>The Transition Failure Ontology (TFO) is a closed taxonomy of 21 failure modes across the
+          four ATI transition vectors, plus one cross-vector diagnostic constraint
+          (<span class="stable-id-chip">tfo.constraint.measurement_gap</span>). Each entry is a
+          diagnostic dossier, not marketing advice.</p>
+        <table>
+          <thead><tr><th scope="col">System</th><th scope="col">Question</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/aida-transition-index/">ATI</a></td><td><strong>How strong is the movement?</strong></td></tr>
+            <tr><td>TFO</td><td><strong>What class of movement failure is present?</strong></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why Failure Needs an Ontology</h2>
+        <p>Unnamed failure produces generic fixes. TFO replaces &ldquo;the funnel is weak&rdquo; with
+          governed identities such as <span class="stable-id-chip">tfo.t3.process_friction</span> or
+          <span class="stable-id-chip">tfo.t2.value_ambiguity</span>, each linking to a parent vector,
+          detection signals, and approved intervention layers.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to ATI</h2>
+        <p>ATI scores transition health on T1&#8211;T4. TFO classifies the failure pattern when a vector
+          is weak. A low T2 score might map to Comparison Stall, Value Ambiguity, or Passive Engagement,
+          each with different intervention layers. ATI does not replace TFO; it triggers it.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>T1 Failure Modes</h2>
+        <p><a href="/vectors/attention-to-interest/">T1 - Attention to Interest</a></p>
+        <ul>
+            <li><a href="/failure-modes/attention-noise/">Attention Noise</a> <span class="stable-id-chip">tfo.t1.attention_noise</span></li>
+            <li><a href="/failure-modes/vanity-reach/">Vanity Reach</a> <span class="stable-id-chip">tfo.t1.vanity_reach</span></li>
+            <li><a href="/failure-modes/audience-mismatch/">Audience Mismatch</a> <span class="stable-id-chip">tfo.t1.audience_mismatch</span></li>
+            <li><a href="/failure-modes/signal-decay/">Signal Decay</a> <span class="stable-id-chip">tfo.t1.signal_decay</span></li>
+            <li><a href="/failure-modes/message-blur/">Message Blur</a> <span class="stable-id-chip">tfo.t1.message_blur</span></li>
+
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>T2 Failure Modes</h2>
+        <p><a href="/vectors/interest-to-desire/">T2 - Interest to Desire</a></p>
+        <ul>
+            <li><a href="/failure-modes/passive-engagement/">Passive Engagement</a> <span class="stable-id-chip">tfo.t2.passive_engagement</span></li>
+            <li><a href="/failure-modes/comparison-stall/">Comparison Stall</a> <span class="stable-id-chip">tfo.t2.comparison_stall</span></li>
+            <li><a href="/failure-modes/preference-dilution/">Preference Dilution</a> <span class="stable-id-chip">tfo.t2.preference_dilution</span></li>
+            <li><a href="/failure-modes/intent-evaporation/">Intent Evaporation</a> <span class="stable-id-chip">tfo.t2.intent_evaporation</span></li>
+            <li><a href="/failure-modes/value-ambiguity/">Value Ambiguity</a> <span class="stable-id-chip">tfo.t2.value_ambiguity</span></li>
+
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>T3 Failure Modes</h2>
+        <p><a href="/vectors/desire-to-action/">T3 - Desire to Action</a></p>
+        <ul>
+            <li><a href="/failure-modes/process-friction/">Process Friction</a> <span class="stable-id-chip">tfo.t3.process_friction</span></li>
+            <li><a href="/failure-modes/trust-deficit/">Trust Deficit</a> <span class="stable-id-chip">tfo.t3.trust_deficit</span></li>
+            <li><a href="/failure-modes/price-shock/">Price Shock</a> <span class="stable-id-chip">tfo.t3.price_shock</span></li>
+            <li><a href="/failure-modes/decision-delay/">Decision Delay</a> <span class="stable-id-chip">tfo.t3.decision_delay</span></li>
+            <li><a href="/failure-modes/complexity-wall/">Complexity Wall</a> <span class="stable-id-chip">tfo.t3.complexity_wall</span></li>
+            <li><a href="/failure-modes/objection-residue/">Objection Residue</a> <span class="stable-id-chip">tfo.t3.objection_residue</span></li>
+
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>T4 Failure Modes</h2>
+        <p><a href="/vectors/action-to-loyalty/">T4 - Action to Loyalty</a></p>
+        <ul>
+            <li><a href="/failure-modes/one-transaction-funnel/">One-Transaction Funnel</a> <span class="stable-id-chip">tfo.t4.one_transaction_funnel</span></li>
+            <li><a href="/failure-modes/silent-churn/">Silent Churn</a> <span class="stable-id-chip">tfo.t4.silent_churn</span></li>
+            <li><a href="/failure-modes/loyalty-blindness/">Loyalty Blindness</a> <span class="stable-id-chip">tfo.t4.loyalty_blindness</span></li>
+            <li><a href="/failure-modes/advocacy-vacuum/">Advocacy Vacuum</a> <span class="stable-id-chip">tfo.t4.advocacy_vacuum</span></li>
+            <li><a href="/failure-modes/lifecycle-disconnect/">Lifecycle Disconnect</a> <span class="stable-id-chip">tfo.t4.lifecycle_disconnect</span></li>
+
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Measurement Gap</h2>
+        <article class="dossier-block dossier-block--constraint">
+          <p><strong>Not a normal failure mode.</strong> Measurement Gap is a diagnostic constraint that
+            limits Evidence Confidence when movement cannot be measured clearly.</p>
+          <p><a href="/failure-modes/measurement-gap/">Measurement Gap</a>
+            <span class="stable-id-chip">tfo.constraint.measurement_gap</span></p>
+        </article>
+      </section>
+
+      <section class="layout-section">
+        <h2>How Scanner Uses TFO</h2>
+        <p>The <a href="/scanner/">Transition Scanner</a> names failure modes using TFO IDs only. It assigns
+          a primary failure mode per weak vector (plus up to two secondary modes), links each name to its
+          canonical dossier page, and respects Evidence Confidence, including Unscorable output when E0
+          applies.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Intervention Layer Relationship</h2>
+        <p>Every failure mode maps to approved <a href="/intervention-layers/">intervention layers</a>.
+          Scanner recommendations stay at class level unless evidence supports tactical specificity.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Public Claim Limits</h2>
+        <p>AIDAtanaly introduces the Transition Failure Ontology; it is not described as an adopted
+          industry standard. Failure mode diagnosis does not prove revenue causality and does not
+          promise outcomes. See <a href="/governance/">governance</a>.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Full Failure Mode Index</h2>
+        <ul>
+            <li><a href="/failure-modes/attention-noise/">Attention Noise</a> <span class="stable-id-chip">tfo.t1.attention_noise</span></li>
+            <li><a href="/failure-modes/vanity-reach/">Vanity Reach</a> <span class="stable-id-chip">tfo.t1.vanity_reach</span></li>
+            <li><a href="/failure-modes/audience-mismatch/">Audience Mismatch</a> <span class="stable-id-chip">tfo.t1.audience_mismatch</span></li>
+            <li><a href="/failure-modes/signal-decay/">Signal Decay</a> <span class="stable-id-chip">tfo.t1.signal_decay</span></li>
+            <li><a href="/failure-modes/message-blur/">Message Blur</a> <span class="stable-id-chip">tfo.t1.message_blur</span></li>
+            <li><a href="/failure-modes/passive-engagement/">Passive Engagement</a> <span class="stable-id-chip">tfo.t2.passive_engagement</span></li>
+            <li><a href="/failure-modes/comparison-stall/">Comparison Stall</a> <span class="stable-id-chip">tfo.t2.comparison_stall</span></li>
+            <li><a href="/failure-modes/preference-dilution/">Preference Dilution</a> <span class="stable-id-chip">tfo.t2.preference_dilution</span></li>
+            <li><a href="/failure-modes/intent-evaporation/">Intent Evaporation</a> <span class="stable-id-chip">tfo.t2.intent_evaporation</span></li>
+            <li><a href="/failure-modes/value-ambiguity/">Value Ambiguity</a> <span class="stable-id-chip">tfo.t2.value_ambiguity</span></li>
+            <li><a href="/failure-modes/process-friction/">Process Friction</a> <span class="stable-id-chip">tfo.t3.process_friction</span></li>
+            <li><a href="/failure-modes/trust-deficit/">Trust Deficit</a> <span class="stable-id-chip">tfo.t3.trust_deficit</span></li>
+            <li><a href="/failure-modes/price-shock/">Price Shock</a> <span class="stable-id-chip">tfo.t3.price_shock</span></li>
+            <li><a href="/failure-modes/decision-delay/">Decision Delay</a> <span class="stable-id-chip">tfo.t3.decision_delay</span></li>
+            <li><a href="/failure-modes/complexity-wall/">Complexity Wall</a> <span class="stable-id-chip">tfo.t3.complexity_wall</span></li>
+            <li><a href="/failure-modes/objection-residue/">Objection Residue</a> <span class="stable-id-chip">tfo.t3.objection_residue</span></li>
+            <li><a href="/failure-modes/one-transaction-funnel/">One-Transaction Funnel</a> <span class="stable-id-chip">tfo.t4.one_transaction_funnel</span></li>
+            <li><a href="/failure-modes/silent-churn/">Silent Churn</a> <span class="stable-id-chip">tfo.t4.silent_churn</span></li>
+            <li><a href="/failure-modes/loyalty-blindness/">Loyalty Blindness</a> <span class="stable-id-chip">tfo.t4.loyalty_blindness</span></li>
+            <li><a href="/failure-modes/advocacy-vacuum/">Advocacy Vacuum</a> <span class="stable-id-chip">tfo.t4.advocacy_vacuum</span></li>
+            <li><a href="/failure-modes/lifecycle-disconnect/">Lifecycle Disconnect</a> <span class="stable-id-chip">tfo.t4.lifecycle_disconnect</span></li>
+            <li><a href="/failure-modes/measurement-gap/">Measurement Gap</a> <span class="stable-id-chip">tfo.constraint.measurement_gap</span></li>
+        </ul>
+      </section>
+
+      <nav class="reference-links" aria-label="Governed references">
+        <p class="reference-links__heading">Related reference pages</p>
+        <ul class="reference-links__list">
+          <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+          <li><a href="/vectors/attention-to-interest/">T1 vector</a></li>
+          <li><a href="/vectors/interest-to-desire/">T2 vector</a></li>
+          <li><a href="/vectors/desire-to-action/">T3 vector</a></li>
+          <li><a href="/vectors/action-to-loyalty/">T4 vector</a></li>
+          <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+          <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+          <li><a href="/intervention-layers/">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+          <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+          <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+        </ul>
+      </nav>
+    </main>
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

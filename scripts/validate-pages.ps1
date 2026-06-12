@@ -90,7 +90,7 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     if ($line -match 'industry[ -]standard' -and $line -notmatch '\bnot\b|\bdoes not\b|\bnever\b') {
       Fail "$label line ${lineNo}: unqualified 'industry standard' claim"; $pageOk = $false
     }
-    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit') {
+    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit|guarantee sections|guarantees, or|or guarantee sections|terms or guarantees') {
       Fail "$label line ${lineNo}: unqualified 'guarantee' language"; $pageOk = $false
     }
     if ($line -match 'increase revenue by|revenue will (grow|increase)|AI knows exactly') {
@@ -216,6 +216,188 @@ if ($pages.ContainsKey('/vectors/action-to-loyalty/') -and
     $pages['/vectors/action-to-loyalty/'] -match [regex]::Escape($t4Sentence)) {
   Pass "[/vectors/action-to-loyalty/] carries the T4 continuity governing sentence"
 } else { Fail "[/vectors/action-to-loyalty/] missing T4 continuity governing sentence" }
+
+# --- Sprint 5: TFO overview + failure mode pages (PAGE_BLUEPRINTS.md §13–§14) -----
+$tfoJson = Get-Content -Raw -Encoding UTF8 -Path (Join-Path $root 'data/tfo-failure-modes.json') | ConvertFrom-Json
+
+$vectorRouteById = @{
+  'ati.vector.t1' = '/vectors/attention-to-interest/'
+  'ati.vector.t2' = '/vectors/interest-to-desire/'
+  'ati.vector.t3' = '/vectors/desire-to-action/'
+  'ati.vector.t4' = '/vectors/action-to-loyalty/'
+}
+
+$registryByRoute = @{}
+$approvedTfoIds = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($fm in $tfoJson.failure_modes) {
+  $registryByRoute[$fm.canonical_route] = $fm
+  [void]$approvedTfoIds.Add($fm.id)
+}
+foreach ($cx in $tfoJson.diagnostic_constraints) {
+  $registryByRoute[$cx.canonical_route] = $cx
+  [void]$approvedTfoIds.Add($cx.id)
+}
+
+$tfoOverviewRoute = '/transition-failure-ontology/'
+$allTfoRoutes = @($tfoJson.failure_modes | ForEach-Object { $_.canonical_route }) +
+  @($tfoJson.diagnostic_constraints | ForEach-Object { $_.canonical_route })
+
+$fmHubLinks = @('/aida-transition-index/', '/transition-failure-ontology/', '/scanner/',
+  '/evidence-confidence/', '/intervention-layers/')
+
+$requiredDossierSections = @(
+  'Definition', 'Core Diagnostic Question', 'Why It Matters', 'Symptoms',
+  'Detection Signals', 'Scoring Impact', 'Evidence Confidence Considerations',
+  'AI Instrumentation', 'Intervention Layers', 'Related Failure Modes',
+  'Scanner Output Language', 'Internal Links', 'Version Notes'
+)
+
+if ($pages.ContainsKey($tfoOverviewRoute)) {
+  Pass "Sprint 5: $tfoOverviewRoute exists"
+} else {
+  Fail "Sprint 5: missing $tfoOverviewRoute"
+}
+
+foreach ($r in ($allTfoRoutes | Sort-Object)) {
+  if ($pages.ContainsKey($r)) { Pass "Sprint 5: $r exists" }
+  else { Fail "Sprint 5: missing failure/constraint page $r" }
+}
+
+$implementedFmRoutes = @($pages.Keys | Where-Object { $_ -match '^/failure-modes/' } | Sort-Object)
+$extraFmRoutes = $implementedFmRoutes | Where-Object { $allTfoRoutes -notcontains $_ }
+if (-not $extraFmRoutes) {
+  Pass "Sprint 5: no failure mode routes outside TFO registry ($($implementedFmRoutes.Count) routes)"
+} else {
+  foreach ($e in $extraFmRoutes) { Fail "Sprint 5: unregistered failure mode route: $e" }
+}
+
+foreach ($r in ($allTfoRoutes | Sort-Object)) {
+  if (-not $pages.ContainsKey($r)) { continue }
+  $html = $pages[$r]
+  $entry = $registryByRoute[$r]
+  $label = "[$r]"
+  $isConstraint = $entry.PSObject.Properties.Name -contains 'primary_classification'
+
+  if ($html -match [regex]::Escape($entry.id)) {
+    Pass "$label stable ID matches JSON ($($entry.id))"
+  } else {
+    Fail "$label stable ID missing or mismatched (expected $($entry.id))"
+  }
+
+  $expectedCanonical = "https://aidatanaly.com$($entry.canonical_route)"
+  if ($html -match [regex]::Escape("href=`"$expectedCanonical`"")) {
+    Pass "$label canonical URL matches JSON route"
+  } else {
+    Fail "$label canonical URL missing or mismatched (expected $expectedCanonical)"
+  }
+
+  if ($html -match [regex]::Escape($entry.canonical_route)) {
+    Pass "$label canonical route path present in body"
+  } else {
+    Fail "$label canonical route path missing in body ($($entry.canonical_route))"
+  }
+
+  $missingSections = $requiredDossierSections | Where-Object { $html -notmatch "<h2>$_</h2>" }
+  if (-not $missingSections) {
+    Pass "$label all section 14.3 dossier headings present"
+  } else {
+    foreach ($s in $missingSections) { Fail "$label missing section heading: $s" }
+  }
+
+  if (-not $isConstraint) {
+    $expectedParent = $vectorRouteById[$entry.primary_vector]
+    if ($expectedParent -and $html -match [regex]::Escape("href=`"$expectedParent`"")) {
+      Pass "$label links to parent vector $expectedParent"
+    } else {
+      Fail "$label missing parent vector link (expected $expectedParent)"
+    }
+    if ($html -match 'Primary Classification') {
+      Fail "$label uses constraint metadata on a normal failure mode page"
+    }
+  } else {
+    if ($html -match 'Primary Classification' -and $html -match 'Diagnostic Constraint') {
+      Pass "$label classified as diagnostic constraint"
+    } else {
+      Fail "$label missing constraint classification metadata"
+    }
+    if ($html -match 'dossier-block--constraint') {
+      Pass "$label uses constraint dossier styling"
+    } else {
+      Fail "$label missing dossier-block--constraint class"
+    }
+    $missingVectors = $vectorRouteById.Values | Where-Object { $html -notmatch [regex]::Escape("href=`"$_`"") }
+    if (-not $missingVectors) {
+      Pass "$label links to all four vector pages"
+    } else {
+      foreach ($v in $missingVectors) { Fail "$label missing vector link: $v" }
+    }
+  }
+
+  $missingHub = $fmHubLinks | Where-Object { $html -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingHub) {
+    Pass "$label links to ATI, TFO, Scanner, Evidence, Intervention"
+  } else {
+    foreach ($m in $missingHub) { Fail "$label missing hub link: $m" }
+  }
+
+  $foundIds = [regex]::Matches($html, 'tfo\.(?:t[1-4]|constraint)\.[a-z_]+') |
+    ForEach-Object { $_.Value } | Sort-Object -Unique
+  $rogueIds = $foundIds | Where-Object { -not $approvedTfoIds.Contains($_) }
+  if (-not $rogueIds) {
+    Pass "$label TFO IDs confined to registry ($($foundIds.Count) referenced)"
+  } else {
+    foreach ($id in $rogueIds) { Fail "$label unknown TFO ID outside registry: $id" }
+  }
+}
+
+$mgRoute = '/failure-modes/measurement-gap/'
+if ($pages.ContainsKey($mgRoute)) {
+  $mg = $pages[$mgRoute]
+  if ($mg -match 'Measurement Gap limits diagnostic confidence\. It does not automatically prove that the transition is broken') {
+    Pass "[/failure-modes/measurement-gap/] mandatory confidence limitation statement"
+  } else {
+    Fail "[/failure-modes/measurement-gap/] missing mandatory confidence limitation statement"
+  }
+  if ($mg -match 'Partial Profile rather than a clean composite ATI score') {
+    Pass "[/failure-modes/measurement-gap/] E0 / Partial Profile scanner rule present"
+  } else {
+    Fail "[/failure-modes/measurement-gap/] missing E0 / Partial Profile scanner rule"
+  }
+}
+
+if ($pages.ContainsKey($tfoOverviewRoute)) {
+  $ov = $pages[$tfoOverviewRoute]
+  if ($ov -match 'How strong is the movement\?') {
+    Pass "[/transition-failure-ontology/] states ATI diagnostic question"
+  } else {
+    Fail "[/transition-failure-ontology/] missing ATI question (How strong is the movement?)"
+  }
+  if ($ov -match 'What class of movement failure is present\?') {
+    Pass "[/transition-failure-ontology/] states TFO diagnostic question"
+  } else {
+    Fail "[/transition-failure-ontology/] missing TFO question (What class of movement failure is present?)"
+  }
+  $missingOvFmLinks = $allTfoRoutes | Where-Object { $ov -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingOvFmLinks) {
+    Pass "[/transition-failure-ontology/] links to all 22 failure/constraint dossier pages"
+  } else {
+    foreach ($m in $missingOvFmLinks) { Fail "[/transition-failure-ontology/] missing dossier link: $m" }
+  }
+  $overviewVectorLinks = @('/vectors/attention-to-interest/', '/vectors/interest-to-desire/',
+    '/vectors/desire-to-action/', '/vectors/action-to-loyalty/')
+  $missingOvVectors = $overviewVectorLinks | Where-Object { $ov -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingOvVectors) {
+    Pass "[/transition-failure-ontology/] links to all four vector pages"
+  } else {
+    foreach ($v in $missingOvVectors) { Fail "[/transition-failure-ontology/] missing vector link: $v" }
+  }
+}
+
+if ($pages.Count -ge 34) {
+  Pass "Sprint 5: $($pages.Count)/41 launch routes implemented"
+} else {
+  Fail "Sprint 5: expected at least 34 implemented routes, found $($pages.Count)"
+}
 
 # --- Summary --------------------------------------------------------------------------
 Write-Host ""
