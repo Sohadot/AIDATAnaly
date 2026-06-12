@@ -210,6 +210,17 @@
 
 ---
 
+## Sprint 12F — Visual Precision Pass
+
+| Field | Value |
+|-------|-------|
+| **Status** | PASS |
+| **Commit** | `2eaa77f` |
+| **Result** | Interface rhythm, scanner result map, failure lens, and homepage conceptual hierarchy refined after public release. |
+| **Live QA** | `LIVE_VISUAL_QA_REPORT.md` — PASS (2026-06-12) |
+
+---
+
 ## Related Documents
 
 | Document | Role |
@@ -218,6 +229,7 @@
 | `PRIVATE_PREVIEW_REPORT.md` | Private preview validation report |
 | `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (PUB-REL-001 ratified) |
 | `PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
+| `LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
 
 ---
 
