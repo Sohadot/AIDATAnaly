@@ -76,7 +76,10 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --measure-prose: 70ch;
-  --axis-line-weight: 4px;
+  --axis-line-weight: 5px;
+  --axis-line-weight-wide: 6px;
+  --axis-state-size: 0.8125rem;
+  --axis-vector-label-size: 0.9375rem;
 
   /* Motion (INTERFACE_GOVERNANCE §5.2: 200–600ms, flow easing) */
   --motion-fast: 200ms;
@@ -318,20 +321,26 @@ th {
   flex-direction: column;
   align-items: stretch;
   gap: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
-/* States are quiet: calm, bounded, recessive positions. */
+/* States are quiet: calm, bounded, recessive positions (stations, not heroes). */
 .transition-axis__state {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: var(--axis-state-size);
+  font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--state-ink);
   background: var(--state-surface);
   border: 1px solid var(--state-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
   text-align: center;
   flex: 0 0 auto;
   margin: 0;
+  align-self: center;
+  min-width: 7rem;
+  max-width: 100%;
 }
 
 /* Vectors carry the weight: directional, saturated, visually energized. */
@@ -342,8 +351,9 @@ th {
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: var(--space-4) var(--space-2);
-  min-height: 3.5rem;
+  padding: var(--space-5) var(--space-3);
+  min-height: 4.75rem;
+  min-width: 0;
 }
 
 /* The flow line itself (vertical in the mobile-first column layout). */
@@ -382,18 +392,41 @@ th {
   position: relative;
   z-index: 1;
   background: var(--surface-page);
-  border: 1px solid var(--transition-flow);
+  border: 2px solid var(--transition-flow);
   color: var(--transition-flow-deep);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: var(--axis-vector-label-size);
+  font-weight: 700;
   border-radius: var(--radius-sm);
-  padding: var(--space-1) var(--space-3);
-  white-space: nowrap;
+  padding: var(--space-2) var(--space-4);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+  max-width: min(100%, 18rem);
+  box-shadow: 0 1px 0 rgba(15, 74, 200, 0.08);
 }
 
 .transition-axis__vector-label a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Optional structured label: T1 — Signal Conversion (vertical grammar). */
+.transition-axis__vector-code {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.transition-axis__vector-name {
+  display: block;
+  font-size: 0.92em;
+  font-weight: 600;
+}
+
+.transition-axis__vector-name::before {
+  content: "— ";
 }
 
 /* Health modifiers: flow color reflects diagnostic class honestly.
@@ -474,17 +507,45 @@ th {
   font-weight: 500;
 }
 
-/* Horizontal axis on wider viewports (desktop grammar). */
-@media (min-width: 48rem) {
+/* Horizontal axis only when width supports readable movement (desktop grammar).
+   Below 64rem the axis stays vertical — value lives in the gap, not squeezed states. */
+@media (min-width: 64rem) {
   .transition-axis {
     flex-direction: row;
     align-items: center;
+    gap: 0;
+  }
+
+  .transition-axis__state {
+    align-self: auto;
+    min-width: 0;
+    flex: 0 1 auto;
+    max-width: 5.75rem;
+    padding: var(--space-1) var(--space-2);
+    font-size: 0.75rem;
   }
 
   .transition-axis__vector {
     padding: var(--space-2) var(--space-1);
     min-height: 0;
-    min-width: 6rem;
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .transition-axis__vector-label {
+    font-size: 0.72rem;
+    padding: var(--space-1) var(--space-2);
+    max-width: 100%;
+  }
+
+  .transition-axis__vector-code,
+  .transition-axis__vector-name {
+    display: inline;
+    font-size: inherit;
+  }
+
+  .transition-axis__vector-name::before {
+    content: " — ";
   }
 
   .transition-axis__vector::before {
@@ -493,7 +554,7 @@ th {
     top: 50%;
     bottom: auto;
     width: auto;
-    height: var(--axis-line-weight);
+    height: var(--axis-line-weight-wide);
     transform: translateY(-50%);
     background: repeating-linear-gradient(
       to right,
@@ -560,6 +621,21 @@ th {
     animation: none;
   }
   .transition-axis__vector--unscorable::after { border-left-color: var(--line-strong); border-top-color: transparent; }
+}
+
+/* Wide desktop: single-line transition labels when space allows. */
+@media (min-width: 80rem) {
+  .transition-axis__state {
+    max-width: none;
+    font-size: var(--axis-state-size);
+    padding: var(--space-1) var(--space-3);
+  }
+
+  .transition-axis__vector-label {
+    font-size: 0.8125rem;
+    padding: var(--space-1) var(--space-3);
+    white-space: nowrap;
+  }
 }
 
 @keyframes transition-flow-vertical {

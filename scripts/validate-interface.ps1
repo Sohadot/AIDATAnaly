@@ -129,17 +129,40 @@ if (($css -match '\.evidence-unscorable') -and ($css -match 'No numeric display'
   Pass "Unscorable State component defined with non-numeric, measurement-gap treatment"
 } else { Fail "Unscorable State component missing or undocumented" }
 
-# --- 10. Transition Axis is responsive ------------------------------------------
-$mediaBlocks = [regex]::Matches($css, '@media\s*\(min-width:[^{]+\)')
-$hasResponsiveAxis = $css -match '@media\s*\(min-width:[^)]+\)[\s\S]{0,400}\.transition-axis'
-if ($hasResponsiveAxis) {
-  Pass "Transition Axis is responsive (vertical mobile-first, horizontal at min-width breakpoint)"
-} else { Fail "Transition Axis has no responsive breakpoint" }
+# --- 10. Transition Axis responsive (Patch 12A) ---------------------------------
+if ($css -match '\.transition-axis\s*\{[^}]*flex-direction:\s*column') {
+  Pass "Transition Axis defaults to vertical column (mobile-first grammar)"
+} else { Fail "Transition Axis missing vertical mobile-first column layout" }
 
-# --- 11. Preview page: noindex and readable without JavaScript ------------------
+if ($css -match '@media\s*\(\s*min-width:\s*64rem\s*\)[\s\S]{0,1200}\.transition-axis[\s\S]{0,300}flex-direction:\s*row') {
+  Pass "Horizontal axis activates at 64rem (no squeeze on narrow viewports)"
+} else { Fail "Transition Axis horizontal breakpoint missing or below 64rem" }
+
+$vectorLabelBase = [regex]::Match($css, '\.transition-axis__vector-label\s*\{[^}]+\}').Value
+if ($vectorLabelBase -match 'white-space:\s*normal') {
+  Pass "Vector labels wrap on narrow viewports (overlap prevention)"
+} else { Fail "Vector labels do not allow wrapping on narrow viewports" }
+
+if ($css -match '\.transition-axis__state[\s\S]{0,500}font-weight:\s*500' -and
+    $css -match '\.transition-axis__vector-label[\s\S]{0,500}font-weight:\s*700') {
+  Pass "States are quiet; vector labels carry stronger visual weight"
+} else { Fail "Transition Axis state/vector visual hierarchy not enforced" }
+
+if ($css -match '\.transition-axis__vector-code' -and $css -match '\.transition-axis__vector-name') {
+  Pass "Structured transition labels supported (T-code and name grammar)"
+} else { Fail "Transition Axis missing structured label classes" }
+
 $previewPath = Join-Path $root 'preview/index.html'
 if (Test-Path $previewPath) {
   $preview = Get-Content -Raw -Encoding UTF8 -Path $previewPath
+  if ($preview -match 'transition-axis__vector-code' -and $preview -match 'Signal Conversion') {
+    Pass "Preview demonstrates vertical transition grammar with full T1-T4 names"
+  } else { Fail "Preview missing vertical transition grammar demo" }
+} else { Fail "preview/index.html missing (Patch 12A axis demo)" }
+
+# --- 11. Preview page: noindex and readable without JavaScript ------------------
+if (Test-Path $previewPath) {
+  if (-not $preview) { $preview = Get-Content -Raw -Encoding UTF8 -Path $previewPath }
   if ($preview -match '<meta\s+name="robots"\s+content="noindex') { Pass "Preview page carries noindex, nofollow" }
   else { Fail "Preview page missing noindex meta" }
   if ($preview -notmatch '<script') { Pass "Preview page contains zero <script> tags: fully readable without JavaScript" }
