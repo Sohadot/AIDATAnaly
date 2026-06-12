@@ -81,7 +81,13 @@ launch route set, and prohibited claim language (unqualified "industry
 standard", guarantee phrasing, revenue promises). It also enforces
 blueprint-required internal links per route and the page-specific governed
 statements (Evidence Confidence separation statement, the ten intervention
-layers, the homepage primary message).
+layers, the homepage transition-analytics thesis hooks).
+
+Sprint 12E homepage checks: "Funnels count where people are.", "AIDAtanaly
+measures whether they move.", retained doctrine statement, reference-only
+transition axis, operating chain strip, Movement → Measurement → Failure →
+Diagnosis section order, and hub links to ATI, TFO, Scanner, Methodology,
+Governance.
 
 Note: `preview/` is internal, carries `noindex, nofollow`, is not a
 `ROUTE_MAP.md` route, and must never be included in `sitemap.xml` (sitemap

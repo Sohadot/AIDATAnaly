@@ -297,6 +297,78 @@ th {
   color: var(--transition-flow-deep);
 }
 
+/* === SECTION: HOME HERO (Sprint 12E) ======================================
+   Homepage thesis hook and operating chain — perspective before explanation.
+   ========================================================================== */
+
+.layout-hero-hook {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.2vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink-primary);
+  margin: 0 0 var(--space-3);
+  max-width: 16ch;
+}
+
+.layout-hero-hook--lead {
+  font-size: clamp(1.35rem, 3.2vw, 2.05rem);
+  color: var(--transition-flow-deep);
+  max-width: 22ch;
+  margin-bottom: var(--space-5);
+}
+
+.layout-section--hero {
+  padding-bottom: var(--space-4);
+}
+
+.layout-section--axis {
+  margin-top: calc(-1 * var(--space-3));
+  padding-top: 0;
+  border-top: none;
+}
+
+.operating-chain {
+  list-style: none;
+  margin: var(--space-5) 0 var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+}
+
+.operating-chain__step {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+.operating-chain__step:not(:last-child)::after {
+  content: "→";
+  margin-left: var(--space-3);
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+@media (max-width: 36rem) {
+  .operating-chain {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .operating-chain__step:not(:last-child)::after {
+    display: none;
+  }
+}
+
 /* === SECTION: TRANSITION AXIS =============================================
    Component: Transition Axis — the canonical motif.
    Five quiet state nodes, four emphasized vector connections.

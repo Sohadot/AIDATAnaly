@@ -181,9 +181,49 @@ if ($pages.ContainsKey('/intervention-layers/')) {
 }
 
 if ($pages.ContainsKey('/')) {
-  if ($pages['/'] -match 'AIDAtanaly measures the movement between Attention, Interest, Desire, Action, and Loyalty') {
-    Pass "[/] carries the primary message verbatim"
-  } else { Fail "[/] missing the primary message" }
+  $homeHtml = $pages['/']
+
+  if ($homeHtml -match 'Funnels count where people are\.') {
+    Pass "[/] carries transition-analytics hook: Funnels count where people are."
+  } else { Fail "[/] missing homepage hook: Funnels count where people are." }
+
+  if ($homeHtml -match 'AIDAtanaly measures whether they move\.') {
+    Pass "[/] carries transition-analytics hook: AIDAtanaly measures whether they move."
+  } else { Fail "[/] missing homepage hook: AIDAtanaly measures whether they move." }
+
+  if ($homeHtml -match 'Stages are states\.' -and $homeHtml -match 'Value lives in transitions\.') {
+    Pass "[/] retains central doctrine: Stages are states. Value lives in transitions."
+  } else { Fail "[/] missing central doctrine statement" }
+
+  if ($homeHtml -match 'measuring movement across Attention, Interest, Desire, Action, and Loyalty') {
+    Pass "[/] states governed movement scope across AIDA states"
+  } else { Fail "[/] missing governed movement scope statement" }
+
+  if ($homeHtml -match 'transition-axis__vector--reference' -and
+      $homeHtml -notmatch 'transition-axis__vector--strong' -and
+      $homeHtml -notmatch 'transition-axis__vector--critical' -and
+      $homeHtml -notmatch 'transition-axis__vector--functional') {
+    Pass "[/] transition axis uses reference mode only (no diagnostic health modifiers)"
+  } else { Fail "[/] homepage axis must use --reference only, not diagnostic health modifiers" }
+
+  if ($homeHtml -match 'operating-chain' -and $homeHtml -match 'Intervention mapped\.') {
+    Pass "[/] includes operating chain protocol strip"
+  } else { Fail "[/] missing operating chain block" }
+
+  $homeHubLinks = @('/aida-transition-index/', '/transition-failure-ontology/', '/scanner/', '/methodology/', '/governance/')
+  $missingHomeHub = $homeHubLinks | Where-Object { $homeHtml -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingHomeHub) {
+    Pass "[/] links to ATI, TFO, Scanner, Methodology, and Governance"
+  } else {
+    foreach ($m in $missingHomeHub) { Fail "[/] missing required hub link: $m" }
+  }
+
+  if ($homeHtml -match '<h2>What Breaks Between States</h2>' -and
+      $homeHtml -match '<h2>ATI Measures Movement</h2>' -and
+      $homeHtml -match '<h2>TFO Names Failure</h2>' -and
+      $homeHtml -match '<h2>Scanner Diagnoses Transition Health</h2>') {
+    Pass "[/] follows Movement → Measurement → Failure → Diagnosis section order"
+  } else { Fail "[/] homepage section order does not match Sprint 12E reframe" }
 }
 
 # --- Sprint 4: Vector page checks (PAGE_BLUEPRINTS.md §12) -------------------------
