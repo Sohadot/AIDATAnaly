@@ -1,0 +1,11 @@
+# AIDAtanaly.com — robots policy
+# Phase: pre-launch implementation (non-indexed)
+# Governed by: IMPLEMENTATION_PLAN.md (IMPL-PLAN-001) and ROUTE_MAP.md
+#
+# Per the Non-Indexed Sprint Implementation Rule, the site must remain
+# non-indexed until the full 41-route Required Launch set is complete
+# and all quality gates pass. PUBLIC_RELEASE_PLAN.md governs the switch
+# to the indexed posture.
+
+User-agent: *
+Disallow: /
