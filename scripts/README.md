@@ -235,3 +235,42 @@ Orphan Pages: 0
 
 Exit code is non-zero on any failure; failures block private preview promotion and
 public indexed release.
+
+## Sprint 10 — private preview (built in Sprint 10)
+
+Sprint 10 validates the **full system experience** before any public release decision.
+It does not remove `noindex`, change `robots.txt`, activate `Sitemap:`, or add analytics.
+
+Documented in: `PRIVATE_PREVIEW_REPORT.md` (Status: Draft Review).
+
+Run the full private preview gate:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -PrivatePreview
+```
+
+Manual review server (from repository root):
+
+```powershell
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/` and `http://localhost:8000/scanner/`. Serve over HTTP so
+Scanner v1 can fetch `/data/*.json`.
+
+The `-PrivatePreview` switch adds:
+
+- HTTP checks on 13 governed review routes (+ `/data/scanner-model.json`)
+- Three Scanner v1 scenario validations (Full Scorable, Partial Profile, Weak T2/T3 diagnosis)
+- Final preview report:
+
+```text
+Private Preview: PASS
+Quality Gate: PASS
+Scanner Manual Tests: PASS
+Indexation Posture: NON-INDEXED
+Blocking Issues: 0
+```
+
+After Sprint 10, the next phase is `PUBLIC_RELEASE_PLAN.md` (indexed release approval), not
+automatic removal of `noindex`.
