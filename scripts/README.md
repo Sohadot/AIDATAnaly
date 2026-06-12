@@ -132,6 +132,25 @@ components; prohibited claim phrases; no dynamic indexable result routes.
 Sprint 6 page checks in `validate-pages.ps1`: `/scanner/` route, blueprint structure,
 Partial Profile documentation, governed script tag, reference links, 35/41 route milestone.
 
+## Sprint 7 trust pages (built in Sprint 7)
+
+Six routes close the Required Launch set: `/methodology/`, `/governance/`, `/sources/`,
+`/reports/ati-snapshot/`, `/privacy/`, `/terms/`.
+
+Sprint 7 checks in `validate-pages.ps1`: all six pages exist; methodology claim restraint and
+links; governance versioning statement; sources adoption posture; report page without fear/guarantee
+upsell; privacy sensitive-data statement; terms no-guarantee statement; trust pages without JS;
+broken internal link scan across all implemented pages; **41/41 route milestone**.
+
+After Sprint 7, run all four validators before Sprint 8 (sitemap and full link gate):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-interface.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-scanner.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
+```
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Governance - Trust, Versioning, and Claim Limits | AIDAtanaly</title>
+  <meta name="description" content="How AIDAtanaly maintains trust: sequential document versioning, governed routes, claim restraint, Evidence Confidence separation, and scanner output discipline.">
+  <link rel="canonical" href="https://aidatanaly.com/governance/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Path: /governance/
+  Page Class: Governance Page
+  Route Status: Required Launch
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+    <main id="main">
+      <header class="layout-header">
+        <p class="layout-section__kicker">Trust - central governance page</p>
+        <h1>Governance</h1>
+        <p class="layout-prose">AIDAtanaly is a governed reference system. This page explains how
+          standards, routes, claims, and interfaces stay disciplined before and after public release.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Why Governance Exists</h2>
+        <p>Diagnostic products fail trust when scores, failure names, and recommendations drift without
+          control. Governance keeps ATI, TFO, the scanner, and public language aligned to ratified
+          documents so users can trace every output to a governed definition.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Governed Documents</h2>
+        <p>Core ratified documents include ATI Standard, TFO Ontology, Scanner Model, Route Map, Page
+          Blueprints, Interface Governance, and Implementation Plan. Machine-readable registries under
+          <span class="utility-mono">/data/</span> mirror these documents for validation and scanner
+          behavior.</p>
+        <ul>
+          <li><a href="/aida-transition-index/">ATI Standard</a> - scoring and Evidence Confidence separation</li>
+          <li><a href="/transition-failure-ontology/">TFO Ontology</a> - failure mode taxonomy</li>
+          <li><a href="/scanner/">Scanner Model</a> - rules-governed diagnostic engine (v1)</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Versioning Principle</h2>
+        <blockquote class="doctrine-statement">
+          AIDAtanaly uses sequential document versioning. Change severity is recorded in decision logs and is not encoded directly into the version number.
+        </blockquote>
+        <p>Public pages reference ratified versions (for example ATI v1.1, TFO v1.0, Scanner v1.0).
+          Material changes require governed review before the site presents them as current.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Decision Logs</h2>
+        <p>Significant ratification and separation decisions are recorded in internal decision logs.
+          Severity and rationale are preserved for auditability. Public pages summarize outcomes; detailed
+          decision artifacts remain internal unless a future release plan explicitly publishes them.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Claim Restraint</h2>
+        <p>AIDAtanaly must not present diagnostic output as revenue proof, industry adoption, or guaranteed
+          improvement. Prohibited patterns include fear-based copy, fake urgency, and language implying the
+          system knows exact commercial causality. See <a href="/sources/">Sources</a> for adoption posture.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Evidence Confidence</h2>
+        <p><a href="/evidence-confidence/">Evidence Confidence</a> is never a score component. E0 vectors
+          are Unscorable. Partial Profile rules apply when any vector lacks evidence. This separation is
+          non-negotiable in standards, data, interface, and scanner output.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Route Governance</h2>
+        <p>Every public page maps to a route in the governed Route Map. Required Launch routes must exist
+          before sitemap inclusion. Deferred routes may be linked as planned references but must not be
+          presented as live product surfaces until implemented.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Interface Governance</h2>
+        <p>          Visual components separate diagnostic scores from Evidence Confidence badges, represent E0 as
+          Unscorable (never numeric), avoid gamified score effects, and support reduced motion. No external
+          JS, analytics, GPU/3-D rendering, or decorative animation libraries on reference surfaces.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Scanner Governance</h2>
+        <p><a href="/scanner/">Scanner v1</a> reads rules from JSON registries only. Failure mode IDs,
+          intervention layers, and canonical routes must match TFO and Route Map. Results stay on-page;
+          dynamic result URLs must not become indexable routes without separate governance.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Public Limits</h2>
+        <ul>
+          <li>Diagnostic references, not commercial guarantees.</li>
+          <li>Class-level intervention recommendations unless evidence supports more specificity.</li>
+          <li>No paid ranking of tools or generic affiliate monetization on reference pages.</li>
+          <li>Reports and briefs may be offered without hiding basic definitions behind payment.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Related Trust Pages</h2>
+        <nav class="reference-links" aria-label="Trust pages">
+          <ul class="reference-links__list">
+            <li><a href="/methodology/">Methodology</a><span class="reference-links__route">/methodology/</span></li>
+            <li><a href="/sources/">Sources</a><span class="reference-links__route">/sources/</span></li>
+            <li><a href="/privacy/">Privacy</a><span class="reference-links__route">/privacy/</span></li>
+            <li><a href="/terms/">Terms</a><span class="reference-links__route">/terms/</span></li>
+            <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+            <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methodology - How AIDAtanaly Works | AIDAtanaly</title>
+  <meta name="description" content="How AIDAtanaly measures transition health: ATI scoring, Evidence Confidence, TFO failure classification, and Scanner v1 output rules without guaranteed causality or revenue claims.">
+  <link rel="canonical" href="https://aidatanaly.com/methodology/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Path: /methodology/
+  Page Class: Methodology Page
+  Route Status: Required Launch
+  Primary Governed Document: ATI_STANDARD.md, SCANNER_MODEL.md, TFO_ONTOLOGY.md
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/" aria-current="page">Methodology</a>
+      </nav>
+    </header>
+    <main id="main">
+      <header class="layout-header">
+        <p class="layout-section__kicker">Methodology - public explanation</p>
+        <h1>Methodology</h1>
+        <p class="layout-prose">This page explains how the governed reference system works in plain
+          language: what is measured, what is classified, and what is explicitly not claimed.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>Governing Thesis</h2>
+        <blockquote class="doctrine-statement">
+          Stages are states. <strong>Value lives in transitions.</strong>
+        </blockquote>
+        <p><a href="/aida-transition-analytics/">AIDA Transition Analytics</a> treats funnel movement as
+          the unit of intelligence. AIDAtanaly does not optimize isolated stage counts; it measures whether
+          prospects move from Attention to Interest, Interest to Desire, Desire to Action, and Action to
+          Loyalty.</p>
+        <p><strong>AIDAtanaly measures transition health. It does not claim guaranteed causality or guaranteed revenue improvement.</strong></p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Why Transitions Matter</h2>
+        <p>Stage metrics describe what happened inside a state: impressions, sessions, leads, orders.
+          Transition metrics describe whether movement between states is healthy, fast, resilient, and
+          commercially meaningful. When a transition weakens, the break has a location (T1-T4), a failure
+          class (TFO), and an intervention layer - not only a vague underperformance label.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How ATI Scores Movement</h2>
+        <p>The <a href="/aida-transition-index/">AIDA Transition Index (ATI)</a> scores four transition
+          vectors (T1-T4). Each vector score is a weighted composite of seven dimensions (D1-D7): Signal
+          Quality, Movement Probability, Transition Velocity, Friction Resilience, Drop-Off Resilience,
+          Commercial Consequence, and Intervention Clarity.</p>
+        <p>When all four vectors are scorable, a composite ATI score may be reported as the average of
+          T1-T4. Dimension weights and diagnostic class thresholds are defined in the ratified standard and
+          mirrored in <span class="utility-mono">/data/ati-standard.json</span>.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How Evidence Confidence Works</h2>
+        <p><a href="/evidence-confidence/">Evidence Confidence</a> (E0-E4) qualifies how strongly any
+          score should be interpreted. It is mandatory, reported separately, and never part of the ATI
+          score mathematically.</p>
+        <ul>
+          <li><strong>E0</strong> - Absent Evidence: vector is Unscorable; no numeric score.</li>
+          <li><strong>E1-E4</strong> - progressively stronger evidence, never implying guaranteed outcomes.</li>
+        </ul>
+        <p>If one or more vectors are E0, output becomes a Partial Profile rather than a clean composite
+          score.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How TFO Classifies Failure</h2>
+        <p>The <a href="/transition-failure-ontology/">Transition Failure Ontology (TFO)</a> names
+          governed failure patterns when movement is weak: 21 diagnostic dossiers across T1-T4, plus
+          Measurement Gap as a cross-vector diagnostic constraint. ATI answers how strong movement is;
+          TFO answers what class of movement failure is present.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>How Scanner v1 Produces Output</h2>
+        <p>The <a href="/scanner/">Transition Scanner</a> is a rules-governed diagnostic engine. It loads
+          questions, weights, thresholds, and failure mode mappings from
+          <span class="utility-mono">/data/scanner-model.json</span> and related registry files. It does
+          not require live analytics integrations and does not claim exact causality.</p>
+        <p>Output includes per-vector scores (when scorable), Evidence Confidence, likely failure modes
+          with links to dossier pages, recommended intervention layers, and reference links to governed
+          documentation.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>What the System Does Not Claim</h2>
+        <ul>
+          <li>No guaranteed revenue, conversion, or growth outcomes.</li>
+          <li>No exact causal proof from a single scan.</li>
+          <li>No adopted industry-standard status without adoption evidence (see
+            <a href="/sources/">Sources</a>).</li>
+          <li>No replacement for measurement systems, CRM, or professional advisory services.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Versioning and Governance</h2>
+        <p>Standards, ontology, scanner model, and interface rules are versioned and ratified under
+          <a href="/governance/">Governance</a>. Change severity is recorded in decision logs; the public
+          site reflects ratified versions only.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Related Reference Pages</h2>
+        <nav class="reference-links" aria-label="Methodology references">
+          <ul class="reference-links__list">
+            <li><a href="/aida-transition-analytics/">AIDA Transition Analytics</a><span class="reference-links__route">/aida-transition-analytics/</span></li>
+            <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+            <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+            <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+            <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+            <li><a href="/governance/">Governance</a><span class="reference-links__route">/governance/</span></li>
+            <li><a href="/sources/">Sources</a><span class="reference-links__route">/sources/</span></li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>

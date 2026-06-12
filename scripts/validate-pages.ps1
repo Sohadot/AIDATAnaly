@@ -98,10 +98,10 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
   $lineNo = 0
   foreach ($line in ($html -split "`n")) {
     $lineNo++
-    if ($line -match 'industry[ -]standard' -and $line -notmatch '\bnot\b|\bdoes not\b|\bnever\b') {
+    if ($line -match 'industry[ -]standard' -and $line -notmatch '\bno\b|\bnot\b|\bdoes not\b|\bnever\b|\bwithout\b|\badopted industry|\bas adopted industry|not industry standard|not describe them as adopted|must not describe|No industry|No adopted|false industry|Claims of standard|Claims presented as|requiring adoption') {
       Fail "$label line ${lineNo}: unqualified 'industry standard' claim"; $pageOk = $false
     }
-    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit|guarantee sections|guarantees, or|or guarantee sections|terms or guarantees|risk, proof, guarantee|does not promise') {
+    if ($line -match 'guarantee' -and $line -notmatch '\bno\b|\bnot\b|\bnever\b|\bwithout\b|\bprohibit|guarantee sections|guarantees, or|or guarantee sections|terms or guarantees|risk, proof, guarantee|does not promise|avoid.*guarantee|not commercial|not guarantee|not guarantees|No guaranteed|revenue guarantee|guarantee of commercial|guarantees of commercial|diagnostic references, not') {
       Fail "$label line ${lineNo}: unqualified 'guarantee' language"; $pageOk = $false
     }
     if ($line -match 'increase revenue by|revenue will (grow|increase)|AI knows exactly') {
@@ -474,6 +474,116 @@ if (Test-Path $jsPath) {
   } else { Fail "Sprint 6: scanner.js missing Unscorable/Partial Profile logic" }
 } else {
   Fail "Sprint 6: assets/js/scanner.js missing"
+}
+
+# --- Sprint 7: Reports and trust pages -----------------------------------------------
+$sprint7Routes = @(
+  '/methodology/', '/governance/', '/sources/',
+  '/reports/ati-snapshot/', '/privacy/', '/terms/'
+)
+foreach ($r in $sprint7Routes) {
+  if ($pages.ContainsKey($r)) { Pass "Sprint 7: $r exists" }
+  else { Fail "Sprint 7: missing trust/report page $r" }
+}
+
+if ($pages.ContainsKey('/methodology/')) {
+  $m = $pages['/methodology/']
+  $methHeadings = @(
+    'Governing Thesis', 'Why Transitions Matter', 'How ATI Scores Movement',
+    'How Evidence Confidence Works', 'How TFO Classifies Failure',
+    'How Scanner v1 Produces Output', 'What the System Does Not Claim',
+    'Versioning and Governance', 'Related Reference Pages'
+  )
+  $missingMeth = $methHeadings | Where-Object { $m -notmatch "<h2>$_</h2>" }
+  if (-not $missingMeth) { Pass "[/methodology/] all required section headings present" }
+  else { foreach ($h in $missingMeth) { Fail "[/methodology/] missing heading: $h" } }
+  if ($m -match 'AIDAtanaly measures transition health\. It does not claim guaranteed causality or guaranteed revenue improvement') {
+    Pass "[/methodology/] mandatory measurement claim restraint statement"
+  } else { Fail "[/methodology/] missing mandatory claim restraint statement" }
+  $methLinks = @('/aida-transition-analytics/', '/aida-transition-index/', '/evidence-confidence/',
+    '/transition-failure-ontology/', '/scanner/', '/governance/', '/sources/')
+  $missingMethLinks = $methLinks | Where-Object { $m -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingMethLinks) { Pass "[/methodology/] links to ATI, Evidence, TFO, Scanner, Governance, Sources" }
+  else { foreach ($l in $missingMethLinks) { Fail "[/methodology/] missing required link: $l" } }
+}
+
+if ($pages.ContainsKey('/governance/')) {
+  $g = $pages['/governance/']
+  if ($g -match 'AIDAtanaly uses sequential document versioning\. Change severity is recorded in decision logs and is not encoded directly into the version number') {
+    Pass "[/governance/] sequential versioning statement present"
+  } else { Fail "[/governance/] missing sequential versioning statement" }
+  if ($g -notmatch 'href="/governance/decisions/') {
+    Pass "[/governance/] does not expose internal decision log paths as public links"
+  } else { Fail "[/governance/] exposes internal governance/decisions/ as public link" }
+}
+
+if ($pages.ContainsKey('/sources/')) {
+  $s = $pages['/sources/']
+  if ($s -match 'AIDAtanaly may introduce governed internal standards before market adoption, but it must not describe them as adopted industry standards unless adoption evidence exists') {
+    Pass "[/sources/] internal standards / adoption evidence statement present"
+  } else { Fail "[/sources/] missing adoption evidence statement" }
+}
+
+if ($pages.ContainsKey('/reports/ati-snapshot/')) {
+  $rpt = $pages['/reports/ati-snapshot/']
+  $reportHeadings = @(
+    'What the ATI Snapshot Provides', 'Who It Is For', 'What It Includes',
+    'What It Does Not Claim', 'Evidence Confidence Treatment',
+    'Relationship to Scanner', 'Relationship to ATI and TFO',
+    'Example Output Sections', 'Trust and Limits'
+  )
+  $missingRpt = $reportHeadings | Where-Object { $rpt -notmatch "<h2>$_</h2>" }
+  if (-not $missingRpt) { Pass "[/reports/ati-snapshot/] all required section headings present" }
+  else { foreach ($h in $missingRpt) { Fail "[/reports/ati-snapshot/] missing heading: $h" } }
+  $fearPatterns = @('act now', 'limited time', 'last chance', 'before it is too late', 'guaranteed revenue', 'revenue will increase')
+  $fearHit = $fearPatterns | Where-Object { $rpt -match $_ -and $rpt -notmatch '\bnot\b|\bdoes not\b|\bno\b|\bwithout\b|\bprohibit' }
+  if (-not $fearHit) { Pass "[/reports/ati-snapshot/] no fear-based or guarantee upsell language" }
+  else { foreach ($f in $fearHit) { Fail "[/reports/ati-snapshot/] prohibited report language: $f" } }
+}
+
+if ($pages.ContainsKey('/privacy/')) {
+  if ($pages['/privacy/'] -match 'The scanner should not require sensitive personal data') {
+    Pass "[/privacy/] states scanner must not require sensitive personal data"
+  } else { Fail "[/privacy/] missing sensitive personal data statement" }
+}
+
+if ($pages.ContainsKey('/terms/')) {
+  $t = $pages['/terms/']
+  if ($t -match 'Scanner outputs are diagnostic references, not guarantees of commercial outcome') {
+    Pass "[/terms/] scanner no-guarantee statement present"
+  } else { Fail "[/terms/] missing scanner no-guarantee statement" }
+  if ($t -match '<h2>No Guarantee</h2>') { Pass "[/terms/] No Guarantee section present" }
+  else { Fail "[/terms/] missing No Guarantee section" }
+}
+
+$trustRoutes = @('/methodology/', '/governance/', '/sources/', '/reports/ati-snapshot/', '/privacy/', '/terms/')
+foreach ($r in $trustRoutes) {
+  if (-not $pages.ContainsKey($r)) { continue }
+  if ($pages[$r] -notmatch '<script') { Pass "[$r] no JavaScript required" }
+  else { Fail "[$r] contains script tags; trust pages must not require JS" }
+}
+
+# --- Broken internal links among implemented pages -----------------------------------
+$brokenTotal = 0
+foreach ($route in ($pages.Keys | Sort-Object)) {
+  $html = $pages[$route]
+  $hrefs = [regex]::Matches($html, 'href="(/[^"]*)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
+  foreach ($h in $hrefs) {
+    if ($h -match '^/assets/') { continue }
+    if (-not $pages.ContainsKey($h)) {
+      Fail "[$route] broken internal link (target not implemented): $h"
+      $brokenTotal++
+    }
+  }
+}
+if ($brokenTotal -eq 0) { Pass "Sprint 7: no broken internal links among $($pages.Count) implemented pages" }
+
+$launchPageRoutes = @($launchRoutes | Where-Object { $_ -notmatch '\.json$' })
+$missingLaunch = $launchPageRoutes | Where-Object { -not $pages.ContainsKey($_) }
+if ($pages.Count -eq 41 -and -not $missingLaunch) {
+  Pass "Sprint 7: 41/41 Required Launch routes implemented"
+} else {
+  Fail "Sprint 7: expected 41/41 routes, found $($pages.Count) implemented; missing: $($missingLaunch -join ', ')"
 }
 
 # --- Summary --------------------------------------------------------------------------

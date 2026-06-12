@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATI Snapshot Report - Structured Transition Diagnostic | AIDAtanaly</title>
+  <meta name="description" content="The ATI Snapshot report exports governed scanner diagnosis: vector scores, Evidence Confidence, TFO failure modes, and intervention layers without revenue guarantees or fear-based upsell.">
+  <link rel="canonical" href="https://aidatanaly.com/reports/ati-snapshot/">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!--
+  Path: /reports/ati-snapshot/
+  Page Class: Report Page
+  Route Status: Required Launch
+  Primary Governed Document: SCANNER_MODEL.md, PAGE_BLUEPRINTS.md §18
+  -->
+</head>
+<body>
+  <a class="utility-skip-link" href="#main">Skip to content</a>
+  <div class="layout-page">
+    <header class="layout-site-header">
+      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <nav class="layout-nav" aria-label="Primary">
+        <a href="/aida-transition-analytics/">Category</a>
+        <a href="/aida-transition-index/">ATI Standard</a>
+        <a href="/transition-failure-ontology/">Failure Ontology</a>
+        <a href="/scanner/">Scanner</a>
+        <a href="/methodology/">Methodology</a>
+      </nav>
+    </header>
+    <main id="main">
+      <header class="layout-header">
+        <p class="layout-section__kicker">Report - ATI Snapshot</p>
+        <h1>ATI Snapshot</h1>
+        <p class="layout-prose">A structured export of governed transition diagnosis - an extension of
+          the free scanner, not a separate black-box score.</p>
+      </header>
+
+      <section class="layout-section">
+        <h2>What the ATI Snapshot Provides</h2>
+        <p>The ATI Snapshot packages the same governed logic as
+          <a href="/scanner/">Scanner v1</a> into a readable, shareable document: composite or Partial
+          Profile status, per-vector results, Evidence Confidence summary, likely TFO failure modes, and
+          recommended intervention layers with links to reference pages.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Who It Is For</h2>
+        <ul>
+          <li>Operators who completed a scanner pass and need an audit-friendly summary.</li>
+          <li>Teams aligning marketing, product, and lifecycle around the same transition language.</li>
+          <li>Advisors who need governed definitions alongside diagnostic output.</li>
+        </ul>
+        <p>It is not positioned as a replacement for analytics platforms or professional consulting.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>What It Includes</h2>
+        <ul>
+          <li>Composite status or Partial Profile (when E0 applies).</li>
+          <li>T1-T4 vector results with diagnostic class where scorable.</li>
+          <li>Evidence Confidence per vector and summary.</li>
+          <li>Weakest and strongest vector callouts.</li>
+          <li>Likely failure modes with stable IDs and dossier links.</li>
+          <li>Recommended intervention layers (class level).</li>
+          <li>Reference links to ATI, TFO, Evidence Confidence, and methodology.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>What It Does Not Claim</h2>
+        <ul>
+          <li>No guaranteed revenue, conversion, or growth outcomes.</li>
+          <li>No exact causal proof that a failure mode caused a revenue change.</li>
+          <li>No industry-standard or market-adoption status without evidence.</li>
+          <li>No urgency framing or fear-based pressure to purchase upgrades.</li>
+        </ul>
+      </section>
+
+      <section class="layout-section">
+        <h2>Evidence Confidence Treatment</h2>
+        <p>Every section separates score from confidence. E0 vectors appear as Unscorable with no numeric
+          score. E1 uses provisional language; E2 indicative; E3/E4 stronger but never guaranteed
+          causality. See <a href="/evidence-confidence/">Evidence Confidence</a>.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to Scanner</h2>
+        <p>The snapshot is generated from the same rules-governed inputs and registries as the on-page
+          scanner. It does not introduce new failure modes, weights, or thresholds. Users should complete
+          the <a href="/scanner/">Transition Scanner</a> first; the report organizes that output for
+          retention and sharing.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Relationship to ATI and TFO</h2>
+        <p>Scores follow the <a href="/aida-transition-index/">ATI Standard</a>. Failure names follow
+          the <a href="/transition-failure-ontology/">Transition Failure Ontology</a> only. Each named
+          failure mode links to its canonical dossier route.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Example Output Sections</h2>
+        <pre><code>Composite ATI: 68 — Transition Unstable
+Composite Evidence Confidence: E2 Observable Evidence
+
+T2 — Interest → Desire / Score: 52 / E1 Self-Reported Evidence
+Likely Failure Modes: Value Ambiguity (tfo.t2.value_ambiguity)
+Recommended Intervention: Message Intervention, Proof Intervention
+
+ATI Profile: Partial (example when T4 is E0)
+Scorable vectors: T1, T2, T3
+Unscorable vectors: T4 / E0 Absent Evidence</code></pre>
+        <p class="utility-muted">Illustrative structure only. Actual output follows governed scanner rules.</p>
+      </section>
+
+      <section class="layout-section">
+        <h2>Trust and Limits</h2>
+        <p>Access to a formatted snapshot may be offered as a paid or registered export in a future
+          release. Basic definitions remain on public reference pages without payment. No forced lead
+          capture is required to understand what the report contains.</p>
+        <p>Paid diagnostic briefs and audits, when available, must use the same claim discipline. See
+          <a href="/governance/">Governance</a>, <a href="/methodology/">Methodology</a>, and
+          <a href="/terms/">Terms</a>.</p>
+      </section>
+
+      <nav class="reference-links" aria-label="Report references">
+        <p class="reference-links__heading">Related pages</p>
+        <ul class="reference-links__list">
+          <li><a href="/scanner/">Transition Scanner</a><span class="reference-links__route">/scanner/</span></li>
+          <li><a href="/aida-transition-index/">AIDA Transition Index</a><span class="reference-links__route">/aida-transition-index/</span></li>
+          <li><a href="/transition-failure-ontology/">Transition Failure Ontology</a><span class="reference-links__route">/transition-failure-ontology/</span></li>
+          <li><a href="/evidence-confidence/">Evidence Confidence</a><span class="reference-links__route">/evidence-confidence/</span></li>
+          <li><a href="/intervention-layers/">Intervention Layers</a><span class="reference-links__route">/intervention-layers/</span></li>
+        </ul>
+      </nav>
+    </main>
+    <footer class="layout-footer">
+      <nav class="layout-nav" aria-label="Trust">
+        <a href="/governance/">Governance</a>
+        <a href="/sources/">Sources</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+    </footer>
+  </div>
+</body>
+</html>
