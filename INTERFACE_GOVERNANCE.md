@@ -261,14 +261,16 @@ The following governed components are the building blocks of the interface. Each
 | Component | Function | Governing Rule |
 |---|---|---|
 | Transition Axis | Renders five states and four vectors | The canonical motif; emphasis on connections |
-| Vector Segment | One transition with direction and health | Always shows from-state, to-state, vector ID |
-| Vector Score Card | Score + diagnostic class for one vector | Uses diagnostic scale colors |
+| Vector Card | One transition with direction, position, and health | Always shows from-state, to-state, vector ID |
+| ATI Score Panel | Score + diagnostic class for one vector or composite | Uses diagnostic scale colors |
 | Evidence Confidence Badge | E0–E4 qualifier | Neutral styling; never merged into score visual |
 | Unscorable State | E0 rendering | No numeric display, measurement-gap treatment |
-| Diagnostic Class Indicator | Class name + range | Fixed five-class scale |
-| Failure Mode Card | Name, vector, one-line definition, link | TFO-governed language only |
+| Diagnostic Class Badge | Class name + range | Fixed five-class scale |
+| Failure Mode Dossier Block | Name, vector, definition, metadata header, link | TFO-governed language only |
 | Intervention Layer Tag | One approved layer | Only the ten approved layers from the registry |
 | Stable ID Chip | `tfo.*` / `ati.*` identifiers | Monospace, copyable |
+| Scanner Step Panel | One scanner question or input group | Accessible, labeled, keyboard-operable |
+| Reference Link Cluster | Governed internal link group on reference pages | Follows ROUTE_MAP.md linking requirements |
 | Doctrine Statement | "Stages are states. Value lives in transitions." | Display typography, used sparingly |
 
 No page may invent ad-hoc variants of these components.
