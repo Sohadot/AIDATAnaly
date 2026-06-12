@@ -64,7 +64,9 @@ Write-Host '=== AIDAtanaly Dist Build (Sprint 11) ==='
 
 $sitemapScript = Join-Path $PSScriptRoot 'generate-sitemap.ps1'
 & $sitemapScript
-if ($LASTEXITCODE -ne 0) { throw 'Sitemap generation failed before dist build' }
+$genExit = $LASTEXITCODE
+if ($null -eq $genExit) { $genExit = 0 }
+if ($genExit -ne 0) { throw 'Sitemap generation failed before dist build' }
 
 if (Test-Path $distRoot) {
   Remove-Item -Path $distRoot -Recurse -Force
@@ -118,5 +120,5 @@ if ($missing.Count -gt 0) {
 
 $fileCount = (Get-ChildItem -Path $distRoot -Recurse -File).Count
 Write-Host "  OK    Wrote $distRoot ($($pageRoutes.Count) routes, $fileCount files)"
-Write-Host '  INFO  Indexation not activated (noindex and Disallow preserved in dist copy)'
+Write-Host '  INFO  dist mirrors current repository indexation posture (no modification here)'
 Write-Host '=== Done ==='

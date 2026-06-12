@@ -1,6 +1,10 @@
 # validate-dist.ps1
-# Sprint 11 — validates dist/ as the governed deployment package (pre-indexation activation).
+# Sprint 11 — validates dist/ as the governed deployment package.
 # Governed by: PUBLIC_RELEASE_PLAN.md (PUB-REL-001), scripts/README.md.
+
+param(
+  [switch]$IndexedRelease
+)
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
@@ -101,12 +105,21 @@ if (Test-Path $sitemapPath) {
 $robotsPath = Join-Path $distRoot 'robots.txt'
 if (Test-Path $robotsPath) {
   $robots = Get-Content -Raw -Encoding UTF8 -Path $robotsPath
-  if ($robots -match '(?m)^Disallow:\s*/\s*$') {
-    Pass 'dist robots.txt Disallow root (pre-activation package)'
-  } else { Fail 'dist robots.txt must keep Disallow root before indexation activation' }
-  if ($robots -match '(?m)^Sitemap:\s*https://') {
-    Fail 'dist robots.txt must not declare active Sitemap before indexation activation'
-  } else { Pass 'dist robots.txt has no active Sitemap directive (pre-activation)' }
+  if ($IndexedRelease) {
+    if ($robots -match '(?m)^Allow:\s*/\s*$') {
+      Pass 'dist robots.txt Allow / (indexed release package)'
+    } else { Fail 'dist robots.txt must Allow / for indexed release' }
+    if ($robots -match '(?m)^Sitemap:\s*https://aidatanaly\.com/sitemap\.xml\s*$') {
+      Pass 'dist robots.txt Sitemap directive active'
+    } else { Fail 'dist robots.txt missing active Sitemap directive' }
+  } else {
+    if ($robots -match '(?m)^Disallow:\s*/\s*$') {
+      Pass 'dist robots.txt Disallow root (pre-activation package)'
+    } else { Fail 'dist robots.txt must keep Disallow root before indexation activation' }
+    if ($robots -match '(?m)^Sitemap:\s*https://') {
+      Fail 'dist robots.txt must not declare active Sitemap before indexation activation'
+    } else { Pass 'dist robots.txt has no active Sitemap directive (pre-activation)' }
+  }
 }
 
 $pages = @{}
@@ -116,13 +129,22 @@ foreach ($route in $pageRoutes) {
     $pages[$route] = Get-Content -Raw -Encoding UTF8 -Path $pagePath
   }
 }
-$noindexMissing = @($pages.Keys | Where-Object {
-  $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"'
+$publicNoindex = @($pages.Keys | Where-Object {
+  $pages[$_] -match '<meta\s+name="robots"\s+content="noindex"'
 })
-if (-not $noindexMissing) {
-  Pass 'dist pages retain noindex (indexation not yet activated)'
+if ($IndexedRelease) {
+  if (-not $publicNoindex) {
+    Pass 'dist Public Noindex = 0'
+  } else {
+    foreach ($n in $publicNoindex) { Fail "dist [$n] still has noindex meta" }
+  }
 } else {
-  foreach ($n in $noindexMissing) { Fail "dist [$n] missing noindex before activation step" }
+  $missingNoindex = @($pages.Keys | Where-Object { $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"' })
+  if (-not $missingNoindex) {
+    Pass 'dist pages retain noindex (indexation not yet activated)'
+  } else {
+    foreach ($n in $missingNoindex) { Fail "dist [$n] missing noindex before activation step" }
+  }
 }
 
 if ((Test-Path (Join-Path $distRoot 'governance\index.html')) -and -not (Test-Path (Join-Path $distRoot 'governance\decisions'))) {

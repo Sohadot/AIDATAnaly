@@ -4,6 +4,10 @@
 # IMPLEMENTATION_PLAN.md (IMPL-PLAN-001).
 # Validates every implemented public route page (index.html under a governed route).
 
+param(
+  [switch]$IndexedRelease
+)
+
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $failures = @()
@@ -63,9 +67,15 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     Fail "$label canonical missing or not $expectedCanonical"; $pageOk = $false
   }
 
-  # pre-launch noindex
-  if ($html -notmatch '<meta\s+name="robots"\s+content="noindex"') {
-    Fail "$label missing pre-launch noindex meta"; $pageOk = $false
+  # indexation posture per release mode
+  if ($IndexedRelease) {
+    if ($html -match '<meta\s+name="robots"\s+content="noindex"') {
+      Fail "$label still has noindex meta (public launch pages must be indexable)"; $pageOk = $false
+    }
+  } else {
+    if ($html -notmatch '<meta\s+name="robots"\s+content="noindex"') {
+      Fail "$label missing pre-launch noindex meta"; $pageOk = $false
+    }
   }
 
   # governed stylesheet
@@ -112,7 +122,10 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     }
   }
 
-  if ($pageOk) { Pass "$label universal checks (h1, title, description, canonical, noindex, css, no-js, links, claims)" }
+  if ($pageOk) {
+    $indexLabel = if ($IndexedRelease) { 'indexable' } else { 'noindex' }
+    Pass "$label universal checks (h1, title, description, canonical, $indexLabel, css, no-js, links, claims)"
+  }
 }
 
 # --- Required internal links per blueprint ----------------------------------------
@@ -631,20 +644,32 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
 if (-not $weakLinkPages) { Pass "Sprint 8: all pages have minimum internal reference linking" }
 else { foreach ($w in $weakLinkPages) { Fail "Sprint 8: insufficient internal links on $w" } }
 
-# robots.txt remains non-indexed pre-launch
+# robots.txt posture
 $robotsPath = Join-Path $root 'robots.txt'
 if (Test-Path $robotsPath) {
   $robots = Get-Content -Raw -Encoding UTF8 -Path $robotsPath
-  if ($robots -match '(?m)^Disallow:\s*/\s*$') {
-    Pass "Sprint 8: robots.txt Disallow: / (pre-launch non-indexed)"
-  } else { Fail "Sprint 8: robots.txt missing Disallow: /" }
-  if ($robots -match 'Sitemap will be enabled by PUBLIC_RELEASE_PLAN\.md') {
-    Pass "Sprint 8: robots.txt documents deferred sitemap activation"
-  } else { Fail "Sprint 8: robots.txt missing PUBLIC_RELEASE_PLAN sitemap note" }
-  if ($robots -match '(?m)^Sitemap:\s*https://') {
-    Fail "Sprint 8: robots.txt must not declare an active Sitemap line pre-launch"
-  } else { Pass "Sprint 8: robots.txt has no active Sitemap directive" }
-} else { Fail "Sprint 8: robots.txt missing" }
+  if ($IndexedRelease) {
+    if ($robots -match '(?m)^Allow:\s*/\s*$') {
+      Pass 'Sprint 11: robots.txt Allow / (indexed release active)'
+    } else { Fail 'Sprint 11: robots.txt missing Allow / for indexed release' }
+    if ($robots -match '(?m)^Sitemap:\s*https://aidatanaly\.com/sitemap\.xml\s*$') {
+      Pass 'Sprint 11: robots.txt Sitemap directive active'
+    } else { Fail 'Sprint 11: robots.txt missing active Sitemap directive' }
+    if ($robots -match '(?m)^Disallow:\s*/\s*$') {
+      Fail 'Sprint 11: robots.txt must not keep Disallow / after indexation activation'
+    } else { Pass 'Sprint 11: robots.txt has no Disallow / block' }
+  } else {
+    if ($robots -match '(?m)^Disallow:\s*/\s*$') {
+      Pass 'Sprint 8: robots.txt Disallow: / (pre-launch non-indexed)'
+    } else { Fail 'Sprint 8: robots.txt missing Disallow: /' }
+    if ($robots -match 'Sitemap will be enabled by PUBLIC_RELEASE_PLAN\.md') {
+      Pass 'Sprint 8: robots.txt documents deferred sitemap activation'
+    } else { Fail 'Sprint 8: robots.txt missing PUBLIC_RELEASE_PLAN sitemap note' }
+    if ($robots -match '(?m)^Sitemap:\s*https://') {
+      Fail 'Sprint 8: robots.txt must not declare an active Sitemap line pre-launch'
+    } else { Pass 'Sprint 8: robots.txt has no active Sitemap directive' }
+  }
+} else { Fail 'robots.txt missing' }
 
 # sitemap.xml governance
 $sitemapPath = Join-Path $root 'sitemap.xml'
@@ -706,9 +731,20 @@ if (-not (Test-Path $sitemapPath)) {
 if ($pages.Count -eq 41) { Pass "Sprint 8: implemented route count = 41" }
 else { Fail "Sprint 8: implemented route count = $($pages.Count) (expected 41)" }
 
-$noindexMissing = @($pages.Keys | Where-Object { $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"' })
-if (-not $noindexMissing) { Pass "Sprint 8: all pages retain pre-launch noindex" }
-else { foreach ($n in $noindexMissing) { Fail "Sprint 8: [$n] missing noindex meta" } }
+$publicNoindex = @($pages.Keys | Where-Object {
+  $pages[$_] -match '<meta\s+name="robots"\s+content="noindex"'
+})
+if ($IndexedRelease) {
+  if (-not $publicNoindex) {
+    Pass 'Sprint 11: Public Noindex = 0 (all launch pages indexable)'
+  } else {
+    foreach ($n in $publicNoindex) { Fail "Sprint 11: [$n] still has noindex meta" }
+  }
+} else {
+  $missingNoindex = @($pages.Keys | Where-Object { $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"' })
+  if (-not $missingNoindex) { Pass 'Sprint 8: all pages retain pre-launch noindex' }
+  else { foreach ($n in $missingNoindex) { Fail "Sprint 8: [$n] missing noindex meta" } }
+}
 
 # --- Summary --------------------------------------------------------------------------
 Write-Host ""

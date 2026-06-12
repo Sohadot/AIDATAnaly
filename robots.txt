@@ -1,13 +1,10 @@
-# AIDAtanaly.com — robots policy
-# Phase: pre-launch implementation (non-indexed)
-# Governed by: IMPLEMENTATION_PLAN.md (IMPL-PLAN-001) and ROUTE_MAP.md
+# AIDAtanaly.com â€” robots policy
+# Phase: public indexed reference release (active)
+# Governed by: PUBLIC_RELEASE_PLAN.md (PUB-REL-001)
 #
-# Per the Non-Indexed Sprint Implementation Rule, the site must remain
-# non-indexed until all quality gates pass. PUBLIC_RELEASE_PLAN.md governs
-# the switch to the indexed posture (robots allow + removal of page noindex).
-#
-# Sitemap will be enabled by PUBLIC_RELEASE_PLAN.md after release approval.
-# Sitemap: https://aidatanaly.com/sitemap.xml
+# Repository governance artifacts remain outside the public website deployment package.
 
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://aidatanaly.com/sitemap.xml

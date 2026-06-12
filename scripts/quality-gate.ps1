@@ -7,8 +7,11 @@
 
 param(
   [switch]$PrivatePreview,
-  [switch]$ReleasePackage
+  [switch]$ReleasePackage,
+  [switch]$IndexedRelease
 )
+
+if ($IndexedRelease) { $ReleasePackage = $true }
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
@@ -71,14 +74,20 @@ function Get-SiteMetrics {
     $sitemapCount = ([regex]::Matches($sitemap, '<loc>([^<]+)</loc>')).Count
   }
 
-  $robotsOk = $false
-  $sitemapDirectiveInactive = $true
+  $robotsDisallow = $false
+  $robotsAllow = $false
+  $sitemapDirectiveActive = $false
   $robotsPath = Join-Path $Root 'robots.txt'
   if (Test-Path $robotsPath) {
     $robots = Get-Content -Raw -Encoding UTF8 -Path $robotsPath
-    $robotsOk = $robots -match '(?m)^Disallow:\s*/\s*$'
-    $sitemapDirectiveInactive = -not ($robots -match '(?m)^Sitemap:\s*https://')
+    $robotsDisallow = $robots -match '(?m)^Disallow:\s*/\s*$'
+    $robotsAllow = $robots -match '(?m)^Allow:\s*/\s*$'
+    $sitemapDirectiveActive = $robots -match '(?m)^Sitemap:\s*https://aidatanaly\.com/sitemap\.xml\s*$'
   }
+
+  $publicNoindex = @($pages.Keys | Where-Object {
+    $pages[$_] -match '<meta\s+name="robots"\s+content="noindex"'
+  }).Count
 
   $noindexMissing = @($pages.Keys | Where-Object {
     $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"'
@@ -90,8 +99,11 @@ function Get-SiteMetrics {
     BrokenLinks              = $brokenLinks
     OrphanPages              = $orphanPages
     SitemapUrlCount          = $sitemapCount
-    RobotsDisallowRoot       = $robotsOk
-    RobotsSitemapInactive    = $sitemapDirectiveInactive
+    RobotsDisallowRoot       = $robotsDisallow
+    RobotsAllowRoot          = $robotsAllow
+    SitemapDirectiveActive   = $sitemapDirectiveActive
+    RobotsSitemapInactive    = -not $sitemapDirectiveActive
+    PublicNoindex            = $publicNoindex
     PagesMissingNoindex      = $noindexMissing
   }
 }
@@ -99,7 +111,8 @@ function Get-SiteMetrics {
 function Invoke-GovernedStep {
   param(
     [string]$Label,
-    [string]$ScriptName
+    [string]$ScriptName,
+    [switch]$IndexedRelease
   )
 
   $scriptPath = Join-Path $scriptsDir $ScriptName
@@ -112,7 +125,11 @@ function Invoke-GovernedStep {
 
   Write-Host ""
   Write-Host "=== Step: $Label ($ScriptName) ==="
-  & $scriptPath
+  if ($IndexedRelease) {
+    & $scriptPath -IndexedRelease
+  } else {
+    & $scriptPath
+  }
   $exitCode = $LASTEXITCODE
   if ($null -eq $exitCode) { $exitCode = 0 }
 
@@ -481,23 +498,34 @@ function Invoke-PrivatePreviewChecks {
   }
 }
 
-Write-Host '=== AIDAtanaly Pre-Release Quality Gate (Sprint 9) ==='
-Write-Host '  INFO  Private preview posture only - noindex and Disallow root must remain'
+Write-Host '=== AIDAtanaly Quality Gate ==='
+if ($IndexedRelease) {
+  Write-Host '  INFO  Indexed release gate - public noindex must be 0, robots Allow, Sitemap active'
+} else {
+  Write-Host '  INFO  Private preview posture - noindex and Disallow root must remain'
+}
 Write-Host ""
 
 $dataOk = Invoke-GovernedStep -Label 'Data' -ScriptName 'validate-data.ps1'
 $interfaceOk = Invoke-GovernedStep -Label 'Interface' -ScriptName 'validate-interface.ps1'
 $scannerOk = Invoke-GovernedStep -Label 'Scanner' -ScriptName 'validate-scanner.ps1'
-$pagesOk1 = Invoke-GovernedStep -Label 'Pages (pre-sitemap)' -ScriptName 'validate-pages.ps1'
+$pagesOk1 = Invoke-GovernedStep -Label 'Pages (pre-sitemap)' -ScriptName 'validate-pages.ps1' -IndexedRelease:$IndexedRelease
 $sitemapOk = Invoke-GovernedStep -Label 'Sitemap generation' -ScriptName 'generate-sitemap.ps1'
-$pagesOk2 = Invoke-GovernedStep -Label 'Pages (post-sitemap)' -ScriptName 'validate-pages.ps1'
+$pagesOk2 = Invoke-GovernedStep -Label 'Pages (post-sitemap)' -ScriptName 'validate-pages.ps1' -IndexedRelease:$IndexedRelease
 
 $pagesOk = $pagesOk1 -and $pagesOk2
 $metrics = Get-SiteMetrics -Root $root
 
-$indexationOk = $metrics.RobotsDisallowRoot -and
-  $metrics.RobotsSitemapInactive -and
-  ($metrics.PagesMissingNoindex -eq 0)
+if ($IndexedRelease) {
+  $indexationOk = $metrics.RobotsAllowRoot -and
+    $metrics.SitemapDirectiveActive -and
+    (-not $metrics.RobotsDisallowRoot) -and
+    ($metrics.PublicNoindex -eq 0)
+} else {
+  $indexationOk = $metrics.RobotsDisallowRoot -and
+    $metrics.RobotsSitemapInactive -and
+    ($metrics.PagesMissingNoindex -eq 0)
+}
 
 $sitemapChecksOk = $sitemapOk -and ($metrics.SitemapUrlCount -eq 41)
 
@@ -522,18 +550,36 @@ Write-Host ("Interface: {0}" -f (Format-StepResult $stepResults.Interface))
 Write-Host ("Scanner: {0}" -f (Format-StepResult $stepResults.Scanner))
 Write-Host ("Pages: {0}" -f (Format-StepResult $stepResults.Pages))
 Write-Host ('Sitemap: {0}' -f (Format-StepResult $stepResults.Sitemap))
-Write-Host "Indexation posture: NON-INDEXED"
+if ($IndexedRelease) {
+  Write-Host 'Indexation posture: ACTIVE'
+  Write-Host ("Public Noindex: {0}" -f $metrics.PublicNoindex)
+  Write-Host ("Robots: {0}" -f $(if ($metrics.RobotsAllowRoot) { 'Allow' } else { 'FAIL' }))
+  Write-Host ("Sitemap Directive: {0}" -f $(if ($metrics.SitemapDirectiveActive) { 'Active' } else { 'FAIL' }))
+} else {
+  Write-Host 'Indexation posture: NON-INDEXED'
+}
 Write-Host ("Required Launch Routes: {0}/{1}" -f $metrics.RequiredLaunchRoutes, $metrics.RequiredLaunchTotal)
 Write-Host ("Broken Links: {0}" -f $metrics.BrokenLinks)
 Write-Host ("Orphan Pages: {0}" -f $metrics.OrphanPages)
+Write-Host ("Sitemap URLs: {0}" -f $metrics.SitemapUrlCount)
 Write-Host ""
 
 if (-not $indexationOk) {
-  Write-Host '  FAIL  Indexation posture violated (noindex, Disallow root, or inactive sitemap directive required)'
-  if (-not $metrics.RobotsDisallowRoot) { Write-Host '        robots.txt must keep Disallow: /' }
-  if (-not $metrics.RobotsSitemapInactive) { Write-Host '        robots.txt must not declare an active Sitemap line' }
-  if ($metrics.PagesMissingNoindex -gt 0) {
-    Write-Host "        $($metrics.PagesMissingNoindex) page(s) missing noindex meta"
+  if ($IndexedRelease) {
+    Write-Host '  FAIL  Indexed release posture incomplete'
+    if (-not $metrics.RobotsAllowRoot) { Write-Host '        robots.txt must declare Allow: /' }
+    if (-not $metrics.SitemapDirectiveActive) { Write-Host '        robots.txt must declare active Sitemap directive' }
+    if ($metrics.RobotsDisallowRoot) { Write-Host '        robots.txt must not keep Disallow: /' }
+    if ($metrics.PublicNoindex -gt 0) {
+      Write-Host "        Public Noindex must be 0 (found $($metrics.PublicNoindex) pages with noindex)"
+    }
+  } else {
+    Write-Host '  FAIL  Indexation posture violated (noindex, Disallow root, or inactive sitemap directive required)'
+    if (-not $metrics.RobotsDisallowRoot) { Write-Host '        robots.txt must keep Disallow: /' }
+    if (-not $metrics.RobotsSitemapInactive) { Write-Host '        robots.txt must not declare an active Sitemap line' }
+    if ($metrics.PagesMissingNoindex -gt 0) {
+      Write-Host "        $($metrics.PagesMissingNoindex) page(s) missing noindex meta"
+    }
   }
 }
 
@@ -570,11 +616,15 @@ $forbiddenDeploymentFiles = 0
 
 if ($ReleasePackage) {
   Write-Host ''
-  Write-Host '=== Sprint 11 Release Package Gate (pre-indexation) ==='
-  Write-Host '  INFO  Indexation not activated in this gate; noindex and Disallow root preserved'
+  if ($IndexedRelease) {
+    Write-Host '=== Sprint 11 Final Indexed Release Gate ==='
+  } else {
+    Write-Host '=== Sprint 11 Release Package Gate (pre-indexation) ==='
+    Write-Host '  INFO  Indexation not activated in this gate; noindex and Disallow root preserved'
+  }
 
   $distBuildOk = Invoke-GovernedStep -Label 'Dist build' -ScriptName 'build-dist.ps1'
-  $distValidateOk = Invoke-GovernedStep -Label 'Dist validation' -ScriptName 'validate-dist.ps1'
+  $distValidateOk = Invoke-GovernedStep -Label 'Dist validation' -ScriptName 'validate-dist.ps1' -IndexedRelease:$IndexedRelease
   $distOk = $distBuildOk -and $distValidateOk
   $releasePackageOk = $overallOk -and $distOk
 
@@ -591,19 +641,40 @@ if ($ReleasePackage) {
   }
 
   Write-Host ''
-  Write-Host '=== Release Package Report ==='
+  if ($IndexedRelease) {
+    Write-Host '=== Final Indexed Release Report ==='
+  } else {
+    Write-Host '=== Release Package Report ==='
+  }
   Write-Host ''
   Write-Host ("Release Package: {0}" -f (Format-StepResult $releasePackageOk))
   Write-Host ("Quality Gate: {0}" -f (Format-StepResult $overallOk))
-  Write-Host ("Dist Build: {0}" -f (Format-StepResult $distBuildOk))
-  Write-Host ("Dist Validation: {0}" -f (Format-StepResult $distValidateOk))
-  Write-Host 'Indexation Posture: NON-INDEXED'
+  Write-Host ("Data: {0}" -f (Format-StepResult $stepResults.Data))
+  Write-Host ("Interface: {0}" -f (Format-StepResult $stepResults.Interface))
+  Write-Host ("Scanner: {0}" -f (Format-StepResult $stepResults.Scanner))
+  Write-Host ("Pages: {0}" -f (Format-StepResult $stepResults.Pages))
+  Write-Host ('Sitemap: {0}' -f (Format-StepResult $stepResults.Sitemap))
+  Write-Host ("Required Launch Routes: {0}/{1}" -f $metrics.RequiredLaunchRoutes, $metrics.RequiredLaunchTotal)
+  Write-Host ("Broken Links: {0}" -f $metrics.BrokenLinks)
+  Write-Host ("Orphan Pages: {0}" -f $metrics.OrphanPages)
+  Write-Host ("Public Noindex: {0}" -f $metrics.PublicNoindex)
+  Write-Host ("Robots: {0}" -f $(if ($IndexedRelease) { if ($metrics.RobotsAllowRoot) { 'Allow' } else { 'FAIL' } } else { if ($metrics.RobotsDisallowRoot) { 'Disallow' } else { 'FAIL' } }))
+  Write-Host ("Sitemap Directive: {0}" -f $(if ($IndexedRelease) { if ($metrics.SitemapDirectiveActive) { 'Active' } else { 'FAIL' } } else { 'Inactive' }))
+  Write-Host ("Sitemap URLs: {0}" -f $metrics.SitemapUrlCount)
   Write-Host ("Forbidden Deployment Files: {0}" -f $(if ($forbiddenDeploymentFiles -lt 0) { 'n/a' } else { $forbiddenDeploymentFiles }))
-  Write-Host ''
-  Write-Host '  NEXT  After this gate passes, execute Section 7 indexation activation, then final release gate'
-  Write-Host '=== End Release Package ==='
+  if ($IndexedRelease) {
+    Write-Host 'Indexation Posture: ACTIVE'
+  } else {
+    Write-Host 'Indexation Posture: NON-INDEXED'
+    Write-Host ''
+    Write-Host '  NEXT  After this gate passes, execute indexation activation, then final release gate with -IndexedRelease'
+  }
+  Write-Host '=== End Release Gate ==='
 
   if (-not $releasePackageOk) { exit 1 }
+  if ($IndexedRelease -and ($metrics.PublicNoindex -ne 0 -or -not $metrics.RobotsAllowRoot -or -not $metrics.SitemapDirectiveActive -or $forbiddenDeploymentFiles -ne 0)) {
+    exit 1
+  }
 }
 
 if (-not $overallOk) { exit 1 }
