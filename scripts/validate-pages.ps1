@@ -91,6 +91,9 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
   $hrefs = [regex]::Matches($html, 'href="(/[^"]*)"') | ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
   foreach ($h in $hrefs) {
     if ($h -match '^/assets/') { continue }
+    if ($h -match '^/preview/|/governance/decisions/|/claims-policy/|/versioning/') {
+      Fail "$label links to prohibited non-public path: $h"; $pageOk = $false
+    }
     if ($launchRoutes -notcontains $h) { Fail "$label links outside the launch route set: $h"; $pageOk = $false }
   }
 
@@ -585,6 +588,127 @@ if ($pages.Count -eq 41 -and -not $missingLaunch) {
 } else {
   Fail "Sprint 7: expected 41/41 routes, found $($pages.Count) implemented; missing: $($missingLaunch -join ', ')"
 }
+
+# --- Sprint 8: Sitemap, robots, reference graph --------------------------------------
+$launchPageRoutes = @($launchRoutes | Where-Object { $_ -notmatch '\.json$' })
+if ($launchPageRoutes.Count -ne 41) {
+  Fail "Sprint 8: expected 41 launch page routes in ROUTE_MAP.md, found $($launchPageRoutes.Count)"
+}
+
+# Orphan detection: every route except / needs at least one inbound internal link
+$inboundCount = @{}
+foreach ($r in $pages.Keys) { $inboundCount[$r] = 0 }
+foreach ($route in $pages.Keys) {
+  $html = $pages[$route]
+  $hrefs = [regex]::Matches($html, 'href="(/[^"]*)"') | ForEach-Object { $_.Groups[1].Value }
+  foreach ($h in $hrefs) {
+    if ($h -match '^/assets/') { continue }
+    if ($pages.ContainsKey($h)) { $inboundCount[$h]++ }
+  }
+}
+$orphans = @($pages.Keys | Where-Object { $_ -ne '/' -and $inboundCount[$_] -eq 0 })
+if (-not $orphans) {
+  Pass "Sprint 8: no orphan pages (all routes have inbound internal links)"
+} else {
+  foreach ($o in $orphans) { Fail "Sprint 8: orphan page (no inbound links): $o" }
+}
+
+# Up navigation: site header brand links to homepage
+$missingUp = @($pages.Keys | Where-Object {
+  $pages[$_] -notmatch 'layout-site-header__brand" href="/"'
+})
+if (-not $missingUp) { Pass "Sprint 8: all pages link up to / via site header" }
+else { foreach ($u in $missingUp) { Fail "Sprint 8: [$u] missing site header link to /" } }
+
+# Sideways/down: minimum internal hub linking per page
+$weakLinkPages = @()
+foreach ($route in ($pages.Keys | Sort-Object)) {
+  $linkCount = ([regex]::Matches($pages[$route], 'href="(/[^"]*)"') |
+    ForEach-Object { $_.Groups[1].Value } |
+    Where-Object { $_ -notmatch '^/assets/' } | Sort-Object -Unique).Count
+  if ($linkCount -lt 3) { $weakLinkPages += "$route ($linkCount links)" }
+}
+if (-not $weakLinkPages) { Pass "Sprint 8: all pages have minimum internal reference linking" }
+else { foreach ($w in $weakLinkPages) { Fail "Sprint 8: insufficient internal links on $w" } }
+
+# robots.txt remains non-indexed pre-launch
+$robotsPath = Join-Path $root 'robots.txt'
+if (Test-Path $robotsPath) {
+  $robots = Get-Content -Raw -Encoding UTF8 -Path $robotsPath
+  if ($robots -match '(?m)^Disallow:\s*/\s*$') {
+    Pass "Sprint 8: robots.txt Disallow: / (pre-launch non-indexed)"
+  } else { Fail "Sprint 8: robots.txt missing Disallow: /" }
+  if ($robots -match 'Sitemap will be enabled by PUBLIC_RELEASE_PLAN\.md') {
+    Pass "Sprint 8: robots.txt documents deferred sitemap activation"
+  } else { Fail "Sprint 8: robots.txt missing PUBLIC_RELEASE_PLAN sitemap note" }
+  if ($robots -match '(?m)^Sitemap:\s*https://') {
+    Fail "Sprint 8: robots.txt must not declare an active Sitemap line pre-launch"
+  } else { Pass "Sprint 8: robots.txt has no active Sitemap directive" }
+} else { Fail "Sprint 8: robots.txt missing" }
+
+# sitemap.xml governance
+$sitemapPath = Join-Path $root 'sitemap.xml'
+if (-not (Test-Path $sitemapPath)) {
+  Fail "Sprint 8: sitemap.xml missing (run scripts/generate-sitemap.ps1)"
+} else {
+  Pass "Sprint 8: sitemap.xml exists"
+  $sitemap = Get-Content -Raw -Encoding UTF8 -Path $sitemapPath
+  $locs = @([regex]::Matches($sitemap, '<loc>([^<]+)</loc>') | ForEach-Object { $_.Groups[1].Value })
+  if ($locs.Count -eq 41) {
+    Pass "Sprint 8: sitemap route count = 41"
+  } else {
+    Fail "Sprint 8: sitemap route count = $($locs.Count) (expected 41)"
+  }
+
+  $sitemapPaths = @()
+  foreach ($loc in $locs) {
+    if ($loc -notmatch '^https://aidatanaly\.com') {
+      Fail "Sprint 8: sitemap loc outside aidatanaly.com domain: $loc"
+    }
+    $path = ($loc -replace '^https://aidatanaly\.com', '')
+    if ($path -eq '') { $path = '/' }
+    $sitemapPaths += $path
+    if ($path -ne '/' -and -not $path.EndsWith('/')) {
+      Fail "Sprint 8: sitemap loc missing trailing slash: $loc"
+    }
+    if ($launchPageRoutes -notcontains $path) {
+      Fail "Sprint 8: sitemap loc outside Required Launch set: $loc"
+    }
+    if (-not $pages.ContainsKey($path)) {
+      Fail "Sprint 8: sitemap loc without implemented index.html: $loc"
+    }
+  }
+
+  $extraSitemap = $sitemapPaths | Where-Object { $launchPageRoutes -notcontains $_ }
+  if (-not $extraSitemap) { Pass "Sprint 8: extra sitemap routes = 0" }
+  else { Fail "Sprint 8: extra sitemap routes: $($extraSitemap -join ', ')" }
+
+  $missingSitemap = $launchPageRoutes | Where-Object { $sitemapPaths -notcontains $_ }
+  if (-not $missingSitemap) { Pass "Sprint 8: missing required routes in sitemap = 0" }
+  else { Fail "Sprint 8: missing sitemap routes: $($missingSitemap -join ', ')" }
+
+  $forbiddenInLoc = @('/preview/', '/data/', '/assets/', '/scripts/', '/governance/decisions/', '.md')
+  $badLocs = @()
+  foreach ($loc in $locs) {
+    $path = ($loc -replace '^https://aidatanaly\.com', '')
+    if ($path -eq '') { $path = '/' }
+    foreach ($seg in $forbiddenInLoc) {
+      if ($path -match [regex]::Escape($seg)) { $badLocs += "$loc ($seg)" }
+    }
+  }
+  if (-not $badLocs) {
+    Pass "Sprint 8: sitemap loc URLs exclude preview, data, assets, scripts, decisions, and markdown"
+  } else {
+    foreach ($b in $badLocs) { Fail "Sprint 8: sitemap loc contains forbidden segment: $b" }
+  }
+}
+
+if ($pages.Count -eq 41) { Pass "Sprint 8: implemented route count = 41" }
+else { Fail "Sprint 8: implemented route count = $($pages.Count) (expected 41)" }
+
+$noindexMissing = @($pages.Keys | Where-Object { $pages[$_] -notmatch '<meta\s+name="robots"\s+content="noindex"' })
+if (-not $noindexMissing) { Pass "Sprint 8: all pages retain pre-launch noindex" }
+else { foreach ($n in $noindexMissing) { Fail "Sprint 8: [$n] missing noindex meta" } }
 
 # --- Summary --------------------------------------------------------------------------
 Write-Host ""

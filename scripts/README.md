@@ -151,7 +151,45 @@ powershell -ExecutionPolicy Bypass -File scripts/validate-scanner.ps1
 powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
 ```
 
-## Full site validation (built in Sprint 9)
+## generate-sitemap.ps1 (built in Sprint 8)
+
+Generates `sitemap.xml` at the repository root from the 41 Required Launch routes
+in `ROUTE_MAP.md` Section 13. A route is included only when its `index.html` exists.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/generate-sitemap.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
+```
+
+Excludes `preview/`, `data/`, `assets/`, `scripts/`, `governance/decisions/`, and any
+route outside the launch set. Fails if any Required Launch route is missing its page.
+
+## Sprint 8 — internal linking and sitemap (built in Sprint 8)
+
+`robots.txt` remains `Disallow: /` pre-launch. The active `Sitemap:` directive is deferred
+to `PUBLIC_RELEASE_PLAN.md` (comment-only reference in `robots.txt`).
+
+Sprint 8 checks in `validate-pages.ps1`:
+
+- `sitemap.xml` exists with exactly 41 URLs matching implemented routes
+- no preview, data, assets, scripts, or decision paths in sitemap
+- `robots.txt` non-indexed posture preserved
+- no broken internal links, orphan pages, or prohibited hrefs (`/preview/`,
+  `/governance/decisions/`, `/claims-policy/`, `/versioning/`)
+- all canonical URLs and `noindex` meta tags valid
+- minimum internal reference graph (up link to `/`, hub linking)
+
+Full validation loop after Sprint 8:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/generate-sitemap.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-data.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-interface.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-scanner.ps1
+powershell -ExecutionPolicy Bypass -File scripts/validate-pages.ps1
+```
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:
 

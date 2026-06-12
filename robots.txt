@@ -3,9 +3,11 @@
 # Governed by: IMPLEMENTATION_PLAN.md (IMPL-PLAN-001) and ROUTE_MAP.md
 #
 # Per the Non-Indexed Sprint Implementation Rule, the site must remain
-# non-indexed until the full 41-route Required Launch set is complete
-# and all quality gates pass. PUBLIC_RELEASE_PLAN.md governs the switch
-# to the indexed posture.
+# non-indexed until all quality gates pass. PUBLIC_RELEASE_PLAN.md governs
+# the switch to the indexed posture (robots allow + removal of page noindex).
+#
+# Sitemap will be enabled by PUBLIC_RELEASE_PLAN.md after release approval.
+# Sitemap: https://aidatanaly.com/sitemap.xml
 
 User-agent: *
 Disallow: /
