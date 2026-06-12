@@ -1,6 +1,6 @@
 /* ==========================================================================
    AIDAtanaly.com — failure-lens.css
-   Sprint 12C — Failure Lens diagnostic positioning component.
+   Sprint 12C / 12F — Failure Lens diagnostic positioning component.
 
    Uses tokens from main.css only. No new palette, no evidence colors,
    no scoring logic, no external imports, no decorative animation.
@@ -8,19 +8,20 @@
 
 .failure-lens {
   margin: var(--space-6) 0;
-  padding: var(--space-5);
+  padding: var(--axis-panel-padding);
   background: var(--surface-sunken);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
+  border: var(--axis-panel-border);
+  border-radius: var(--axis-panel-radius);
 }
 
 .failure-lens__kicker {
   margin: 0 0 var(--space-4);
-  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-secondary);
 }
 
 .failure-lens .transition-axis {
@@ -70,25 +71,26 @@
   align-items: center;
   margin: 0;
   text-align: center;
+  gap: var(--space-1);
 }
 
 .failure-lens__marker {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1;
   color: var(--transition-flow-deep);
 }
 
 .failure-lens__label {
-  margin-top: var(--space-1);
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
   font-weight: 600;
   color: var(--ink-primary);
+  line-height: 1.35;
 }
 
 .failure-lens__note {
-  margin-top: var(--space-2);
   font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--ink-secondary);
   max-width: 28rem;
 }
@@ -105,10 +107,28 @@
   border-color: var(--line-strong);
   color: var(--ink-secondary);
   font-weight: 500;
+  background: var(--surface-page);
 }
 
 .failure-lens--constraint .failure-lens__callout {
   margin-top: var(--space-4);
+  border-top: 1px dashed var(--line-strong);
+  padding-top: var(--space-4);
+}
+
+@media (max-width: 36rem) {
+  .failure-lens {
+    padding: var(--space-4);
+  }
+
+  .failure-lens .transition-axis__vector-label {
+    max-width: 100%;
+  }
+
+  .failure-lens__callout {
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 @media (min-width: 64rem) {

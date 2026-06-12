@@ -313,6 +313,16 @@ if (Test-Path $previewPath) {
   } else { Fail "Preview missing Failure Lens demo or stylesheet link" }
 }
 
+# --- 16. Sprint 12F visual precision tokens ------------------------------------
+if ($css -match '--axis-arrow-wing' -and $css -match '--hero-hook-measure' -and
+    $css -match 'operating-chain__step::before' -and $css -match 'MOBILE PRECISION') {
+  Pass "Sprint 12F axis, hero, and mobile precision blocks present in main.css"
+} else { Fail "Sprint 12F visual precision section missing from main.css" }
+
+if ($css -match '\.scanner-results > h3' -and $css -match '--report-section-gap') {
+  Pass "Scanner results use governed diagnostic report section rhythm"
+} else { Fail "Scanner results report section styles missing (Sprint 12F)" }
+
 # --- Summary ----------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="

@@ -224,6 +224,14 @@ if ($pages.ContainsKey('/')) {
       $homeHtml -match '<h2>Scanner Diagnoses Transition Health</h2>') {
     Pass "[/] follows Movement → Measurement → Failure → Diagnosis section order"
   } else { Fail "[/] homepage section order does not match Sprint 12E reframe" }
+
+  $mainCssPath = Join-Path $root 'assets/css/main.css'
+  $mainCssHome = Get-Content -Raw -Encoding UTF8 -Path $mainCssPath
+  if ($mainCssHome -match '--hero-hook-measure' -and
+      $mainCssHome -match 'operating-chain__step::before' -and
+      $mainCssHome -match 'counter\(protocol-step') {
+    Pass "[/] Sprint 12F hero and protocol-strip precision styles present"
+  } else { Fail "[/] Sprint 12F homepage precision styles missing from main.css" }
 }
 
 # --- Sprint 4: Vector page checks (PAGE_BLUEPRINTS.md §12) -------------------------

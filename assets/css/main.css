@@ -81,6 +81,20 @@
   --axis-state-size: 0.8125rem;
   --axis-vector-label-size: 0.9375rem;
 
+  /* Axis system tokens (Sprint 12F) — transition-axis, scanner map, failure lens */
+  --axis-arrow-wing: 0.45rem;
+  --axis-arrow-head: 0.7rem;
+  --axis-vector-min-height: 4.5rem;
+  --axis-vector-gap-end: 0.7rem;
+  --axis-panel-padding: var(--space-5);
+  --axis-panel-radius: var(--radius-md);
+  --axis-panel-border: 1px solid var(--line-soft);
+  --hero-hook-measure: 17ch;
+  --hero-lead-measure: 21ch;
+  --protocol-font-size: 0.8125rem;
+  --protocol-line-height: 1.4;
+  --report-section-gap: var(--space-6);
+
   /* Motion (INTERFACE_GOVERNANCE §5.2: 200–600ms, flow easing) */
   --motion-fast: 200ms;
   --motion-base: 350ms;
@@ -205,6 +219,12 @@ th {
   padding: var(--space-5) var(--space-4);
 }
 
+@media (max-width: 36rem) {
+  .layout-page {
+    padding: var(--space-4) var(--space-3);
+  }
+}
+
 .layout-section {
   margin-bottom: var(--space-8);
 }
@@ -280,12 +300,12 @@ th {
 
 .doctrine-statement {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-size: clamp(1.25rem, 2.8vw, 1.85rem);
   font-style: italic;
   line-height: 1.35;
   color: var(--ink-primary);
   max-width: 28ch;
-  margin: var(--space-6) 0;
+  margin: var(--space-4) 0 var(--space-5);
   padding-left: var(--space-5);
   border-left: var(--axis-line-weight) solid var(--transition-flow);
 }
@@ -297,75 +317,112 @@ th {
   color: var(--transition-flow-deep);
 }
 
-/* === SECTION: HOME HERO (Sprint 12E) ======================================
+/* === SECTION: HOME HERO (Sprint 12E / 12F precision) ======================
    Homepage thesis hook and operating chain — perspective before explanation.
    ========================================================================== */
 
 .layout-hero-hook {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4.2vw, 2.85rem);
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: clamp(1.85rem, 4.5vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   color: var(--ink-primary);
-  margin: 0 0 var(--space-3);
-  max-width: 16ch;
+  margin: 0 0 var(--space-2);
+  max-width: var(--hero-hook-measure);
 }
 
 .layout-hero-hook--lead {
-  font-size: clamp(1.35rem, 3.2vw, 2.05rem);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 600;
   color: var(--transition-flow-deep);
-  max-width: 22ch;
-  margin-bottom: var(--space-5);
+  max-width: var(--hero-lead-measure);
+  margin-bottom: var(--space-4);
 }
 
 .layout-section--hero {
-  padding-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+}
+
+.layout-section--hero .layout-prose {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  max-width: var(--measure-prose);
+  margin-top: var(--space-4);
 }
 
 .layout-section--axis {
-  margin-top: calc(-1 * var(--space-3));
+  margin-top: var(--space-2);
   padding-top: 0;
   border-top: none;
 }
 
 .operating-chain {
   list-style: none;
-  margin: var(--space-5) 0 var(--space-6);
-  padding: var(--space-3) var(--space-4);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2) var(--space-3);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-sm);
-  background: var(--surface-raised);
+  margin: var(--space-4) 0 var(--space-5);
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  background: transparent;
+  counter-reset: protocol-step;
 }
 
 .operating-chain__step {
   margin: 0;
+  padding: var(--space-3) var(--space-2);
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: var(--protocol-font-size);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  line-height: var(--protocol-line-height);
+  letter-spacing: 0.03em;
   color: var(--ink-secondary);
-  white-space: nowrap;
+  text-align: center;
+  white-space: normal;
+  border-right: 1px solid var(--line-soft);
+  counter-increment: protocol-step;
+}
+
+.operating-chain__step:last-child {
+  border-right: none;
+}
+
+.operating-chain__step::before {
+  content: counter(protocol-step, decimal-leading-zero);
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: var(--space-1);
 }
 
 .operating-chain__step:not(:last-child)::after {
-  content: "→";
-  margin-left: var(--space-3);
-  color: var(--ink-faint);
-  font-weight: 400;
+  display: none;
 }
 
-@media (max-width: 36rem) {
+@media (max-width: 48rem) {
   .operating-chain {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
   }
 
-  .operating-chain__step:not(:last-child)::after {
-    display: none;
+  .operating-chain__step {
+    text-align: left;
+    padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4);
+    border-right: none;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .operating-chain__step:last-child {
+    border-bottom: none;
+  }
+
+  .operating-chain__step::before {
+    display: inline;
+    margin-right: var(--space-2);
+    margin-bottom: 0;
   }
 }
 
@@ -427,8 +484,8 @@ th {
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: var(--space-5) var(--space-3);
-  min-height: 4.75rem;
+  padding: var(--axis-vector-padding-block, var(--space-5)) var(--space-3);
+  min-height: var(--axis-vector-min-height);
   min-width: 0;
 }
 
@@ -439,7 +496,7 @@ th {
   position: absolute;
   left: 50%;
   top: 0;
-  bottom: 0.7rem;
+  bottom: var(--axis-vector-gap-end);
   width: var(--axis-line-weight);
   transform: translateX(-50%);
   opacity: 0.88;
@@ -462,9 +519,9 @@ th {
   bottom: 0;
   transform: translateX(-50%);
   opacity: 0.88;
-  border-left: 0.45rem solid transparent;
-  border-right: 0.45rem solid transparent;
-  border-top: 0.7rem solid var(--transition-flow);
+  border-left: var(--axis-arrow-wing) solid transparent;
+  border-right: var(--axis-arrow-wing) solid transparent;
+  border-top: var(--axis-arrow-head) solid var(--transition-flow);
 }
 
 .transition-axis__vector-label {
@@ -767,9 +824,9 @@ th {
     top: 50%;
     transform: translateY(-50%);
     opacity: 0.88;
-    border-top: 0.45rem solid transparent;
-    border-bottom: 0.45rem solid transparent;
-    border-left: 0.7rem solid var(--transition-flow);
+    border-top: var(--axis-arrow-wing) solid transparent;
+    border-bottom: var(--axis-arrow-wing) solid transparent;
+    border-left: var(--axis-arrow-head) solid var(--transition-flow);
     border-right: 0;
   }
 
@@ -1125,12 +1182,12 @@ th {
 .stable-id-chip {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--ink-secondary);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
   background: var(--surface-sunken);
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-sm);
-  padding: 0.1em 0.5em;
+  padding: 0.12em 0.45em;
   user-select: all;
 }
 
@@ -1210,13 +1267,14 @@ th {
 /* Preliminary base: Intervention Layer Tag (only the ten approved layers). */
 .intervention-tag {
   display: inline-block;
-  font-size: 0.82rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--transition-flow-deep);
   background: var(--transition-flow-tint);
   border: 1px solid var(--transition-flow);
-  border-radius: 999px;
-  padding: 0.15em 0.75em;
+  border-radius: var(--radius-sm);
+  padding: 0.25em 0.65em;
+  line-height: 1.35;
 }
 
 /* === SECTION: SCANNER =====================================================
@@ -1332,19 +1390,25 @@ th {
 }
 
 /* === SECTION: SCANNER RESULT MAP ==========================================
-   Sprint 12D — Transition Health Map in scanner results.
-   Movement quality only; separate from Failure Lens and Evidence badges.
+   Sprint 12D / 12F — Transition Health Map in scanner results.
+   Movement quality only; shares axis tokens with transition-axis.
    ========================================================================== */
 
 .scanner-result-map {
-  padding: var(--space-5);
+  padding: var(--axis-panel-padding);
   background: var(--surface-sunken);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
+  border: var(--axis-panel-border);
+  border-radius: var(--axis-panel-radius);
 }
 
 .scanner-result-map > h3 {
   margin-top: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  color: var(--ink-secondary);
 }
 
 .scanner-result-map__axis {
@@ -1376,7 +1440,7 @@ th {
   align-items: center;
   justify-content: center;
   padding: var(--space-4) var(--space-2);
-  min-height: 3.75rem;
+  min-height: var(--axis-vector-min-height);
   min-width: 0;
 }
 
@@ -1385,7 +1449,7 @@ th {
   position: absolute;
   left: 50%;
   top: 0;
-  bottom: 0.65rem;
+  bottom: var(--axis-vector-gap-end);
   width: var(--axis-line-weight);
   transform: translateX(-50%);
   opacity: 0.88;
@@ -1406,9 +1470,9 @@ th {
   bottom: 0;
   transform: translateX(-50%);
   opacity: 0.88;
-  border-left: 0.4rem solid transparent;
-  border-right: 0.4rem solid transparent;
-  border-top: 0.65rem solid var(--transition-flow);
+  border-left: var(--axis-arrow-wing) solid transparent;
+  border-right: var(--axis-arrow-wing) solid transparent;
+  border-top: var(--axis-arrow-head) solid var(--transition-flow);
 }
 
 .scanner-result-map__label {
@@ -1417,13 +1481,14 @@ th {
   background: var(--surface-page);
   border: 2px solid var(--transition-flow);
   color: var(--transition-flow-deep);
-  font-size: 0.8125rem;
+  font-size: var(--axis-vector-label-size);
   font-weight: 700;
   border-radius: var(--radius-sm);
-  padding: var(--space-1) var(--space-3);
+  padding: var(--space-2) var(--space-3);
   text-align: center;
   line-height: 1.35;
   white-space: normal;
+  max-width: min(100%, 18rem);
 }
 
 .scanner-result-map__summary {
@@ -1525,9 +1590,18 @@ th {
 .scanner-result-map__focus {
   padding: var(--space-4);
   background: var(--surface-raised);
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius-md);
+  border: var(--axis-panel-border);
+  border-radius: var(--axis-panel-radius);
   max-width: 44rem;
+  margin-bottom: var(--space-4);
+}
+
+.scanner-result-map__focus p {
+  margin-bottom: var(--space-2);
+}
+
+.scanner-result-map__focus p:last-child {
+  margin-bottom: 0;
 }
 
 .scanner-result-map__focus--weakest {
@@ -1578,15 +1652,16 @@ th {
     bottom: auto;
     top: 50%;
     transform: translateY(-50%);
-    border-top: 0.4rem solid transparent;
-    border-bottom: 0.4rem solid transparent;
-    border-left: 0.65rem solid var(--transition-flow);
+    border-top: var(--axis-arrow-wing) solid transparent;
+    border-bottom: var(--axis-arrow-wing) solid transparent;
+    border-left: var(--axis-arrow-head) solid var(--transition-flow);
     border-right: 0;
   }
 
   .scanner-result-map__label {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     padding: var(--space-1) var(--space-2);
+    max-width: 100%;
   }
 
   .scanner-result-map__vector--strong::before {
@@ -1637,7 +1712,40 @@ th {
 
 .scanner-results {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-4);
+  max-width: 48rem;
+}
+
+.scanner-results > h3 {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  margin: var(--report-section-gap) 0 var(--space-3);
+}
+
+.scanner-results > h3:first-child {
+  margin-top: 0;
+}
+
+.scanner-results .score-panel {
+  margin-bottom: var(--space-4);
+}
+
+.scanner-results .evidence-unscorable.scanner-results__partial {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.scanner-results .scanner-result-map {
+  margin-bottom: var(--space-5);
+}
+
+.scanner-results .reference-links {
+  margin-top: var(--space-2);
+  margin-bottom: 0;
 }
 
 .scanner-results__partial {
@@ -1686,6 +1794,49 @@ th {
 
 .utility-skip-link:focus {
   top: var(--space-2);
+}
+
+/* === SECTION: MOBILE PRECISION (Sprint 12F) ===============================
+   Tighten axis, labels, and cards on narrow viewports — no horizontal scroll.
+   ========================================================================== */
+
+@media (max-width: 36rem) {
+  .transition-axis__vector {
+    min-height: 4rem;
+    padding: var(--space-4) var(--space-2);
+  }
+
+  .transition-axis__vector-label {
+    max-width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.875rem;
+  }
+
+  .transition-axis__state {
+    min-width: 6.5rem;
+    max-width: 100%;
+  }
+
+  .scanner-result-map {
+    padding: var(--space-4);
+  }
+
+  .scanner-result-map__vector {
+    min-height: 4rem;
+  }
+
+  .vector-card {
+    padding: var(--space-4);
+  }
+
+  .vector-card__title {
+    font-size: 1.2rem;
+  }
+
+  .scanner-option {
+    min-height: 2.75rem;
+    align-items: center;
+  }
 }
 
 /* === SECTION: REDUCED MOTION ==============================================

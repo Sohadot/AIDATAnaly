@@ -355,3 +355,17 @@ Runs `build-dist.ps1`, `validate-dist.ps1 -IndexedRelease`, and `validate-deploy
 **Do not** use `git push origin gh-pages`. After Actions deployment is verified live, optionally delete the legacy branch: `git push origin --delete gh-pages`.
 
 `validate-deploy.ps1` checks: PUB-REL-002 decision exists, `pages.yml` uploads `dist/` via Actions, `deploy-dist.ps1` does not push `gh-pages`.
+
+## Sprint 12F — Visual Precision Pass
+
+CSS-only refinement of hero rhythm, operating chain protocol strip, axis/map/lens token alignment, mobile spacing, and scanner result report presentation.
+
+**Allowed:** `assets/css/main.css`, `assets/css/failure-lens.css`, validators, `scripts/README.md`, `preview/index.html` (minimal).
+
+**Standard gate after changes:**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -IndexedRelease
+```
+
+**Deploy:** `git push origin main` → GitHub Actions (no `gh-pages`).

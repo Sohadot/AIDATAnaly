@@ -254,6 +254,20 @@ if ($css -match 'SCANNER RESULT MAP' -and $css -notmatch '\.scanner-result-map[\
   Pass "Scanner result map styling does not use Evidence Confidence variables"
 } else { Fail "Scanner result map must not reference evidence color tokens" }
 
+# --- Sprint 12F visual precision ------------------------------------------------
+if ($css -match '--axis-panel-padding' -and $css -match '\.scanner-results > h3' -and
+    $css -match '--axis-arrow-wing') {
+  Pass "Sprint 12F shared axis and scanner report precision styles present"
+} else { Fail "Sprint 12F visual precision styles missing from main.css" }
+
+$lensCssPath12F = Join-Path $root 'assets/css/failure-lens.css'
+if (Test-Path $lensCssPath12F) {
+  $lensCss12F = Get-Content -Raw -Encoding UTF8 -Path $lensCssPath12F
+  if ($lensCss12F -match 'var\(--axis-panel-padding\)' -and $lensCss12F -match 'failure-lens--constraint') {
+    Pass "failure-lens.css uses Sprint 12F axis panel tokens"
+  } else { Fail "failure-lens.css missing Sprint 12F panel token alignment" }
+}
+
 # --- Summary ------------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="
