@@ -83,6 +83,11 @@ Note: `preview/` is internal, carries `noindex, nofollow`, is not a
 `ROUTE_MAP.md` route, and must never be included in `sitemap.xml` (sitemap
 generation reads only the 41-route launch list).
 
+Sprint 4 vector checks (when vector pages exist): all four vector routes
+present; hub links to ATI, TFO, Scanner, Evidence Confidence, and
+Intervention Layers; failure-mode links restricted to the vector's own TFO
+entries; T2 sub-signals sentence; T4 continuity sentence.
+
 ## Full site validation (built in Sprint 9)
 
 Planned checks, per IMPLEMENTATION_PLAN.md Sprint 9:

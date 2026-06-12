@@ -452,6 +452,28 @@ th {
   color: var(--ink-secondary);
 }
 
+/* Vector page: the measured segment carries full flow weight; others recede. */
+.transition-axis__vector--current .transition-axis__vector-label {
+  background: var(--transition-flow-tint);
+  border-width: 2px;
+  font-weight: 700;
+}
+
+.transition-axis__vector:not(.transition-axis__vector--current)::before {
+  opacity: 0.35;
+  animation: none;
+}
+
+.transition-axis__vector:not(.transition-axis__vector--current)::after {
+  opacity: 0.35;
+}
+
+.transition-axis__vector:not(.transition-axis__vector--current) .transition-axis__vector-label {
+  border-color: var(--line-strong);
+  color: var(--ink-secondary);
+  font-weight: 500;
+}
+
 /* Horizontal axis on wider viewports (desktop grammar). */
 @media (min-width: 48rem) {
   .transition-axis {

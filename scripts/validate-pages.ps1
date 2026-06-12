@@ -159,6 +159,64 @@ if ($pages.ContainsKey('/')) {
   } else { Fail "[/] missing the primary message" }
 }
 
+# --- Sprint 4: Vector page checks (PAGE_BLUEPRINTS.md §12) -------------------------
+$vectorPages = @{
+  '/vectors/attention-to-interest/' = @(
+    '/failure-modes/attention-noise/', '/failure-modes/vanity-reach/',
+    '/failure-modes/audience-mismatch/', '/failure-modes/signal-decay/', '/failure-modes/message-blur/'
+  )
+  '/vectors/interest-to-desire/' = @(
+    '/failure-modes/passive-engagement/', '/failure-modes/comparison-stall/',
+    '/failure-modes/preference-dilution/', '/failure-modes/intent-evaporation/', '/failure-modes/value-ambiguity/'
+  )
+  '/vectors/desire-to-action/' = @(
+    '/failure-modes/process-friction/', '/failure-modes/trust-deficit/', '/failure-modes/price-shock/',
+    '/failure-modes/decision-delay/', '/failure-modes/complexity-wall/', '/failure-modes/objection-residue/'
+  )
+  '/vectors/action-to-loyalty/' = @(
+    '/failure-modes/one-transaction-funnel/', '/failure-modes/silent-churn/',
+    '/failure-modes/loyalty-blindness/', '/failure-modes/advocacy-vacuum/', '/failure-modes/lifecycle-disconnect/'
+  )
+}
+$vectorHubLinks = @('/aida-transition-index/', '/transition-failure-ontology/', '/scanner/',
+  '/evidence-confidence/', '/intervention-layers/')
+
+foreach ($route in ($vectorPages.Keys | Sort-Object)) {
+  if (-not $pages.ContainsKey($route)) { Fail "Sprint 4 vector page missing: $route" }
+  else { Pass "Sprint 4 vector page exists: $route" }
+}
+
+foreach ($route in ($vectorPages.Keys | Sort-Object)) {
+  if (-not $pages.ContainsKey($route)) { continue }
+  $html = $pages[$route]
+  $missingHub = $vectorHubLinks | Where-Object { $html -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingHub) { Pass "[$route] links to ATI, TFO, Scanner, Evidence, Intervention" }
+  else { foreach ($m in $missingHub) { Fail "[$route] missing hub link: $m" } }
+
+  $allowed = $vectorPages[$route]
+  $linked = [regex]::Matches($html, 'href="(/failure-modes/[^"]+)"') |
+    ForEach-Object { $_.Groups[1].Value } | Sort-Object -Unique
+  $extra = $linked | Where-Object { $allowed -notcontains $_ }
+  if (-not $extra) { Pass "[$route] links only to its own failure modes ($($linked.Count) routes)" }
+  else { foreach ($e in $extra) { Fail "[$route] links to failure mode outside its vector: $e" } }
+
+  $missingFm = $allowed | Where-Object { $html -notmatch [regex]::Escape("href=`"$_`"") }
+  if (-not $missingFm) { Pass "[$route] links to all $($allowed.Count) governed failure modes" }
+  else { foreach ($m in $missingFm) { Fail "[$route] missing failure mode link: $m" } }
+}
+
+$t2Sentence = 'Preference and intent are sub-signals inside T2, not separate transition vectors.'
+if ($pages.ContainsKey('/vectors/interest-to-desire/') -and
+    $pages['/vectors/interest-to-desire/'] -match [regex]::Escape($t2Sentence)) {
+  Pass "[/vectors/interest-to-desire/] carries the T2 sub-signals governing sentence"
+} else { Fail "[/vectors/interest-to-desire/] missing T2 sub-signals governing sentence" }
+
+$t4Sentence = 'AIDAtanaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence.'
+if ($pages.ContainsKey('/vectors/action-to-loyalty/') -and
+    $pages['/vectors/action-to-loyalty/'] -match [regex]::Escape($t4Sentence)) {
+  Pass "[/vectors/action-to-loyalty/] carries the T4 continuity governing sentence"
+} else { Fail "[/vectors/action-to-loyalty/] missing T4 continuity governing sentence" }
+
 # --- Summary --------------------------------------------------------------------------
 Write-Host ""
 Write-Host "=== Summary: $($passes.Count) passed, $($failures.Count) failed ==="
