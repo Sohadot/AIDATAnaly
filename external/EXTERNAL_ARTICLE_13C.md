@@ -41,7 +41,7 @@ They rarely measure whether people move.
 
 Almost every funnel report you have ever read is a census: impressions, sessions, leads, signups, orders, retained accounts. Each number tells you how many people currently occupy a stage. None of them tells you whether movement between stages is healthy, slowing, or quietly failing.
 
-That missing layer is the subject of this article, and it is why I built **AIDATAnaly — AIDA Transition Analytics**.
+That missing layer is the subject of this article, and it is why I built **[AIDATAnaly — AIDA Transition Analytics](https://aidatanaly.com/)**.
 
 ## The occupancy illusion
 
@@ -66,12 +66,12 @@ AIDA did not fail. It was missing a transition layer.
 
 ## Defining the category
 
-**AIDA Transition Analytics** is the discipline of measuring movement between AIDA states — treating the four transitions, not the five stages, as the primary unit of measurement:
+**[AIDA Transition Analytics](https://aidatanaly.com/aida-transition-analytics/)** is the discipline of measuring movement between AIDA states — treating the four transitions, not the five stages, as the primary unit of measurement:
 
-- **T1 — Attention → Interest** (Signal Conversion): did visibility become curiosity?
-- **T2 — Interest → Desire** (Intent Formation): did engagement crystallize into preference and intent?
-- **T3 — Desire → Action** (Conversion Friction): did formed desire survive the path to action?
-- **T4 — Action → Loyalty** (Retention Extension): did action become continuity?
+- **[T1 — Attention → Interest](https://aidatanaly.com/vectors/attention-to-interest/)** (Signal Conversion): did visibility become curiosity?
+- **[T2 — Interest → Desire](https://aidatanaly.com/vectors/interest-to-desire/)** (Intent Formation): did engagement crystallize into preference and intent?
+- **[T3 — Desire → Action](https://aidatanaly.com/vectors/desire-to-action/)** (Conversion Friction): did formed desire survive the path to action?
+- **[T4 — Action → Loyalty](https://aidatanaly.com/vectors/action-to-loyalty/)** (Retention Extension): did action become continuity?
 
 Under this lens, familiar funnel questions become answerable in a new form. "Why is conversion soft?" becomes "Which transition is weakening, and what class of failure is it?" A stalled pipeline stops being an atmosphere and starts being an address.
 
@@ -83,7 +83,7 @@ A category needs more than a definition. It needs a vocabulary for what goes wro
 
 Movement failures are not one thing. Attention that never becomes interest is a different failure from desire that dies at the payment page, and both differ from a customer who buys once and silently never returns. Treating them as one problem — "conversion" — guarantees that interventions are guesses.
 
-This is why AIDATAnaly maintains a governed taxonomy of movement failure modes (the Transition Failure Ontology), with each failure mode holding a stable identifier, a definition, and a permanent reference page. The point of that discipline is not academic tidiness. It is that **a named failure can be diagnosed, compared, and corrected; a felt failure can only be argued about.**
+This is why AIDATAnaly maintains a governed taxonomy of movement failure modes (the [Transition Failure Ontology](https://aidatanaly.com/transition-failure-ontology/)), with each failure mode holding a stable identifier, a definition, and a permanent reference page. The point of that discipline is not academic tidiness. It is that **a named failure can be diagnosed, compared, and corrected; a felt failure can only be argued about.**
 
 The difference in practice:
 
@@ -97,7 +97,9 @@ The second sentence points at an intervention. The first points at a meeting.
 
 Anyone can now generate a thousand pages about funnels in an afternoon. That is precisely why definitions are about to become scarce assets: when text is infinite, **stable meaning** is what runs out.
 
-AIDATAnaly is built on that premise. It is a governed reference system, which means: versioned definitions, restrained claims, stable canonical URLs, a published methodology, and a change-control record. It introduces the AIDA Transition Index (a governed standard for scoring transition health) and operates a rules-governed Transition Scanner — and it states plainly what it is not: not an adopted industry standard, not a guarantee of commercial outcomes, not a growth hack.
+AIDATAnaly is built on that premise. It is a governed reference system, which means: versioned definitions, restrained claims, stable canonical URLs, a published methodology, and a change-control record. It introduces the [AIDA Transition Index](https://aidatanaly.com/aida-transition-index/) (a governed standard for scoring transition health) and operates a rules-governed [Transition Scanner](https://aidatanaly.com/scanner/) — and it states plainly what it is not: not an adopted industry standard, not a guarantee of commercial outcomes, not a growth hack.
+
+Honesty about evidence is part of the same discipline. Every diagnosis in the system is qualified by [Evidence Confidence](https://aidatanaly.com/evidence-confidence/) — a separate statement of how much evidence actually supports a score. When the evidence is thin, the system says so instead of pretending precision. A measurement layer that cannot admit what it does not know is not a measurement layer; it is a rhetorical one.
 
 The same discipline serves a second audience. Increasingly, the reader of a reference page is not a person but an AI agent resolving a question on someone's behalf. Every definition in the system is therefore published for both readers — human-readable pages and machine-readable structured data — so that when a person or an agent asks *"what is AIDA Transition Analytics?"*, there is a stable, versioned, citable answer.
 
@@ -113,8 +115,14 @@ Stages are states. Value lives in transitions.
 
 **AIDATAnaly — AIDA Transition Analytics** is the governed reference system for that layer.
 
-Reference system: https://aidatanaly.com/
-Category definition: https://aidatanaly.com/aida-transition-analytics/
+**Reference pages:**
+
+- Reference system: https://aidatanaly.com/
+- Category definition: https://aidatanaly.com/aida-transition-analytics/
+- AIDA Transition Index (ATI): https://aidatanaly.com/aida-transition-index/
+- Transition Failure Ontology (TFO): https://aidatanaly.com/transition-failure-ontology/
+- Evidence Confidence: https://aidatanaly.com/evidence-confidence/
+- Transition Scanner: https://aidatanaly.com/scanner/
 
 *To cite: "AIDATAnaly — AIDA Transition Analytics", with the canonical URL of the page cited. Definitions are versioned; quote them exactly.*
 
@@ -127,6 +135,7 @@ Category definition: https://aidatanaly.com/aida-transition-analytics/
 - [ ] No verb use of AIDATAnaly
 - [ ] No "AI data analysis" framing
 - [ ] ATI/TFO named and linked only — no mechanics walkthrough (13E boundary respected)
+- [ ] Required link coverage present: category page, ATI, TFO, Evidence Confidence, Scanner, and all four T1–T4 vector pages (canonical URLs, first mention in body)
 - [ ] No guarantee, adoption, or causal-proof claims
 - [ ] Canonical links live; platform canonical set to `/aida-transition-analytics/` where supported
 - [ ] Citation form included
