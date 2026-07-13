@@ -323,6 +323,18 @@
 
 ---
 
+## Sprint 14A — Strategic Operator Brief
+
+| Field | Value |
+|-------|-------|
+| **Status** | Complete (ratified for enterprise-facing use) |
+| **Deliverable** | `external/STRATEGIC_OPERATOR_BRIEF.md` |
+| **Summary** | Enterprise risk-recognition brief built on a self-discovery path (know → gap → risk → question → layer → conditional value → bounded pilot). No revenue claims, no stack replacement framing; the only claim is conditional risk reduction ("fewer confidently wrong explanations"). Defines the bounded pilot shape: one funnel, exported data, one governed brief, one testable result (score vs. Evidence Confidence separation). Companion sequence declared: Data Mapping Reference → Synthetic Diagnostic Case → Pilot Brief. |
+| **Validators** | Full `quality-gate.ps1 -IndexedRelease` (brand and claims hygiene apply to the new document) |
+| **Notes** | Repository artifact only; public route form requires a separate route decision. |
+
+---
+
 ## Related Documents
 
 | Document | Role |
