@@ -506,6 +506,7 @@ if ($IndexedRelease) {
 }
 Write-Host ""
 
+$brandOk = Invoke-GovernedStep -Label 'Brand and evidence hygiene' -ScriptName 'validate-brand.ps1'
 $dataOk = Invoke-GovernedStep -Label 'Data' -ScriptName 'validate-data.ps1'
 $interfaceOk = Invoke-GovernedStep -Label 'Interface' -ScriptName 'validate-interface.ps1'
 $scannerOk = Invoke-GovernedStep -Label 'Scanner' -ScriptName 'validate-scanner.ps1'
@@ -530,6 +531,7 @@ if ($IndexedRelease) {
 $sitemapChecksOk = $sitemapOk -and ($metrics.SitemapUrlCount -eq 41)
 
 $stepResults = @{
+  Brand     = $brandOk
   Data      = $dataOk
   Interface = $interfaceOk
   Scanner   = $scannerOk
@@ -545,6 +547,7 @@ Write-Host ""
 Write-Host "=== Quality Gate Report ==="
 Write-Host ""
 Write-Host ("Quality Gate: {0}" -f (Format-StepResult $overallOk))
+Write-Host ("Brand: {0}" -f (Format-StepResult $stepResults.Brand))
 Write-Host ("Data: {0}" -f (Format-StepResult $stepResults.Data))
 Write-Host ("Interface: {0}" -f (Format-StepResult $stepResults.Interface))
 Write-Host ("Scanner: {0}" -f (Format-StepResult $stepResults.Scanner))
@@ -650,6 +653,7 @@ if ($ReleasePackage) {
   Write-Host ''
   Write-Host ("Release Package: {0}" -f (Format-StepResult $releasePackageOk))
   Write-Host ("Quality Gate: {0}" -f (Format-StepResult $overallOk))
+  Write-Host ("Brand: {0}" -f (Format-StepResult $stepResults.Brand))
   Write-Host ("Data: {0}" -f (Format-StepResult $stepResults.Data))
   Write-Host ("Interface: {0}" -f (Format-StepResult $stepResults.Interface))
   Write-Host ("Scanner: {0}" -f (Format-StepResult $stepResults.Scanner))

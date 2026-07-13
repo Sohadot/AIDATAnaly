@@ -42,7 +42,10 @@ Pass 'dist/ exists'
 $forbiddenDirs = @(
   'scripts',
   'preview',
-  (Join-Path 'governance' 'decisions')
+  'external',
+  (Join-Path 'governance' 'decisions'),
+  (Join-Path 'governance' 'policies'),
+  (Join-Path 'governance' 'audits')
 )
 foreach ($rel in $forbiddenDirs) {
   $path = Join-Path $distRoot $rel

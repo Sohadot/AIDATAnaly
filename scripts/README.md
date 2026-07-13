@@ -401,3 +401,31 @@ Manual editing of JSON-LD blocks is prohibited.
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -IndexedRelease
 ```
+
+## Sprint 13D — Repository Professionalization Pass
+
+Brand and evidence hygiene enforcement (BRAND-001). Governed by
+`governance/decisions/DECISION_BRAND_SPELLING_1_0_RATIFICATION.md` and
+`external/EXTERNAL_PUBLICATION_POLICY.md`.
+
+**New validator — `validate-brand.ps1`** (first step of the quality gate):
+
+- legacy brand spelling absent everywhere except the BRAND-001 decision log,
+- canonical spelling present in `README.md` and `llms.txt`,
+- canonical URLs remain lowercase (no re-cased brand URLs),
+- no social engagement metrics stored in the repository,
+- no social platform links stored without a governance decision,
+- required policies present (claim boundary, external publication policy).
+
+**validate-dist.ps1** — `external/`, `governance/policies/`, and
+`governance/audits/` added to the forbidden-in-dist directory list.
+
+**Structure:** external positioning material lives in `external/`;
+audit-class records live in `governance/audits/`; policies live in
+`governance/policies/`.
+
+**Standard gate after changes:**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -IndexedRelease
+```

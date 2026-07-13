@@ -311,6 +311,18 @@
 
 ---
 
+## Sprint 13D-3 — Professionalization Audit and Brand Validation
+
+| Field | Value |
+|-------|-------|
+| **Status** | PASS |
+| **Deliverables** | `scripts/validate-brand.ps1`, `governance/audits/REPOSITORY_PROFESSIONALIZATION_AUDIT.md` |
+| **Summary** | Brand and evidence hygiene validator added as the first quality-gate step: legacy spelling banned outside BRAND-001, canonical URL casing enforced, no engagement metrics, no ungoverned social links, required policies present. `validate-dist.ps1` now forbids `external/`, `governance/policies/`, and `governance/audits/` in the deployment package. Professionalization audit recorded with all checks PASS. |
+| **Validators** | Full `quality-gate.ps1 -IndexedRelease` — Brand PASS, all steps PASS |
+| **Notes** | Sprint 13D closed. Enforcement is automated on every future commit. |
+
+---
+
 ## Related Documents
 
 | Document | Role |
