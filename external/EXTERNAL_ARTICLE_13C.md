@@ -4,7 +4,7 @@
 
 **Document Class:** External publication draft (repository artifact — not a public website route)
 **Sprint:** 13C — Reference Article
-**Governed by:** `POSITIONING_BRIEF.md`, `EXTERNAL_POSTS_13B.md` (Name Binding Rules), `PUBLIC_RELEASE_PLAN.md` §13
+**Governed by:** `external/POSITIONING_BRIEF.md`, `external/EXTERNAL_POSTS_13B.md` (Name Binding Rules), `PUBLIC_RELEASE_PLAN.md` §13
 **Status:** Ready for operator review before publish
 **Date:** 2026-07-13
 **Primary link:** https://aidatanaly.com/
@@ -135,8 +135,8 @@ Category definition: https://aidatanaly.com/aida-transition-analytics/
 
 ## Post-publish actions
 
-1. Update the publication status register in `EXTERNAL_PUBLICATION_POLICY.md` §6 (status and period only — no URL, no engagement counts; detailed evidence stays in the operator's private records per that policy).
-2. If the platform provides a stable public URL that becomes materially relevant, its inclusion anywhere in the repository requires a governance decision first (`EXTERNAL_PUBLICATION_POLICY.md` §3).
+1. Update the publication status register in `external/EXTERNAL_PUBLICATION_POLICY.md` §6 (status and period only — no URL, no engagement counts; detailed evidence stays in the operator's private records per that policy).
+2. If the platform provides a stable public URL that becomes materially relevant, its inclusion anywhere in the repository requires a governance decision first (`external/EXTERNAL_PUBLICATION_POLICY.md` §3).
 
 ---
 
@@ -144,9 +144,9 @@ Category definition: https://aidatanaly.com/aida-transition-analytics/
 
 | Field | Value |
 |-------|-------|
-| **Deliverable** | `EXTERNAL_ARTICLE_13C.md` |
+| **Deliverable** | `external/EXTERNAL_ARTICLE_13C.md` |
 | **Code / interface / routes** | No changes |
-| **Operator action** | Review checklist → publish on long-form channel → update status register in `EXTERNAL_PUBLICATION_POLICY.md` |
+| **Operator action** | Review checklist → publish on long-form channel → update status register in `external/EXTERNAL_PUBLICATION_POLICY.md` |
 | **Next sprint** | 13D — mini diagnostic examples (light, governed) |
 
 ---

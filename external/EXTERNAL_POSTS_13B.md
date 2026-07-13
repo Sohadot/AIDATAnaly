@@ -4,7 +4,7 @@
 
 **Document Class:** External publication draft (repository artifact — not a public website route)  
 **Sprint:** 13B — Name-Category Binding Launch  
-**Governed by:** `POSITIONING_BRIEF.md`, `PUBLIC_RELEASE_PLAN.md` §13  
+**Governed by:** `external/POSITIONING_BRIEF.md`, `PUBLIC_RELEASE_PLAN.md` §13  
 **Status:** Ready for operator review before publish  
 **Date:** 2026-06-12  
 **Primary link:** https://aidatanaly.com/  
@@ -198,8 +198,8 @@ https://aidatanaly.com/aida-transition-analytics/
 
 | Sprint | Deliverable | Focus |
 |--------|-------------|-------|
-| **13A** | `POSITIONING_BRIEF.md` | Positioning control layer ✓ |
-| **13B** | `EXTERNAL_POSTS_13B.md` | Name–category binding launch (this document) ✓ |
+| **13A** | `external/POSITIONING_BRIEF.md` | Positioning control layer ✓ |
+| **13B** | `external/EXTERNAL_POSTS_13B.md` | Name–category binding launch (this document) ✓ |
 | **13C** | Reference article | *AIDA Transition Analytics: Why Stages Are Not Enough* |
 | **13D** | Mini diagnostic examples | Movement failure recognition (light, governed) |
 | **13E** | ATI / TFO authority layer | Depth after the gap and name are understood |
@@ -212,7 +212,7 @@ https://aidatanaly.com/aida-transition-analytics/
 
 | Field | Value |
 |-------|-------|
-| **Deliverable** | `EXTERNAL_POSTS_13B.md` |
+| **Deliverable** | `external/EXTERNAL_POSTS_13B.md` |
 | **Code / interface / routes** | No changes |
 | **Operator action** | Review checklists → publish LinkedIn → publish X thread |
 | **Next sprint** | 13C — reference article |

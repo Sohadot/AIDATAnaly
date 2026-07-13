@@ -415,7 +415,7 @@ Rollback may include:
 
 After release, a release report must be created:
 
-**`PUBLIC_RELEASE_REPORT.md`**
+**`governance/audits/PUBLIC_RELEASE_REPORT.md`**
 
 The report must include:
 

@@ -75,7 +75,7 @@ The following files must exist and pass validation:
 - `scripts/validate-interface.ps1`
 - `scripts/validate-scanner.ps1`
 - `scripts/validate-pages.ps1`
-- `PRIVATE_PREVIEW_REPORT.md`
+- `governance/audits/PRIVATE_PREVIEW_REPORT.md`
 - `sitemap.xml`
 - `robots.txt`
 
@@ -128,7 +128,7 @@ Repository-only artifacts include:
 - `governance/decisions/`,
 - `scripts/`,
 - `preview/`,
-- private reports (`PRIVATE_PREVIEW_REPORT.md`, `IMPLEMENTATION_LEDGER.md`, this plan until intentionally published),
+- private reports (`governance/audits/PRIVATE_PREVIEW_REPORT.md`, `IMPLEMENTATION_LEDGER.md`, this plan until intentionally published),
 - validation tooling,
 - `.gitkeep` files,
 - and implementation-only notes.
@@ -205,7 +205,7 @@ The release activation steps are:
 10. Verify deployment package contains only public artifacts.
 11. Deploy public package.
 12. Run post-deploy URL checks.
-13. Record final release result in `PUBLIC_RELEASE_REPORT.md`.
+13. Record final release result in `governance/audits/PUBLIC_RELEASE_REPORT.md`.
 
 **No step in this sequence may run before this plan is ratified.**
 
@@ -432,7 +432,7 @@ Rollback must favor trust preservation over speed.
 
 After release, create:
 
-**`PUBLIC_RELEASE_REPORT.md`**
+**`governance/audits/PUBLIC_RELEASE_REPORT.md`**
 
 It should include:
 
@@ -524,8 +524,8 @@ Implementation: `scripts/build-dist.ps1` builds `dist/`; `scripts/validate-dist.
 |----------|------|
 | `governance/decisions/` | **Why** a governing rule was ratified |
 | `IMPLEMENTATION_LEDGER.md` | **What** was built, sprint by sprint |
-| `PRIVATE_PREVIEW_REPORT.md` | **Whether** the system is ready for private preview |
+| `governance/audits/PRIVATE_PREVIEW_REPORT.md` | **Whether** the system is ready for private preview |
 | `PUBLIC_RELEASE_PLAN.md` | **How** public indexation may be activated |
-| `PUBLIC_RELEASE_REPORT.md` | **What happened** at indexed release (after Sprint 11) |
+| `governance/audits/PUBLIC_RELEASE_REPORT.md` | **What happened** at indexed release (after Sprint 11) |
 
 Sprint completion is recorded in the Implementation Ledger, not as individual decision logs.

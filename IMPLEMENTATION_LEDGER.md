@@ -155,9 +155,9 @@
 | **Status** | PASS |
 | **Commit** | `5c31254` |
 | **Date** | 2026-06-12 |
-| **Summary** | `PRIVATE_PREVIEW_REPORT.md`; `quality-gate.ps1 -PrivatePreview` (HTTP route review + three scanner scenarios). |
+| **Summary** | `governance/audits/PRIVATE_PREVIEW_REPORT.md`; `quality-gate.ps1 -PrivatePreview` (HTTP route review + three scanner scenarios). |
 | **Validators** | `quality-gate.ps1 -PrivatePreview` → Private Preview PASS, Blocking Issues 0 |
-| **Notes** | Site ready for private preview over local HTTP; not ready for public indexation. See `PRIVATE_PREVIEW_REPORT.md`. |
+| **Notes** | Site ready for private preview over local HTTP; not ready for public indexation. See `governance/audits/PRIVATE_PREVIEW_REPORT.md`. |
 
 ---
 
@@ -170,7 +170,7 @@
 | **Date** | 2026-06-12 |
 | **Summary** | Indexation activated on 41 routes; robots Allow + Sitemap; final gate PASS; `dist/` deployed to `gh-pages`. |
 | **Validators** | `quality-gate.ps1 -IndexedRelease` — all checks PASS, Public Noindex 0 |
-| **Notes** | `PUBLIC_RELEASE_REPORT.md` records deployment; custom domain/Pages propagation pending operator verification. |
+| **Notes** | `governance/audits/PUBLIC_RELEASE_REPORT.md` records deployment; custom domain/Pages propagation pending operator verification. |
 
 ---
 
@@ -217,7 +217,7 @@
 | **Status** | PASS |
 | **Commit** | `2eaa77f` |
 | **Result** | Interface rhythm, scanner result map, failure lens, and homepage conceptual hierarchy refined after public release. |
-| **Live QA** | `LIVE_VISUAL_QA_REPORT.md` — PASS (2026-06-12) |
+| **Live QA** | `governance/audits/LIVE_VISUAL_QA_REPORT.md` — PASS (2026-06-12) |
 
 ---
 
@@ -226,7 +226,7 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Complete |
-| **Deliverable** | `POSITIONING_BRIEF.md` |
+| **Deliverable** | `external/POSITIONING_BRIEF.md` |
 | **Summary** | External positioning control layer; governs all outbound category communication. No code or route changes. |
 | **Next** | Sprint 13B — Name-Category Binding Launch |
 
@@ -237,7 +237,7 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Complete (draft ready for operator publish) |
-| **Deliverable** | `EXTERNAL_POSTS_13B.md` |
+| **Deliverable** | `external/EXTERNAL_POSTS_13B.md` |
 | **Summary** | Name–category binding rules + LinkedIn + X copy; first mention always **AIDATAnaly — AIDA Transition Analytics**; no verb use; gap-first hook. |
 | **Next** | Sprint 13C — reference article: *Why Stages Are Not Enough* |
 
@@ -248,7 +248,7 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Recorded |
-| **Deliverable** | `INEVITABILITY_AUDIT.md` |
+| **Deliverable** | `governance/audits/INEVITABILITY_AUDIT.md` |
 | **Summary** | Layer-by-layer maturity audit: structural layers 1–9 complete; evidence layers 10–13 open. Verdict: structurally inevitable, not yet market inevitable. Five inevitability criteria (C1–C5) and gap register (G1–G5) defined. Repository privacy audit PASS — no private information or figures present; standing disclosure rule recorded. No code or route changes. |
 | **Next** | Sprint 13C — reference article, then agent-readability layer, then Phase 5.1 first paid instrument |
 
@@ -259,9 +259,9 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Active (operator fields pending: post URL, interaction snapshot) |
-| **Deliverable** | `EXTERNAL_PUBLICATION_LOG.md` — *superseded in Sprint 13D-1 by `EXTERNAL_PUBLICATION_POLICY.md`* |
-| **Summary** | Append-only external activation record established. EPL-001 (LinkedIn launch) recorded as Published with governed fields: opening hook, name-category binding, dated interaction snapshot. G1 transitions from "unpublished" to "external activation begun". Public platform counts only — no private data (per `INEVITABILITY_AUDIT.md` §6). |
-| **Next** | Superseded: detailed evidence moved to private operator records; repository keeps the high-level status register in `EXTERNAL_PUBLICATION_POLICY.md` §6 |
+| **Deliverable** | `EXTERNAL_PUBLICATION_LOG.md` — *superseded in Sprint 13D-1 by `external/EXTERNAL_PUBLICATION_POLICY.md`* |
+| **Summary** | Append-only external activation record established. EPL-001 (LinkedIn launch) recorded as Published with governed fields: opening hook, name-category binding, dated interaction snapshot. G1 transitions from "unpublished" to "external activation begun". Public platform counts only — no private data (per `governance/audits/INEVITABILITY_AUDIT.md` §6). |
+| **Next** | Superseded: detailed evidence moved to private operator records; repository keeps the high-level status register in `external/EXTERNAL_PUBLICATION_POLICY.md` §6 |
 
 ---
 
@@ -282,8 +282,8 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Complete (draft ready for operator publish) |
-| **Deliverable** | `EXTERNAL_ARTICLE_13C.md` |
-| **Summary** | Category-definition article *AIDA Transition Analytics: Why Stages Are Not Enough*. Three functions: explain the gap, establish the category, make AIDATAnaly citable. Stays at category depth (ATI/TFO named and linked only — 13E boundary). Publish sequence: after the X thread. Post-publish: update the status register in `EXTERNAL_PUBLICATION_POLICY.md` §6. |
+| **Deliverable** | `external/EXTERNAL_ARTICLE_13C.md` |
+| **Summary** | Category-definition article *AIDA Transition Analytics: Why Stages Are Not Enough*. Three functions: explain the gap, establish the category, make AIDATAnaly citable. Stays at category depth (ATI/TFO named and linked only — 13E boundary). Publish sequence: after the X thread. Post-publish: update the status register in `external/EXTERNAL_PUBLICATION_POLICY.md` §6. |
 | **Next** | Operator publishes X thread (12–24h after LinkedIn), then article; Sprint 13D — repository professionalization pass |
 
 ---
@@ -294,9 +294,20 @@
 |-------|-------|
 | **Status** | PASS |
 | **Decision** | BRAND-001 — `governance/decisions/DECISION_BRAND_SPELLING_1_0_RATIFICATION.md` |
-| **Summary** | Canonical brand spelling normalized across the entire repository (593 occurrences: documents, pages, data registries, scripts, structured data); canonical domain URL remains lowercase `https://aidatanaly.com/`, untouched. `EXTERNAL_PUBLICATION_LOG.md` superseded by `EXTERNAL_PUBLICATION_POLICY.md` — detailed publication evidence (URLs, engagement) moved to private operator records; repository keeps a high-level status register only. Central claim boundary established at `governance/policies/CLAIM_BOUNDARY.md`. JSON-LD regenerated from normalized sources. |
+| **Summary** | Canonical brand spelling normalized across the entire repository (593 occurrences: documents, pages, data registries, scripts, structured data); canonical domain URL remains lowercase `https://aidatanaly.com/`, untouched. `EXTERNAL_PUBLICATION_LOG.md` superseded by `external/EXTERNAL_PUBLICATION_POLICY.md` — detailed publication evidence (URLs, engagement) moved to private operator records; repository keeps a high-level status register only. Central claim boundary established at `governance/policies/CLAIM_BOUNDARY.md`. JSON-LD regenerated from normalized sources. |
 | **Validators** | Full `quality-gate.ps1 -IndexedRelease` |
 | **Notes** | No route, scoring, or ontology-ID changes (system IDs are lowercase identifiers, unaffected by brand casing). |
+
+---
+
+## Sprint 13D-2 — Repository Structure Cleanup
+
+| Field | Value |
+|-------|-------|
+| **Status** | PASS |
+| **Summary** | External positioning material moved to `external/` (positioning brief, 13B posts, 13C article, publication policy). Audit-class records moved to `governance/audits/` (inevitability audit, private preview report, public release report, live visual QA report). All cross-references updated repository-wide. Root now carries doctrine, plan, ledger, and README only. Professional README written: what this is / is not, core layers, public routes, governance, deployment, claim boundaries. |
+| **Validators** | Full `quality-gate.ps1 -IndexedRelease` |
+| **Notes** | No route, page, or deployment-package changes; moved directories never enter `dist/`. |
 
 ---
 
@@ -305,13 +316,13 @@
 | Document | Role |
 |----------|------|
 | `governance/decisions/` | Governing ratification decisions |
-| `PRIVATE_PREVIEW_REPORT.md` | Private preview validation report |
+| `governance/audits/PRIVATE_PREVIEW_REPORT.md` | Private preview validation report |
 | `PUBLIC_RELEASE_PLAN.md` | Indexed release activation plan (PUB-REL-001 ratified) |
-| `PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
-| `LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
-| `POSITIONING_BRIEF.md` | External positioning control layer (Sprint 13A) |
-| `EXTERNAL_POSTS_13B.md` | Name–category binding launch copy (Sprint 13B) |
-| `INEVITABILITY_AUDIT.md` | Strategic inevitability audit and privacy audit (2026-07-13) |
+| `governance/audits/PUBLIC_RELEASE_REPORT.md` | Post-release record (Phase 2 activation) |
+| `governance/audits/LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
+| `external/POSITIONING_BRIEF.md` | External positioning control layer (Sprint 13A) |
+| `external/EXTERNAL_POSTS_13B.md` | Name–category binding launch copy (Sprint 13B) |
+| `governance/audits/INEVITABILITY_AUDIT.md` | Strategic inevitability audit and privacy audit (2026-07-13) |
 
 ---
 

@@ -10,7 +10,7 @@
 **Status:** Ratified
 **Ratified by:** Sohadot — System Operator
 **Date:** 2026-07-13
-**Fulfils:** `ASSET_THESIS.md` §19 (Agent-Readability Commitment); closes gap G4 of `INEVITABILITY_AUDIT.md`
+**Fulfils:** `ASSET_THESIS.md` §19 (Agent-Readability Commitment); closes gap G4 of `governance/audits/INEVITABILITY_AUDIT.md`
 
 ---
 
@@ -83,7 +83,7 @@ The asset is now legible to AI agents through three governed surfaces:
 
 ## 4. Inevitability Audit Linkage
 
-This decision closes **G4** (agent-readability partial) of `INEVITABILITY_AUDIT.md` and directly serves criterion **C2** (agent resolution). Evidence of agent resolution remains to be observed and recorded; the capability is now in place.
+This decision closes **G4** (agent-readability partial) of `governance/audits/INEVITABILITY_AUDIT.md` and directly serves criterion **C2** (agent resolution). Evidence of agent resolution remains to be observed and recorded; the capability is now in place.
 
 ---
 

@@ -278,8 +278,8 @@ Produce **in this order** after this brief is ratified. Do not skip to social co
 
 | Order | Asset | Working title / form | Status |
 |-------|-------|----------------------|--------|
-| **0** | `POSITIONING_BRIEF.md` | Control layer | **Complete — Sprint 13A** |
-| **1** | `EXTERNAL_POSTS_13B.md` | Name–category binding + LinkedIn + X | **Complete — Sprint 13B** |
+| **0** | `external/POSITIONING_BRIEF.md` | Control layer | **Complete — Sprint 13A** |
+| **1** | `external/EXTERNAL_POSTS_13B.md` | Name–category binding + LinkedIn + X | **Complete — Sprint 13B** |
 | **2** | Reference article | *AIDA Transition Analytics: Why Stages Are Not Enough* | Pending — Sprint 13C |
 | **3** | Mini diagnostic examples | Movement failure recognition | Pending — Sprint 13D |
 | **4** | ATI / TFO authority layer | Depth after name bind | Pending — Sprint 13E |
@@ -295,7 +295,7 @@ Stages describe position. Transitions describe value creation and destruction. F
 
 | Field | Value |
 |-------|-------|
-| **Deliverable** | `POSITIONING_BRIEF.md` |
+| **Deliverable** | `external/POSITIONING_BRIEF.md` |
 | **Code / interface / routes** | No changes |
 | **Next sprint** | 13C — reference article (*Why Stages Are Not Enough*) |
 

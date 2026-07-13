@@ -173,7 +173,7 @@ Decorative meaning-free UI: NO (PASS)
 
 **Decision:** Live Visual QA **PASS**. The public interface at commit `2eaa77f` is visually and conceptually coherent for indexed release. **Do not open a new UI sprint** (no Sprint 12G interface work).
 
-**Next phase:** External Positioning Layer — begin with governance/positioning artifacts (`POSITIONING_BRIEF.md`, channel copy, launch announcement, first reference article on AIDA Transition Analytics). Not a code sprint.
+**Next phase:** External Positioning Layer — begin with governance/positioning artifacts (`external/POSITIONING_BRIEF.md`, channel copy, launch announcement, first reference article on AIDA Transition Analytics). Not a code sprint.
 
 ---
 

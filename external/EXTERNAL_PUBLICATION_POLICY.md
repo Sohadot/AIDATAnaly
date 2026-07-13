@@ -4,7 +4,7 @@
 
 **Document Class:** Governance Policy — External Evidence
 **Asset:** AIDATAnaly.com
-**Governed by:** `POSITIONING_BRIEF.md` (Sprint 13A), `INEVITABILITY_AUDIT.md` §6 (privacy rule)
+**Governed by:** `external/POSITIONING_BRIEF.md` (Sprint 13A), `governance/audits/INEVITABILITY_AUDIT.md` §6 (privacy rule)
 **Status:** Ratified — supersedes the former external publication log
 **Version:** 2.0
 **Date:** 2026-07-13
@@ -39,7 +39,7 @@ External publication evidence — post URLs, engagement counts, screenshots, ana
 
 ## 4. Publication Rules (Unchanged in Substance)
 
-1. **Positioning compliance.** Every external publication must conform to `POSITIONING_BRIEF.md` before it goes live: first mention is always **AIDATAnaly — AIDA Transition Analytics**; the name is never used as a verb; gap-first hook.
+1. **Positioning compliance.** Every external publication must conform to `external/POSITIONING_BRIEF.md` before it goes live: first mention is always **AIDATAnaly — AIDA Transition Analytics**; the name is never used as a verb; gap-first hook.
 2. **Claims restraint.** All external copy is bound by `governance/policies/CLAIM_BOUNDARY.md`.
 3. **High-level status only.** After a publication goes live, the operator updates the status register below — status and period only, no URLs, no counts.
 4. **Private evidence file.** Detailed evidence (URLs, dated interaction snapshots, screenshots) lives in the operator's private records and is available to a qualified acquirer under disclosure, not in this repository.
@@ -54,9 +54,9 @@ Public **site** assets are the only images that belong in this repository. Socia
 
 | Publication | Channel | Copy source | Status |
 |-------------|---------|-------------|--------|
-| Name-category binding launch | LinkedIn | `EXTERNAL_POSTS_13B.md` | **Published** (2026-07) |
-| Name-category binding thread | X | `EXTERNAL_POSTS_13B.md` | Planned |
-| Reference article — *Why Stages Are Not Enough* | Long-form channel | `EXTERNAL_ARTICLE_13C.md` | Draft ready |
+| Name-category binding launch | LinkedIn | `external/EXTERNAL_POSTS_13B.md` | **Published** (2026-07) |
+| Name-category binding thread | X | `external/EXTERNAL_POSTS_13B.md` | Planned |
+| Reference article — *Why Stages Are Not Enough* | Long-form channel | `external/EXTERNAL_ARTICLE_13C.md` | Draft ready |
 
 ---
 

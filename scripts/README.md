@@ -257,7 +257,7 @@ public indexed release.
 Sprint 10 validates the **full system experience** before any public release decision.
 It does not remove `noindex`, change `robots.txt`, activate `Sitemap:`, or add analytics.
 
-Documented in: `PRIVATE_PREVIEW_REPORT.md` (Status: Draft Review).
+Documented in: `governance/audits/PRIVATE_PREVIEW_REPORT.md` (Status: Draft Review).
 
 Run the full private preview gate:
 

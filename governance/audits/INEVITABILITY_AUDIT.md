@@ -34,7 +34,7 @@ Scored against the thirteen-layer Category Intelligence Factory model defined in
 | # | Layer | State | Evidence |
 |---|-------|-------|----------|
 | 1 | Domain thesis | **COMPLETE** | `ASSET_THESIS.md` ratified; name structurally encodes the category (AIDA + T + Analy) |
-| 2 | Category language | **COMPLETE** | Governed vocabulary table; enforced across doctrine, routes, scanner output, external copy (`POSITIONING_BRIEF.md`) |
+| 2 | Category language | **COMPLETE** | Governed vocabulary table; enforced across doctrine, routes, scanner output, external copy (`external/POSITIONING_BRIEF.md`) |
 | 3 | Ontology | **COMPLETE** | TFO ratified (`TFO_ONTOLOGY.md`); 22 canonical failure-mode dossiers live with stable IDs and canonical URLs |
 | 4 | Standard | **COMPLETE** | ATI ratified (`ATI_STANDARD.md` v1.1); Evidence Confidence separation decided and logged |
 | 5 | Protocol | **COMPLETE** | ATI Assessment Protocol defined; scanner enforces Partial Profile and Unscorable rules |
@@ -158,7 +158,7 @@ Recorded after the original audit, per the append-only correction convention. Th
 |-------|-------|
 | **Previous status** | Zero external footprint (unpublished) |
 | **Current status** | **EXTERNAL ACTIVATION BEGUN** |
-| **Evidence** | LinkedIn launch published with governed name-category binding — status recorded at policy level in `EXTERNAL_PUBLICATION_POLICY.md` §6; detailed publication evidence maintained privately by the operator per that policy |
+| **Evidence** | LinkedIn launch published with governed name-category binding — status recorded at policy level in `external/EXTERNAL_PUBLICATION_POLICY.md` §6; detailed publication evidence maintained privately by the operator per that policy |
 | **Remaining** | X thread, Sprint 13C reference article, then accumulation toward C1/C3 |
 
 Gaps G2 (revenue instrument), G3 (buyer surface), and G5 (measurement evidence) remain open. The inevitability criteria in §5 are unchanged.
