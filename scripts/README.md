@@ -369,3 +369,35 @@ powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -IndexedReleas
 ```
 
 **Deploy:** `git push origin main` → GitHub Actions (no `gh-pages`).
+
+## Sprint 14 — Agent-Readability Layer (AGENT-READ-001)
+
+Every governed launch route carries exactly one JSON-LD structured-data block,
+generated from the governed registries. `llms.txt` at the repository root is a
+required deployment artifact. Governed by
+`governance/decisions/DECISION_AGENT_READABILITY_LAYER_1_0_RATIFICATION.md`.
+
+**Regenerate JSON-LD** (required after any change to `/data/*.json`, page
+titles, meta descriptions, or canonical URLs; idempotent — replaces existing
+blocks, never duplicates):
+
+```bash
+python3 scripts/inject-jsonld.py
+```
+
+Manual editing of JSON-LD blocks is prohibited.
+
+**Validator changes:**
+
+- `validate-pages.ps1` — every page must carry exactly one JSON-LD block that
+  parses as valid JSON and declares the `https://schema.org` context. The
+  no-JS check strips the JSON-LD block first; executable scripts remain
+  prohibited everywhere except the governed local `scanner.js` on `/scanner/`.
+- `validate-dist.ps1` — `llms.txt` added to required deployment artifacts.
+- `build-dist.ps1` — copies `llms.txt` into `dist/`.
+
+**Standard gate after changes:**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/quality-gate.ps1 -IndexedRelease
+```

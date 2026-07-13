@@ -83,17 +83,36 @@ foreach ($route in ($pages.Keys | Sort-Object)) {
     Fail "$label does not link /assets/css/main.css"; $pageOk = $false
   }
 
-  # readable without JavaScript (scanner page may use local enhancement script only)
-  if ($html -match '<script') {
+  # structured data (AGENT-READ-001): exactly one valid JSON-LD block per page
+  $jsonLdPattern = '(?s)<script type="application/ld\+json">.*?</script>'
+  $jsonLdMatches = [regex]::Matches($html, $jsonLdPattern)
+  if ($jsonLdMatches.Count -ne 1) {
+    Fail "$label must carry exactly one JSON-LD block (AGENT-READ-001); found $($jsonLdMatches.Count)"; $pageOk = $false
+  } else {
+    $jsonLdRaw = $jsonLdMatches[0].Value -replace '(?s)^<script[^>]*>', '' -replace '(?s)</script>$', ''
+    try {
+      $null = $jsonLdRaw | ConvertFrom-Json
+      if ($jsonLdRaw -notmatch 'https://schema\.org') {
+        Fail "$label JSON-LD missing schema.org context"; $pageOk = $false
+      }
+    } catch {
+      Fail "$label JSON-LD block is not valid JSON"; $pageOk = $false
+    }
+  }
+
+  # readable without JavaScript (scanner page may use local enhancement script only;
+  # the JSON-LD block is inert structured data and is stripped before this check per AGENT-READ-001)
+  $htmlNoJsonLd = [regex]::Replace($html, $jsonLdPattern, '')
+  if ($htmlNoJsonLd -match '<script') {
     if ($route -eq '/scanner/') {
-      if ($html -match '<script\s+src="/assets/js/scanner\.js"\s*></script>' -and
-          ($html -replace '<script\s+src="/assets/js/scanner\.js"\s*></script>', '') -notmatch '<script') {
+      if ($htmlNoJsonLd -match '<script\s+src="/assets/js/scanner\.js"\s*></script>' -and
+          ($htmlNoJsonLd -replace '<script\s+src="/assets/js/scanner\.js"\s*></script>', '') -notmatch '<script') {
         # governed local scanner script only
       } else {
         Fail "$label must use only /assets/js/scanner.js (no inline or external scripts)"; $pageOk = $false
       }
     } else {
-      Fail "$label contains <script>; reference pages must not require JS"; $pageOk = $false
+      Fail "$label contains executable <script>; reference pages must not require JS"; $pageOk = $false
     }
   }
 
@@ -623,8 +642,9 @@ if ($pages.ContainsKey('/terms/')) {
 $trustRoutes = @('/methodology/', '/governance/', '/sources/', '/reports/ati-snapshot/', '/privacy/', '/terms/')
 foreach ($r in $trustRoutes) {
   if (-not $pages.ContainsKey($r)) { continue }
-  if ($pages[$r] -notmatch '<script') { Pass "[$r] no JavaScript required" }
-  else { Fail "[$r] contains script tags; trust pages must not require JS" }
+  $trustHtml = [regex]::Replace($pages[$r], '(?s)<script type="application/ld\+json">.*?</script>', '')
+  if ($trustHtml -notmatch '<script') { Pass "[$r] no executable JavaScript (JSON-LD structured data permitted per AGENT-READ-001)" }
+  else { Fail "[$r] contains executable script tags; trust pages must not require JS" }
 }
 
 # --- Broken internal links among implemented pages -----------------------------------

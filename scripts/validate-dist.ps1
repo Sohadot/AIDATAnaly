@@ -67,6 +67,7 @@ $requiredTop = @(
   'index.html',
   'sitemap.xml',
   'robots.txt',
+  'llms.txt',
   'assets/css/main.css',
   'assets/css/failure-lens.css',
   'assets/js/scanner.js',

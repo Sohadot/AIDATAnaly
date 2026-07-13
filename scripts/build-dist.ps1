@@ -105,6 +105,7 @@ Copy-PublicFile -SourceFile (Join-Path $root 'governance\index.html') -DestFile 
 
 Copy-PublicFile -SourceFile (Join-Path $root 'sitemap.xml') -DestFile (Join-Path $distRoot 'sitemap.xml')
 Copy-PublicFile -SourceFile (Join-Path $root 'robots.txt') -DestFile (Join-Path $distRoot 'robots.txt')
+Copy-PublicFile -SourceFile (Join-Path $root 'llms.txt') -DestFile (Join-Path $distRoot 'llms.txt')
 
 $launchRoutes = Get-LaunchRoutes (Join-Path $root 'ROUTE_MAP.md')
 $pageRoutes = @($launchRoutes | Where-Object { $_ -notmatch '\.json$' })

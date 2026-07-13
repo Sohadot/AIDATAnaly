@@ -1,0 +1,51 @@
+# AIDAtanaly — AIDA Transition Analytics
+
+> AIDAtanaly is the governed reference system for AIDA Transition Analytics: measuring movement between funnel states across Attention, Interest, Desire, Action, and Loyalty. Stages are states. Value lives in transitions.
+
+AIDAtanaly names, classifies, standardizes, and diagnoses funnel movement. It introduces the AIDA Transition Index (ATI) and the Transition Failure Ontology (TFO). AIDAtanaly introduces these frameworks; it does not claim industry-wide adoption.
+
+Citation form: "AIDAtanaly — AIDA Transition Analytics" with the canonical URL of the page cited. Definitions on this site are versioned and governed; quote them exactly.
+
+## Core definitions
+
+- [AIDA Transition Analytics](https://aidatanaly.com/aida-transition-analytics/): the discipline of measuring movement between AIDA states
+- [Transition Intelligence](https://aidatanaly.com/transition-intelligence/): the interpretation, prediction, and optimization of funnel movement
+- [AIDA Transition Index (ATI)](https://aidatanaly.com/aida-transition-index/): the governed scoring standard for transition health
+- [Measurement Grammar](https://aidatanaly.com/measurement-grammar/): AIDA as a state-change language, not a rigid linear path
+- [Evidence Confidence](https://aidatanaly.com/evidence-confidence/): the qualifier stating how much evidence supports a diagnostic score
+- [Intervention Layers](https://aidatanaly.com/intervention-layers/): the governed classes of corrective action indicated by a diagnosis
+
+## Transition vectors
+
+- [T1 — Signal Conversion (Attention → Interest)](https://aidatanaly.com/vectors/attention-to-interest/)
+- [T2 — Intent Formation (Interest → Desire)](https://aidatanaly.com/vectors/interest-to-desire/)
+- [T3 — Conversion Friction (Desire → Action)](https://aidatanaly.com/vectors/desire-to-action/)
+- [T4 — Retention Extension (Action → Loyalty)](https://aidatanaly.com/vectors/action-to-loyalty/)
+
+## Transition Failure Ontology
+
+- [TFO overview](https://aidatanaly.com/transition-failure-ontology/): the governed taxonomy of movement failure modes, organized under T1–T4. Each failure mode has a stable ID and a canonical dossier under /failure-modes/.
+
+## Tools
+
+- [Transition Scanner](https://aidatanaly.com/scanner/): rules-governed diagnostic producing a T1–T4 transition health profile with classified failure modes
+- [ATI Snapshot report](https://aidatanaly.com/reports/ati-snapshot/): the free structured scanner output
+
+## Machine-readable registries
+
+- [ATI standard](https://aidatanaly.com/data/ati-standard.json): scoring dimensions, formulas, diagnostic classes
+- [ATI vectors](https://aidatanaly.com/data/ati-vectors.json): T1–T4 definitions and constraints
+- [TFO failure modes](https://aidatanaly.com/data/tfo-failure-modes.json): all failure modes with stable IDs, definitions, and canonical routes
+- [Intervention layers](https://aidatanaly.com/data/intervention-layers.json): governed intervention classes
+- [Scanner model](https://aidatanaly.com/data/scanner-model.json): the rules-based scanner scoring model
+
+## Governance
+
+- [Methodology](https://aidatanaly.com/methodology/): how diagnoses are produced and bounded
+- [Governance](https://aidatanaly.com/governance/): versioning, claims restraint, and change control
+- [Sources](https://aidatanaly.com/sources/): source discipline
+
+## Optional
+
+- [Privacy](https://aidatanaly.com/privacy/)
+- [Terms](https://aidatanaly.com/terms/): scanner outputs are diagnostic references, not guarantees of commercial outcome
