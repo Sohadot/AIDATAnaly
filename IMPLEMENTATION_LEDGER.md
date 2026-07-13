@@ -277,6 +277,17 @@
 
 ---
 
+## Sprint 13C — Reference Article Draft
+
+| Field | Value |
+|-------|-------|
+| **Status** | Complete (draft ready for operator publish) |
+| **Deliverable** | `EXTERNAL_ARTICLE_13C.md` |
+| **Summary** | Category-definition article *AIDA Transition Analytics: Why Stages Are Not Enough*. Three functions: explain the gap, establish the category, make AIDAtanaly citable. Stays at category depth (ATI/TFO named and linked only — 13E boundary). Publish sequence: after EPL-002 (X thread). Post-publish: record EPL-003. |
+| **Next** | Operator publishes X thread (EPL-002, 12–24h after LinkedIn), then article (EPL-003); Sprint 13D — mini diagnostic examples |
+
+---
+
 ## Related Documents
 
 | Document | Role |
