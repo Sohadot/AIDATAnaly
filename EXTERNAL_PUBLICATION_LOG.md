@@ -40,16 +40,18 @@ An unrecorded publication does not exist for governance purposes. A recorded pub
 | **Channel** | LinkedIn |
 | **Entry recorded** | 2026-07-13 |
 | **Copy source** | `EXTERNAL_POSTS_13B.md` (LinkedIn launch post) |
-| **URL** | *Operator entry pending — paste the public post URL* |
+| **URL** | *Operator paste-point — this is the only field the operator must fill; no substitute value is permitted* |
 | **Opening** | "Funnels count where people are." |
 | **Name binding** | AIDAtanaly — AIDA Transition Analytics |
 | **Positioning compliance** | Conforms to `POSITIONING_BRIEF.md` (name-first binding, no verb use, gap-first hook) |
 
-**Early interaction (dated snapshot — operator entry pending):**
+**Early interaction (dated snapshot):**
 
-| Snapshot date | Reactions | Comments | Impressions |
-|---------------|-----------|----------|-------------|
-| *pending* | *pending* | *pending* | *pending* |
+Initial public interaction recorded from the LinkedIn post interface on 2026-07-13. Interaction is present across reactions, comments, and impressions; per log rule 3, only platform-public counts may be transcribed here, and per governance preference, volatile early figures are recorded as a dated observation rather than rolling numbers. A consolidated public snapshot may be appended once interaction stabilizes.
+
+| Snapshot date | Observation |
+|---------------|-------------|
+| 2026-07-13 | Initial public interaction recorded from LinkedIn post interface |
 
 **Governance effect:** G1 transitions from "unpublished" to **"external activation begun."** This does not complete market inevitability; it starts the accumulation that criteria C1 and C3 require.
 
