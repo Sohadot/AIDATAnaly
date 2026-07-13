@@ -335,6 +335,18 @@
 
 ---
 
+## Sprint 14B — First Operator Path
+
+| Field | Value |
+|-------|-------|
+| **Status** | Ratified (execution milestones pending — see document §6) |
+| **Deliverable** | `external/FIRST_OPERATOR_PATH.md` |
+| **Summary** | Channel strategy reframed: first target is the first intelligent intermediary operator (CRO consultant / growth agency / funnel-audit consultant), not an enterprise. Defines operator selection criteria and disqualifiers, the bounded founding pilot offer (no system access, one funnel, one governed brief), the operator's yes-calculus, the First Brief Excellence Standard (7 gates), outreach discipline (content first, one operator at a time), and status-level evidence handling. Governing question codified: "Does this make rejection costly when it reaches the right person?" |
+| **Validators** | Full `quality-gate.ps1 -IndexedRelease` |
+| **Notes** | No client names, pricing figures, or engagement details may enter the repository (per external evidence policy). Enterprise path unchanged; this path feeds it. |
+
+---
+
 ## Related Documents
 
 | Document | Role |
