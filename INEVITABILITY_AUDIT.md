@@ -136,4 +136,31 @@ The work remaining is not construction. It is activation, evidence, and accumula
 
 **Structurally inevitable: yes. Market inevitable: not yet — and the path is defined above.**
 
+---
+
+## Addendum A — Gap Status Update (2026-07-13)
+
+Recorded after the original audit, per the append-only correction convention. The original sections above are preserved unchanged; this addendum is the current gap state of record.
+
+### G4 — Agent-Readability Layer
+
+| Field | Value |
+|-------|-------|
+| **Previous status** | Open |
+| **Current status** | **CLOSED** |
+| **Decision** | AGENT-READ-001 — `governance/decisions/DECISION_AGENT_READABILITY_LAYER_1_0_RATIFICATION.md` |
+| **Evidence** | Governed JSON-LD structured data across all 41 launch routes; `llms.txt` as required deployment artifact; sole authorized generator `scripts/inject-jsonld.py`; JSON-LD validation added to the quality gate; deployed live via commit `a0040c3` (Pages workflow run #8, success) |
+| **Criterion served** | C2 (agent resolution) — capability in place; resolution evidence remains to be observed and recorded |
+
+### G1 — External Footprint
+
+| Field | Value |
+|-------|-------|
+| **Previous status** | Zero external footprint (unpublished) |
+| **Current status** | **EXTERNAL ACTIVATION BEGUN** |
+| **Evidence** | `EXTERNAL_PUBLICATION_LOG.md` EPL-001 — LinkedIn launch published with governed name-category binding; dated initial-interaction observation recorded 2026-07-13 |
+| **Remaining** | EPL-002 (X thread), EPL-003 (Sprint 13C reference article), then accumulation toward C1/C3 |
+
+Gaps G2 (revenue instrument), G3 (buyer surface), and G5 (measurement evidence) remain open. The inevitability criteria in §5 are unchanged.
+
 *AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.*
