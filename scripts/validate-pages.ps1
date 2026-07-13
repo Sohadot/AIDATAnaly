@@ -16,7 +16,7 @@ $passes = @()
 function Pass([string]$msg) { $script:passes += $msg; Write-Host "  PASS  $msg" }
 function Fail([string]$msg) { $script:failures += $msg; Write-Host "  FAIL  $msg" }
 
-Write-Host "=== AIDAtanaly Public Page Validation ==="
+Write-Host "=== AIDATAnaly Public Page Validation ==="
 
 # --- Launch route set from ROUTE_MAP.md --------------------------------------
 $routeMapLines = Get-Content -Encoding UTF8 -Path (Join-Path $root 'ROUTE_MAP.md')
@@ -206,9 +206,9 @@ if ($pages.ContainsKey('/')) {
     Pass "[/] carries transition-analytics hook: Funnels count where people are."
   } else { Fail "[/] missing homepage hook: Funnels count where people are." }
 
-  if ($homeHtml -match 'AIDAtanaly measures whether they move\.') {
-    Pass "[/] carries transition-analytics hook: AIDAtanaly measures whether they move."
-  } else { Fail "[/] missing homepage hook: AIDAtanaly measures whether they move." }
+  if ($homeHtml -match 'AIDATAnaly measures whether they move\.') {
+    Pass "[/] carries transition-analytics hook: AIDATAnaly measures whether they move."
+  } else { Fail "[/] missing homepage hook: AIDATAnaly measures whether they move." }
 
   if ($homeHtml -match 'Stages are states\.' -and $homeHtml -match 'Value lives in transitions\.') {
     Pass "[/] retains central doctrine: Stages are states. Value lives in transitions."
@@ -305,7 +305,7 @@ if ($pages.ContainsKey('/vectors/interest-to-desire/') -and
   Pass "[/vectors/interest-to-desire/] carries the T2 sub-signals governing sentence"
 } else { Fail "[/vectors/interest-to-desire/] missing T2 sub-signals governing sentence" }
 
-$t4Sentence = 'AIDAtanaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence.'
+$t4Sentence = 'AIDATAnaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence.'
 if ($pages.ContainsKey('/vectors/action-to-loyalty/') -and
     $pages['/vectors/action-to-loyalty/'] -match [regex]::Escape($t4Sentence)) {
   Pass "[/vectors/action-to-loyalty/] carries the T4 continuity governing sentence"
@@ -580,7 +580,7 @@ if ($pages.ContainsKey('/methodology/')) {
   $missingMeth = $methHeadings | Where-Object { $m -notmatch "<h2>$_</h2>" }
   if (-not $missingMeth) { Pass "[/methodology/] all required section headings present" }
   else { foreach ($h in $missingMeth) { Fail "[/methodology/] missing heading: $h" } }
-  if ($m -match 'AIDAtanaly measures transition health\. It does not claim guaranteed causality or guaranteed revenue improvement') {
+  if ($m -match 'AIDATAnaly measures transition health\. It does not claim guaranteed causality or guaranteed revenue improvement') {
     Pass "[/methodology/] mandatory measurement claim restraint statement"
   } else { Fail "[/methodology/] missing mandatory claim restraint statement" }
   $methLinks = @('/aida-transition-analytics/', '/aida-transition-index/', '/evidence-confidence/',
@@ -592,7 +592,7 @@ if ($pages.ContainsKey('/methodology/')) {
 
 if ($pages.ContainsKey('/governance/')) {
   $g = $pages['/governance/']
-  if ($g -match 'AIDAtanaly uses sequential document versioning\. Change severity is recorded in decision logs and is not encoded directly into the version number') {
+  if ($g -match 'AIDATAnaly uses sequential document versioning\. Change severity is recorded in decision logs and is not encoded directly into the version number') {
     Pass "[/governance/] sequential versioning statement present"
   } else { Fail "[/governance/] missing sequential versioning statement" }
   if ($g -notmatch 'href="/governance/decisions/') {
@@ -602,7 +602,7 @@ if ($pages.ContainsKey('/governance/')) {
 
 if ($pages.ContainsKey('/sources/')) {
   $s = $pages['/sources/']
-  if ($s -match 'AIDAtanaly may introduce governed internal standards before market adoption, but it must not describe them as adopted industry standards unless adoption evidence exists') {
+  if ($s -match 'AIDATAnaly may introduce governed internal standards before market adoption, but it must not describe them as adopted industry standards unless adoption evidence exists') {
     Pass "[/sources/] internal standards / adoption evidence statement present"
   } else { Fail "[/sources/] missing adoption evidence statement" }
 }

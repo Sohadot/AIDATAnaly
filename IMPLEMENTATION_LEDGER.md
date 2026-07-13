@@ -1,7 +1,7 @@
-# AIDAtanaly.com — Implementation Ledger
+# AIDATAnaly.com — Implementation Ledger
 
 **Document Class:** Implementation / Build Ledger  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Governed by:** `IMPLEMENTATION_PLAN.md` (IMPL-PLAN-001)  
 **Status:** Active  
 **Date started:** 2026-06-12  
@@ -238,7 +238,7 @@
 |-------|-------|
 | **Status** | Complete (draft ready for operator publish) |
 | **Deliverable** | `EXTERNAL_POSTS_13B.md` |
-| **Summary** | Name–category binding rules + LinkedIn + X copy; first mention always **AIDAtanaly — AIDA Transition Analytics**; no verb use; gap-first hook. |
+| **Summary** | Name–category binding rules + LinkedIn + X copy; first mention always **AIDATAnaly — AIDA Transition Analytics**; no verb use; gap-first hook. |
 | **Next** | Sprint 13C — reference article: *Why Stages Are Not Enough* |
 
 ---
@@ -259,9 +259,9 @@
 | Field | Value |
 |-------|-------|
 | **Status** | Active (operator fields pending: post URL, interaction snapshot) |
-| **Deliverable** | `EXTERNAL_PUBLICATION_LOG.md` |
+| **Deliverable** | `EXTERNAL_PUBLICATION_LOG.md` — *superseded in Sprint 13D-1 by `EXTERNAL_PUBLICATION_POLICY.md`* |
 | **Summary** | Append-only external activation record established. EPL-001 (LinkedIn launch) recorded as Published with governed fields: opening hook, name-category binding, dated interaction snapshot. G1 transitions from "unpublished" to "external activation begun". Public platform counts only — no private data (per `INEVITABILITY_AUDIT.md` §6). |
-| **Next** | Operator pastes post URL + first interaction snapshot; EPL-002 (X thread); EPL-003 (Sprint 13C article) |
+| **Next** | Superseded: detailed evidence moved to private operator records; repository keeps the high-level status register in `EXTERNAL_PUBLICATION_POLICY.md` §6 |
 
 ---
 
@@ -283,8 +283,20 @@
 |-------|-------|
 | **Status** | Complete (draft ready for operator publish) |
 | **Deliverable** | `EXTERNAL_ARTICLE_13C.md` |
-| **Summary** | Category-definition article *AIDA Transition Analytics: Why Stages Are Not Enough*. Three functions: explain the gap, establish the category, make AIDAtanaly citable. Stays at category depth (ATI/TFO named and linked only — 13E boundary). Publish sequence: after EPL-002 (X thread). Post-publish: record EPL-003. |
-| **Next** | Operator publishes X thread (EPL-002, 12–24h after LinkedIn), then article (EPL-003); Sprint 13D — mini diagnostic examples |
+| **Summary** | Category-definition article *AIDA Transition Analytics: Why Stages Are Not Enough*. Three functions: explain the gap, establish the category, make AIDATAnaly citable. Stays at category depth (ATI/TFO named and linked only — 13E boundary). Publish sequence: after the X thread. Post-publish: update the status register in `EXTERNAL_PUBLICATION_POLICY.md` §6. |
+| **Next** | Operator publishes X thread (12–24h after LinkedIn), then article; Sprint 13D — repository professionalization pass |
+
+---
+
+## Sprint 13D-1 — Brand and Evidence Policy Cleanup
+
+| Field | Value |
+|-------|-------|
+| **Status** | PASS |
+| **Decision** | BRAND-001 — `governance/decisions/DECISION_BRAND_SPELLING_1_0_RATIFICATION.md` |
+| **Summary** | Canonical brand spelling normalized across the entire repository (593 occurrences: documents, pages, data registries, scripts, structured data); canonical domain URL remains lowercase `https://aidatanaly.com/`, untouched. `EXTERNAL_PUBLICATION_LOG.md` superseded by `EXTERNAL_PUBLICATION_POLICY.md` — detailed publication evidence (URLs, engagement) moved to private operator records; repository keeps a high-level status register only. Central claim boundary established at `governance/policies/CLAIM_BOUNDARY.md`. JSON-LD regenerated from normalized sources. |
+| **Validators** | Full `quality-gate.ps1 -IndexedRelease` |
+| **Notes** | No route, scoring, or ontology-ID changes (system IDs are lowercase identifiers, unaffected by brand casing). |
 
 ---
 

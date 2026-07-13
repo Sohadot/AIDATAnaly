@@ -1,9 +1,9 @@
 # DECISION_INTERFACE_GOVERNANCE_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Interface Governance v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Interface Governance v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `INTERFACE_GOVERNANCE.md`
 **Decision ID:** INT-GOV-001
 **Decision Type:** Initial Ratification
@@ -16,9 +16,9 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `INTERFACE_GOVERNANCE.md` as the governing interface standard for AIDAtanaly.
+This decision ratifies `INTERFACE_GOVERNANCE.md` as the governing interface standard for AIDATAnaly.
 
-The interface standard establishes how AIDAtanaly must visually and interactively express its governing thesis:
+The interface standard establishes how AIDATAnaly must visually and interactively express its governing thesis:
 
 > Stages are states. Value lives in transitions.
 
@@ -26,7 +26,7 @@ This decision confirms that the interface is not a decorative layer.
 
 The interface is part of the asset's category logic.
 
-AIDAtanaly's public surface must therefore embody movement, transition health, evidence confidence, diagnostic classification, and governed reference structure.
+AIDATAnaly's public surface must therefore embody movement, transition health, evidence confidence, diagnostic classification, and governed reference structure.
 
 ---
 
@@ -47,9 +47,9 @@ The visual system must prioritize:
 - governed components over arbitrary layouts,
 - and accessibility, performance, and SEO safety over visual spectacle.
 
-The interface must not merely make AIDAtanaly look modern.
+The interface must not merely make AIDATAnaly look modern.
 
-It must make the AIDAtanaly thesis understandable.
+It must make the AIDATAnaly thesis understandable.
 
 ---
 
@@ -335,7 +335,7 @@ The following patterns are prohibited:
 - visual claims stronger than the evidence,
 - and interface elements that imply guaranteed results.
 
-AIDAtanaly must not look like a generic marketing tool.
+AIDATAnaly must not look like a generic marketing tool.
 
 It must look like a governed transition intelligence system.
 
@@ -357,7 +357,7 @@ Future public implementation must comply with this standard.
 
 ## 15. Governance Impact
 
-This decision strengthens AIDAtanaly by ensuring that the public interface:
+This decision strengthens AIDATAnaly by ensuring that the public interface:
 
 - embodies the asset thesis,
 - protects ATI scoring integrity,
@@ -395,16 +395,16 @@ This preserves both:
 
 ## 17. Closing Decision
 
-Interface Governance v1.0 is ratified as the governing interface standard for AIDAtanaly.
+Interface Governance v1.0 is ratified as the governing interface standard for AIDATAnaly.
 
 The interface must not decorate the asset.
 
 It must embody the asset's thesis.
 
-AIDAtanaly must make transition intelligence visible, measurable, and trustworthy.
+AIDATAnaly must make transition intelligence visible, measurable, and trustworthy.
 
 > Stages are states. Value lives in transitions.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

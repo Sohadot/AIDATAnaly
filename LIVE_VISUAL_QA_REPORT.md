@@ -1,7 +1,7 @@
-# AIDAtanaly.com — Live Visual QA Report
+# AIDATAnaly.com — Live Visual QA Report
 
 **Document Class:** Post-release visual QA record (repository artifact — not a public website route)  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Date:** 2026-06-12  
 **Live deployment:** `main` → GitHub Actions → `dist/` artifact (PUB-REL-002)  
 **Interface baseline:** Sprint 12E (homepage reframe) + Sprint 12F (visual precision) — commit `2eaa77f`  
@@ -16,7 +16,7 @@
 | Check | Result |
 |-------|--------|
 | Hero hook line 1 | **PASS** — “Funnels count where people are.” |
-| Hero hook line 2 | **PASS** — “AIDAtanaly measures whether they move.” |
+| Hero hook line 2 | **PASS** — “AIDATAnaly measures whether they move.” |
 | Central doctrine | **PASS** — “Stages are states. Value lives in transitions.” |
 | Operating chain (5 steps) | **PASS** — protocol strip present with numbered steps |
 | Transition Axis | **PASS** — reference mode only (T1–T4 channels, no diagnostic health modifiers) |

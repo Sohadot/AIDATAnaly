@@ -1,21 +1,21 @@
 # ASSET_THESIS.md
  
-## AIDAtanaly.com — Category Intelligence Factory Thesis
+## AIDATAnaly.com — Category Intelligence Factory Thesis
  
-**Document Class:** Asset Thesis **Layer:** 1 — Strategic Asset Thesis **Asset:** AIDAtanaly.com **Governed by:** `FOUNDATION_DOCTRINE.md` **Status:** Ratified **Version:** 1.1 **Date:** 2026-06-11
+**Document Class:** Asset Thesis **Layer:** 1 — Strategic Asset Thesis **Asset:** AIDATAnaly.com **Governed by:** `FOUNDATION_DOCTRINE.md` **Status:** Ratified **Version:** 1.1 **Date:** 2026-06-11
   
 ## 1. Thesis in One Sentence
  
  
-**AIDAtanaly.com is the Category Intelligence Factory for AIDA Transition Analytics: the asset that names, classifies, standardizes, diagnoses, monetizes, and governs the measurement of movement inside AI-era marketing funnels.**
+**AIDATAnaly.com is the Category Intelligence Factory for AIDA Transition Analytics: the asset that names, classifies, standardizes, diagnoses, monetizes, and governs the measurement of movement inside AI-era marketing funnels.**
  
  
-AIDAtanaly is not a website about funnels.
+AIDATAnaly is not a website about funnels.
  
 It is a governed digital asset designed to produce **movement intelligence** inside a category it structurally names:
  
  
-**AIDA + T + Analy = AIDAtanaly** **AIDA Transition Analytics**
+**AIDA + T + Analy = AIDATAnaly** **AIDA Transition Analytics**
  
  
 The asset does not merely explain the category. It becomes the reference surface through which the category is defined, indexed, diagnosed, and commercialized.
@@ -24,7 +24,7 @@ That is the thesis.
   
 ## 2. Strategic Asset Position
  
-AIDAtanaly begins as a domain.
+AIDATAnaly begins as a domain.
  
 The objective is to transform it into a **category artifact**: a digital object whose name, framework, ontology, interface, tools, reference pages, governance, monetization, and buyer logic collectively embody the category itself.
  
@@ -38,7 +38,7 @@ Can they reproduce the name, the language, the governed ontology, the index, the
  
 That combined structure is the moat.
  
-The purpose of AIDAtanaly is therefore not to look like a MarTech site.
+The purpose of AIDATAnaly is therefore not to look like a MarTech site.
  
 The purpose is to become the most legible, governed, and acquisition-ready reference asset for **AIDA Transition Analytics**.
   
@@ -46,7 +46,7 @@ The purpose is to become the most legible, governed, and acquisition-ready refer
  
 Most marketing analytics systems count events, stages, and outcomes.
  
-AIDAtanaly governs the layer between them:
+AIDATAnaly governs the layer between them:
  
  
 **movement.**
@@ -79,7 +79,7 @@ A company that measures transitions can understand:
  
 
  
-This makes AIDAtanaly more than a content property.
+This makes AIDATAnaly more than a content property.
  
 It is a system for producing governed funnel intelligence.
   
@@ -91,7 +91,7 @@ Per the Sovereign Asset System, a strategic Tier-1 asset must answer one questio
 **What kind of intelligence does this asset produce inside its category?**
  
  
-AIDAtanaly produces **movement intelligence**.
+AIDATAnaly produces **movement intelligence**.
  
 Movement intelligence has four primary outputs:
  
@@ -116,7 +116,7 @@ It also classifies the failure modes attached to each transition.
  
 The asset identifies where movement weakens, stalls, collapses, or becomes commercially inefficient.
  
-AIDAtanaly does not merely ask whether a funnel converts.
+AIDATAnaly does not merely ask whether a funnel converts.
  
 It asks:
  
@@ -157,13 +157,13 @@ The asset maps each diagnosed failure mode to an intervention layer:
  
 An ordinary funnel site explains concepts.
  
-AIDAtanaly produces structured outputs.
+AIDATAnaly produces structured outputs.
  
 That distinction is central to the asset’s value.
   
 ## 5. Category Intelligence Factory Model
  
-AIDAtanaly follows the **Domain → Category Intelligence Factory** model.
+AIDATAnaly follows the **Domain → Category Intelligence Factory** model.
  
 A normal domain publishes information.
  
@@ -198,7 +198,7 @@ A Category Intelligence Factory produces governed intelligence through layered i
  
 
  
-AIDAtanaly must be developed through all layers.
+AIDATAnaly must be developed through all layers.
  
 Anything less risks reducing the asset to a normal content site.
   
@@ -207,7 +207,7 @@ Anything less risks reducing the asset to a normal content site.
 The sentence that makes the name necessary:
  
  
-**Stages are counted. Transitions must be governed. AIDAtanaly is where AIDA transitions are governed.**
+**Stages are counted. Transitions must be governed. AIDATAnaly is where AIDA transitions are governed.**
  
  
 The name is not decorative.
@@ -225,13 +225,13 @@ It is structural:
  
 The domain therefore contains the category logic inside its construction.
  
-AIDAtanaly is not a generic AI analytics name.
+AIDATAnaly is not a generic AI analytics name.
  
 It is a category-specific name for **AIDA Transition Analytics**.
   
 ## 7. Layer 2 — Category Language
  
-AIDAtanaly must introduce and govern a consistent vocabulary.
+AIDATAnaly must introduce and govern a consistent vocabulary.
  
 This vocabulary must appear across doctrine, reference pages, scanner outputs, structured data, visual interface, reports, and buyer documents.
  
@@ -239,7 +239,7 @@ This vocabulary must appear across doctrine, reference pages, scanner outputs, s
  
 Term
  
-AIDAtanaly-governed meaning
+AIDATAnaly-governed meaning
  
    
  
@@ -311,7 +311,7 @@ The class of corrective action indicated by a diagnosed failure
  
 The goal is not to claim legal ownership of ordinary words.
  
-The goal is to make AIDAtanaly the most coherent, consistent, and citable source for their governed meaning inside this category.
+The goal is to make AIDATAnaly the most coherent, consistent, and citable source for their governed meaning inside this category.
  
 Whoever stabilizes the language stabilizes the category conversation.
   
@@ -331,7 +331,7 @@ Instead of saying:
 “The funnel is not working.”
  
  
-AIDAtanaly classifies the failure:
+AIDATAnaly classifies the failure:
  
  
 “This is a T2 Intent Formation failure caused by comparison stall and preference dilution.”
@@ -442,7 +442,7 @@ Each failure mode must receive a permanent reference page with:
  
 
  
-This ontology is what makes AIDAtanaly a maker of market language rather than a follower of existing funnel vocabulary.
+This ontology is what makes AIDATAnaly a maker of market language rather than a follower of existing funnel vocabulary.
   
 ## 9. Layer 4 — Standard: AIDA Transition Index
  
@@ -512,9 +512,9 @@ The **ATI Assessment Protocol** defines the repeatable sequence by which a funne
  
 
  
-The protocol is what separates AIDAtanaly from opinion.
+The protocol is what separates AIDATAnaly from opinion.
  
-AIDAtanaly does not simply comment on funnel weakness.
+AIDATAnaly does not simply comment on funnel weakness.
  
 It evaluates it through a governed process.
   
@@ -522,7 +522,7 @@ It evaluates it through a governed process.
  
 The first operational tool is:
  
-# **AIDAtanaly Transition Scanner**
+# **AIDATAnaly Transition Scanner**
  
 The scanner is a rules-governed diagnostic interface that produces a structured T1–T4 health profile.
  
@@ -599,7 +599,7 @@ Every output must map back to T1–T4.
   
 ## 12. Layer 7 — Reference Layer
  
-AIDAtanaly must build a stable, archivable, internally coherent reference architecture.
+AIDATAnaly must build a stable, archivable, internally coherent reference architecture.
  
 The reference layer must include:
  
@@ -673,7 +673,7 @@ This is the difference between SEO and sovereign reference architecture.
   
 ## 13. Layer 8 — SEO Standard
  
-AIDAtanaly must pursue high-quality SEO as a consequence of reference authority, not as random keyword extraction.
+AIDATAnaly must pursue high-quality SEO as a consequence of reference authority, not as random keyword extraction.
  
 SEO must serve category ownership.
  
@@ -720,7 +720,7 @@ Allowed targets include:
  
 ### 13.2 Prohibited SEO Behavior
  
-AIDAtanaly shall not publish:
+AIDATAnaly shall not publish:
  
  
 - thin glossary pages,
@@ -780,7 +780,7 @@ It is the nervous system of the asset.
   
 ## 14. Layer 9 — Trust, Sources, and Reference Authority
  
-AIDAtanaly must become trustworthy before it becomes commercially aggressive.
+AIDATAnaly must become trustworthy before it becomes commercially aggressive.
  
 Trust is built through:
  
@@ -812,7 +812,7 @@ The asset must not pretend that ATI is an industry standard before market adopti
 Correct language:
  
  
-“AIDAtanaly introduces the AIDA Transition Index.”
+“AIDATAnaly introduces the AIDA Transition Index.”
  
  
 Not:
@@ -824,13 +824,13 @@ Not:
 Correct language:
  
  
-“AIDAtanaly defines a governed framework for transition diagnosis.”
+“AIDATAnaly defines a governed framework for transition diagnosis.”
  
  
 Not:
  
  
-“AIDAtanaly is the universally accepted authority.”
+“AIDATAnaly is the universally accepted authority.”
  
  
 Trust requires precision.
@@ -841,7 +841,7 @@ The asset must earn reference status through consistency, usefulness, and govern
   
 ## 15. Layer 10 — Governance
  
-AIDAtanaly inherits the Sovereign Asset System governance posture.
+AIDATAnaly inherits the Sovereign Asset System governance posture.
  
 Required governance controls:
  
@@ -1021,7 +1021,7 @@ Concept first. Performance second. Beauty third.
   
 ## 17. Layer 12 — Monetization Without Degrading Value
  
-AIDAtanaly must generate respectable income before any strategic sale, but monetization must be an extension of authority, not contamination.
+AIDATAnaly must generate respectable income before any strategic sale, but monetization must be an extension of authority, not contamination.
  
 The asset should not rely on banner ads, low-quality affiliate placements, or SEO arbitrage.
  
@@ -1184,7 +1184,7 @@ The strategic buyer is an institutional operator in:
  
 
  
-For such a buyer, AIDAtanaly is not merely a name.
+For such a buyer, AIDATAnaly is not merely a name.
  
 It is:
  
@@ -1244,7 +1244,7 @@ But the buyer cannot instantly rebuild:
  
 That is the acquisition logic.
  
-If one platform owns AIDAtanaly, it can position itself as the owner of transition intelligence.
+If one platform owns AIDATAnaly, it can position itself as the owner of transition intelligence.
  
 If a competitor owns it, every other platform risks being framed as a stage-counter.
  
@@ -1254,7 +1254,7 @@ It is the strategic loss created by not owning it.
   
 ## 19. Agent-Readability Commitment
  
-AIDAtanaly is built for two readers:
+AIDATAnaly is built for two readers:
  
  
 1. humans,
@@ -1265,7 +1265,7 @@ AIDAtanaly is built for two readers:
  
 The agentic web will reward assets that define terms clearly, maintain stable URLs, expose structured summaries, and build coherent internal relationships.
  
-AIDAtanaly must therefore provide:
+AIDATAnaly must therefore provide:
  
  
 - canonical definitions,
@@ -1311,7 +1311,7 @@ Reference capture in the agentic web begins with definitional discipline.
   
 ## 20. Archival and Measurement Discipline
  
-AIDAtanaly must preserve its own development history.
+AIDATAnaly must preserve its own development history.
  
 Required archival layers:
  
@@ -1371,7 +1371,7 @@ A governed asset with history is stronger.
   
 ## 21. Build Sequence
  
-AIDAtanaly shall be developed in controlled phases.
+AIDATAnaly shall be developed in controlled phases.
  
 ### Phase 1 — Governance Foundation
  
@@ -1497,7 +1497,7 @@ Each new page, tool, report, or visual system must strengthen the category claim
   
 ## 22. Strategic Value Thesis
  
-AIDAtanaly becomes valuable by accumulating four forms of defensible value:
+AIDATAnaly becomes valuable by accumulating four forms of defensible value:
  
 ### 22.1 Naming Value
  
@@ -1535,7 +1535,7 @@ The next generation of valuable digital assets will not merely publish informati
  
 They will produce governed intelligence around a category.
  
-AIDAtanaly exists to do that for funnel movement.
+AIDATAnaly exists to do that for funnel movement.
  
 It names the category.
  
@@ -1562,7 +1562,7 @@ The final product is not a website.
 It is a category artifact.
  
  
-**AIDAtanaly produces the intelligence of movement.**
+**AIDATAnaly produces the intelligence of movement.**
  
  
-*AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.*
+*AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.*

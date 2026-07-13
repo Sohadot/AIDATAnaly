@@ -498,7 +498,7 @@ function Invoke-PrivatePreviewChecks {
   }
 }
 
-Write-Host '=== AIDAtanaly Quality Gate ==='
+Write-Host '=== AIDATAnaly Quality Gate ==='
 if ($IndexedRelease) {
   Write-Host '  INFO  Indexed release gate - public noindex must be 0, robots Allow, Sitemap active'
 } else {

@@ -1,10 +1,10 @@
 # TFO_ONTOLOGY.md
 
-## AIDAtanaly.com — Transition Failure Ontology
+## AIDATAnaly.com — Transition Failure Ontology
 
 **Document Class:** Ontology Standard
 **Layer:** 3 — Failure Mode Ontology Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, and ATI_STANDARD.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,7 +15,7 @@
 
 ## 1. Purpose of This Ontology
 
-This document defines the **Transition Failure Ontology — TFO**, the governed taxonomy used by AIDAtanaly to classify failure modes across AIDA transition vectors.
+This document defines the **Transition Failure Ontology — TFO**, the governed taxonomy used by AIDATAnaly to classify failure modes across AIDA transition vectors.
 
 The AIDA Transition Index measures transition health.
 
@@ -35,7 +35,7 @@ Together, ATI and TFO convert funnel weakness from vague observation into govern
 
 ## 2. Governing Doctrine
 
-The governing doctrine of AIDAtanaly states:
+The governing doctrine of AIDATAnaly states:
 
 > Stages are states. Value lives in transitions.
 
@@ -45,7 +45,7 @@ Those are outcomes.
 
 TFO classifies the movement failures that produce those outcomes.
 
-AIDAtanaly does not ask only:
+AIDATAnaly does not ask only:
 
 > "Where did users drop off?"
 
@@ -1908,7 +1908,7 @@ Initial ratified TFO v1.0 contains 21 failure modes and 1 cross-vector diagnosti
 
 TFO is versioned.
 
-AIDAtanaly uses sequential document versioning.
+AIDATAnaly uses sequential document versioning.
 
 Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change and is not encoded directly into the version number.
 
@@ -1962,7 +1962,7 @@ Major changes require:
 
 Allowed language:
 
-> "AIDAtanaly introduces the Transition Failure Ontology."
+> "AIDATAnaly introduces the Transition Failure Ontology."
 
 > "TFO is a governed taxonomy for classifying movement failure across AIDA transition vectors."
 
@@ -1990,7 +1990,7 @@ Authority must be earned through consistent use, reference quality, and adoption
 
 The Transition Failure Ontology exists because funnel weakness should not remain vague.
 
-AIDAtanaly does not merely say that a funnel is weak.
+AIDATAnaly does not merely say that a funnel is weak.
 
 It identifies which transition is weak, what class of failure is present, what evidence supports the diagnosis, and which intervention layer is indicated.
 
@@ -2004,4 +2004,4 @@ Together they turn funnel analytics into governed movement intelligence.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

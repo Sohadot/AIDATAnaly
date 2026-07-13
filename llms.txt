@@ -1,10 +1,10 @@
-# AIDAtanaly — AIDA Transition Analytics
+# AIDATAnaly — AIDA Transition Analytics
 
-> AIDAtanaly is the governed reference system for AIDA Transition Analytics: measuring movement between funnel states across Attention, Interest, Desire, Action, and Loyalty. Stages are states. Value lives in transitions.
+> AIDATAnaly is the governed reference system for AIDA Transition Analytics: measuring movement between funnel states across Attention, Interest, Desire, Action, and Loyalty. Stages are states. Value lives in transitions.
 
-AIDAtanaly names, classifies, standardizes, and diagnoses funnel movement. It introduces the AIDA Transition Index (ATI) and the Transition Failure Ontology (TFO). AIDAtanaly introduces these frameworks; it does not claim industry-wide adoption.
+AIDATAnaly names, classifies, standardizes, and diagnoses funnel movement. It introduces the AIDA Transition Index (ATI) and the Transition Failure Ontology (TFO). AIDATAnaly introduces these frameworks; it does not claim industry-wide adoption.
 
-Citation form: "AIDAtanaly — AIDA Transition Analytics" with the canonical URL of the page cited. Definitions on this site are versioned and governed; quote them exactly.
+Citation form: "AIDATAnaly — AIDA Transition Analytics" with the canonical URL of the page cited. Definitions on this site are versioned and governed; quote them exactly.
 
 ## Core definitions
 

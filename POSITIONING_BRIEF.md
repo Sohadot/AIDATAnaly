@@ -1,10 +1,10 @@
 # POSITIONING_BRIEF.md
 
-## AIDAtanaly.com — External Positioning Brief
+## AIDATAnaly.com — External Positioning Brief
 
 **Document Class:** External Positioning Control Layer  
 **Sprint:** 13A — External Positioning Brief  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Governed by:** `FOUNDATION_DOCTRINE.md`, `ASSET_THESIS.md`, `PUBLIC_RELEASE_PLAN.md` §13  
 **Status:** Ratified for external use  
 **Version:** 1.0  
@@ -16,7 +16,7 @@
 
 ## Purpose
 
-This brief is the **control layer** for all external communication about AIDAtanaly.
+This brief is the **control layer** for all external communication about AIDATAnaly.
 
 Every LinkedIn post, X thread, Substack article, launch announcement, and reference publication must conform to this document before publication.
 
@@ -26,14 +26,14 @@ Sprint 13A produces positioning governance only. It does not change code, interf
 
 ## 1. Core Positioning
 
-AIDAtanaly is **not**:
+AIDATAnaly is **not**:
 
 - funnel analytics,
 - an educational explainer of AIDA,
 - a SaaS scanner product pitch,
 - or a commercial outcome promise engine.
 
-AIDAtanaly **is**:
+AIDATAnaly **is**:
 
 **AIDA Transition Analytics** — a governed reference system for measuring movement between stages.
 
@@ -41,7 +41,7 @@ The governing insight:
 
 > **Stages are states. Value lives in transitions.**
 
-AIDAtanaly names, standardizes, and publishes the measurement layer that classical funnel reporting leaves implicit: **movement between Attention, Interest, Desire, Action, and Loyalty.**
+AIDATAnaly names, standardizes, and publishes the measurement layer that classical funnel reporting leaves implicit: **movement between Attention, Interest, Desire, Action, and Loyalty.**
 
 ---
 
@@ -49,7 +49,7 @@ AIDAtanaly names, standardizes, and publishes the measurement layer that classic
 
 **Primary category name:** AIDA Transition Analytics
 
-**Structural name logic:** AIDA + **T** + Analy = AIDAtanaly
+**Structural name logic:** AIDA + **T** + Analy = AIDATAnaly
 
 | Term | Meaning |
 |------|---------|
@@ -59,16 +59,16 @@ AIDAtanaly names, standardizes, and publishes the measurement layer that classic
 
 **Use consistently in external copy:**
 
-- Prefer **AIDAtanaly — AIDA Transition Analytics** on first mention in any external publication (Sprint 13B Name Binding Rules).
-- Use **AIDAtanaly** as the reference asset / system name, not as a generic analytics verb.
-- Do **not** use AIDAtanaly as a verb in early-stage external messaging.
+- Prefer **AIDATAnaly — AIDA Transition Analytics** on first mention in any external publication (Sprint 13B Name Binding Rules).
+- Use **AIDATAnaly** as the reference asset / system name, not as a generic analytics verb.
+- Do **not** use AIDATAnaly as a verb in early-stage external messaging.
 - Do not collapse the category into “funnel analytics,” “conversion optimization,” or “AI marketing analytics.”
 
 ---
 
 ## 3. One-Line Definition
 
-**AIDAtanaly is the governed reference system for AIDA Transition Analytics — measuring whether people move between funnel states, not merely where they sit.**
+**AIDATAnaly is the governed reference system for AIDA Transition Analytics — measuring whether people move between funnel states, not merely where they sit.**
 
 Alternate (shorter, channel-dependent):
 
@@ -104,11 +104,11 @@ That layer requires:
 3. **A closed failure vocabulary** (TFO) for how movement weakens,
 4. **Evidence Confidence** separate from score — qualifying interpretation, not replacing measurement.
 
-AIDAtanaly exists to publish that layer as a reference system, not to replace AIDA with a new acronym game.
+AIDATAnaly exists to publish that layer as a reference system, not to replace AIDA with a new acronym game.
 
 ---
 
-## 6. What AIDAtanaly Is
+## 6. What AIDATAnaly Is
 
 | Layer | External description |
 |-------|---------------------|
@@ -125,9 +125,9 @@ Link target for depth: https://aidatanaly.com/
 
 ---
 
-## 7. What AIDAtanaly Is Not
+## 7. What AIDATAnaly Is Not
 
-Do **not** position AIDAtanaly as:
+Do **not** position AIDATAnaly as:
 
 | Prohibited frame | Why |
 |------------------|-----|
@@ -198,7 +198,7 @@ It was missing a transition layer.
 
 ```
 Funnels count where people are.
-AIDAtanaly measures whether they move.
+AIDATAnaly measures whether they move.
 ```
 
 Use the **external** variant (“They rarely measure…”) for cold audiences; use the **on-site** variant when the reader is already at aidatanaly.com.
@@ -217,7 +217,7 @@ Introduce **AIDA Transition Analytics**: four measured transitions (T1–T4), a 
 
 **Act 3 — Reference asset**
 
-AIDAtanaly.com publishes the standard — canonical pages, governed scanner, methodology, and versioned governance. Not a pitch deck; a reference surface.
+AIDATAnaly.com publishes the standard — canonical pages, governed scanner, methodology, and versioned governance. Not a pitch deck; a reference surface.
 
 **Act 4 — Invitation**
 
@@ -233,7 +233,7 @@ All external content must comply with `PUBLIC_RELEASE_PLAN.md` §13 and this bri
 
 ### Allowed claims
 
-- AIDAtanaly **introduces** AIDA Transition Analytics.
+- AIDATAnaly **introduces** AIDA Transition Analytics.
 - ATI is a **governed internal measurement standard**.
 - TFO is a **governed failure ontology**.
 - Scanner v1 provides **rules-governed diagnostic output**.
@@ -301,4 +301,4 @@ Stages describe position. Transitions describe value creation and destruction. F
 
 ---
 
-*Ratified as the external positioning control layer for AIDAtanaly.com. All outbound publication must trace to this document.*
+*Ratified as the external positioning control layer for AIDATAnaly.com. All outbound publication must trace to this document.*

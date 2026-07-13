@@ -1,4 +1,4 @@
-# AIDAtanaly Private Preview Report
+# AIDATAnaly Private Preview Report
 
 **Status:** Draft Review  
 **Sprint:** 10 — Private Preview  

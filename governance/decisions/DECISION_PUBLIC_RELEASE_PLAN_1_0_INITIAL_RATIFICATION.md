@@ -1,9 +1,9 @@
 # DECISION_PUBLIC_RELEASE_PLAN_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Public Release Plan v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Public Release Plan v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Applies to:** `PUBLIC_RELEASE_PLAN.md`  
 **Decision ID:** PUB-REL-001  
 **Decision Type:** Initial Ratification  
@@ -16,11 +16,11 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `PUBLIC_RELEASE_PLAN.md` as the governed public exposure and indexation plan for AIDAtanaly.com.
+This decision ratifies `PUBLIC_RELEASE_PLAN.md` as the governed public exposure and indexation plan for AIDATAnaly.com.
 
-The Public Release Plan governs the first public indexed reference release of AIDAtanaly.
+The Public Release Plan governs the first public indexed reference release of AIDATAnaly.
 
-This decision confirms that AIDAtanaly may move from non-indexed private preview readiness toward a controlled public indexed release only through the release procedure defined in `PUBLIC_RELEASE_PLAN.md`.
+This decision confirms that AIDATAnaly may move from non-indexed private preview readiness toward a controlled public indexed release only through the release procedure defined in `PUBLIC_RELEASE_PLAN.md`.
 
 The governing thesis remains:
 
@@ -97,7 +97,7 @@ The public indexed release must include:
 - privacy route,
 - terms route.
 
-No incomplete public indexed release may be treated as AIDAtanaly's first official reference release.
+No incomplete public indexed release may be treated as AIDATAnaly's first official reference release.
 
 ---
 
@@ -107,7 +107,7 @@ This decision ratifies `dist/` as the governed deployment package.
 
 The public website must be deployed from a controlled package, not from the repository root.
 
-The deployment package must include only public website artifacts required for AIDAtanaly.com.
+The deployment package must include only public website artifacts required for AIDATAnaly.com.
 
 Recommended release package:
 
@@ -151,7 +151,7 @@ A public repository does not authorize exposing repository governance files as p
 
 If the repository is public, decision logs may be readable on GitHub as repository artifacts.
 
-However, they must not be accidentally published as AIDAtanaly.com website routes.
+However, they must not be accidentally published as AIDATAnaly.com website routes.
 
 The public website exposure boundary is the deployment package, not repository visibility.
 
@@ -190,7 +190,7 @@ No accidental exposure policy is permitted.
 
 Indexation activation must be deliberate and auditable.
 
-Before public release, AIDAtanaly remains non-indexed.
+Before public release, AIDATAnaly remains non-indexed.
 
 Indexation may be activated only after:
 
@@ -322,9 +322,9 @@ The scanner must remain a diagnostic reference tool, not a claim-heavy conversio
 
 The public release **may** claim:
 
-- AIDAtanaly introduces AIDA Transition Analytics.
-- AIDAtanaly defines ATI as a governed internal measurement standard.
-- AIDAtanaly defines TFO as a governed failure ontology.
+- AIDATAnaly introduces AIDA Transition Analytics.
+- AIDATAnaly defines ATI as a governed internal measurement standard.
+- AIDATAnaly defines TFO as a governed failure ontology.
 - Scanner v1 provides rules-governed diagnostic output.
 - Evidence Confidence qualifies interpretation strength.
 
@@ -443,7 +443,7 @@ This is the initial ratification of Public Release Plan v1.0.
 
 No prior public release plan was issued.
 
-No public indexed AIDAtanaly release depends on an earlier release plan.
+No public indexed AIDATAnaly release depends on an earlier release plan.
 
 No migration is required.
 
@@ -453,7 +453,7 @@ Future public releases must comply with this plan or be governed by a later rati
 
 ## 21. Governance Impact
 
-This decision moves AIDAtanaly from private preview readiness to governed public release readiness.
+This decision moves AIDATAnaly from private preview readiness to governed public release readiness.
 
 It prevents:
 
@@ -489,7 +489,7 @@ This preserves both:
 
 ## 23. Closing Decision
 
-Public Release Plan v1.0 is ratified as the governed public exposure and indexation plan for AIDAtanaly.
+Public Release Plan v1.0 is ratified as the governed public exposure and indexation plan for AIDATAnaly.
 
 The release package must be controlled.
 
@@ -505,4 +505,4 @@ Rollback must remain available.
 
 > Stages are states. Value lives in transitions.
 
-**AIDAtanaly.com** — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.
+**AIDATAnaly.com** — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.

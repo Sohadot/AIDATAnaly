@@ -10,7 +10,7 @@ $passes = @()
 function Pass([string]$msg) { $script:passes += $msg; Write-Host "  PASS  $msg" }
 function Fail([string]$msg) { $script:failures += $msg; Write-Host "  FAIL  $msg" }
 
-Write-Host "=== AIDAtanaly Scanner Validation ==="
+Write-Host "=== AIDATAnaly Scanner Validation ==="
 
 $scannerHtmlPath = Join-Path $root 'scanner/index.html'
 $jsPath = Join-Path $root 'assets/js/scanner.js'

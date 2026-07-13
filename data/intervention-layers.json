@@ -1,6 +1,6 @@
 {
   "id": "intervention.layers",
-  "asset": "AIDAtanaly.com",
+  "asset": "AIDATAnaly.com",
   "version": "1.0",
   "source_documents": ["TFO_ONTOLOGY.md", "ATI_STANDARD.md", "SCANNER_MODEL.md"],
   "governance_decisions": [

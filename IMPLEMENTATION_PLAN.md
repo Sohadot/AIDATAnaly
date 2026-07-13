@@ -1,10 +1,10 @@
 # IMPLEMENTATION_PLAN.md
 
-## AIDAtanaly.com — Governed Implementation Plan
+## AIDATAnaly.com — Governed Implementation Plan
 
 **Document Class:** Implementation Plan
 **Layer:** 8 — Build Execution Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, ATI_STANDARD.md, TFO_ONTOLOGY.md, ROUTE_MAP.md, INTERFACE_GOVERNANCE.md, SCANNER_MODEL.md, and PAGE_BLUEPRINTS.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,9 +15,9 @@
 
 ## 1. Purpose of This Plan
 
-This document defines the governed implementation plan for building AIDAtanaly.com from ratified doctrine into a public reference system.
+This document defines the governed implementation plan for building AIDATAnaly.com from ratified doctrine into a public reference system.
 
-AIDAtanaly is not being implemented as a generic website.
+AIDATAnaly is not being implemented as a generic website.
 
 It is being implemented as a governed Category Intelligence Factory.
 
@@ -43,7 +43,7 @@ Implementation must convert that thesis into:
 
 ## 2. Implementation Principle
 
-AIDAtanaly implementation follows this rule:
+AIDATAnaly implementation follows this rule:
 
 > Governance first. Data second. Components third. Pages fourth. Scanner fifth. Release last.
 
@@ -59,13 +59,13 @@ Smaller builds may exist only as:
 - soft launch with `noindex`,
 - or controlled non-indexed demonstration.
 
-No incomplete indexed release may be treated as the official AIDAtanaly public reference launch.
+No incomplete indexed release may be treated as the official AIDATAnaly public reference launch.
 
 ---
 
 ## 3. Technical Posture
 
-AIDAtanaly must use a static-first implementation model.
+AIDATAnaly must use a static-first implementation model.
 
 **Required Technical Constraints**
 
@@ -409,7 +409,7 @@ It must match `SCANNER_MODEL.md`.
 
 ## 8. Component Implementation Layer
 
-AIDAtanaly must implement a reusable component system governed by `INTERFACE_GOVERNANCE.md`.
+AIDATAnaly must implement a reusable component system governed by `INTERFACE_GOVERNANCE.md`.
 
 Required components include:
 
@@ -629,7 +629,7 @@ Acceptance criteria:
 
 - Each vector page includes transition name, core question, strong signals, weak signals, scoring dimensions, failure modes, intervention layers, scanner relationship, and reference links.
 - T2 states that preference and intent are sub-signals, not separate vectors.
-- T4 states that AIDAtanaly extends AIDA beyond Action into Loyalty.
+- T4 states that AIDATAnaly extends AIDA beyond Action into Loyalty.
 - Every vector links to its failure modes.
 
 ---
@@ -1037,9 +1037,9 @@ Each sprint should produce a clear commit or grouped commit set.
 Recommended commit message patterns:
 
 ```
-Add AIDAtanaly data registry layer
+Add AIDATAnaly data registry layer
 Implement Flow Made Visible component system
-Add core AIDAtanaly reference routes
+Add core AIDATAnaly reference routes
 Add ATI vector reference pages
 Add TFO failure mode pages
 Implement Transition Scanner v1
@@ -1082,7 +1082,7 @@ The decision should explicitly ratify:
 
 ## 19. Closing Implementation Declaration
 
-AIDAtanaly is now ready to move from governed architecture into governed construction.
+AIDATAnaly is now ready to move from governed architecture into governed construction.
 
 The implementation must not weaken the doctrine.
 
@@ -1094,7 +1094,7 @@ It must not make the scanner look like a quiz.
 
 It must not let interface spectacle replace diagnostic clarity.
 
-The implementation must turn AIDAtanaly into a usable reference system.
+The implementation must turn AIDATAnaly into a usable reference system.
 
 Governance defines the asset.
 
@@ -1104,4 +1104,4 @@ Implementation makes it real.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

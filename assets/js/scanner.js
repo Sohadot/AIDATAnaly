@@ -1,5 +1,5 @@
 /*
- * AIDAtanaly.com — Transition Scanner v1
+ * AIDATAnaly.com — Transition Scanner v1
  * Governed by: SCANNER_MODEL.md v1.0, INTERFACE_GOVERNANCE.md v1.0,
  * IMPLEMENTATION_PLAN.md Sprint 6.
  *

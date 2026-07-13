@@ -29,7 +29,7 @@ function Get-PagePath {
   return Join-Path $Root $rel
 }
 
-Write-Host '=== AIDAtanaly Dist Package Validation (Sprint 11) ==='
+Write-Host '=== AIDATAnaly Dist Package Validation (Sprint 11) ==='
 
 if (-not (Test-Path $distRoot)) {
   Fail 'dist/ missing (run scripts/build-dist.ps1)'

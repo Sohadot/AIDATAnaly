@@ -1,10 +1,10 @@
 # INTERFACE_GOVERNANCE.md
 
-## AIDAtanaly.com — Flow Made Visible Interface Standard
+## AIDATAnaly.com — Flow Made Visible Interface Standard
 
 **Document Class:** Interface Standard
 **Layer:** 5 — Interface / Experience Governance Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, ATI_STANDARD.md, TFO_ONTOLOGY.md, and ROUTE_MAP.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,7 +15,7 @@
 
 ## 1. Purpose of This Standard
 
-This document defines the governed interface standard for AIDAtanaly.com.
+This document defines the governed interface standard for AIDATAnaly.com.
 
 Its purpose is to ensure that the public surface of the asset does not merely contain the doctrine, the standard, and the ontology, but visibly embodies them.
 
@@ -23,13 +23,13 @@ The governing rule of this document is:
 
 > The interface must not decorate the asset. It must embody the asset's thesis.
 
-AIDAtanaly is not an ordinary MarTech website.
+AIDATAnaly is not an ordinary MarTech website.
 
 It is a reference system about movement between states.
 
 Therefore the interface itself must communicate movement, friction, resilience, and transition health — before a single paragraph is read.
 
-A visitor who sees AIDAtanaly for three seconds must perceive:
+A visitor who sees AIDATAnaly for three seconds must perceive:
 
 > This site is about what happens between stages.
 
@@ -81,7 +81,7 @@ The interface must never communicate:
 
 ### 4.1 Layout Grammar
 
-The layout grammar of AIDAtanaly is the **transition axis**.
+The layout grammar of AIDATAnaly is the **transition axis**.
 
 - The primary visual motif is a horizontal (desktop) or vertical (mobile) axis of four transitions connecting five states.
 - Vector pages occupy one segment of this axis and must show their position within it.
@@ -192,7 +192,7 @@ Exception path: a future governance decision may authorize a single governed 3D 
 The homepage must:
 
 - render the full transition axis (five states, four vectors) as the hero element,
-- state the primary message: "AIDAtanaly measures the movement between Attention, Interest, Desire, Action, and Loyalty,"
+- state the primary message: "AIDATAnaly measures the movement between Attention, Interest, Desire, Action, and Loyalty,"
 - make the doctrine statement visible: "Stages are states. Value lives in transitions,"
 - route visitors to ATI, TFO, the scanner, and methodology within one screen of the hero,
 - avoid generic SaaS hero patterns (floating dashboard screenshots, fake social proof walls, logo carousels without substance).
@@ -371,7 +371,7 @@ The interface is a measurement surface. It is held to measurement honesty.
 
 Interface governance is versioned.
 
-AIDAtanaly uses sequential document versioning. Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change.
+AIDATAnaly uses sequential document versioning. Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change.
 
 ### 14.1 Patch Change
 
@@ -400,7 +400,7 @@ Major changes require a decision log entry, version update, and impact statement
 
 ## 15. Closing Interface Declaration
 
-AIDAtanaly cannot look like an ordinary marketing site, because it is not one.
+AIDATAnaly cannot look like an ordinary marketing site, because it is not one.
 
 The asset's thesis is that value lives in the movement between states.
 
@@ -418,4 +418,4 @@ A visitor should understand the category before reading a single section — bec
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

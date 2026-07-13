@@ -1,9 +1,9 @@
 # DECISION_PAGE_BLUEPRINTS_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Page Blueprints v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Page Blueprints v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `PAGE_BLUEPRINTS.md`
 **Decision ID:** PAGE-BLU-001
 **Decision Type:** Initial Ratification
@@ -16,17 +16,17 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `PAGE_BLUEPRINTS.md` as the governing page production standard for AIDAtanaly.
+This decision ratifies `PAGE_BLUEPRINTS.md` as the governing page production standard for AIDATAnaly.
 
 The Page Blueprints standard converts the ratified doctrine, thesis, ATI Standard, TFO Ontology, Route Map, Interface Governance, and Scanner Model into controlled public page templates.
 
-This decision establishes how AIDAtanaly pages must be produced so the asset does not degrade into generic SEO content, thin reference pages, inconsistent layouts, broken link structures, or ungoverned marketing pages.
+This decision establishes how AIDATAnaly pages must be produced so the asset does not degrade into generic SEO content, thin reference pages, inconsistent layouts, broken link structures, or ungoverned marketing pages.
 
 The governing thesis remains:
 
 > Stages are states. Value lives in transitions.
 
-Page Blueprints v1.0 is ratified as the production layer for building AIDAtanaly's public reference surface.
+Page Blueprints v1.0 is ratified as the production layer for building AIDATAnaly's public reference surface.
 
 ---
 
@@ -98,7 +98,7 @@ Specifically:
 
 This decision ratifies the following page production principle:
 
-> AIDAtanaly pages are governed reference units, not generic articles.
+> AIDATAnaly pages are governed reference units, not generic articles.
 
 A page is valid only if it strengthens at least one of the following:
 
@@ -163,7 +163,7 @@ The first public indexed reference release must include the complete 41-route se
 - privacy route,
 - terms route.
 
-No incomplete public indexed release may be treated as the official AIDAtanaly reference launch.
+No incomplete public indexed release may be treated as the official AIDATAnaly reference launch.
 
 ---
 
@@ -236,7 +236,7 @@ A clean composite ATI score is prohibited when any vector is E0.
 
 This decision ratifies the SEO blueprint rules.
 
-AIDAtanaly SEO must emerge from reference authority.
+AIDATAnaly SEO must emerge from reference authority.
 
 Allowed SEO behavior includes:
 
@@ -339,7 +339,7 @@ Future public page production must comply with this standard.
 
 ## 15. Governance Impact
 
-This decision strengthens AIDAtanaly by turning route architecture into controlled page production.
+This decision strengthens AIDATAnaly by turning route architecture into controlled page production.
 
 It prevents:
 
@@ -411,9 +411,9 @@ Automation without governance is prohibited.
 
 ## 18. Closing Decision
 
-Page Blueprints v1.0 is ratified as the governing public page production standard for AIDAtanaly.
+Page Blueprints v1.0 is ratified as the governing public page production standard for AIDATAnaly.
 
-AIDAtanaly cannot become a category artifact through routes alone.
+AIDATAnaly cannot become a category artifact through routes alone.
 
 Routes define where meaning lives.
 
@@ -429,4 +429,4 @@ Every scanner output must resolve into a governed page.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

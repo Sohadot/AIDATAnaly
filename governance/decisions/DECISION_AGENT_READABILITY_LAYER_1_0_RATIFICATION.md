@@ -1,9 +1,9 @@
 # DECISION_AGENT_READABILITY_LAYER_1_0_RATIFICATION.md
 
-## AIDAtanaly.com — Agent-Readability Layer Ratification
+## AIDATAnaly.com — Agent-Readability Layer Ratification
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** all 41 governed launch routes, `scripts/validate-pages.ps1`, `scripts/build-dist.ps1`, `scripts/validate-dist.ps1`, `llms.txt`, `scripts/inject-jsonld.py`
 **Decision ID:** AGENT-READ-001
 **Decision Type:** Capability Ratification + Validator Amendment
@@ -16,7 +16,7 @@
 
 ## 1. Decision Summary
 
-AIDAtanaly activates its **agent-readability layer**: every governed launch route now carries exactly one JSON-LD structured-data block, a root `llms.txt` guide is published, and the governed `/data/` registries are formally recognized as public machine-readable endpoints.
+AIDATAnaly activates its **agent-readability layer**: every governed launch route now carries exactly one JSON-LD structured-data block, a root `llms.txt` guide is published, and the governed `/data/` registries are formally recognized as public machine-readable endpoints.
 
 The asset is now legible to AI agents through three governed surfaces:
 

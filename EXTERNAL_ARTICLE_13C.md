@@ -1,6 +1,6 @@
 # EXTERNAL_ARTICLE_13C.md
 
-## AIDAtanaly.com — Reference Article (Sprint 13C)
+## AIDATAnaly.com — Reference Article (Sprint 13C)
 
 **Document Class:** External publication draft (repository artifact — not a public website route)
 **Sprint:** 13C — Reference Article
@@ -20,7 +20,7 @@ Publish the first long-form reference piece that makes the category citable. The
 |----------|------------------------------|
 | 1. Explain the gap | Occupancy counting vs. movement measurement, stated plainly and early |
 | 2. Establish the category | A quotable, stable definition of AIDA Transition Analytics |
-| 3. Make AIDAtanaly citable | Canonical definition block + explicit citation form + stable URLs |
+| 3. Make AIDATAnaly citable | Canonical definition block + explicit citation form + stable URLs |
 | ✗ Not marketing | No product pitch, no urgency, no outcome promises — a category-definition article |
 
 **Sequencing rule (from 13B):** this article stays at category depth. It may *name* ATI and TFO and link to them; it must not walk their mechanics. Depth is Sprint 13E.
@@ -41,7 +41,7 @@ They rarely measure whether people move.
 
 Almost every funnel report you have ever read is a census: impressions, sessions, leads, signups, orders, retained accounts. Each number tells you how many people currently occupy a stage. None of them tells you whether movement between stages is healthy, slowing, or quietly failing.
 
-That missing layer is the subject of this article, and it is why I built **AIDAtanaly — AIDA Transition Analytics**.
+That missing layer is the subject of this article, and it is why I built **AIDATAnaly — AIDA Transition Analytics**.
 
 ## The occupancy illusion
 
@@ -83,7 +83,7 @@ A category needs more than a definition. It needs a vocabulary for what goes wro
 
 Movement failures are not one thing. Attention that never becomes interest is a different failure from desire that dies at the payment page, and both differ from a customer who buys once and silently never returns. Treating them as one problem — "conversion" — guarantees that interventions are guesses.
 
-This is why AIDAtanaly maintains a governed taxonomy of movement failure modes (the Transition Failure Ontology), with each failure mode holding a stable identifier, a definition, and a permanent reference page. The point of that discipline is not academic tidiness. It is that **a named failure can be diagnosed, compared, and corrected; a felt failure can only be argued about.**
+This is why AIDATAnaly maintains a governed taxonomy of movement failure modes (the Transition Failure Ontology), with each failure mode holding a stable identifier, a definition, and a permanent reference page. The point of that discipline is not academic tidiness. It is that **a named failure can be diagnosed, compared, and corrected; a felt failure can only be argued about.**
 
 The difference in practice:
 
@@ -97,7 +97,7 @@ The second sentence points at an intervention. The first points at a meeting.
 
 Anyone can now generate a thousand pages about funnels in an afternoon. That is precisely why definitions are about to become scarce assets: when text is infinite, **stable meaning** is what runs out.
 
-AIDAtanaly is built on that premise. It is a governed reference system, which means: versioned definitions, restrained claims, stable canonical URLs, a published methodology, and a change-control record. It introduces the AIDA Transition Index (a governed standard for scoring transition health) and operates a rules-governed Transition Scanner — and it states plainly what it is not: not an adopted industry standard, not a guarantee of commercial outcomes, not a growth hack.
+AIDATAnaly is built on that premise. It is a governed reference system, which means: versioned definitions, restrained claims, stable canonical URLs, a published methodology, and a change-control record. It introduces the AIDA Transition Index (a governed standard for scoring transition health) and operates a rules-governed Transition Scanner — and it states plainly what it is not: not an adopted industry standard, not a guarantee of commercial outcomes, not a growth hack.
 
 The same discipline serves a second audience. Increasingly, the reader of a reference page is not a person but an AI agent resolving a question on someone's behalf. Every definition in the system is therefore published for both readers — human-readable pages and machine-readable structured data — so that when a person or an agent asks *"what is AIDA Transition Analytics?"*, there is a stable, versioned, citable answer.
 
@@ -111,20 +111,20 @@ The same discipline serves a second audience. Increasingly, the reader of a refe
 
 Stages are states. Value lives in transitions.
 
-**AIDAtanaly — AIDA Transition Analytics** is the governed reference system for that layer.
+**AIDATAnaly — AIDA Transition Analytics** is the governed reference system for that layer.
 
 Reference system: https://aidatanaly.com/
 Category definition: https://aidatanaly.com/aida-transition-analytics/
 
-*To cite: "AIDAtanaly — AIDA Transition Analytics", with the canonical URL of the page cited. Definitions are versioned; quote them exactly.*
+*To cite: "AIDATAnaly — AIDA Transition Analytics", with the canonical URL of the page cited. Definitions are versioned; quote them exactly.*
 
 ---
 
 ## Pre-publish checklist
 
-- [ ] First name mention uses em dash bind: AIDAtanaly — AIDA Transition Analytics
+- [ ] First name mention uses em dash bind: AIDATAnaly — AIDA Transition Analytics
 - [ ] Gap stated before the name (opening preserved)
-- [ ] No verb use of AIDAtanaly
+- [ ] No verb use of AIDATAnaly
 - [ ] No "AI data analysis" framing
 - [ ] ATI/TFO named and linked only — no mechanics walkthrough (13E boundary respected)
 - [ ] No guarantee, adoption, or causal-proof claims
@@ -135,8 +135,8 @@ Category definition: https://aidatanaly.com/aida-transition-analytics/
 
 ## Post-publish actions
 
-1. Record the publication in `EXTERNAL_PUBLICATION_LOG.md` as **EPL-003** (status, URL paste-point, opening, name binding, dated interaction observation).
-2. If the platform provides a stable public URL, consider adding it to `/sources/` context in a later governed content pass — not before EPL-003 is recorded.
+1. Update the publication status register in `EXTERNAL_PUBLICATION_POLICY.md` §6 (status and period only — no URL, no engagement counts; detailed evidence stays in the operator's private records per that policy).
+2. If the platform provides a stable public URL that becomes materially relevant, its inclusion anywhere in the repository requires a governance decision first (`EXTERNAL_PUBLICATION_POLICY.md` §3).
 
 ---
 
@@ -146,7 +146,7 @@ Category definition: https://aidatanaly.com/aida-transition-analytics/
 |-------|-------|
 | **Deliverable** | `EXTERNAL_ARTICLE_13C.md` |
 | **Code / interface / routes** | No changes |
-| **Operator action** | Review checklist → publish on long-form channel → record EPL-003 |
+| **Operator action** | Review checklist → publish on long-form channel → update status register in `EXTERNAL_PUBLICATION_POLICY.md` |
 | **Next sprint** | 13D — mini diagnostic examples (light, governed) |
 
 ---

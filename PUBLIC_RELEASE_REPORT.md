@@ -1,7 +1,7 @@
-# AIDAtanaly.com — Public Release Report
+# AIDATAnaly.com — Public Release Report
 
 **Document Class:** Public Release Report (repository artifact — not a public website route)  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Governed by:** `PUBLIC_RELEASE_PLAN.md` (PUB-REL-001)  
 **Release date:** 2026-06-12  
 **Commit hash:** `f2afbc4`  
@@ -190,7 +190,7 @@ Indexation Posture (source + dist): ACTIVE
 gh-pages branch: RETIRED
 ```
 
-**Decision:** AIDAtanaly first public indexed reference release is **activated in repository source and published from governed `dist/` via GitHub Actions on `main`**. Live public URL confirmed at `aidatanaly.com`.
+**Decision:** AIDATAnaly first public indexed reference release is **activated in repository source and published from governed `dist/` via GitHub Actions on `main`**. Live public URL confirmed at `aidatanaly.com`.
 
 **Main-only GitHub Actions deployment verified.**  
 **gh-pages branch retired.**  

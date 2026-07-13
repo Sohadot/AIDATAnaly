@@ -1,5 +1,5 @@
 # validate-data.ps1
-# Sprint 1 acceptance checks for the AIDAtanaly /data/ registry.
+# Sprint 1 acceptance checks for the AIDATAnaly /data/ registry.
 # Governed by: IMPLEMENTATION_PLAN.md (IMPL-PLAN-001), Sprint 1 acceptance criteria.
 # Validates /data/*.json against TFO_ONTOLOGY.md and ROUTE_MAP.md as sources of truth.
 
@@ -11,7 +11,7 @@ $passes = @()
 function Pass([string]$msg) { $script:passes += $msg; Write-Host "  PASS  $msg" }
 function Fail([string]$msg) { $script:failures += $msg; Write-Host "  FAIL  $msg" }
 
-Write-Host "=== AIDAtanaly Data Registry Validation ==="
+Write-Host "=== AIDATAnaly Data Registry Validation ==="
 
 # --- 1. JSON parse checks -------------------------------------------------
 $dataFiles = @(

@@ -23,7 +23,7 @@ function Get-PagePath {
   return Join-Path $Root $rel
 }
 
-Write-Host "=== AIDAtanaly Sitemap Generation ==="
+Write-Host "=== AIDATAnaly Sitemap Generation ==="
 
 $routeMapPath = Join-Path $root 'ROUTE_MAP.md'
 $launchRoutes = Get-LaunchRoutes $routeMapPath

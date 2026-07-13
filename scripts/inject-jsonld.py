@@ -105,17 +105,17 @@ def build_graph(route, title, desc, tfo, vectors, layers):
             {
                 "@type": "Organization",
                 "@id": ORG_ID,
-                "name": "AIDAtanaly",
+                "name": "AIDATAnaly",
                 "url": BASE + "/",
                 "description": (
-                    "AIDAtanaly is a Sohadot Sovereign Asset: the governed "
+                    "AIDATAnaly is a Sohadot Sovereign Asset: the governed "
                     "reference system for AIDA Transition Analytics."
                 ),
             },
             {
                 "@type": "WebSite",
                 "@id": WEBSITE_ID,
-                "name": "AIDAtanaly",
+                "name": "AIDATAnaly",
                 "alternateName": "AIDA Transition Analytics",
                 "url": BASE + "/",
                 "description": desc,
@@ -125,9 +125,9 @@ def build_graph(route, title, desc, tfo, vectors, layers):
             {
                 "@type": "DefinedTermSet",
                 "@id": VOCAB_ID,
-                "name": "AIDAtanaly Governed Vocabulary",
+                "name": "AIDATAnaly Governed Vocabulary",
                 "description": (
-                    "Category terms introduced and governed by AIDAtanaly for "
+                    "Category terms introduced and governed by AIDATAnaly for "
                     "AIDA Transition Analytics."
                 ),
                 "hasDefinedTerm": [
@@ -215,7 +215,7 @@ def build_graph(route, title, desc, tfo, vectors, layers):
         nodes.append({
             "@type": "DefinedTermSet",
             "@id": url + "#termset",
-            "name": "AIDAtanaly Intervention Layers",
+            "name": "AIDATAnaly Intervention Layers",
             "description": desc,
             "url": url,
             "hasDefinedTerm": [
@@ -234,7 +234,7 @@ def build_graph(route, title, desc, tfo, vectors, layers):
         nodes.append({
             "@type": "WebApplication",
             "@id": url + "#app",
-            "name": "AIDAtanaly Transition Scanner",
+            "name": "AIDATAnaly Transition Scanner",
             "url": url,
             "description": desc,
             "applicationCategory": "BusinessApplication",

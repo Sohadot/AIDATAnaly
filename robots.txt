@@ -1,4 +1,4 @@
-# AIDAtanaly.com â€” robots policy
+# AIDATAnaly.com â€” robots policy
 # Phase: public indexed reference release (active)
 # Governed by: PUBLIC_RELEASE_PLAN.md (PUB-REL-001)
 #

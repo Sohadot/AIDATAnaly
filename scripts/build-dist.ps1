@@ -60,7 +60,7 @@ function Copy-PublicTree {
   }
 }
 
-Write-Host '=== AIDAtanaly Dist Build (Sprint 11) ==='
+Write-Host '=== AIDATAnaly Dist Build (Sprint 11) ==='
 
 $sitemapScript = Join-Path $PSScriptRoot 'generate-sitemap.ps1'
 & $sitemapScript

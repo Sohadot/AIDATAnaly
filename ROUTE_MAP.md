@@ -1,10 +1,10 @@
 # ROUTE_MAP.md
 
-## AIDAtanaly.com — Governed Route Map
+## AIDATAnaly.com — Governed Route Map
 
 **Document Class:** Route Governance Map
 **Layer:** 4 — Public Reference Architecture
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, ATI_STANDARD.md, and TFO_ONTOLOGY.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,11 +15,11 @@
 
 ## 1. Purpose of This Route Map
 
-This document defines the governed public route architecture for AIDAtanaly.com.
+This document defines the governed public route architecture for AIDATAnaly.com.
 
 Its purpose is to convert the ratified doctrine, standard, and ontology into a controlled public reference surface.
 
-AIDAtanaly is not permitted to expand through random SEO pages, thin glossary pages, keyword harvesting, or disconnected marketing content.
+AIDATAnaly is not permitted to expand through random SEO pages, thin glossary pages, keyword harvesting, or disconnected marketing content.
 
 Every route must serve at least one governed function:
 
@@ -53,7 +53,7 @@ Therefore, the public architecture must prioritize:
 - governed internal linking over SEO randomness,
 - and stable routes over temporary campaigns.
 
-AIDAtanaly's route architecture must make the category legible to:
+AIDATAnaly's route architecture must make the category legible to:
 
 - human readers,
 - search engines,
@@ -105,7 +105,7 @@ Every route must have one status.
 
 | Route ID | Path | Class | Status | Purpose |
 |---|---|---|---|---|
-| AIDA-HOME-001 | `/` | Home Route | Required Launch | Introduce AIDAtanaly as the AIDA Transition Analytics reference layer |
+| AIDA-HOME-001 | `/` | Home Route | Required Launch | Introduce AIDATAnaly as the AIDA Transition Analytics reference layer |
 
 **Required Internal Links**
 
@@ -120,7 +120,7 @@ The homepage must link to:
 
 **Primary Message**
 
-> AIDAtanaly measures the movement between Attention, Interest, Desire, Action, and Loyalty.
+> AIDATAnaly measures the movement between Attention, Interest, Desire, Action, and Loyalty.
 
 ---
 
@@ -142,7 +142,7 @@ Each category route must:
 - link to ATI Standard,
 - link to TFO overview where relevant,
 - link to all four vector pages where relevant,
-- define terms using AIDAtanaly-governed language,
+- define terms using AIDATAnaly-governed language,
 - avoid generic "what is marketing" filler,
 - avoid claiming industry adoption before adoption exists.
 
@@ -173,7 +173,7 @@ Each category route must:
 
 Allowed:
 
-> "AIDAtanaly introduces the AIDA Transition Index."
+> "AIDATAnaly introduces the AIDA Transition Index."
 
 Prohibited:
 
@@ -245,7 +245,7 @@ The TFO overview must link to:
 
 Allowed:
 
-> "AIDAtanaly introduces the Transition Failure Ontology."
+> "AIDATAnaly introduces the Transition Failure Ontology."
 
 Prohibited:
 
@@ -476,7 +476,7 @@ They must support authority without overclaiming adoption.
 
 Buyer routes must not sound like domain flipping.
 
-They must present AIDAtanaly as:
+They must present AIDATAnaly as:
 
 - framework,
 - category name,
@@ -660,7 +660,7 @@ The following should be noindex unless separately governed:
 
 ## 16. Internal Linking Architecture
 
-AIDAtanaly uses hub-and-spoke plus cross-vector linking.
+AIDATAnaly uses hub-and-spoke plus cross-vector linking.
 
 ### 16.1 Top-Level Flow
 
@@ -819,7 +819,7 @@ Major route changes require:
 
 Allowed:
 
-> "AIDAtanaly publishes governed reference pages for AIDA Transition Analytics."
+> "AIDATAnaly publishes governed reference pages for AIDA Transition Analytics."
 
 > "Each failure mode route maps to the Transition Failure Ontology."
 
@@ -827,7 +827,7 @@ Allowed:
 
 Prohibited:
 
-> "AIDAtanaly covers every marketing topic."
+> "AIDATAnaly covers every marketing topic."
 
 > "Every keyword deserves a page."
 
@@ -862,7 +862,7 @@ Public pages may mirror or summarize these documents, but repository documents a
 
 ## 23. Closing Route Declaration
 
-AIDAtanaly cannot become a category artifact through random pages.
+AIDATAnaly cannot become a category artifact through random pages.
 
 It becomes one through governed routes.
 
@@ -882,4 +882,4 @@ It is the public skeleton of the asset.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

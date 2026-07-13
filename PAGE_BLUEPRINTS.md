@@ -1,10 +1,10 @@
 # PAGE_BLUEPRINTS.md
 
-## AIDAtanaly.com — Governed Page Blueprint Standard
+## AIDATAnaly.com — Governed Page Blueprint Standard
 
 **Document Class:** Page Blueprint Standard
 **Layer:** 7 — Public Page Production Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, ATI_STANDARD.md, TFO_ONTOLOGY.md, ROUTE_MAP.md, INTERFACE_GOVERNANCE.md, and SCANNER_MODEL.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,11 +15,11 @@
 
 ## 1. Purpose of This Standard
 
-This document defines the governed page blueprints used to produce the public reference surface of AIDAtanaly.com.
+This document defines the governed page blueprints used to produce the public reference surface of AIDATAnaly.com.
 
 The purpose of this standard is to prevent uncontrolled page production, weak route execution, generic SEO pages, duplicated layouts, thin content, broken internal linking, and interface drift.
 
-AIDAtanaly is not permitted to publish pages merely because a keyword exists.
+AIDATAnaly is not permitted to publish pages merely because a keyword exists.
 
 Every page must serve the asset's governing thesis:
 
@@ -42,7 +42,7 @@ A page is valid only if it strengthens at least one of the following:
 
 ## 2. Governed Page Principle
 
-AIDAtanaly pages are not articles.
+AIDATAnaly pages are not articles.
 
 They are governed reference units.
 
@@ -149,7 +149,7 @@ The metadata must match `ROUTE_MAP.md`.
 
 ## 6. Universal Content Quality Rules
 
-AIDAtanaly pages must be written as reference assets.
+AIDATAnaly pages must be written as reference assets.
 
 **Required Quality**
 
@@ -244,15 +244,15 @@ No page may function as a dead end unless explicitly classified as a legal or te
 
 ### 9.1 Purpose
 
-The homepage introduces AIDAtanaly as the reference layer for AIDA Transition Analytics.
+The homepage introduces AIDATAnaly as the reference layer for AIDA Transition Analytics.
 
-It must communicate that AIDAtanaly does not merely describe funnel stages.
+It must communicate that AIDATAnaly does not merely describe funnel stages.
 
 It measures movement between states.
 
 Primary message:
 
-> AIDAtanaly measures the movement between Attention, Interest, Desire, Action, and Loyalty.
+> AIDATAnaly measures the movement between Attention, Interest, Desire, Action, and Loyalty.
 
 ---
 
@@ -276,7 +276,7 @@ Secondary Governed Documents: FOUNDATION_DOCTRINE.md, ATI_STANDARD.md, TFO_ONTOL
 
 ## Hero: Stages Are States. Value Lives in Transitions.
 ## Transition Axis: Attention → Interest → Desire → Action → Loyalty
-## What AIDAtanaly Measures
+## What AIDATAnaly Measures
 ## The Four Transition Vectors
 ## The AIDA Transition Index
 ## The Transition Failure Ontology
@@ -321,7 +321,7 @@ The homepage must link to:
 
 Allowed:
 
-> "AIDAtanaly introduces AIDA Transition Analytics."
+> "AIDATAnaly introduces AIDA Transition Analytics."
 
 Allowed:
 
@@ -329,7 +329,7 @@ Allowed:
 
 Prohibited:
 
-> "AIDAtanaly is the industry standard."
+> "AIDATAnaly is the industry standard."
 
 Prohibited:
 
@@ -341,7 +341,7 @@ Prohibited:
 
 ### 10.1 Purpose
 
-Category pages define the language of AIDAtanaly.
+Category pages define the language of AIDATAnaly.
 
 They must establish category meaning, not chase generic search demand.
 
@@ -389,7 +389,7 @@ Secondary Governed Documents: FOUNDATION_DOCTRINE.md, ATI_STANDARD.md, ROUTE_MAP
 
 **Definition**
 
-The page must define the term in AIDAtanaly-governed language.
+The page must define the term in AIDATAnaly-governed language.
 
 **Why the Category Exists**
 
@@ -439,7 +439,7 @@ Every category page must link to:
 
 ### 11.1 Purpose
 
-ATI standard pages explain how AIDAtanaly measures transition health.
+ATI standard pages explain how AIDATAnaly measures transition health.
 
 They translate `ATI_STANDARD.md` into public reference pages without exposing repository-only detail unnecessarily.
 
@@ -675,7 +675,7 @@ Must link to:
 
 Must state:
 
-> AIDAtanaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence.
+> AIDATAnaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence.
 
 ---
 
@@ -949,7 +949,7 @@ Secondary Governed Documents: ATI_STANDARD.md, TFO_ONTOLOGY.md, ROUTE_MAP.md, IN
 ### 16.3 Required Page Structure
 
 ```markdown
-# AIDAtanaly Transition Scanner
+# AIDATAnaly Transition Scanner
 
 ## What the Scanner Measures
 ## What the Scanner Does Not Claim
@@ -1133,7 +1133,7 @@ Prohibited monetization:
 
 ### 19.1 Purpose
 
-The methodology page explains how AIDAtanaly works in public language.
+The methodology page explains how AIDATAnaly works in public language.
 
 Route:
 
@@ -1179,7 +1179,7 @@ The methodology page must link to:
 
 ### 20.1 Purpose
 
-The governance page explains how AIDAtanaly maintains trust, versioning, source restraint, claim limits, and reference discipline.
+The governance page explains how AIDATAnaly maintains trust, versioning, source restraint, claim limits, and reference discipline.
 
 Route:
 
@@ -1213,7 +1213,7 @@ Route:
 
 The page must state:
 
-> AIDAtanaly uses sequential document versioning. Change severity is recorded in decision logs and is not encoded directly into the version number.
+> AIDATAnaly uses sequential document versioning. Change severity is recorded in decision logs and is not encoded directly into the version number.
 
 ---
 
@@ -1244,7 +1244,7 @@ Route:
 /sources/
 ```
 
-AIDAtanaly must not pretend to have external benchmark authority before evidence exists.
+AIDATAnaly must not pretend to have external benchmark authority before evidence exists.
 
 ---
 
@@ -1269,7 +1269,7 @@ AIDAtanaly must not pretend to have external benchmark authority before evidence
 
 The sources page must state:
 
-> AIDAtanaly may introduce governed internal standards before market adoption, but it must not describe them as adopted industry standards unless adoption evidence exists.
+> AIDATAnaly may introduce governed internal standards before market adoption, but it must not describe them as adopted industry standards unless adoption evidence exists.
 
 ---
 
@@ -1342,7 +1342,7 @@ Examples:
 
 Buyer pages must not sound like domain flipping.
 
-They must frame AIDAtanaly as:
+They must frame AIDATAnaly as:
 
 - category language,
 - measurement standard,
@@ -1360,7 +1360,7 @@ They must frame AIDAtanaly as:
 # {Buyer Page Topic}
 
 ## Strategic Context
-## What AIDAtanaly Owns
+## What AIDATAnaly Owns
 ## Why This Category Matters
 ## Asset Components
 ## Integration Potential
@@ -1420,7 +1420,7 @@ Data endpoints must:
 
 ## 25. SEO Blueprint Rules
 
-AIDAtanaly SEO must emerge from reference authority.
+AIDATAnaly SEO must emerge from reference authority.
 
 Allowed SEO behavior:
 
@@ -1554,7 +1554,7 @@ This preserves internal link integrity.
 
 ## 29. Minimum Viable Preview Rule
 
-AIDAtanaly may not publicly launch an indexed reference release with isolated pages that do not form the complete governed launch architecture.
+AIDATAnaly may not publicly launch an indexed reference release with isolated pages that do not form the complete governed launch architecture.
 
 The Required Launch route set defined in `ROUTE_MAP.md` remains the governing requirement for the first public indexed reference release.
 
@@ -1642,7 +1642,7 @@ Automation without governance is prohibited.
 
 Page Blueprint Standard v1.0 is versioned.
 
-AIDAtanaly uses sequential document versioning.
+AIDATAnaly uses sequential document versioning.
 
 Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change and is not encoded directly into the version number.
 
@@ -1688,7 +1688,7 @@ Major changes require:
 
 ## 33. Closing Page Blueprint Declaration
 
-AIDAtanaly cannot become a category artifact through routes alone.
+AIDATAnaly cannot become a category artifact through routes alone.
 
 Routes define where meaning lives.
 
@@ -1704,7 +1704,7 @@ Every scanner output must resolve into a governed page.
 
 Every interface pattern must make transition intelligence visible.
 
-This standard prevents AIDAtanaly from becoming a generic website.
+This standard prevents AIDATAnaly from becoming a generic website.
 
 It turns page production into governed asset construction.
 
@@ -1712,4 +1712,4 @@ It turns page production into governed asset construction.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

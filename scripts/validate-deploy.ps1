@@ -10,7 +10,7 @@ $passes = @()
 function Pass([string]$msg) { $script:passes += $msg; Write-Host "  PASS  $msg" }
 function Fail([string]$msg) { $script:failures += $msg; Write-Host "  FAIL  $msg" }
 
-Write-Host '=== AIDAtanaly Main-Only Deployment Validation ==='
+Write-Host '=== AIDATAnaly Main-Only Deployment Validation ==='
 
 $decisionPath = Join-Path $root 'governance/decisions/DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md'
 if (Test-Path $decisionPath) {

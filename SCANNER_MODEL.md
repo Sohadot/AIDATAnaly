@@ -1,10 +1,10 @@
 # SCANNER_MODEL.md
 
-## AIDAtanaly.com — Transition Scanner v1 Model
+## AIDATAnaly.com — Transition Scanner v1 Model
 
 **Document Class:** Operational Scanner Model
 **Layer:** 6 — Diagnostic Engine Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md, ASSET_THESIS.md, ATI_STANDARD.md, TFO_ONTOLOGY.md, ROUTE_MAP.md, and INTERFACE_GOVERNANCE.md
 **Status:** Ratified
 **Version:** 1.0
@@ -15,9 +15,9 @@
 
 ## 1. Purpose of This Scanner Model
 
-This document defines the first operational diagnostic model for the AIDAtanaly Transition Scanner.
+This document defines the first operational diagnostic model for the AIDATAnaly Transition Scanner.
 
-The scanner converts AIDAtanaly's doctrine, standard, ontology, route architecture, and interface governance into a usable diagnostic experience.
+The scanner converts AIDATAnaly's doctrine, standard, ontology, route architecture, and interface governance into a usable diagnostic experience.
 
 The governing doctrine states:
 
@@ -682,7 +682,7 @@ Example:
 ```json
 {
   "scanner_version": "1.0",
-  "asset": "AIDAtanaly.com",
+  "asset": "AIDATAnaly.com",
   "composite": {
     "score": 56.25,
     "diagnostic_class": "Transition Unstable",
@@ -853,7 +853,7 @@ Before public release, Scanner v1 must pass the following checks.
 
 Allowed:
 
-> "The AIDAtanaly Transition Scanner provides a rules-governed diagnostic profile of AIDA transition health."
+> "The AIDATAnaly Transition Scanner provides a rules-governed diagnostic profile of AIDA transition health."
 
 Allowed:
 
@@ -885,7 +885,7 @@ Prohibited:
 
 Scanner Model v1.0 is versioned.
 
-AIDAtanaly uses sequential document versioning.
+AIDATAnaly uses sequential document versioning.
 
 Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change and is not encoded directly into the version number.
 
@@ -963,7 +963,7 @@ No hidden contradictory model is permitted.
 
 ## 32. Closing Scanner Declaration
 
-The AIDAtanaly Transition Scanner is the operational bridge between doctrine and diagnosis.
+The AIDATAnaly Transition Scanner is the operational bridge between doctrine and diagnosis.
 
 It turns the governing thesis into output.
 
@@ -981,10 +981,10 @@ It prepares the asset for future agent-readable intelligence, reports, API outpu
 
 The scanner is not a quiz.
 
-It is the first operational expression of AIDAtanaly as a Category Intelligence Factory.
+It is the first operational expression of AIDATAnaly as a Category Intelligence Factory.
 
 > Stages are states. Value lives in transitions.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

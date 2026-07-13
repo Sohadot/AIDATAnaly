@@ -1,6 +1,6 @@
 # EXTERNAL_POSTS_13B.md
 
-## AIDAtanaly.com — Name-Category Binding Launch (Sprint 13B)
+## AIDATAnaly.com — Name-Category Binding Launch (Sprint 13B)
 
 **Document Class:** External publication draft (repository artifact — not a public website route)  
 **Sprint:** 13B — Name-Category Binding Launch  
@@ -14,11 +14,11 @@
 
 ## Sprint 13B Objective
 
-Bind the name **AIDAtanaly** to the category **AIDA Transition Analytics** before any deeper ATI/TFO authority layer.
+Bind the name **AIDATAnaly** to the category **AIDA Transition Analytics** before any deeper ATI/TFO authority layer.
 
 | Goal | How this sprint addresses it |
 |------|--------------------------------|
-| 1. Anchor the name | First mention always: **AIDAtanaly — AIDA Transition Analytics** |
+| 1. Anchor the name | First mention always: **AIDATAnaly — AIDA Transition Analytics** |
 | 2. Anchor the category | AIDA Transition Analytics = measuring movement between funnel stages |
 | 3. Explain the gap | Funnels count states; they rarely measure movement |
 | 4. Prevent misreadings | Not AI Data Analysis; not a generic analytics tool; not a verb |
@@ -35,8 +35,8 @@ These rules apply to **all** Sprint 13B copy and every external publication unti
 ### Required
 
 - **First external mention** must be one of:
-  - **AIDAtanaly — AIDA Transition Analytics**
-  - **AIDAtanaly is a governed reference system for AIDA Transition Analytics.**
+  - **AIDATAnaly — AIDA Transition Analytics**
+  - **AIDATAnaly is a governed reference system for AIDA Transition Analytics.**
 - **Always connect the name to movement** between AIDA stages (Attention, Interest, Desire, Action, Loyalty).
 - **Always lead with the gap:** funnels count where people are; they rarely measure whether people move.
 - Spell the category in full on first use: **AIDA Transition Analytics**.
@@ -44,16 +44,16 @@ These rules apply to **all** Sprint 13B copy and every external publication unti
 
 ### Prohibited (early-stage messaging)
 
-- Do **not** introduce **AIDAtanaly** alone as if it were already a known concept.
-- Do **not** describe AIDAtanaly as **AI data analysis**, **AI analytics**, or **AI Data Analy**.
-- Do **not** use **AIDAtanaly as a verb** (e.g. “we AIDAtanaly the funnel,” “AIDAtanaly your pipeline”).
+- Do **not** introduce **AIDATAnaly** alone as if it were already a known concept.
+- Do **not** describe AIDATAnaly as **AI data analysis**, **AI analytics**, or **AI Data Analy**.
+- Do **not** use **AIDATAnaly as a verb** (e.g. “we AIDATAnaly the funnel,” “AIDATAnaly your pipeline”).
 - Do **not** position it as a **SaaS scanner**, **growth hack**, or **conversion guarantee tool**.
 - Do **not** claim adopted industry standard, revenue guarantees, or causal proof.
 - Do **not** open with ATI, TFO, or scanner mechanics before the gap and name-category bind.
 
 ### Name logic (use when space allows)
 
-**AIDA + T + Analy = AIDAtanaly** — the **T** is **Transition**, not a misspelling of “analytics.”
+**AIDA + T + Analy = AIDATAnaly** — the **T** is **Transition**, not a misspelling of “analytics.”
 
 ### Doctrine (supporting, not opening)
 
@@ -72,7 +72,7 @@ Funnels count where people are.
 
 They rarely measure whether people move.
 
-That missing layer is why I built AIDAtanaly — AIDA Transition Analytics.
+That missing layer is why I built AIDATAnaly — AIDA Transition Analytics.
 ```
 
 ---
@@ -87,7 +87,7 @@ Funnels count where people are.
 
 They rarely measure whether people move.
 
-That missing layer is why I built **AIDAtanaly — AIDA Transition Analytics**.
+That missing layer is why I built **AIDATAnaly — AIDA Transition Analytics**.
 
 Most funnel reporting counts **occupancy**: impressions, sessions, leads, orders, retention counts. A funnel can look full at every stage while **movement between stages** quietly fails — visibility without curiosity, curiosity without preference, intent without action, conversion without continuity.
 
@@ -95,7 +95,7 @@ Most funnel reporting counts **occupancy**: impressions, sessions, leads, orders
 
 AIDA did not fail. It was missing a transition layer.
 
-**AIDAtanaly** is a governed reference system for that layer — canonical standards, failure vocabulary, methodology, and a rules-governed Transition Scanner. It introduces AIDA Transition Analytics; it does not claim to be an adopted industry standard, and it does not promise conversion or revenue outcomes.
+**AIDATAnaly** is a governed reference system for that layer — canonical standards, failure vocabulary, methodology, and a rules-governed Transition Scanner. It introduces AIDA Transition Analytics; it does not claim to be an adopted industry standard, and it does not promise conversion or revenue outcomes.
 
 Stages are states. Value lives in transitions.
 
@@ -106,8 +106,8 @@ Category overview: https://aidatanaly.com/aida-transition-analytics/
 
 **Pre-publish checklist**
 
-- [ ] First name mention uses em dash bind: AIDAtanaly — AIDA Transition Analytics
-- [ ] No verb use of AIDAtanaly
+- [ ] First name mention uses em dash bind: AIDATAnaly — AIDA Transition Analytics
+- [ ] No verb use of AIDATAnaly
 - [ ] No “AI data analysis” framing
 - [ ] Links live and indexed
 - [ ] No guarantee or adoption claims
@@ -126,7 +126,7 @@ Funnels count where people are.
 
 They rarely measure whether people move.
 
-That missing layer is why I built AIDAtanaly — AIDA Transition Analytics.
+That missing layer is why I built AIDATAnaly — AIDA Transition Analytics.
 
 ---
 
@@ -158,7 +158,7 @@ Not funnel occupancy. Not a rebrand of AIDA. The grammar *between* stages.
 
 **5/7**
 
-**AIDAtanaly** is a governed reference system for AIDA Transition Analytics.
+**AIDATAnaly** is a governed reference system for AIDA Transition Analytics.
 
 (AIDA + **T** + Analy — the T is Transition, not “AI data.”)
 
@@ -168,7 +168,7 @@ Not funnel occupancy. Not a rebrand of AIDA. The grammar *between* stages.
 
 Stages are states. Value lives in transitions.
 
-AIDAtanaly publishes that layer: reference pages, governed methodology, diagnostic scanner — no revenue guarantees, no “adopted standard” claim.
+AIDATAnaly publishes that layer: reference pages, governed methodology, diagnostic scanner — no revenue guarantees, no “adopted standard” claim.
 
 ---
 
@@ -189,7 +189,7 @@ https://aidatanaly.com/aida-transition-analytics/
 - [ ] Thread ≤ 8 posts (this draft: 7)
 - [ ] Post 1 uses canonical opening with name bind
 - [ ] Link in final post
-- [ ] No verb use of AIDAtanaly
+- [ ] No verb use of AIDATAnaly
 - [ ] No AI-data misread unaddressed (post 5 handles it)
 
 ---

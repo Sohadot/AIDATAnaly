@@ -1,8 +1,8 @@
-# AIDAtanaly.com — Public Indexed Reference Release Plan
+# AIDATAnaly.com — Public Indexed Reference Release Plan
 
 **Document Class:** Public Release Plan  
 **Layer:** 9 — Public Exposure and Indexation Layer  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Governed by:** `FOUNDATION_DOCTRINE.md`, `ASSET_THESIS.md`, `ATI_STANDARD.md`, `TFO_ONTOLOGY.md`, `ROUTE_MAP.md`, `INTERFACE_GOVERNANCE.md`, `SCANNER_MODEL.md`, `PAGE_BLUEPRINTS.md`, and `IMPLEMENTATION_PLAN.md`  
 **Status:** Ratified  
 **Version:** 1.0  
@@ -13,11 +13,11 @@
 
 ## 1. Purpose of This Plan
 
-This document defines the controlled public release plan for the first indexed reference release of AIDAtanaly.com.
+This document defines the controlled public release plan for the first indexed reference release of AIDATAnaly.com.
 
 The purpose is to prevent accidental indexation, incomplete exposure, broken public release, uncontrolled repository file exposure, premature sitemap activation, and unsupported launch claims.
 
-AIDAtanaly may be publicly indexed only after:
+AIDATAnaly may be publicly indexed only after:
 
 - all 41 Required Launch routes exist,
 - the quality gate passes,
@@ -47,7 +47,7 @@ This is **not**:
 - a buyer-facing sale page,
 - or an experimental partial release.
 
-This release exposes AIDAtanaly as a governed reference and diagnostic system.
+This release exposes AIDATAnaly as a governed reference and diagnostic system.
 
 ---
 
@@ -318,9 +318,9 @@ The scanner must remain a diagnostic reference tool, not a claim-heavy conversio
 
 The public release **may** claim:
 
-- AIDAtanaly introduces AIDA Transition Analytics.
-- AIDAtanaly defines ATI as a governed internal measurement standard.
-- AIDAtanaly defines TFO as a governed failure ontology.
+- AIDATAnaly introduces AIDA Transition Analytics.
+- AIDATAnaly defines ATI as a governed internal measurement standard.
+- AIDATAnaly defines TFO as a governed failure ontology.
 - Scanner v1 provides rules-governed diagnostic output.
 - Evidence Confidence qualifies interpretation strength.
 
@@ -480,7 +480,7 @@ The decision should explicitly ratify:
 
 ## 20. Closing Release Declaration
 
-AIDAtanaly may be indexed only when it is complete as a governed public reference system.
+AIDATAnaly may be indexed only when it is complete as a governed public reference system.
 
 Routes define where meaning lives.
 
@@ -494,7 +494,7 @@ This plan ensures that exposure is intentional, complete, and reversible.
 
 > Stages are states. Value lives in transitions.
 
-**AIDAtanaly.com** — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.
+**AIDATAnaly.com** — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.
 
 ---
 

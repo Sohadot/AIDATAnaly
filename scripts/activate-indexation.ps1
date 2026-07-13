@@ -22,7 +22,7 @@ function Get-PagePath {
   return Join-Path $Root $rel
 }
 
-Write-Host '=== AIDAtanaly Indexation Activation (Sprint 11 Phase 2) ==='
+Write-Host '=== AIDATAnaly Indexation Activation (Sprint 11 Phase 2) ==='
 
 $routes = Get-LaunchPageRoutes (Join-Path $root 'ROUTE_MAP.md')
 if ($routes.Count -ne 41) {
@@ -57,7 +57,7 @@ foreach ($route in $routes) {
 
 $robotsPath = Join-Path $root 'robots.txt'
 $robotsContent = @'
-# AIDAtanaly.com — robots policy
+# AIDATAnaly.com — robots policy
 # Phase: public indexed reference release (active)
 # Governed by: PUBLIC_RELEASE_PLAN.md (PUB-REL-001)
 #

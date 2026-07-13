@@ -1,8 +1,8 @@
 # DECISION_ATI_STANDARD_1_1_EVIDENCE_CONFIDENCE_SEPARATION.md
  
-## AIDAtanaly.com — ATI Standard v1.1 Major Change Decision
+## AIDATAnaly.com — ATI Standard v1.1 Major Change Decision
  
-**Document Class:** Governance Decision Log **Asset:** AIDAtanaly.com **Applies to:** `ATI_STANDARD.md` **Decision ID:** ATI-STD-001 **Decision Type:** Major Change **Status:** Ratified **Ratified by:** Sohadot — System Operator **Date:** 2026-06-11 **Supersedes:** ATI Standard v1.0 scoring model **Resulting Version:** ATI Standard v1.1
+**Document Class:** Governance Decision Log **Asset:** AIDATAnaly.com **Applies to:** `ATI_STANDARD.md` **Decision ID:** ATI-STD-001 **Decision Type:** Major Change **Status:** Ratified **Ratified by:** Sohadot — System Operator **Date:** 2026-06-11 **Supersedes:** ATI Standard v1.0 scoring model **Resulting Version:** ATI Standard v1.1
   
 ## 1. Decision Summary
  
@@ -45,7 +45,7 @@ The change includes:
   
 ## 3. Versioning Note
  
-AIDAtanaly uses sequential document versioning.
+AIDATAnaly uses sequential document versioning.
  
 Change severity is recorded in the decision log as **Patch Change**, **Minor Change**, or **Major Change** and is not encoded directly into the version number.
  
@@ -353,7 +353,7 @@ The unified `ATI_STANDARD.md` v1.1 must reflect this decision by:
   
 ## 14. Closing Decision
  
-ATI Standard v1.1 is ratified as the governing measurement standard for AIDAtanaly.
+ATI Standard v1.1 is ratified as the governing measurement standard for AIDATAnaly.
  
 The score measures movement.
  
@@ -365,4 +365,4 @@ The two remain connected, but they are not the same.
 **Stages are states. Value lives in transitions.**
  
  
-*AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.
+*AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.

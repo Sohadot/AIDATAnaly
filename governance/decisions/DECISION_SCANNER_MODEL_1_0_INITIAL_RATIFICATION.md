@@ -1,9 +1,9 @@
 # DECISION_SCANNER_MODEL_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Scanner Model v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Scanner Model v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `SCANNER_MODEL.md`
 **Decision ID:** SCAN-MOD-001
 **Decision Type:** Initial Ratification
@@ -16,15 +16,15 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `SCANNER_MODEL.md` as the governing operational model for the AIDAtanaly Transition Scanner v1.
+This decision ratifies `SCANNER_MODEL.md` as the governing operational model for the AIDATAnaly Transition Scanner v1.
 
-The scanner model converts AIDAtanaly's doctrine, measurement standard, failure ontology, route architecture, and interface governance into a controlled diagnostic engine.
+The scanner model converts AIDATAnaly's doctrine, measurement standard, failure ontology, route architecture, and interface governance into a controlled diagnostic engine.
 
 The scanner operationalizes the governing thesis:
 
 > Stages are states. Value lives in transitions.
 
-Scanner Model v1.0 is ratified as the first governed diagnostic engine layer for AIDAtanaly.
+Scanner Model v1.0 is ratified as the first governed diagnostic engine layer for AIDATAnaly.
 
 ---
 
@@ -322,7 +322,7 @@ Future scanner implementation must comply with this model.
 
 ## 15. Governance Impact
 
-This decision strengthens AIDAtanaly by establishing the first operational engine layer.
+This decision strengthens AIDATAnaly by establishing the first operational engine layer.
 
 It converts the asset from a governed reference system into a diagnostic system.
 
@@ -390,7 +390,7 @@ It must preserve:
 
 ## 18. Closing Decision
 
-Scanner Model v1.0 is ratified as the governing operational diagnostic model for AIDAtanaly.
+Scanner Model v1.0 is ratified as the governing operational diagnostic model for AIDATAnaly.
 
 ATI measures transition health.
 
@@ -412,4 +412,4 @@ It supports monetization without degrading trust.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

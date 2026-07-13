@@ -1,9 +1,9 @@
 # DECISION_TFO_ONTOLOGY_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — TFO Ontology v1.0 Initial Ratification Decision
+## AIDATAnaly.com — TFO Ontology v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `TFO_ONTOLOGY.md`
 **Decision ID:** TFO-ONT-001
 **Decision Type:** Initial Ratification
@@ -16,7 +16,7 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `TFO_ONTOLOGY.md` as the governing ontology standard for AIDAtanaly's Transition Failure Ontology.
+This decision ratifies `TFO_ONTOLOGY.md` as the governing ontology standard for AIDATAnaly's Transition Failure Ontology.
 
 The Transition Failure Ontology — TFO — classifies movement failure modes across the four ATI vectors:
 
@@ -27,7 +27,7 @@ The Transition Failure Ontology — TFO — classifies movement failure modes ac
 
 The ontology provides stable IDs, canonical routes, diagnostic definitions, symptoms, detection signals, scoring impacts, AI instrumentation notes, intervention-layer mappings, related failure modes, and scanner-output language.
 
-This decision establishes TFO v1.0 as the governed classification layer for AIDAtanaly.
+This decision establishes TFO v1.0 as the governed classification layer for AIDATAnaly.
 
 ---
 
@@ -169,7 +169,7 @@ No public scanner outputs, reports, APIs, or reference pages depend on an earlie
 
 ## 8. Governance Impact
 
-This decision strengthens AIDAtanaly by establishing:
+This decision strengthens AIDATAnaly by establishing:
 
 - a stable failure-mode taxonomy,
 - a governed language for movement failure,
@@ -206,7 +206,7 @@ This preserves both:
 
 ## 10. Closing Decision
 
-TFO Ontology v1.0 is ratified as the governing failure-mode ontology for AIDAtanaly.
+TFO Ontology v1.0 is ratified as the governing failure-mode ontology for AIDATAnaly.
 
 ATI measures transition health.
 
@@ -218,4 +218,4 @@ Together they convert funnel weakness into governed movement intelligence.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

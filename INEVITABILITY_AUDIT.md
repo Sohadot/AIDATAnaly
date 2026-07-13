@@ -1,9 +1,9 @@
 # INEVITABILITY_AUDIT.md
 
-## AIDAtanaly.com — Strategic Inevitability Audit
+## AIDATAnaly.com — Strategic Inevitability Audit
 
 **Document Class:** Strategic Audit / Maturity Assessment
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** `FOUNDATION_DOCTRINE.md`, `ASSET_THESIS.md`
 **Status:** Recorded
 **Version:** 1.0
@@ -14,11 +14,11 @@
 
 ## 1. The Question This Audit Answers
 
-Has AIDAtanaly reached the stage where it is **inevitable inside its category** — an asset whose absence from a strategic buyer's portfolio constitutes a loss?
+Has AIDATAnaly reached the stage where it is **inevitable inside its category** — an asset whose absence from a strategic buyer's portfolio constitutes a loss?
 
 The honest, governed answer:
 
-> **AIDAtanaly has achieved structural inevitability. It has not yet achieved market inevitability.**
+> **AIDATAnaly has achieved structural inevitability. It has not yet achieved market inevitability.**
 
 These are two different states, and conflating them would violate the asset's own claims-restraint policy (`ASSET_THESIS.md` §14).
 
@@ -86,7 +86,7 @@ None of these gaps are structural defects. All are activation gaps — the machi
 
 ## 5. Inevitability Criteria (Governed Definition)
 
-The asset may claim market inevitability only when all five criteria hold. Until then, the correct external language remains "AIDAtanaly introduces…", never "the industry uses…".
+The asset may claim market inevitability only when all five criteria hold. Until then, the correct external language remains "AIDATAnaly introduces…", never "the industry uses…".
 
 | Criterion | Test |
 |-----------|------|
@@ -130,7 +130,7 @@ The build sequence (`ASSET_THESIS.md` §21) remains authoritative. Within it, th
 
 ## 8. Closing Statement
 
-The asset's own doctrine says a built category artifact *demonstrates* inevitability rather than claiming it. As of this audit, AIDAtanaly demonstrates inevitability to anyone who inspects it — and to no one else, because almost no one external has yet been given a reason to inspect it.
+The asset's own doctrine says a built category artifact *demonstrates* inevitability rather than claiming it. As of this audit, AIDATAnaly demonstrates inevitability to anyone who inspects it — and to no one else, because almost no one external has yet been given a reason to inspect it.
 
 The work remaining is not construction. It is activation, evidence, and accumulation.
 
@@ -158,9 +158,9 @@ Recorded after the original audit, per the append-only correction convention. Th
 |-------|-------|
 | **Previous status** | Zero external footprint (unpublished) |
 | **Current status** | **EXTERNAL ACTIVATION BEGUN** |
-| **Evidence** | `EXTERNAL_PUBLICATION_LOG.md` EPL-001 — LinkedIn launch published with governed name-category binding; dated initial-interaction observation recorded 2026-07-13 |
-| **Remaining** | EPL-002 (X thread), EPL-003 (Sprint 13C reference article), then accumulation toward C1/C3 |
+| **Evidence** | LinkedIn launch published with governed name-category binding — status recorded at policy level in `EXTERNAL_PUBLICATION_POLICY.md` §6; detailed publication evidence maintained privately by the operator per that policy |
+| **Remaining** | X thread, Sprint 13C reference article, then accumulation toward C1/C3 |
 
 Gaps G2 (revenue instrument), G3 (buyer surface), and G5 (measurement evidence) remain open. The inevitability criteria in §5 are unchanged.
 
-*AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.*
+*AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.*

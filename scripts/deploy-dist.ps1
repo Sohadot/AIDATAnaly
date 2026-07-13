@@ -9,7 +9,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $scriptsDir = $PSScriptRoot
 
-Write-Host '=== AIDAtanaly Deploy Preflight (main-only) ==='
+Write-Host '=== AIDATAnaly Deploy Preflight (main-only) ==='
 Write-Host '  INFO  gh-pages branch deployment is RETIRED (PUB-REL-002).'
 Write-Host '  INFO  Public deploy: push to main → GitHub Actions → Pages artifact from dist/.'
 Write-Host '  INFO  GitHub → Settings → Pages → Source must be GitHub Actions.'

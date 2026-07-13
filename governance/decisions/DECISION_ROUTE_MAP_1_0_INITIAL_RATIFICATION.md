@@ -1,9 +1,9 @@
 # DECISION_ROUTE_MAP_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Route Map v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Route Map v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `ROUTE_MAP.md`
 **Decision ID:** ROUTE-MAP-001
 **Decision Type:** Initial Ratification
@@ -16,11 +16,11 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `ROUTE_MAP.md` as the governing public route architecture for AIDAtanaly.com.
+This decision ratifies `ROUTE_MAP.md` as the governing public route architecture for AIDATAnaly.com.
 
 The Route Map converts the ratified doctrine, standard, and ontology into a controlled public reference surface.
 
-It establishes that AIDAtanaly may not expand through random SEO pages, thin glossary pages, keyword harvesting, or disconnected marketing content.
+It establishes that AIDATAnaly may not expand through random SEO pages, thin glossary pages, keyword harvesting, or disconnected marketing content.
 
 Every public route must be justified by doctrine, standard, ontology, tool, governance, or buyer logic.
 
@@ -131,7 +131,7 @@ No existing sitemap, scanner output, or reference page depends on an earlier rou
 
 ## 8. Governance Impact
 
-This decision strengthens AIDAtanaly by establishing:
+This decision strengthens AIDATAnaly by establishing:
 
 - a stable public skeleton for the asset,
 - one canonical route per governed concept,
@@ -167,7 +167,7 @@ This preserves both:
 
 ## 10. Closing Decision
 
-Route Map v1.0 is ratified as the governing public route architecture for AIDAtanaly.
+Route Map v1.0 is ratified as the governing public route architecture for AIDATAnaly.
 
 ATI measures transition health.
 
@@ -179,4 +179,4 @@ The Route Map gives both a governed public surface.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

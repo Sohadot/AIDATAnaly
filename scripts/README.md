@@ -83,7 +83,7 @@ blueprint-required internal links per route and the page-specific governed
 statements (Evidence Confidence separation statement, the ten intervention
 layers, the homepage transition-analytics thesis hooks).
 
-Sprint 12E homepage checks: "Funnels count where people are.", "AIDAtanaly
+Sprint 12E homepage checks: "Funnels count where people are.", "AIDATAnaly
 measures whether they move.", retained doctrine statement, reference-only
 transition axis, operating chain strip, Movement → Measurement → Failure →
 Diagnosis section order, and hub links to ATI, TFO, Scanner, Methodology,

@@ -1,6 +1,6 @@
 {
   "id": "ati.vectors",
-  "asset": "AIDAtanaly.com",
+  "asset": "AIDATAnaly.com",
   "version": "1.1",
   "source_document": "ATI_STANDARD.md",
   "vectors": [
@@ -133,7 +133,7 @@
       "transition_name": "Retention Extension",
       "core_question": "Did conversion become continuity?",
       "definition": "T4 measures whether completed action becomes continuity, repeat value, loyalty, advocacy, or durable customer relationship. It governs the transition from transaction to continuity.",
-      "extension_rule": "AIDAtanaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence. T4 remains Action → Loyalty and must not be removed.",
+      "extension_rule": "AIDATAnaly extends AIDA beyond Action because action without continuity is incomplete movement intelligence. T4 remains Action → Loyalty and must not be removed.",
       "canonical_route": "/vectors/action-to-loyalty/",
       "strong_signals": [
         "repeat purchase",

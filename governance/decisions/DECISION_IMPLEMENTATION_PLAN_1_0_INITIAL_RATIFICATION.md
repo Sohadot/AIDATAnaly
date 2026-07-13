@@ -1,9 +1,9 @@
 # DECISION_IMPLEMENTATION_PLAN_1_0_INITIAL_RATIFICATION.md
 
-## AIDAtanaly.com — Implementation Plan v1.0 Initial Ratification Decision
+## AIDATAnaly.com — Implementation Plan v1.0 Initial Ratification Decision
 
 **Document Class:** Governance Decision Log
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Applies to:** `IMPLEMENTATION_PLAN.md`
 **Decision ID:** IMPL-PLAN-001
 **Decision Type:** Initial Ratification
@@ -16,11 +16,11 @@
 
 ## 1. Decision Summary
 
-This decision ratifies `IMPLEMENTATION_PLAN.md` as the governed build execution plan for AIDAtanaly.
+This decision ratifies `IMPLEMENTATION_PLAN.md` as the governed build execution plan for AIDATAnaly.
 
 The Implementation Plan converts the ratified doctrine, thesis, standard, ontology, route map, interface governance, scanner model, and page blueprints into a controlled construction sequence.
 
-AIDAtanaly is not being implemented as a generic website.
+AIDATAnaly is not being implemented as a generic website.
 
 It is being implemented as a governed Category Intelligence Factory.
 
@@ -28,7 +28,7 @@ The governing thesis remains:
 
 > Stages are states. Value lives in transitions.
 
-Implementation Plan v1.0 is ratified as the build execution layer for AIDAtanaly.
+Implementation Plan v1.0 is ratified as the build execution layer for AIDATAnaly.
 
 ---
 
@@ -81,7 +81,7 @@ Specifically:
 
 ## 4. Static-First Technical Posture
 
-This decision ratifies AIDAtanaly's static-first technical posture.
+This decision ratifies AIDATAnaly's static-first technical posture.
 
 The implementation must prioritize:
 
@@ -136,7 +136,7 @@ The data layer must support:
 
 This decision explicitly ratifies sprint-based implementation under non-indexed status.
 
-AIDAtanaly may be built incrementally across sprints.
+AIDATAnaly may be built incrementally across sprints.
 
 However, incremental implementation must remain non-indexed until the full Required Launch architecture is complete.
 
@@ -172,7 +172,7 @@ The first public indexed release must include:
 - privacy route,
 - terms route.
 
-No incomplete public indexed release may be treated as AIDAtanaly's first official reference launch.
+No incomplete public indexed release may be treated as AIDATAnaly's first official reference launch.
 
 ---
 
@@ -320,7 +320,7 @@ The first public reference release should make visible:
 
 Buyer-facing routes remain deferred until separately activated.
 
-AIDAtanaly must look like infrastructure, not a domain sale page.
+AIDATAnaly must look like infrastructure, not a domain sale page.
 
 ---
 
@@ -358,7 +358,7 @@ This is the initial ratification of Implementation Plan v1.0.
 
 No prior public implementation plan was issued.
 
-No public indexed AIDAtanaly release, route set, scanner implementation, or data registry depends on an earlier implementation plan.
+No public indexed AIDATAnaly release, route set, scanner implementation, or data registry depends on an earlier implementation plan.
 
 No migration is required.
 
@@ -368,7 +368,7 @@ Future implementation must comply with this plan.
 
 ## 16. Governance Impact
 
-This decision moves AIDAtanaly from governed architecture into governed construction.
+This decision moves AIDATAnaly from governed architecture into governed construction.
 
 It prevents:
 
@@ -409,7 +409,7 @@ This preserves both:
 
 ## 18. Closing Decision
 
-Implementation Plan v1.0 is ratified as the governed build execution plan for AIDAtanaly.
+Implementation Plan v1.0 is ratified as the governed build execution plan for AIDATAnaly.
 
 Governance defines the asset.
 
@@ -427,4 +427,4 @@ The public release boundary remains separate.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

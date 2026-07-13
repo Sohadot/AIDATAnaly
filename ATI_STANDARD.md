@@ -1,10 +1,10 @@
 # ATI_STANDARD.md
 
-## AIDAtanaly.com — AIDA Transition Index Standard
+## AIDATAnaly.com — AIDA Transition Index Standard
 
 **Document Class:** Measurement Standard
 **Layer:** 2 — Index / Standard Layer
-**Asset:** AIDAtanaly.com
+**Asset:** AIDATAnaly.com
 **Governed by:** FOUNDATION_DOCTRINE.md and ASSET_THESIS.md
 **Status:** Ratified
 **Version:** 1.1
@@ -15,9 +15,9 @@
 
 ## 1. Purpose of This Standard
 
-This document defines the **AIDA Transition Index — ATI**, the governed measurement standard used by AIDAtanaly to evaluate movement inside AI-era marketing funnels.
+This document defines the **AIDA Transition Index — ATI**, the governed measurement standard used by AIDATAnaly to evaluate movement inside AI-era marketing funnels.
 
-The purpose of ATI is to convert the doctrine of AIDAtanaly into an operational scoring framework.
+The purpose of ATI is to convert the doctrine of AIDATAnaly into an operational scoring framework.
 
 The doctrine states:
 
@@ -985,7 +985,7 @@ It does not fabricate certainty.
 
 ## 15. Scanner v1 Implementation Rules
 
-The first public implementation of ATI shall be the **AIDAtanaly Transition Scanner v1**.
+The first public implementation of ATI shall be the **AIDATAnaly Transition Scanner v1**.
 
 Scanner v1 is rules-governed.
 
@@ -1188,7 +1188,7 @@ ATI is governed by the following rules:
 
 ATI is versioned.
 
-AIDAtanaly uses sequential document versioning.
+AIDATAnaly uses sequential document versioning.
 
 Change severity is recorded in the decision log as Patch Change, Minor Change, or Major Change and is not encoded directly into the version number.
 
@@ -1245,7 +1245,7 @@ The governance decision for the ATI v1.1 Evidence Confidence separation is archi
 
 Allowed language:
 
-> "AIDAtanaly introduces the AIDA Transition Index."
+> "AIDATAnaly introduces the AIDA Transition Index."
 
 > "ATI is a governed framework for measuring transition health across AIDA vectors."
 
@@ -1259,7 +1259,7 @@ Prohibited language:
 
 > "ATI guarantees conversion improvement."
 
-> "AIDAtanaly proves the exact cause of revenue loss."
+> "AIDATAnaly proves the exact cause of revenue loss."
 
 > "This score is definitive without analytics data."
 
@@ -1341,7 +1341,7 @@ It is not a score component.
 
 ATI exists because funnel analytics has long counted movement around stages without governing the transitions themselves as the primary unit of intelligence.
 
-AIDAtanaly changes the unit of measurement.
+AIDATAnaly changes the unit of measurement.
 
 Not the stage.
 
@@ -1360,4 +1360,4 @@ This standard turns the doctrine into an operational system.
 
 ---
 
-**AIDAtanaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**
+**AIDATAnaly.com — a Sohadot Sovereign Asset. Governed under the Sovereign Asset System.**

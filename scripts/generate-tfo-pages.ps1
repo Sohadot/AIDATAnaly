@@ -205,7 +205,7 @@ function Write-FailureModePage([object]$entry, [bool]$isConstraint) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>$name - TFO Diagnostic $(if ($isConstraint) { 'Constraint' } else { 'Dossier' }) | AIDAtanaly</title>
+  <title>$name - TFO Diagnostic $(if ($isConstraint) { 'Constraint' } else { 'Dossier' }) | AIDATAnaly</title>
   <meta name="description" content="$desc">
   <link rel="canonical" href="$canonical">
   <meta name="robots" content="noindex">
@@ -222,7 +222,7 @@ function Write-FailureModePage([object]$entry, [bool]$isConstraint) {
   <a class="utility-skip-link" href="#main">Skip to content</a>
   <div class="layout-page">
     <header class="layout-site-header">
-      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <a class="layout-site-header__brand" href="/">AIDATAnaly</a>
       <nav class="layout-nav" aria-label="Primary">
         <a href="/aida-transition-analytics/">Category</a>
         <a href="/aida-transition-index/">ATI Standard</a>
@@ -333,7 +333,7 @@ $parentVectorLink            <li><a href="/aida-transition-index/">AIDA Transiti
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
       </nav>
-      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+      <p>AIDATAnaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
     </footer>
   </div>
 </body>
@@ -375,7 +375,7 @@ $overviewHtml = @"
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transition Failure Ontology (TFO) - Governed Failure Taxonomy | AIDAtanaly</title>
+  <title>Transition Failure Ontology (TFO) - Governed Failure Taxonomy | AIDATAnaly</title>
   <meta name="description" content="The Transition Failure Ontology classifies how funnel movement fails across T1-T4: 21 governed failure modes, one diagnostic constraint, stable IDs, and canonical routes.">
   <link rel="canonical" href="https://aidatanaly.com/transition-failure-ontology/">
   <meta name="robots" content="noindex">
@@ -393,7 +393,7 @@ $overviewHtml = @"
   <a class="utility-skip-link" href="#main">Skip to content</a>
   <div class="layout-page">
     <header class="layout-site-header">
-      <a class="layout-site-header__brand" href="/">AIDAtanaly</a>
+      <a class="layout-site-header__brand" href="/">AIDATAnaly</a>
       <nav class="layout-nav" aria-label="Primary">
         <a href="/aida-transition-analytics/">Category</a>
         <a href="/aida-transition-index/">ATI Standard</a>
@@ -499,7 +499,7 @@ $($t4f | ForEach-Object { Get-FmLinkLi $_ } | Out-String)
 
       <section class="layout-section">
         <h2>Public Claim Limits</h2>
-        <p>AIDAtanaly introduces the Transition Failure Ontology; it is not described as an adopted
+        <p>AIDATAnaly introduces the Transition Failure Ontology; it is not described as an adopted
           industry standard. Failure mode diagnosis does not prove revenue causality and does not
           promise outcomes. See <a href="/governance/">governance</a>.</p>
       </section>
@@ -534,7 +534,7 @@ $($allIndex -join "`n")
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
       </nav>
-      <p>AIDAtanaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
+      <p>AIDATAnaly.com - a Sohadot Sovereign Asset. Stages are states. Value lives in transitions.</p>
     </footer>
   </div>
 </body>

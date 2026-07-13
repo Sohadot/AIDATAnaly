@@ -1,9 +1,9 @@
 # DECISION_MAIN_ONLY_DEPLOYMENT_POLICY.md
 
-## AIDAtanaly.com — Main-Only Deployment Policy
+## AIDATAnaly.com — Main-Only Deployment Policy
 
 **Document Class:** Governance Decision Log  
-**Asset:** AIDAtanaly.com  
+**Asset:** AIDATAnaly.com  
 **Applies to:** `PUBLIC_RELEASE_PLAN.md` (deployment posture), `.github/workflows/pages.yml`, `scripts/deploy-dist.ps1`  
 **Decision ID:** PUB-REL-002  
 **Decision Type:** Policy Amendment  
@@ -16,7 +16,7 @@
 
 ## 1. Decision Summary
 
-AIDAtanaly adopts a **main-only source** deployment model.
+AIDATAnaly adopts a **main-only source** deployment model.
 
 `main` is the sole development, governance, and release source branch. Public website exposure is produced from a governed `dist/` package built on `main` and published through **GitHub Actions** to GitHub Pages.
 

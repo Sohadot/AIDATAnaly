@@ -1,5 +1,5 @@
 # validate-interface.ps1
-# Sprint 2 acceptance checks for the AIDAtanaly interface foundation.
+# Sprint 2 acceptance checks for the AIDATAnaly interface foundation.
 # Governed by: INTERFACE_GOVERNANCE.md v1.0, IMPLEMENTATION_PLAN.md (IMPL-PLAN-001).
 
 $ErrorActionPreference = 'Stop'
@@ -10,7 +10,7 @@ $passes = @()
 function Pass([string]$msg) { $script:passes += $msg; Write-Host "  PASS  $msg" }
 function Fail([string]$msg) { $script:failures += $msg; Write-Host "  FAIL  $msg" }
 
-Write-Host "=== AIDAtanaly Interface Foundation Validation ==="
+Write-Host "=== AIDATAnaly Interface Foundation Validation ==="
 
 # --- 1. Required asset files exist ------------------------------------------
 $cssPath = Join-Path $root 'assets/css/main.css'
