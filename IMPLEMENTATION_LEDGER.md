@@ -243,6 +243,17 @@
 
 ---
 
+## Strategic Inevitability Audit — 2026-07-13
+
+| Field | Value |
+|-------|-------|
+| **Status** | Recorded |
+| **Deliverable** | `INEVITABILITY_AUDIT.md` |
+| **Summary** | Layer-by-layer maturity audit: structural layers 1–9 complete; evidence layers 10–13 open. Verdict: structurally inevitable, not yet market inevitable. Five inevitability criteria (C1–C5) and gap register (G1–G5) defined. Repository privacy audit PASS — no private information or figures present; standing disclosure rule recorded. No code or route changes. |
+| **Next** | Sprint 13C — reference article, then agent-readability layer, then Phase 5.1 first paid instrument |
+
+---
+
 ## Related Documents
 
 | Document | Role |
@@ -254,6 +265,7 @@
 | `LIVE_VISUAL_QA_REPORT.md` | Post-release live visual QA (Sprint 12F closure) |
 | `POSITIONING_BRIEF.md` | External positioning control layer (Sprint 13A) |
 | `EXTERNAL_POSTS_13B.md` | Name–category binding launch copy (Sprint 13B) |
+| `INEVITABILITY_AUDIT.md` | Strategic inevitability audit and privacy audit (2026-07-13) |
 
 ---
 
